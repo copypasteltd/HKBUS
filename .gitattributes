@@ -3,3 +3,5 @@
 *.jpg binary
 # Preserve captured console output, including progress spacing and blank lines.
 docs/evidence/*.txt -whitespace
+docs/assets/deployment/**/*.service text eol=lf
+docs/assets/deployment/**/*.log -whitespace

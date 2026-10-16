@@ -1,0 +1,17 @@
+{
+  "createdAt": "2026-10-16T22:15:33.579Z",
+  "file": "/www/backup/database/sqlite/d6ad541c23e9d6a30c484ea7ccd36fe7/20261016_221533_hkbusgo.db",
+  "bytes": 5455872,
+  "sha256": "54091bb19d590798fb208c446de38acb8e2cecd59c7087fbdd5bdc2bd0b0ab32",
+  "integrity": "ok",
+  "foreignKeyViolations": 0,
+  "restoreReadCheck": true,
+  "counts": {
+    "routes": 1611,
+    "stops": 6775,
+    "route_stops": 36377,
+    "profiles": 0,
+    "admins": 1
+  },
+  "retained": 3
+}

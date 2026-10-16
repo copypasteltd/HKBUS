@@ -1,0 +1,237 @@
+{
+  "startedAt": "2026-10-16T22:14:55.238604+00:00",
+  "target": "http://43.160.221.28:39410",
+  "origin": "Windows client outside the server, direct public IPv4 HTTP",
+  "checks": [
+    {
+      "name": "Public health",
+      "passed": true,
+      "data": {
+        "status": "ok",
+        "version": "1.0.0",
+        "database": "ready",
+        "catalogRoutes": 1611,
+        "catalogSyncedAt": "2026-10-16T22:13:52.439Z",
+        "source": "live"
+      }
+    },
+    {
+      "name": "Live-only config",
+      "passed": true
+    },
+    {
+      "name": "Route search",
+      "passed": true
+    },
+    {
+      "name": "Complete route sequence",
+      "passed": true
+    },
+    {
+      "name": "Stop detail",
+      "passed": true
+    },
+    {
+      "name": "Nearby public API",
+      "passed": true
+    },
+    {
+      "name": "Search public API",
+      "passed": true
+    },
+    {
+      "name": "Unlocated home",
+      "passed": true
+    },
+    {
+      "name": "Chosen-stop home",
+      "passed": true
+    },
+    {
+      "name": "Live ETA over public network",
+      "passed": true,
+      "freshness": {
+        "state": "stale",
+        "generatedAt": "2026-10-16T22:13:49.000Z",
+        "fetchedAt": "2026-10-16T22:15:00.922Z",
+        "cached": false,
+        "source": "live",
+        "provider": "KMB"
+      },
+      "records": 6,
+      "nonNullEtas": 0
+    },
+    {
+      "name": "Notices endpoint",
+      "passed": true
+    },
+    {
+      "name": "Public journey request",
+      "passed": true
+    },
+    {
+      "name": "Public OpenAPI",
+      "passed": true
+    },
+    {
+      "name": "Public API documentation",
+      "passed": true
+    },
+    {
+      "name": "Public authenticated bookmark write/read",
+      "passed": true
+    },
+    {
+      "name": "Public profile cleanup revokes access",
+      "passed": true
+    },
+    {
+      "name": "Public admin requires authentication",
+      "passed": true
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "status": 200,
+      "elapsedMs": 224,
+      "requestId": "590b88d8-ae29-4f86-81bd-79308bb4201d"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/config",
+      "status": 200,
+      "elapsedMs": 140,
+      "requestId": "952f9eed-8a30-482c-a5ec-ed0644fe70c2"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/routes?q=112",
+      "status": 200,
+      "elapsedMs": 158,
+      "requestId": "6bf5f29c-cc38-4db8-9e55-2a0e1789302a"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "status": 200,
+      "elapsedMs": 180,
+      "requestId": "0a5b692a-b007-444c-94f7-c4a702591e39"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/stops/A3B9F3D6B2668DE3",
+      "status": 200,
+      "elapsedMs": 154,
+      "requestId": "18c23123-49bf-43bf-88b6-725f68de9702"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/stops?latitude=22.288786&longitude=114.194187&radius=1000",
+      "status": 200,
+      "elapsedMs": 2199,
+      "requestId": "81b8536e-a3c9-4c8e-ac36-4a22ded49e3e"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/search?q=112",
+      "status": 200,
+      "elapsedMs": 1320,
+      "requestId": "d106af29-7dc6-41be-8e18-f3b7a8db1f3a"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/home",
+      "status": 200,
+      "elapsedMs": 792,
+      "requestId": "a56457ec-7158-42f0-b23e-79ff3ba440dd"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/home?stopId=A3B9F3D6B2668DE3",
+      "status": 200,
+      "elapsedMs": 359,
+      "requestId": "005e10a8-7ff0-437f-9c70-9a08f049b8d7"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/stops/A3B9F3D6B2668DE3/arrivals?force=true",
+      "status": 200,
+      "elapsedMs": 689,
+      "requestId": "9d7ebe8c-5077-477b-922a-8d0afdfcef4b"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/notices",
+      "status": 200,
+      "elapsedMs": 2183,
+      "requestId": "db14f171-b19a-411f-8607-db12daa2595e"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/journeys",
+      "status": 200,
+      "elapsedMs": 324,
+      "requestId": "a47bbc7c-9bf5-4724-a599-183982a058ea"
+    },
+    {
+      "method": "GET",
+      "path": "/api/openapi.json",
+      "status": 200,
+      "elapsedMs": 250,
+      "requestId": "76691d5e-6380-4882-a7a9-1d8539deb390"
+    },
+    {
+      "method": "GET",
+      "path": "/api/docs/",
+      "status": 200,
+      "elapsedMs": 158,
+      "requestId": "3aea2c01-4627-436e-8a08-7d4eba9b8677"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/profile/sessions",
+      "status": 200,
+      "elapsedMs": 165,
+      "requestId": "94a680fa-cfc8-4d72-b9c8-cc42a96c2ec3"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200,
+      "elapsedMs": 167,
+      "requestId": "e0386a57-342c-4769-8f11-f6d36e78a0bb"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200,
+      "elapsedMs": 167,
+      "requestId": "e2730c19-d271-4538-929f-9d34f7d8de1d"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/profile",
+      "status": 200,
+      "elapsedMs": 153,
+      "requestId": "14e4bc50-ef70-4e73-8a78-ab7d5b1b0793"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 401,
+      "elapsedMs": 143,
+      "requestId": "e96f2ca3-de40-4529-aa8c-63d4ff6d5dd6"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/overview",
+      "status": 401,
+      "elapsedMs": 155,
+      "requestId": "862bbce3-d818-4302-b108-826d62a7d0a6"
+    }
+  ],
+  "finishedAt": "2026-10-16T22:15:05.322654+00:00",
+  "passed": 17
+}

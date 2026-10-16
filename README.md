@@ -10,6 +10,8 @@
 
 **品牌 / Brand：已确认 10 号「朱印车迹」纯图形 Logo / Approved option 10, graphic only.** [品牌规范 / Brand guide](docs/BRAND.md) · [本次品牌验证 / Current brand checks](docs/BRAND-ROLLOUT.md)
 
+**2026-10-17 后端部署 / Backend deployment：** 公网端口 `39410`；SQLite 已登记宝塔并建立每日一致性备份。56 项服务器检查和 17 项公网检查通过，TDAS 仍受官方 403 阻塞。Native Backend and BaoTa-managed SQLite are deployed; TDAS upstream access remains unresolved. [中英运维与验收 / Deployment handover](docs/DEPLOYMENT.md) · [在线 API / Live API docs](http://43.160.221.28:39410/api/docs/)
+
 ## 中文说明
 
 港巴通（HKBusGo）是面向香港 KMB／LWB 客户的巴士查询产品，参考 SG Bus 的信息结构，采用已确认的 **Accessible Calm Minimal** 视觉。路线、站点、站序与 ETA 使用 KMB/LWB 官方数据；道路参考使用 TDAS。没有接口支撑的天气、票价、车辆追踪、客流不会补造。
@@ -55,7 +57,7 @@
 
 所有工程使用 Node.js 22.14+、npm 10、Windows 原生工具；Android 还需 JDK 21 和 SDK 36。各分支 README 提供安装、配置、构建、联调、故障定位和发行说明。默认接口为本机 4100，网络使用需要真实 HTTPS BFF；三个小程序需要各自 AppID/合法域名，Android 需要发行签名。
 
-既有真实数据基线通过 29 项回归及 14 项真实 API/浏览器检查。分仓后 `npm ci`、类型、测试与各自构建结果见 [分仓验证](docs/validation.json)。编译、接口、浏览器、官方 IDE、真机、商店验收彼此不能替代；后三者与公网正式部署仍未完成。历史 demo、纯假数据原型及 Vercel 未修改或部署。
+既有真实数据基线通过 29 项回归及 14 项真实 API/浏览器检查。分仓后 `npm ci`、类型、测试与各自构建结果见 [分仓验证](docs/validation.json)。编译、接口、浏览器、官方 IDE、真机、商店验收彼此不能替代；后三者仍未完成。Backend 高端口与宝塔数据库已部署，TDAS 上游和域名 HTTPS 等边界见 [本次部署记录](docs/DEPLOYMENT.md)。历史 demo、纯假数据原型及 Vercel 未修改或部署。
 
 各工程固定提交与素材核查清单见 [repositories.json](docs/repositories.json)。
 
@@ -85,7 +87,7 @@ Reminders are received while open; Android can issue local notifications, withou
 
 Use Node.js 22.14+, npm 10 and native Windows tooling; Android also needs JDK 21 and SDK 36. Each branch README documents setup, configuration, build, integration, troubleshooting and release. The default endpoint is local port 4100; network use requires a real HTTPS BFF. Mini-programs need their own AppIDs/domain configuration, and Android needs release signing.
 
-The preceding real-data baseline passed 29 regression and 14 real API/browser checks. Standalone installation, types, tests and builds are recorded in [validation.json](docs/validation.json). Source, build, API, browser, official IDE, physical-device and store acceptance are separate. Native IDE/device/store acceptance and production hosting remain outstanding. Historical demos/prototypes/Vercel were not changed or deployed.
+The preceding real-data baseline passed 29 regression and 14 real API/browser checks. Standalone installation, types, tests and builds are recorded in [validation.json](docs/validation.json). Source, build, API, browser, official IDE, physical-device and store acceptance are separate. Backend hosting and BaoTa SQLite are now deployed; TDAS access and domain TLS remain unresolved as documented in the [deployment handover](docs/DEPLOYMENT.md). IDE/device/store acceptance remains outstanding. Historical demos/prototypes/Vercel were not changed or deployed.
 
 Pinned project commits and documentation checks are listed in [repositories.json](docs/repositories.json).
 

@@ -1,0 +1,100 @@
+{
+  "database": {
+    "name": "HKBusGoproduction/港巴通正式业务库",
+    "path": "/www/wwwroot/hkbusgo/shared/data/hkbusgo.db",
+    "panelModel": "databaseModel.sqliteModel",
+    "tables": [
+      {
+        "name": "routes",
+        "count": 1611
+      },
+      {
+        "name": "stops",
+        "count": 6775
+      },
+      {
+        "name": "route_stops",
+        "count": 36377
+      },
+      {
+        "name": "settings",
+        "count": 5
+      },
+      {
+        "name": "admins",
+        "count": 1
+      },
+      {
+        "name": "sessions",
+        "count": 0
+      },
+      {
+        "name": "profiles",
+        "count": 0
+      },
+      {
+        "name": "profile_credentials",
+        "count": 0
+      },
+      {
+        "name": "bookmarks",
+        "count": 0
+      },
+      {
+        "name": "recent",
+        "count": 0
+      },
+      {
+        "name": "reminders",
+        "count": 0
+      },
+      {
+        "name": "notifications",
+        "count": 0
+      },
+      {
+        "name": "notices",
+        "count": 0
+      },
+      {
+        "name": "notice_versions",
+        "count": 0
+      },
+      {
+        "name": "audit",
+        "count": 1
+      },
+      {
+        "name": "jobs",
+        "count": 6
+      },
+      {
+        "name": "provider_events",
+        "count": 8
+      },
+      {
+        "name": "cache",
+        "count": 1
+      },
+      {
+        "name": "metrics",
+        "count": 4
+      }
+    ],
+    "registered": true,
+    "backupDirectory": "/www/backup/database/sqlite/d6ad541c23e9d6a30c484ea7ccd36fe7"
+  },
+  "task": {
+    "id": 2,
+    "name": "HKBusGo SQLite Daily Consistent Backup",
+    "echo": "2dab577ba6e3e2b1ea0aa7282a394028",
+    "status": 1,
+    "where_hour": 4,
+    "where_minute": 20,
+    "schedule": "20 4 * * *",
+    "serverTimezone": "Asia/Shanghai (UTC+08:00)",
+    "installedCronLine": "20 4 * * *  /www/server/cron/2dab577ba6e3e2b1ea0aa7282a394028 >> /www/server/cron/2dab577ba6e3e2b1ea0aa7282a394028.log 2>&1",
+    "script": "/www/wwwroot/hkbusgo/ops/backup.sh"
+  },
+  "panelVersion": "11.8.0"
+}

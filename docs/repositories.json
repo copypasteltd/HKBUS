@@ -8,16 +8,16 @@
   "projects": [
     {
       "branch": "backend",
-      "commit": "6fbb76e1bea30c3042bf8327c6c31fead240020d",
+      "commit": "d4ceb5ff7febbcf09e22cc73b2f09e1962b86618",
       "url": "https://github.com/copypasteltd/HKBUS/tree/backend",
       "docs": {
-        "localLinks": 80,
-        "images": 39,
-        "bilingualReadmeBytes": 12430
+        "localLinks": 96,
+        "images": 38,
+        "bilingualReadmeBytes": 13220
       },
       "git": {
-        "trackedFiles": 146,
-        "historyBlobsChecked": 96,
+        "trackedFiles": 166,
+        "historyBlobsChecked": 208,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -108,5 +108,28 @@
         "symlinks": false
       }
     }
-  ]
+  ],
+  "productionDeployment": {
+    "date": "2026-10-17",
+    "backendOperationsRevision": "d4ceb5ff7febbcf09e22cc73b2f09e1962b86618",
+    "runningApplicationRevision": "6fbb76e1bea30c3042bf8327c6c31fead240020d",
+    "publicBaseUrl": "http://43.160.221.28:39410",
+    "port": 39410,
+    "database": "BaoTa-managed SQLite",
+    "serverChecks": {
+      "passed": 56,
+      "failed": 0,
+      "blocked": 1
+    },
+    "publicChecks": {
+      "passed": 17,
+      "requests": 20
+    },
+    "outstanding": [
+      "TDAS upstream 403 from the server egress",
+      "HTTPS domain reverse proxy",
+      "IDE/device/store acceptance"
+    ],
+    "handover": "DEPLOYMENT.md"
+  }
 }

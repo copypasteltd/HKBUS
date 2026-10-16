@@ -1,0 +1,42 @@
+{
+  "release": "20261016T220329Z-6fbb76e1bea3",
+  "sourceRevision": "6fbb76e1bea30c3042bf8327c6c31fead240020d",
+  "archiveSha256": "4debc653130ced05d90273400aa0656205f2542ac09a4105163237f6e1691040",
+  "operations": [
+    {
+      "file": "backup.mjs",
+      "sha256": "5492b4ef1c4c61cbfac654e0a0351674a61a276d687a0d883c7dd559a934a8f5"
+    },
+    {
+      "file": "backup.sh",
+      "sha256": "2eadb20954d6e835bd4d1ea59be3fb0fce0b72731f6ab01087323f3c8adf7531"
+    },
+    {
+      "file": "hkbusgo-backend.service",
+      "sha256": "36a1b3fdd663f8aed20c4a4a0a681c1b92d2907f4f6edbb64668061e2727a43a"
+    },
+    {
+      "file": "README.md",
+      "sha256": "9d239610a56c5f9f4ca9d93de730eec047cecca987458e51a1c3af7f64bf5de5"
+    },
+    {
+      "file": "register-panel.py",
+      "sha256": "57e03abfa3ac5c52107fd97c46ae49b8ac09411817186c6493c04e92f149d201"
+    },
+    {
+      "file": "setup.sh",
+      "sha256": "10b0ab13f0f7ac8c5254659eb0ea8504f39cdd6e3f692217db6ac3c945f18847"
+    },
+    {
+      "file": "start-panel-backup.py",
+      "sha256": "6cade2db0cd199f1319480b8c30917e33cc5b2539bb40074cb66313467182cdd"
+    },
+    {
+      "file": "verify-deployment.py",
+      "sha256": "fabaae4df11538dee58b25290ec6075d090347c1d1f011e9a23ac7dde0af09fb"
+    }
+  ],
+  "port": 39410,
+  "publicBaseUrl": "http://43.160.221.28:39410",
+  "collectedAt": "2026-10-16T22:20:43.030250+00:00"
+}

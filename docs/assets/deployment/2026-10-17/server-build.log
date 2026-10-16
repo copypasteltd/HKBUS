@@ -1,0 +1,55 @@
+
+added 105 packages in 6s
+npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn allow-scripts   esbuild@0.28.2 (postinstall: node install.js)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+npm notice
+npm notice New major version of npm available! 11.17.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+
+> @hkbusgo/backend@1.0.0 typecheck
+> tsc --noEmit
+
+
+> @hkbusgo/backend@1.0.0 test
+> tsx --test test/*.test.ts
+
+✔ rotating device credentials preserve data, reject replay and revoke deleted profiles (306.545267ms)
+✔ health, config and canonical route identities are available (7.012309ms)
+✔ invalid entities, partial coordinates and identical journey endpoints fail explicitly (7.080827ms)
+✔ profile credentials, bookmark idempotency, aliases and complete ordering (9.263418ms)
+✔ profile ownership is enforced and reminder delivery is idempotent (49.569966ms)
+✔ admin cookie session, CSRF protection and role checks (130.321601ms)
+✔ notice draft/review/approval/scheduled publication, conflicts and rollback (9.586937ms)
+✔ configuration revisions, real content propagation and feature shutdown (5.253693ms)
+✔ profile deletion revokes access and cascades personal data (1.706257ms)
+✔ native app origin may preflight actual bookmark, reminder and deletion methods (220.810797ms)
+✔ runtime refuses fixture mode instead of silently accepting it (0.886797ms)
+✔ empty live database seeds configuration only and reports its initialisation state (34.065429ms)
+✔ legacy sample database is refused and its records remain available for recovery (41.326193ms)
+✔ home requires location or a chosen stop and does not imply arbitrary stops are nearby (72.160069ms)
+✔ legacy unverified notices stay private even if marked published (26.56924ms)
+✔ legacy or poisoned ETA cache cannot replace an official-provider request (30.439074ms)
+✔ over-age upstream ETA stays unavailable and never triggers a reminder (75.461343ms)
+✔ SQLite restart and consistent backup preserve profile data and migrations (401.829974ms)
+✔ KMB fields preserve service identity, numeric strings, Chinese names and null ETA (5.705221ms)
+✔ TDAS HH:MM is duration and input constrains time, coordinates and endpoints (1.142346ms)
+✔ successful ETA cache survives an upstream failure as explicitly stale data (390.938445ms)
+✔ catalog replacement is atomic when a provider returns inconsistent foreign keys (33.985449ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4298.116748
+
+> @hkbusgo/backend@1.0.0 build
+> node scripts/build.mjs
+
+
+removed 6 packages in 792ms
