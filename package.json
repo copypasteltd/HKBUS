@@ -1,0 +1,52 @@
+{
+  "name": "@hkbusgo/douyin",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "taro build --type tt",
+    "dev": "taro build --type tt --watch",
+    "build:tt": "taro build --type tt",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test test/*.test.mjs",
+    "assets": "node scripts/assets.cjs"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.5.3",
+    "@capacitor/app": "^8.0.0",
+    "@capacitor/core": "8.5.3",
+    "@capacitor/geolocation": "^8.2.3",
+    "@capacitor/local-notifications": "^8.0.0",
+    "@capacitor/share": "^8.0.0",
+    "@tarojs/components": "4.3.0",
+    "@tarojs/helper": "4.3.0",
+    "@tarojs/plugin-framework-react": "4.3.0",
+    "@tarojs/plugin-platform-alipay": "4.3.0",
+    "@tarojs/plugin-platform-h5": "4.3.0",
+    "@tarojs/plugin-platform-tt": "4.3.0",
+    "@tarojs/plugin-platform-weapp": "4.3.0",
+    "@tarojs/react": "4.3.0",
+    "@tarojs/runtime": "4.3.0",
+    "@tarojs/shared": "4.3.0",
+    "@tarojs/taro": "4.3.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.29.7",
+    "@capacitor/cli": "8.5.3",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.17",
+    "@resvg/resvg-js": "^2.6.2",
+    "@tarojs/cli": "4.3.0",
+    "@tarojs/taro-loader": "4.3.0",
+    "@tarojs/webpack5-runner": "4.3.0",
+    "@types/node": "^22.18.0",
+    "@types/react": "^18.3.0",
+    "babel-preset-taro": "4.3.0",
+    "react-refresh": "^0.14.2",
+    "sass": "^1.93.0",
+    "typescript": "~5.9.3"
+  },
+  "engines": {
+    "node": ">=22.14"
+  }
+}
