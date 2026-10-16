@@ -1,0 +1,71 @@
+{
+  "project": "wechat",
+  "passed": true,
+  "checks": {
+    "install": {
+      "exitCode": 0,
+      "passed": true
+    },
+    "typecheck": {
+      "exitCode": 0,
+      "passed": true
+    },
+    "build": {
+      "exitCode": 0,
+      "passed": true
+    },
+    "tests": {
+      "exitCode": 0,
+      "passed": true
+    }
+  },
+  "evidence": {
+    "install": {
+      "file": "docs/evidence/standalone-install.txt",
+      "sha256": "448e332c30ad00b677da515743fa35ccfa6814fb368ca21bb8ed15bfe42953d0"
+    },
+    "typecheck": {
+      "file": "docs/evidence/standalone-typecheck.txt",
+      "sha256": "237b4337f8c5a98eef926113d8be49a328c4255c20b673e0cbf6c599f075028e"
+    },
+    "build": {
+      "file": "docs/evidence/standalone-build.txt",
+      "sha256": "51b0cec871a40f4ba9bfa926f96ee1d5bf6f1836f4456c8bde2406592c8768d3"
+    },
+    "tests": {
+      "file": "docs/evidence/standalone-tests.txt",
+      "sha256": "0037571c7f3a21d81ee34bf937468a41958026f650442efcb29a46ea19bf7f98"
+    }
+  },
+  "testCount": 7,
+  "sharedApplicationSource": {
+    "files": 249,
+    "matchesLiveIntegrationSource": true,
+    "siblingDependency": false
+  },
+  "artifact": {
+    "type": "weapp",
+    "pages": 14,
+    "files": 264
+  },
+  "warnings": "Existing postcss-calc safe-area env()/rpx minimizer warnings retained; official IDE validation is outstanding.",
+  "checkedAt": "2026-10-16T20:24:55.409507+00:00",
+  "scope": {
+    "officialIDE": false,
+    "physicalDevice": false,
+    "storePublication": false,
+    "productionDeployment": false,
+    "prototypeTouched": false
+  },
+  "screenshots": {
+    "count": 29,
+    "renderer": "Taro Android web renderer in Chromium, not official mini-program IDE or physical device",
+    "catalogue": {
+      "routes": 1611,
+      "stops": 6775,
+      "relations": 36377
+    },
+    "browserClosed": true,
+    "temporaryServersClosed": true
+  }
+}

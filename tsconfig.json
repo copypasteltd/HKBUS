@@ -1,0 +1,4 @@
+{
+  "compilerOptions": { "target":"ES2020","module":"ESNext","moduleResolution":"node","jsx":"react-jsx","strict":true,"esModuleInterop":true,"allowSyntheticDefaultImports":true,"skipLibCheck":true,"resolveJsonModule":true,"lib":["DOM","ES2022"],"types":["@tarojs/taro","node","react"] },
+  "include":["src","config","capacitor.config.ts"]
+}
