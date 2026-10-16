@@ -1,0 +1,5 @@
+* text=auto
+*.png binary
+*.jpg binary
+# Preserve captured console output, including progress spacing and blank lines.
+docs/evidence/*.txt -whitespace

@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { normalizeArrival,normalizeRoute,normalizeStop,durationSeconds,tdasInputSchema,Providers } from '../src/providers.js';
 import { createApp } from '../src/app.js';
-import { fixtureRoutes,fixtureStops } from '../src/fixtures.js';
+import { fixtureRoutes,fixtureStops } from './support.js';
 
 test('KMB fields preserve service identity, numeric strings, Chinese names and null ETA',()=>{
   const route=normalizeRoute({route:'N48',bound:'I',service_type:'2',orig_tc:'起點',orig_sc:'起点',orig_en:'Origin',dest_tc:'終點',dest_sc:'终点',dest_en:'Destination'});assert.equal(route.id,'KMB:N48:I:2');

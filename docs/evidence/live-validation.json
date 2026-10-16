@@ -1,0 +1,175 @@
+{
+  "checkedAt": "2026-10-16T19:31:41.871Z",
+  "checks": [
+    {
+      "name": "Persistent business database contains official catalogue and no seeded business records",
+      "passed": true,
+      "counts": {
+        "routes": 1611,
+        "stops": 6774,
+        "route_stops": 36367,
+        "profiles": 0,
+        "bookmarks": 0,
+        "notices": 0,
+        "reminders": 0,
+        "notifications": 0
+      },
+      "nonLiveCatalogRows": 0,
+      "tdasEnabled": true
+    },
+    {
+      "name": "KMB official catalogue is synchronised atomically",
+      "passed": true,
+      "routes": 1611,
+      "stops": 6774,
+      "relations": 36367,
+      "mode": "live"
+    },
+    {
+      "name": "HTTP routes, stops and direction detail use official identities and complete sequences",
+      "passed": true,
+      "routeId": "KMB:112:O:1",
+      "stopCount": 23,
+      "searchResults": 36
+    },
+    {
+      "name": "HTTP KMB ETA values match the actual official response",
+      "passed": true,
+      "arrivals": 7,
+      "estimates": 2,
+      "freshness": {
+        "state": "stale",
+        "generatedAt": "2026-10-16T19:30:39.000Z",
+        "fetchedAt": "2026-10-16T19:31:45.634Z",
+        "cached": false,
+        "source": "live",
+        "provider": "KMB"
+      },
+      "sample": [
+        {
+          "routeId": "KMB:106:I:1",
+          "eta": null,
+          "generatedAt": "2026-10-16T19:30:38.000Z"
+        },
+        {
+          "routeId": "KMB:112:O:1",
+          "eta": null,
+          "generatedAt": "2026-10-16T19:30:38.000Z"
+        }
+      ]
+    },
+    {
+      "name": "Home does not invent a location; chosen and nearby stops use official data",
+      "passed": true,
+      "unlocatedSelection": "none",
+      "chosenStopId": "6CAA11E0FD871B20",
+      "nearbyCount": 5
+    },
+    {
+      "name": "Journey candidates derive from the official stop sequence without fabricated fares or duration",
+      "passed": true,
+      "candidates": 5,
+      "notice": "僅按官方站序查找直達或同站轉乘候選；不含步行尋路、車費或乘車時間預測"
+    },
+    {
+      "name": "HTTP TDAS road result matches the actual official response",
+      "passed": true,
+      "source": "live",
+      "distanceMeters": 12705,
+      "durationSeconds": 840,
+      "segments": 1,
+      "notice": "道路交通參考，不代表巴士到站、候車或乘車時間"
+    },
+    {
+      "name": "Bookmarks are actual API writes in an isolated identity and are removed by deletion",
+      "passed": true,
+      "persisted": true,
+      "deleted": true,
+      "storage": "isolated memory database"
+    },
+    {
+      "name": "Service notices have no fabricated seed content",
+      "passed": true,
+      "publishedNotices": 0,
+      "policy": "operator-managed; no official notice feed claimed"
+    },
+    {
+      "name": "Compiled Android renderer starts without invented location, weather or ETA",
+      "passed": true,
+      "transport": "real browser HTTP to real BFF, no request stubs"
+    },
+    {
+      "name": "Compiled route, arrival, bookmark and home screens use actual API data",
+      "passed": true,
+      "officialStopId": "6CAA11E0FD871B20",
+      "completeSequence": 23
+    },
+    {
+      "name": "Browser location is passed to the real nearby-stop API",
+      "passed": true,
+      "positionSource": "browser-simulated official stop coordinates; not physical GPS",
+      "nearbyCount": 5
+    },
+    {
+      "name": "Compiled TDAS screen submits selected official stop coordinates and renders the real road result",
+      "passed": true,
+      "requestStatus": 200
+    },
+    {
+      "name": "Compiled Admin uses actual catalogue counts and provider request records",
+      "passed": true,
+      "mode": "live",
+      "providers": [
+        "KMB",
+        "TDAS"
+      ]
+    }
+  ],
+  "upstreamRequests": [
+    {
+      "provider": "KMB",
+      "url": "https://data.etabus.gov.hk/v1/transport/kmb/route/",
+      "status": 200,
+      "rows": 1611,
+      "generatedAt": "2026-10-17T03:31:38+08:00"
+    },
+    {
+      "provider": "KMB",
+      "url": "https://data.etabus.gov.hk/v1/transport/kmb/stop",
+      "status": 200,
+      "rows": 6774,
+      "generatedAt": "2026-10-17T03:31:23+08:00"
+    },
+    {
+      "provider": "KMB",
+      "url": "https://data.etabus.gov.hk/v1/transport/kmb/route-stop",
+      "status": 200,
+      "rows": 36367,
+      "generatedAt": "2026-10-17T03:31:43+08:00"
+    },
+    {
+      "provider": "KMB",
+      "url": "https://data.etabus.gov.hk/v1/transport/kmb/stop-eta/6CAA11E0FD871B20",
+      "status": 200,
+      "rows": 7,
+      "generatedAt": "2026-10-17T03:31:45+08:00"
+    },
+    {
+      "provider": "TDAS",
+      "url": "https://tdas-api.hkemobility.gov.hk/tdas/api/route",
+      "status": 200,
+      "generatedAt": null
+    }
+  ],
+  "pageErrors": [],
+  "browserClosed": true,
+  "serversClosed": true,
+  "prototypeTouched": false,
+  "deployed": false,
+  "entities": {
+    "routeId": "KMB:112:O:1",
+    "stopId": "6CAA11E0FD871B20",
+    "endStopId": "C3FD63E226246052"
+  },
+  "finishedAt": "2026-10-16T19:31:52.771Z"
+}

@@ -1,0 +1,61 @@
+{
+  "project": "backend",
+  "passed": true,
+  "checks": {
+    "install": {
+      "exitCode": 0,
+      "passed": true
+    },
+    "typecheck": {
+      "exitCode": 0,
+      "passed": true
+    },
+    "build": {
+      "exitCode": 0,
+      "passed": true
+    },
+    "tests": {
+      "exitCode": 0,
+      "passed": true
+    }
+  },
+  "evidence": {
+    "install": {
+      "file": "docs/evidence/standalone-install.txt",
+      "sha256": "750625d3ce0acf0611733abd0c223cba6f0b1a20ae2063a18bfb75bb202ad2e8"
+    },
+    "typecheck": {
+      "file": "docs/evidence/standalone-typecheck.txt",
+      "sha256": "636250e9421f4cec055360143ad2ea954fa6635504d3b9cbe9558a44f6d22645"
+    },
+    "build": {
+      "file": "docs/evidence/standalone-build.txt",
+      "sha256": "919ca033883a42ca410ba06ecde655ba1376c7d4f3f7f936d032a76a30f88baf"
+    },
+    "tests": {
+      "file": "docs/evidence/standalone-tests.txt",
+      "sha256": "390b13a964bad3d42993cfbad66be87b42c7e79c6f1dba6c5e03a8268b33a47b"
+    }
+  },
+  "testCount": 22,
+  "openapiOperations": 53,
+  "checkedAt": "2026-10-16T20:24:55.409507+00:00",
+  "scope": {
+    "officialIDE": false,
+    "physicalDevice": false,
+    "storePublication": false,
+    "productionDeployment": false,
+    "prototypeTouched": false
+  },
+  "screenshots": {
+    "count": 29,
+    "renderer": "Taro Android web renderer in Chromium, not official mini-program IDE or physical device",
+    "catalogue": {
+      "routes": 1611,
+      "stops": 6775,
+      "relations": 36377
+    },
+    "browserClosed": true,
+    "temporaryServersClosed": true
+  }
+}

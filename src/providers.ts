@@ -1,6 +1,6 @@
 import { randomUUID, createHash } from 'node:crypto';
 import { z } from 'zod';
-import { AppError, now, names, type Arrival, type ArrivalResult, type Freshness, type Route, type Stop, type SourceMode } from './domain.js';
+import { AppError, now, names, type Arrival, type ArrivalResult, type Freshness, type Route, type Stop } from './domain.js';
 import type { Config } from './config.js';
 import type { Store } from './database.js';
 
@@ -68,7 +68,6 @@ export class Providers {
   }
   async settle(){await Promise.allSettled([...this.jobs,...this.inFlight.values()]);}
   async syncCatalog(){
-    if(this.config.providerMode==='fixture')return {routes:this.store.routes().length,stops:this.store.stops().length,mode:'fixture'};
     const base=this.config.kmbBaseUrl.replace(/\/$/,'');
     const replies=await Promise.allSettled([this.request('KMB','catalog-routes',base+'/route/'),this.request('KMB','catalog-stops',base+'/stop'),this.request('KMB','catalog-sequences',base+'/route-stop')]);
     if(replies.some(r=>r.status==='rejected'))throw new AppError('CATALOG_SYNC_FAILED','主資料同步失敗，保留上一個版本',502,true);
@@ -85,24 +84,25 @@ export class Providers {
     const stop=this.store.stop(stopId);if(!stop||!stop.active)throw new AppError('STOP_NOT_FOUND','車站已停用或不存在',404);
     const routes=this.store.routesAt(stopId);
     const policy=this.store.setting('freshness',{etaFreshSeconds:60,etaStaleSeconds:180,cacheSeconds:15});
-    if(this.config.providerMode==='fixture'){
-      const at=now();const arrivals=routes.flatMap((route,index)=>[0,1,2].map(etaSequence=>{const minutes=(route.routeNo==='112'&&route.bound==='O'?3:5+index*2)+etaSequence*8;return{id:stopId+':'+route.id+':'+etaSequence,routeId:route.id,routeNo:route.routeNo,bound:route.bound,serviceType:route.serviceType,stopId,stopSequence:this.store.sequence(route.id).find(x=>x.id===stopId)?.sequence||1,destination:route.destination,eta:new Date(Date.now()+minutes*60000).toISOString(),etaSequence:etaSequence+1,remark:names('示例資料','Demonstration data'),generatedAt:at,minutes,status:'scheduled' as const,source:'fixture' as SourceMode};}));
-      return {stop,arrivals,routes,freshness:{state:'fresh',generatedAt:at,fetchedAt:at,cached:false,source:'fixture',provider:'KMB'}};
-    }
-    const key='eta:'+stopId,cache=this.cache(key);
+    if(stop.source!=='live'||routes.some(x=>x.source!=='live'))throw new AppError('NON_LIVE_DATA','車站主資料來源尚未核實，請重新同步官方資料',503,true);
+    const key='live:v2:'+createHash('sha256').update(this.config.kmbBaseUrl).digest('hex').slice(0,16)+':eta:'+stopId;
+    const stored=this.cache(key);
+    const isLiveCache=(row:CacheRow)=>{try{const data=JSON.parse(row.data) as {arrivals:Arrival[];generatedAt:string};return Number.isFinite(Date.parse(data.generatedAt))&&Array.isArray(data.arrivals)&&data.arrivals.every(x=>x.source==='live'&&x.stopId===stopId);}catch{return false;}};
+    const cache=stored&&isLiveCache(stored)?stored:undefined;
     const result=(row:CacheRow,cached:boolean,warning?:string):ArrivalResult=>{
       const payload=JSON.parse(row.data) as {arrivals:Arrival[];generatedAt:string};
       const age=(Date.now()-Date.parse(payload.generatedAt))/1000;
-      const state:Freshness['state']=warning||age>policy.etaFreshSeconds?'stale':'fresh';
-      const arrivals=payload.arrivals.filter(x=>x.eta===null||Date.parse(x.eta)>=Date.now()-60000).map(x=>({...x,minutes:x.eta===null?null:Math.max(0,Math.ceil((Date.parse(x.eta)-Date.now())/60000)),...(state==='stale'?{status:'stale' as const}:{})}));
+      const state:Freshness['state']=age>policy.etaStaleSeconds?'unavailable':warning||age>policy.etaFreshSeconds?'stale':'fresh';
+      const arrivals=payload.arrivals.filter(x=>x.eta===null||Date.parse(x.eta)>=Date.now()-60000).map(x=>({...x,minutes:x.eta===null?null:Math.max(0,Math.ceil((Date.parse(x.eta)-Date.now())/60000)),...(state!=='fresh'||(Date.now()-Date.parse(x.generatedAt))/1000>policy.etaFreshSeconds?{status:'stale' as const}:{})}));
       return{stop,arrivals,routes,freshness:{state,generatedAt:payload.generatedAt,fetchedAt:row.fetched_at,cached,source:'live',provider:'KMB'},...(warning?{warning}:{})};
     };
     if(!force&&cache&&Date.parse(cache.expires_at)>Date.now())return result(cache,true);
     return this.deduplicate(key,async()=>{
       try{
         const raw=z.object({generated_timestamp:z.string().optional(),data:z.array(z.unknown())}).parse(await this.request('KMB','stop-eta',this.config.kmbBaseUrl.replace(/\/$/,'')+'/stop-eta/'+encodeURIComponent(stopId)));
-        const arrivals=raw.data.map(row=>normalizeArrival(row,stopId,Date.now(),policy.etaStaleSeconds)).sort((a,b)=>a.routeNo.localeCompare(b.routeNo,undefined,{numeric:true})||a.bound.localeCompare(b.bound)||a.serviceType.localeCompare(b.serviceType)||a.etaSequence-b.etaSequence);
-        const generatedAt=arrivals.map(x=>x.generatedAt).sort()[0]||raw.generated_timestamp||'';
+        const identities=new Map(routes.map(route=>[route.id,new Set(this.store.sequence(route.id).filter(stop=>stop.id===stopId).map(stop=>stop.sequence))]));
+        const arrivals=raw.data.map(row=>normalizeArrival(row,stopId,Date.now(),policy.etaFreshSeconds)).filter(row=>identities.get(row.routeId)?.has(row.stopSequence)).sort((a,b)=>a.routeNo.localeCompare(b.routeNo,undefined,{numeric:true})||a.bound.localeCompare(b.bound)||a.serviceType.localeCompare(b.serviceType)||a.stopSequence-b.stopSequence||a.etaSequence-b.etaSequence);
+        const generatedAt=arrivals.map(x=>x.generatedAt).sort().at(-1)||raw.generated_timestamp||'';
         if(!Number.isFinite(Date.parse(generatedAt)))throw new AppError('UPSTREAM_SCHEMA','到站資料時間無法解析',502,true);
         this.writeCache(key,{arrivals,generatedAt},policy.cacheSeconds,policy.etaStaleSeconds);
         return result(this.cache(key)!,false);
@@ -114,15 +114,14 @@ export class Providers {
     });
   }
   async roadRoute(input:TdasInput){
-    if(!this.config.tdasEnabled&&this.config.providerMode!=='fixture')throw new AppError('TDAS_DISABLED','道路交通參考尚未啟用',503,false);
-    if(this.config.providerMode==='fixture')return{provider:'TDAS',source:'fixture',distanceMeters:4200,durationSeconds:900,averageSpeedKmh:17,generatedAt:now(),segments:[],alternatives:[],notice:'道路交通示例，不能當作巴士到站或乘車時間'};
-    const key='tdas:'+createHash('sha256').update(JSON.stringify(input)).digest('hex');const cache=this.cache(key);
-    if(cache&&Date.parse(cache.expires_at)>Date.now())return {...JSON.parse(cache.data),cached:true};
+    if(!this.config.tdasEnabled)throw new AppError('TDAS_DISABLED','道路交通參考尚未啟用',503,false);
+    const key='live:v2:tdas:'+createHash('sha256').update(this.config.tdasBaseUrl+JSON.stringify(input)).digest('hex');const cache=this.cache(key);
+    if(cache&&Date.parse(cache.expires_at)>Date.now()){const data=JSON.parse(cache.data);if(data.source==='live')return {...data,cached:true};}
     return this.deduplicate(key,async()=>{
       const reply=z.object({jSpeed:z.string(),distM:z.number().nonnegative(),eta:z.string(),route:z.array(z.unknown()),ar:z.array(z.object({name:z.string(),distU:z.string(),eta:z.string()})).optional()}).passthrough().safeParse(await this.request('TDAS','road-route',this.config.tdasBaseUrl,input));
       if(!reply.success)throw new AppError('UPSTREAM_SCHEMA','道路資料格式無法解析',502,true);
       const speed=Number.parseFloat(reply.data.jSpeed);
-      const result={provider:'TDAS',source:'live',distanceMeters:reply.data.distM,durationSeconds:durationSeconds(reply.data.eta),averageSpeedKmh:Number.isFinite(speed)?speed:null,generatedAt:now(),segments:reply.data.route,alternatives:reply.data.ar||[],notice:'道路交通參考，不代表巴士到站、候車或乘車時間'};
+      const result={provider:'TDAS',source:'live' as const,distanceMeters:reply.data.distM,durationSeconds:durationSeconds(reply.data.eta),averageSpeedKmh:Number.isFinite(speed)?speed:null,generatedAt:now(),cached:false,departIn:input.departIn,routeType:input.type,tunnels:{cht:reply.data.cht===true,eht:reply.data.eht===true,wht:reply.data.wht===true},segments:reply.data.route,alternatives:reply.data.ar||[],notice:'道路交通參考，不代表巴士到站、候車或乘車時間'};
       this.writeCache(key,result,60,60);return result;
     });
   }

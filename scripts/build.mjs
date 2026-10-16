@@ -1,0 +1,10 @@
+import { rmSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
+import { spawnSync } from 'node:child_process';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const output=resolve(root,'dist');
+if(dirname(output)!==root)throw new Error('Build output must stay inside this repository.');
+rmSync(output,{recursive:true,force:true});
+const result=spawnSync(process.execPath,[resolve(root,'node_modules/typescript/lib/tsc.js'),'-p','tsconfig.json'],{cwd:root,stdio:'inherit'});
+process.exitCode=result.status??1;

@@ -43,6 +43,10 @@ export class Store {
   run(sql: string, ...args: SQLInputValue[]) { return this.db.prepare(sql).run(...args); }
   transaction<T>(fn: () => T): T { this.db.exec('BEGIN IMMEDIATE'); try { const value = fn(); this.db.exec('COMMIT'); return value; } catch (error) { this.db.exec('ROLLBACK'); throw error; } }
   setting<T>(key: string, fallback: T): T { const row = this.get<{ value: string }>('SELECT value FROM settings WHERE key=?', key); return row ? JSON.parse(row.value) as T : fallback; }
+  assertLiveDatabase(path: string) {
+    const mixed = this.get<{n:number}>(`SELECT (SELECT count(*) FROM routes WHERE coalesce(json_extract(document,'$.source'),'')<>'live') + (SELECT count(*) FROM stops WHERE coalesce(json_extract(document,'$.source'),'')<>'live') + (SELECT count(*) FROM notices WHERE id IN ('notice-roadwork','notice-service') OR json_extract(document,'$.source')='fixture') n`)!.n;
+    if (/(^|[\\/])[^\\/]*fixture[^\\/]*\.db$/i.test(path) || mixed) throw new Error('SAMPLE_DATABASE_FORBIDDEN: This database contains sample data. Use DATABASE_PATH=./data/hkbusgo.db or a new live database; the sample database has been preserved.');
+  }
   setSetting(key: string, value: unknown) { this.run('INSERT INTO settings(key,value,updated_at) VALUES(?,?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value,version=version+1,updated_at=excluded.updated_at', key, JSON.stringify(value), now()); }
   audit(actor: string, action: string, entity: string, details: unknown = {}) { this.run('INSERT INTO audit VALUES(?,?,?,?,?,?)', randomUUID(), actor, action, entity, JSON.stringify(details), now()); }
   route(id: string): Route | undefined { const row = this.get<{ document: string; active: number }>('SELECT document,active FROM routes WHERE id=?', id); return row ? { ...JSON.parse(row.document), active: !!row.active } as Route : undefined; }
@@ -52,12 +56,14 @@ export class Store {
   routesAt(stopId: string): Route[] { return this.all<{ document: string }>('SELECT DISTINCT r.document FROM routes r JOIN route_stops rs ON rs.route_id=r.id WHERE rs.stop_id=? AND r.active=1 ORDER BY r.route_no,r.bound,r.service_type', stopId).map(x => JSON.parse(x.document)); }
   sequence(routeId: string): (Stop & { sequence: number })[] { return this.all<{ document: string; sequence: number }>('SELECT s.document,rs.sequence FROM route_stops rs JOIN stops s ON s.id=rs.stop_id WHERE rs.route_id=? ORDER BY rs.sequence', routeId).map(x => ({ ...JSON.parse(x.document), sequence: x.sequence })); }
   saveCatalog(routes: Route[], stops: Stop[], sequence: { routeId: string; sequence: number; stopId: string }[]) {
+    if (routes.some(x=>x.source!=='live') || stops.some(x=>x.source!=='live')) throw new Error('Only live provider catalogues can be saved.');
     this.transaction(() => {
       this.db.exec('UPDATE routes SET active=0; UPDATE stops SET active=0; DELETE FROM route_stops;');
       for (const route of routes) this.run('INSERT INTO routes VALUES(?,?,?,?,?,1) ON CONFLICT(id) DO UPDATE SET route_no=excluded.route_no,bound=excluded.bound,service_type=excluded.service_type,document=excluded.document,active=1', route.id, route.routeNo, route.bound, route.serviceType, JSON.stringify(route));
       for (const stop of stops) this.run('INSERT INTO stops VALUES(?,?,1) ON CONFLICT(id) DO UPDATE SET document=excluded.document,active=1', stop.id, JSON.stringify(stop));
       for (const item of sequence) this.run('INSERT INTO route_stops VALUES(?,?,?)', item.routeId, item.sequence, item.stopId);
       this.setSetting('catalogSyncedAt', now());
+      this.setSetting('catalogSource', 'live');
     });
   }
   notice(id: string): Notice | undefined { const row = this.get<{ document: string }>('SELECT document FROM notices WHERE id=?', id); return row ? JSON.parse(row.document) : undefined; }

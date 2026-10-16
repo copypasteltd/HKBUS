@@ -5,7 +5,7 @@ import { requireIdentity, issueSession } from './auth.js';
 import { passwordMatches, passwordHash } from './database.js';
 import { AppError, now, type Identity, type Notice } from './domain.js';
 import { pageSchema, idSchema, paginate } from './public-api.js';
-import { transitionNotice, evaluateReminders } from './usecases.js';
+import { transitionNotice, evaluateReminders, publicNotices } from './usecases.js';
 
 const localizedSchema=z.object({tc:z.string().trim().min(1).max(10000),sc:z.string().trim().min(1).max(10000),en:z.string().trim().min(1).max(10000)});
 const safeUrl=z.union([z.literal(''),z.string().url().refine(value=>value.startsWith('https://'),'僅允許 HTTPS 網址')]);
@@ -36,20 +36,21 @@ export function registerAdmin(ctx:Context){
     const since=new Date(Date.now()-86400000).toISOString();
     const metrics=store.all<{bucket:string;requests:number;errors:number;total_ms:number}>('SELECT bucket,sum(count) requests,sum(CASE WHEN status>=500 THEN count ELSE 0 END) errors,sum(total_ms) total_ms FROM metrics WHERE bucket>=? GROUP BY bucket ORDER BY bucket',since);
     const requests=metrics.reduce((sum,x)=>sum+x.requests,0),errors=metrics.reduce((sum,x)=>sum+x.errors,0);
-    return payload(ctx,request,{mode:config.providerMode,routes:store.routes().length,stops:store.stops().length,notices:store.get<{n:number}>('SELECT count(*) n FROM notices WHERE status=?','published')!.n,activeReminders:store.get<{n:number}>('SELECT count(*) n FROM reminders WHERE status=?','active')!.n,requests,errors,availability:requests?Math.round((1-errors/requests)*10000)/100:null,meanLatencyMs:requests?Math.round(metrics.reduce((sum,x)=>sum+x.total_ms,0)/requests):null,timeline:metrics,catalogSyncedAt:store.setting('catalogSyncedAt',null),recentJobs:store.all('SELECT * FROM jobs ORDER BY started_at DESC LIMIT 5'),recentAudit:store.all('SELECT id,action,entity,created_at FROM audit ORDER BY created_at DESC LIMIT 6')});
+    return payload(ctx,request,{mode:config.providerMode,routes:store.routes().length,stops:store.stops().length,notices:publicNotices(store).length,activeReminders:store.get<{n:number}>('SELECT count(*) n FROM reminders WHERE status=?','active')!.n,requests,errors,availability:requests?Math.round((1-errors/requests)*10000)/100:null,meanLatencyMs:requests?Math.round(metrics.reduce((sum,x)=>sum+x.total_ms,0)/requests):null,timeline:metrics,catalogSyncedAt:store.setting('catalogSyncedAt',null),recentJobs:store.all('SELECT * FROM jobs ORDER BY started_at DESC LIMIT 5'),recentAudit:store.all('SELECT id,action,entity,created_at FROM audit ORDER BY created_at DESC LIMIT 6')});
   });
   add(ctx,'GET','/api/admin/routes','唯讀官方路線資料庫',async request=>{await user(request);const q=pageSchema.parse(request.query);return payload(ctx,request,paginate(store.routes(false).filter(x=>!q.q||JSON.stringify([x.routeNo,x.origin,x.destination]).toLowerCase().includes(q.q.toLowerCase())),q.page,q.pageSize));});
   add(ctx,'GET','/api/admin/stops','唯讀官方車站資料庫',async request=>{await user(request);const q=pageSchema.parse(request.query);return payload(ctx,request,paginate(store.stops(false).filter(x=>!q.q||JSON.stringify([x.id,x.name]).toLowerCase().includes(q.q.toLowerCase())),q.page,q.pageSize));});
   add(ctx,'GET','/api/admin/notices','全部通告與工作流狀態',async request=>{await user(request);const q=pageSchema.extend({status:z.enum(['all','draft','review','approved','published','withdrawn']).default('all')}).parse(request.query);const items=store.all<{document:string}>('SELECT document FROM notices ORDER BY rowid DESC').map(x=>JSON.parse(x.document) as Notice).filter(x=>(q.status==='all'||x.status===q.status)&&(!q.q||JSON.stringify(x.title).toLowerCase().includes(q.q.toLowerCase())));return payload(ctx,request,paginate(items,q.page,q.pageSize));});
-  add(ctx,'POST','/api/admin/notices','建立三語通告草稿',async request=>{const current=await user(request,['admin','editor','operator']),input=noticeSchema.parse(request.body);ensureReferences(input);const notice:Notice={...input,id:randomUUID(),status:'draft',version:1,updatedAt:now(),updatedBy:current.sub};store.saveNotice(notice,current.sub);return payload(ctx,request,notice);});
+  add(ctx,'POST','/api/admin/notices','建立三語通告草稿',async request=>{const current=await user(request,['admin','editor','operator']),input=noticeSchema.parse(request.body);ensureReferences(input);const notice:Notice={...input,source:'operator',id:randomUUID(),status:'draft',version:1,updatedAt:now(),updatedBy:current.sub};store.saveNotice(notice,current.sub);return payload(ctx,request,notice);});
   add(ctx,'PUT','/api/admin/notices/:id','樂觀鎖更新通告，已發布內容改為草稿',async request=>{
     const current=await user(request,['admin','editor','operator']),{id}=idSchema.parse(request.params),body=z.object({version:z.number().int().positive(),document:noticeSchema}).parse(request.body),notice=store.notice(id);
     if(!notice)throw new AppError('NOTICE_NOT_FOUND','通告不存在',404);if(notice.version!==body.version)throw new AppError('VERSION_CONFLICT','通告已被其他人更新，請重新載入',409);ensureReferences(body.document);
-    const updated:Notice={...body.document,id,status:'draft',version:notice.version+1,updatedAt:now(),updatedBy:current.sub};store.saveNotice(updated,current.sub);return payload(ctx,request,updated);
+    const updated:Notice={...body.document,source:'operator',id,status:'draft',version:notice.version+1,updatedAt:now(),updatedBy:current.sub};store.saveNotice(updated,current.sub);return payload(ctx,request,updated);
   });
   add(ctx,'POST','/api/admin/notices/:id/transition','提交審核、審核通過、發布/排程與撤回',async request=>{
     const current=await user(request,['admin','editor','operator']),{id}=idSchema.parse(request.params),input=z.object({action:z.enum(['submit','approve','publish','withdraw']),version:z.number().int().positive()}).parse(request.body),notice=store.notice(id);
     if(!notice)throw new AppError('NOTICE_NOT_FOUND','通告不存在',404);if(input.version!==notice.version)throw new AppError('VERSION_CONFLICT','通告已更新，請重新載入',409);
+    if(input.action!=='withdraw'&&notice.source!=='operator')throw new AppError('CONTENT_SOURCE_UNVERIFIED','請先編輯及核實通告內容，再提交審核',422);
     if(input.action==='publish'&&notice.validUntil<=now())throw new AppError('CONTENT_EXPIRED','通告已過期，請先修改有效時間',422);
     const updated:Notice={...notice,status:transitionNotice(notice,input.action,current.role!),version:notice.version+1,updatedAt:now(),updatedBy:current.sub};store.saveNotice(updated,current.sub);return payload(ctx,request,updated);
   });

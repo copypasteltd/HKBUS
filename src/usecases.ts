@@ -5,7 +5,7 @@ import type { Providers } from './providers.js';
 
 export interface Reminder { id:string;profile_id:string;stop_id:string;route_id:string;threshold:number;status:'active'|'paused'|'sent'|'expired';channel:'in-app';expires_at:string;generation:string;sent_at:string|null;created_at:string }
 export function publicNotices(store:Store,platform?:string):Notice[]{
-  const at=now();return store.all<{document:string}>('SELECT document FROM notices WHERE status=? AND valid_from<=? AND valid_until>? ORDER BY valid_from DESC','published',at,at).map(x=>JSON.parse(x.document) as Notice).filter(x=>!platform||!x.platforms.length||x.platforms.includes(platform));
+  const at=now();return store.all<{document:string}>('SELECT document FROM notices WHERE status=? AND valid_from<=? AND valid_until>? ORDER BY valid_from DESC','published',at,at).map(x=>JSON.parse(x.document) as Notice).filter(x=>x.source==='operator'&&(!platform||!x.platforms.length||x.platforms.includes(platform)));
 }
 export function bookmarks(store:Store,profile:string){
   return store.all<{kind:'stop'|'route';entity_id:string;alias:string;position:number}>('SELECT kind,entity_id,alias,position FROM bookmarks WHERE profile_id=? ORDER BY position,created_at',profile).map(row=>{const entity=row.kind==='stop'?store.stop(row.entity_id):store.route(row.entity_id);return{...row,entityId:row.entity_id,entity:entity||null,available:!!entity?.active};});

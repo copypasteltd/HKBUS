@@ -1,12 +1,13 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { createApp } from '../src/app.js';
+import { createTestApp } from './support.js';
 import { evaluateReminders } from '../src/usecases.js';
 let ctx:Awaited<ReturnType<typeof createApp>>;
 let cookie='',token='',profileId='';
 const adminHeaders=()=>({cookie,'x-hkbus-admin':'1',origin:'http://localhost:5174'});
 const userHeaders=()=>({authorization:'Bearer '+token});
-before(async()=>{ctx=await createApp({databasePath:':memory:',jwtSecret:'test-secret-for-isolated-tests-only-123456789',providerMode:'fixture',adminEmail:'test@example.com',adminPassword:'test-only-password-123',workerEnabled:false},{logger:false});});
+before(async()=>{ctx=await createTestApp({adminEmail:'test@example.com',adminPassword:'test-only-password-123'});});
 after(async()=>{await ctx.app.close();});
 test('rotating device credentials preserve data, reject replay and revoke deleted profiles',async()=>{
   const session=(await ctx.app.inject({method:'POST',url:'/api/v1/profile/sessions'})).json().data;
@@ -21,7 +22,7 @@ test('rotating device credentials preserve data, reject replay and revoke delete
   assert.equal((await ctx.app.inject({method:'POST',url:'/api/v1/profile/sessions/refresh',payload:{refreshToken:next.refreshToken}})).statusCode,401);
 });
 test('health, config and canonical route identities are available',async()=>{
-  const response=await ctx.app.inject('/api/health');assert.equal(response.statusCode,200);assert.equal(response.json().meta.mode,'fixture');assert.ok(response.headers['x-request-id']);
+  const response=await ctx.app.inject('/api/health');assert.equal(response.statusCode,200);assert.equal(response.json().meta.mode,'live');assert.ok(response.headers['x-request-id']);
   const routes=(await ctx.app.inject('/api/v1/routes?q=112')).json().data.items;assert.equal(routes.length,2);assert.notEqual(routes[0].id,routes[1].id);
   const detail=(await ctx.app.inject('/api/v1/routes/'+encodeURIComponent('KMB:112:O:1'))).json().data;assert.equal(detail.stops[0].id,'stop-times');assert.equal(detail.directions.length,2);
 });

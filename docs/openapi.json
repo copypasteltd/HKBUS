@@ -1,0 +1,2282 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "港巴通 API",
+    "version": "1.0.0",
+    "description": "KMB/LWB BFF、TDAS 道路參考及運營 API。只支援真實資料模式。成功：{data,meta:{requestId,mode:live,generatedAt}}；錯誤：{error:{code,message,requestId,retryable,fields?}}。Admin 寫入需 X-HKBus-Admin: 1；Zod 是輸入校驗來源。"
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "adminCookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "hkbus_admin"
+      }
+    },
+    "schemas": {}
+  },
+  "paths": {
+    "/api/health": {
+      "get": {
+        "summary": "服務健康檢查",
+        "tags": [
+          "Transit"
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/config": {
+      "get": {
+        "summary": "產品能力、來源與內容設定",
+        "tags": [
+          "Transit"
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/routes": {
+      "get": {
+        "summary": "路線方向列表與搜尋",
+        "tags": [
+          "Transit"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 100
+            },
+            "in": "query",
+            "name": "q",
+            "required": false,
+            "description": "搜尋詞"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "in": "query",
+            "name": "page",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 30
+            },
+            "in": "query",
+            "name": "pageSize",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/routes/{id}": {
+      "get": {
+        "summary": "路線方向與完整站序",
+        "tags": [
+          "Transit"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/stops": {
+      "get": {
+        "summary": "車站搜尋與附近排序",
+        "tags": [
+          "Transit"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 100
+            },
+            "in": "query",
+            "name": "q",
+            "required": false,
+            "description": "搜尋詞"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "in": "query",
+            "name": "page",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 30
+            },
+            "in": "query",
+            "name": "pageSize",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "number",
+              "minimum": 22,
+              "maximum": 23
+            },
+            "in": "query",
+            "name": "latitude",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "number",
+              "minimum": 113,
+              "maximum": 115
+            },
+            "in": "query",
+            "name": "longitude",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "number",
+              "minimum": 100,
+              "maximum": 10000
+            },
+            "in": "query",
+            "name": "radius",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 120
+            },
+            "in": "query",
+            "name": "walking",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/stops/{id}": {
+      "get": {
+        "summary": "車站與途經路線",
+        "tags": [
+          "Transit"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/stops/{id}/arrivals": {
+      "get": {
+        "summary": "站點到站、方向、新鮮度與降級",
+        "tags": [
+          "Transit"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "enum": [
+                "true",
+                "false"
+              ],
+              "default": "false"
+            },
+            "in": "query",
+            "name": "force",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "query",
+            "name": "routeId",
+            "required": false,
+            "description": "Only arrivals matching this full route identity"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/search": {
+      "get": {
+        "summary": "三語路線與車站搜尋",
+        "tags": [
+          "Transit"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 100
+            },
+            "in": "query",
+            "name": "q",
+            "required": false,
+            "description": "三語搜尋"
+          },
+          {
+            "schema": {
+              "enum": [
+                "all",
+                "route",
+                "stop",
+                "road"
+              ]
+            },
+            "in": "query",
+            "name": "type",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 30
+            },
+            "in": "query",
+            "name": "limit",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/home": {
+      "get": {
+        "summary": "首頁聚合，供應商故障不阻塞其他模組",
+        "tags": [
+          "Transit"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "number",
+              "minimum": 22,
+              "maximum": 23
+            },
+            "in": "query",
+            "name": "latitude",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "number",
+              "minimum": 113,
+              "maximum": 115
+            },
+            "in": "query",
+            "name": "longitude",
+            "required": false
+          },
+          {
+            "schema": {
+              "enum": [
+                "weapp",
+                "alipay",
+                "tt",
+                "h5",
+                "android"
+              ]
+            },
+            "in": "query",
+            "name": "platform",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "query",
+            "name": "stopId",
+            "required": false,
+            "description": "Stop ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/notices": {
+      "get": {
+        "summary": "目前有效的已發布服務通告",
+        "tags": [
+          "Transit"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 100
+            },
+            "in": "query",
+            "name": "q",
+            "required": false,
+            "description": "搜尋詞"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "in": "query",
+            "name": "page",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 30
+            },
+            "in": "query",
+            "name": "pageSize",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "query",
+            "name": "platform",
+            "required": false,
+            "description": "weapp/alipay/tt/h5/android"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "query",
+            "name": "routeId",
+            "required": false,
+            "description": "Route identity"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "query",
+            "name": "stopId",
+            "required": false,
+            "description": "Stop ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/notices/{id}": {
+      "get": {
+        "summary": "公開通告詳情",
+        "tags": [
+          "Transit"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "enum": [
+                "weapp",
+                "alipay",
+                "tt",
+                "h5",
+                "android"
+              ]
+            },
+            "in": "query",
+            "name": "platform",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/journeys": {
+      "post": {
+        "summary": "依據官方站序查找直達與同站轉乘候選",
+        "tags": [
+          "Transit"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "startId": {
+                    "type": "string",
+                    "maxLength": 120,
+                    "description": "Boarding stop ID"
+                  },
+                  "endId": {
+                    "type": "string",
+                    "maxLength": 120,
+                    "description": "Alighting stop ID"
+                  }
+                },
+                "required": [
+                  "startId",
+                  "endId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/traffic/route": {
+      "post": {
+        "summary": "獨立 TDAS 道路行駛時間參考",
+        "tags": [
+          "Transit"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "object",
+                    "required": [
+                      "lat",
+                      "long"
+                    ],
+                    "properties": {
+                      "lat": {
+                        "type": "number",
+                        "minimum": 22,
+                        "maximum": 23
+                      },
+                      "long": {
+                        "type": "number",
+                        "minimum": 113,
+                        "maximum": 115
+                      },
+                      "buffer": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 500
+                      }
+                    }
+                  },
+                  "end": {
+                    "type": "object",
+                    "required": [
+                      "lat",
+                      "long"
+                    ],
+                    "properties": {
+                      "lat": {
+                        "type": "number",
+                        "minimum": 22,
+                        "maximum": 23
+                      },
+                      "long": {
+                        "type": "number",
+                        "minimum": 113,
+                        "maximum": 115
+                      },
+                      "buffer": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 500
+                      }
+                    }
+                  },
+                  "departIn": {
+                    "enum": [
+                      0,
+                      15,
+                      30,
+                      45,
+                      60,
+                      75,
+                      90
+                    ],
+                    "default": 0
+                  },
+                  "lang": {
+                    "enum": [
+                      "tc",
+                      "sc",
+                      "en"
+                    ],
+                    "default": "tc"
+                  },
+                  "type": {
+                    "enum": [
+                      "ST",
+                      "SD"
+                    ],
+                    "default": "ST"
+                  },
+                  "tunnel": {
+                    "enum": [
+                      "cht",
+                      "eht",
+                      "wht"
+                    ]
+                  }
+                },
+                "required": [
+                  "start",
+                  "end"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/profile/sessions": {
+      "post": {
+        "summary": "建立匿名裝置檔案與存取憑證",
+        "tags": [
+          "Profile"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "required": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/profile/sessions/refresh": {
+      "post": {
+        "summary": "輪換裝置憑證，保留收藏與提醒",
+        "tags": [
+          "Profile"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "refreshToken": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  }
+                },
+                "required": [
+                  "refreshToken"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/profile/bookmarks": {
+      "get": {
+        "summary": "收藏與失效實體保留",
+        "tags": [
+          "Profile"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      },
+      "put": {
+        "summary": "幂等新增或重新命名收藏",
+        "tags": [
+          "Profile"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "kind",
+                  "entityId"
+                ],
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "stop",
+                      "route"
+                    ]
+                  },
+                  "entityId": {
+                    "type": "string",
+                    "maxLength": 120,
+                    "description": "官方車站或完整路線方向 ID"
+                  },
+                  "alias": {
+                    "type": "string",
+                    "maxLength": 24,
+                    "description": "收藏名稱；最多 24 個字"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/profile/bookmarks/order": {
+      "patch": {
+        "summary": "完整且無重複的收藏排序",
+        "tags": [
+          "Profile"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "items": {
+                    "type": "array",
+                    "maxItems": 100,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "kind",
+                        "entityId"
+                      ],
+                      "properties": {
+                        "kind": {
+                          "enum": [
+                            "stop",
+                            "route"
+                          ]
+                        },
+                        "entityId": {
+                          "type": "string",
+                          "maxLength": 120,
+                          "description": "官方車站或完整路線方向 ID"
+                        },
+                        "alias": {
+                          "type": "string",
+                          "maxLength": 24,
+                          "description": "收藏名稱；最多 24 個字"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "items"
+                ]
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/profile/bookmarks/{kind}/{id}": {
+      "delete": {
+        "summary": "刪除收藏",
+        "tags": [
+          "Profile"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "path",
+            "name": "kind",
+            "required": true,
+            "description": "kind"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "id"
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/profile/recent": {
+      "get": {
+        "summary": "最多六項最近查看",
+        "tags": [
+          "Profile"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      },
+      "post": {
+        "summary": "記錄最近查看",
+        "tags": [
+          "Profile"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "kind",
+                  "entityId"
+                ],
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "stop",
+                      "route"
+                    ]
+                  },
+                  "entityId": {
+                    "type": "string",
+                    "maxLength": 120,
+                    "description": "官方車站或完整路線方向 ID"
+                  },
+                  "alias": {
+                    "type": "string",
+                    "maxLength": 24,
+                    "description": "收藏名稱；最多 24 個字"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      },
+      "delete": {
+        "summary": "清除最近查看",
+        "tags": [
+          "Profile"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/profile/reminders": {
+      "get": {
+        "summary": "提醒狀態列表",
+        "tags": [
+          "Profile"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      },
+      "put": {
+        "summary": "按車站、方向幂等建立提醒",
+        "tags": [
+          "Profile"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "stopId": {
+                    "type": "string",
+                    "maxLength": 120,
+                    "description": "Stop ID"
+                  },
+                  "routeId": {
+                    "type": "string",
+                    "maxLength": 120,
+                    "description": "Canonical route ID"
+                  },
+                  "threshold": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 30
+                  },
+                  "channel": {
+                    "enum": [
+                      "in-app"
+                    ]
+                  }
+                },
+                "required": [
+                  "stopId",
+                  "routeId",
+                  "threshold",
+                  "channel"
+                ]
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/profile/reminders/{id}": {
+      "patch": {
+        "summary": "暫停或重新啟用提醒",
+        "tags": [
+          "Profile"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "active",
+                      "paused"
+                    ]
+                  }
+                },
+                "required": [
+                  "status"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "id"
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      },
+      "delete": {
+        "summary": "刪除提醒",
+        "tags": [
+          "Profile"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "id"
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/profile/notifications": {
+      "get": {
+        "summary": "頁面提醒收件匣",
+        "tags": [
+          "Profile"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/profile/notifications/{id}": {
+      "patch": {
+        "summary": "將提醒標記已讀",
+        "tags": [
+          "Profile"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "required": []
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "id"
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/profile": {
+      "delete": {
+        "summary": "刪除本裝置檔案和全部個人資料",
+        "tags": [
+          "Profile"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/auth/login": {
+      "post": {
+        "summary": "管理員登入（HttpOnly Cookie）",
+        "tags": [
+          "Admin"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "password": {
+                    "type": "string",
+                    "maxLength": 256
+                  }
+                },
+                "required": [
+                  "email",
+                  "password"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/auth/me": {
+      "get": {
+        "summary": "目前管理員與權限",
+        "tags": [
+          "Admin"
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/auth/logout": {
+      "post": {
+        "summary": "撤銷管理員會話",
+        "tags": [
+          "Admin"
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/overview": {
+      "get": {
+        "summary": "真實請求、資料覆蓋與提醒統計",
+        "tags": [
+          "Admin"
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/routes": {
+      "get": {
+        "summary": "唯讀官方路線資料庫",
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 100
+            },
+            "in": "query",
+            "name": "q",
+            "required": false,
+            "description": "搜尋詞"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "in": "query",
+            "name": "page",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 30
+            },
+            "in": "query",
+            "name": "pageSize",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/stops": {
+      "get": {
+        "summary": "唯讀官方車站資料庫",
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 100
+            },
+            "in": "query",
+            "name": "q",
+            "required": false,
+            "description": "搜尋詞"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "in": "query",
+            "name": "page",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 30
+            },
+            "in": "query",
+            "name": "pageSize",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/notices": {
+      "get": {
+        "summary": "全部通告與工作流狀態",
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 100
+            },
+            "in": "query",
+            "name": "q",
+            "required": false,
+            "description": "搜尋詞"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "in": "query",
+            "name": "page",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 30
+            },
+            "in": "query",
+            "name": "pageSize",
+            "required": false
+          },
+          {
+            "schema": {
+              "enum": [
+                "all",
+                "draft",
+                "review",
+                "approved",
+                "published",
+                "withdrawn"
+              ]
+            },
+            "in": "query",
+            "name": "status",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      },
+      "post": {
+        "summary": "建立三語通告草稿",
+        "tags": [
+          "Admin"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "title",
+                  "body",
+                  "severity",
+                  "validFrom",
+                  "validUntil",
+                  "routeIds",
+                  "stopIds",
+                  "platforms",
+                  "sourceUrl"
+                ],
+                "properties": {
+                  "title": {
+                    "type": "object",
+                    "required": [
+                      "tc",
+                      "sc",
+                      "en"
+                    ],
+                    "properties": {
+                      "tc": {
+                        "type": "string",
+                        "maxLength": 10000,
+                        "description": "繁體中文"
+                      },
+                      "sc": {
+                        "type": "string",
+                        "maxLength": 10000,
+                        "description": "简体中文"
+                      },
+                      "en": {
+                        "type": "string",
+                        "maxLength": 10000,
+                        "description": "English"
+                      }
+                    }
+                  },
+                  "body": {
+                    "type": "object",
+                    "required": [
+                      "tc",
+                      "sc",
+                      "en"
+                    ],
+                    "properties": {
+                      "tc": {
+                        "type": "string",
+                        "maxLength": 10000,
+                        "description": "繁體中文"
+                      },
+                      "sc": {
+                        "type": "string",
+                        "maxLength": 10000,
+                        "description": "简体中文"
+                      },
+                      "en": {
+                        "type": "string",
+                        "maxLength": 10000,
+                        "description": "English"
+                      }
+                    }
+                  },
+                  "severity": {
+                    "enum": [
+                      "info",
+                      "warning",
+                      "critical"
+                    ]
+                  },
+                  "validFrom": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "validUntil": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "routeIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "maxLength": 120,
+                      "description": "KMB:route:O|I:serviceType"
+                    },
+                    "maxItems": 200
+                  },
+                  "stopIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "maxLength": 120,
+                      "description": "Official stop ID"
+                    },
+                    "maxItems": 200
+                  },
+                  "platforms": {
+                    "type": "array",
+                    "items": {
+                      "enum": [
+                        "weapp",
+                        "alipay",
+                        "tt",
+                        "h5",
+                        "android"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceUrl": {
+                    "type": "string",
+                    "description": "Empty or HTTPS URL"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/notices/{id}": {
+      "put": {
+        "summary": "樂觀鎖更新通告，已發布內容改為草稿",
+        "tags": [
+          "Admin"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "version": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "document": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "body",
+                      "severity",
+                      "validFrom",
+                      "validUntil",
+                      "routeIds",
+                      "stopIds",
+                      "platforms",
+                      "sourceUrl"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "object",
+                        "required": [
+                          "tc",
+                          "sc",
+                          "en"
+                        ],
+                        "properties": {
+                          "tc": {
+                            "type": "string",
+                            "maxLength": 10000,
+                            "description": "繁體中文"
+                          },
+                          "sc": {
+                            "type": "string",
+                            "maxLength": 10000,
+                            "description": "简体中文"
+                          },
+                          "en": {
+                            "type": "string",
+                            "maxLength": 10000,
+                            "description": "English"
+                          }
+                        }
+                      },
+                      "body": {
+                        "type": "object",
+                        "required": [
+                          "tc",
+                          "sc",
+                          "en"
+                        ],
+                        "properties": {
+                          "tc": {
+                            "type": "string",
+                            "maxLength": 10000,
+                            "description": "繁體中文"
+                          },
+                          "sc": {
+                            "type": "string",
+                            "maxLength": 10000,
+                            "description": "简体中文"
+                          },
+                          "en": {
+                            "type": "string",
+                            "maxLength": 10000,
+                            "description": "English"
+                          }
+                        }
+                      },
+                      "severity": {
+                        "enum": [
+                          "info",
+                          "warning",
+                          "critical"
+                        ]
+                      },
+                      "validFrom": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "validUntil": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "routeIds": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "maxLength": 120,
+                          "description": "KMB:route:O|I:serviceType"
+                        },
+                        "maxItems": 200
+                      },
+                      "stopIds": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "maxLength": 120,
+                          "description": "Official stop ID"
+                        },
+                        "maxItems": 200
+                      },
+                      "platforms": {
+                        "type": "array",
+                        "items": {
+                          "enum": [
+                            "weapp",
+                            "alipay",
+                            "tt",
+                            "h5",
+                            "android"
+                          ]
+                        },
+                        "minItems": 1
+                      },
+                      "sourceUrl": {
+                        "type": "string",
+                        "description": "Empty or HTTPS URL"
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "version",
+                  "document"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "id"
+          }
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/notices/{id}/transition": {
+      "post": {
+        "summary": "提交審核、審核通過、發布/排程與撤回",
+        "tags": [
+          "Admin"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "version": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "action": {
+                    "enum": [
+                      "submit",
+                      "approve",
+                      "publish",
+                      "withdraw"
+                    ]
+                  }
+                },
+                "required": [
+                  "version",
+                  "action"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "id"
+          }
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/notices/{id}/versions": {
+      "get": {
+        "summary": "通告版本與發布歷史",
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "id"
+          }
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/notices/{id}/rollback": {
+      "post": {
+        "summary": "將歷史內容恢復為新草稿版本",
+        "tags": [
+          "Admin"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "version": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "currentVersion": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "version",
+                  "currentVersion"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "id"
+          }
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/settings": {
+      "get": {
+        "summary": "能力、來源說明、私隱與快取策略",
+        "tags": [
+          "Admin"
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/settings/{id}": {
+      "put": {
+        "summary": "更新可公開設定並寫入審計",
+        "tags": [
+          "Admin"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "version": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "value": {
+                    "type": "object",
+                    "description": "features: reminders/traffic/planner/map booleans; freshness: cacheSeconds/etaFreshSeconds/etaStaleSeconds; content: localized coverage/privacy/help plus sourceUrl/privacyUrl/supportEmail/maintenance"
+                  }
+                },
+                "required": [
+                  "version",
+                  "value"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "id"
+          }
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/providers": {
+      "get": {
+        "summary": "供應商健康與資料品質",
+        "tags": [
+          "Admin"
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/jobs/sync": {
+      "post": {
+        "summary": "觸發原子主資料同步任務",
+        "tags": [
+          "Admin"
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/jobs": {
+      "get": {
+        "summary": "同步任務與失敗紀錄",
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 100
+            },
+            "in": "query",
+            "name": "q",
+            "required": false,
+            "description": "搜尋詞"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "in": "query",
+            "name": "page",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 30
+            },
+            "in": "query",
+            "name": "pageSize",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/cache/purge": {
+      "post": {
+        "summary": "清除到站/道路快取，不改寫官方主資料",
+        "tags": [
+          "Admin"
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/reminders/evaluate": {
+      "post": {
+        "summary": "手動執行真實提醒評估",
+        "tags": [
+          "Admin"
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/audit": {
+      "get": {
+        "summary": "操作審計，不包含密碼、座標或 API 憑證",
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 100
+            },
+            "in": "query",
+            "name": "q",
+            "required": false,
+            "description": "搜尋詞"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "in": "query",
+            "name": "page",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 30
+            },
+            "in": "query",
+            "name": "pageSize",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/users": {
+      "get": {
+        "summary": "管理員與角色列表",
+        "tags": [
+          "Admin"
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      },
+      "post": {
+        "summary": "建立管理員並賦予最小角色",
+        "tags": [
+          "Admin"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "name": {
+                    "type": "string",
+                    "maxLength": 60,
+                    "description": "Display name"
+                  },
+                  "password": {
+                    "type": "string",
+                    "minLength": 12,
+                    "maxLength": 256
+                  },
+                  "role": {
+                    "enum": [
+                      "admin",
+                      "operator",
+                      "editor",
+                      "viewer"
+                    ]
+                  }
+                },
+                "required": [
+                  "email",
+                  "name",
+                  "password",
+                  "role"
+                ]
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/admin/users/{id}": {
+      "patch": {
+        "summary": "停用、角色或密碼變更並撤銷會話",
+        "tags": [
+          "Admin"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "enum": [
+                      "admin",
+                      "operator",
+                      "editor",
+                      "viewer"
+                    ]
+                  },
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "password": {
+                    "type": "string",
+                    "minLength": 12,
+                    "maxLength": 256
+                  }
+                },
+                "required": []
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "id"
+          }
+        ],
+        "security": [
+          {
+            "adminCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/openapi.json": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    }
+  }
+}
