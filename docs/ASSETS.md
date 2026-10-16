@@ -13,3 +13,9 @@ English: Mobile captures show the Taro Android renderer in a 390×844 Chromium v
 English: The capture script closes its own browser, contexts and temporary servers, without touching user tabs, the existing Backend, historical prototypes or Vercel. Images contain no passwords, JWTs, refresh tokens, databases or customer records. No open-source licence is granted by this documentation. Upstream fonts/icons retain their applicable licences; the owner must determine commercial and redistribution rights.
 
 See [screenshots.json](screenshots.json) for timestamps, entities, scope and cleanup results.
+
+
+品牌更新 / Brand update — 2026-10-17：正式采用用户确认的 10 号「朱印车迹」。图形由指定 sub2-image-gen 生成稿提取矢量轮廓、统一实色后导出；README 横幅使用该正式图形。图形内无任何文字。Approved option 10 is traced from the user-selected generated concept and exported as solid-colour vectors/PNGs; documentation banners use this approved symbol. The mark contains no wordmark. See [BRAND.md](BRAND.md).
+
+
+当前品牌更新与截图检查见 [BRAND-ROLLOUT.md](BRAND-ROLLOUT.md) 和 [brand-validation.json](brand-validation.json)。`validation.json` 保留首次分仓时的检查快照。本次 36 张浏览器截图包括原 29 张页面/API 图、关于页 1 张及三语/窄屏/大字/横屏 6 张检查图；布局检查图未冒充原生截图。Current brand verification supersedes the initial standalone snapshot for this change; source/build/browser evidence does not claim official IDE or physical-device acceptance.

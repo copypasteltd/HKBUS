@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-10-16T21:49:47.841828+00:00",
+  "base": "http://127.0.0.1:4100",
+  "health": {
+    "data": {
+      "status": "ok",
+      "version": "1.0.0",
+      "database": "ready",
+      "catalogRoutes": 1611,
+      "catalogSyncedAt": "2026-10-16T19:15:28.118Z",
+      "source": "live"
+    },
+    "meta": {
+      "requestId": "13c1c125-877c-484d-901b-5ab02be44c86",
+      "mode": "live",
+      "generatedAt": "2026-10-16T21:49:47.752Z"
+    }
+  },
+  "http": {
+    "health": 200,
+    "apiDocs": 200,
+    "brandScript": 200,
+    "favicon": 200
+  },
+  "faviconExactMatch": true,
+  "faviconSha256": "26bb6cd6a3404bee76ef30acf5fdd3c7275bedef7906e8bb73668d0da374a666",
+  "existingServiceRestarted": true,
+  "databaseReplaced": false,
+  "productionDeployment": false
+}

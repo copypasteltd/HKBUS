@@ -1,0 +1,51 @@
+{
+  "selectedOption": "10",
+  "brandAssetVersion": "1.0.0",
+  "generatedAt": "2026-10-16T21:53:31.905624+00:00",
+  "releaseSigned": false,
+  "productionDeployment": false,
+  "files": [
+    {
+      "project": "backend",
+      "file": "hkbusgo-backend-brand10.zip",
+      "bytes": 60826,
+      "sha256": "8b0c3d664c7b0a423d7f53e27ec4eaa511298fcd2892cd7763de34306880f06c",
+      "archiveMembers": 28
+    },
+    {
+      "project": "admin",
+      "file": "hkbusgo-admin-brand10.zip",
+      "bytes": 87461,
+      "sha256": "ec7057699ad5db2f402f771e592809e99284b591014229ce0e6f482192675e4b",
+      "archiveMembers": 6
+    },
+    {
+      "project": "wechat",
+      "file": "hkbusgo-wechat-brand10.zip",
+      "bytes": 432752,
+      "sha256": "89540270d99cacde299779b8909d05ffa6457fe280c570009100d3191d4aacfa",
+      "archiveMembers": 269
+    },
+    {
+      "project": "alipay",
+      "file": "hkbusgo-alipay-brand10.zip",
+      "bytes": 429381,
+      "sha256": "841743e357a4da0967c833404d6a3577cd1377b338be1e67791ff608f679c602",
+      "archiveMembers": 266
+    },
+    {
+      "project": "douyin",
+      "file": "hkbusgo-douyin-brand10.zip",
+      "bytes": 428032,
+      "sha256": "cd56fd4a3e1cf78c69423dadd3dd1d8cace077637159ba6f13adc6fb43a000cb",
+      "archiveMembers": 266
+    },
+    {
+      "project": "android",
+      "file": "hkbusgo-brand10-debug.apk",
+      "bytes": 6075676,
+      "sha256": "7f5ac3002cb1fb158149fa59d32a19f70d801fbee0c6c20306188beeb938b40c",
+      "archiveMembers": null
+    }
+  ]
+}

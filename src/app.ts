@@ -1,3 +1,4 @@
+import { brandLogoWhiteSvg, brandFaviconPng, brandUiScript } from './brand.js';
 import Fastify, { type FastifyInstance, type FastifyRequest, type RouteHandlerMethod } from 'fastify';
 import cookie from '@fastify/cookie';
 import cors from '@fastify/cors';
@@ -39,7 +40,7 @@ export async function createApp(overrides:Partial<Config>={},options:{logger?:bo
   await app.register(jwt,{secret:config.jwtSecret,cookie:{cookieName:'hkbus_admin',signed:false}});
   await app.register(rateLimit,{max:config.rateLimitMax,timeWindow:'1 minute',errorResponseBuilder:()=>({error:{code:'RATE_LIMITED',message:'請求過於頻繁，請稍後重試',retryable:true}})});
   await app.register(swagger,{transform:({schema,url})=>({schema:documentSchema(schema),url}),openapi:{info:{title:'港巴通 API',version:'1.0.0',description:'KMB/LWB BFF、TDAS 道路參考及運營 API。只支援真實資料模式。成功：{data,meta:{requestId,mode:live,generatedAt}}；錯誤：{error:{code,message,requestId,retryable,fields?}}。Admin 寫入需 X-HKBus-Admin: 1；Zod 是輸入校驗來源。'},components:{securitySchemes:{bearerAuth:{type:'http',scheme:'bearer'},adminCookie:{type:'apiKey',in:'cookie',name:'hkbus_admin'}}}}});
-  await app.register(swaggerUI,{routePrefix:'/api/docs'});
+  await app.register(swaggerUI,{routePrefix:'/api/docs',logo:{type:'image/svg+xml',content:brandLogoWhiteSvg,href:'/api/docs/'},theme:{js:[{filename:'hkbus-brand.js',content:brandUiScript}],title:'港巴通 API',favicon:[{filename:'hkbus-favicon.png',rel:'icon',type:'image/png',sizes:'32x32',content:brandFaviconPng}]}});
   const providers=new Providers(store,config,options.fetcher),ctx:Context={app,store,providers,config};
   app.addHook('onRequest',async(request,reply)=>{reply.header('X-Request-Id',request.id);reply.header('X-Content-Type-Options','nosniff');reply.header('Cache-Control','no-store');validateMutationOrigin(config,request);});
   app.addHook('onResponse',async(request,reply)=>{

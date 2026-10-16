@@ -34,3 +34,10 @@
 ![OpenAPI](assets/backend-openapi.png)
 
 ![Actual live route response](assets/backend-routes-json.png)
+
+
+## Approved logo / About
+
+![Approved graphic logo](assets/brand/brand-overview.png)
+
+<img src="assets/mobile-about.png" width="280" alt="Approved graphic logo in About">

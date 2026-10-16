@@ -8,6 +8,8 @@
 
 > `backend` · Fastify 5 · TypeScript · SQLite · Live KMB/LWB + TDAS · Accessible Calm Minimal
 
+**品牌 / Brand：已确认 10 号「朱印车迹」纯图形 Logo / Approved option 10, graphic only.** [品牌规范 / Brand guide](docs/BRAND.md) · [本次品牌验证 / Current brand checks](docs/BRAND-ROLLOUT.md)
+
 ## 中文说明
 
 港巴通的独立 Backend：Node.js 22.14+、Fastify 5、TypeScript、原生 SQLite。为四个移动端及运营后台提供同一套 BFF、匿名身份、内容工作流、任务和审计。无需 Docker、WSL、容器或其他仓库才能编译；外部数据依赖 KMB/LWB 与 TDAS 官方 API。
