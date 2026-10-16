@@ -8,6 +8,8 @@
 
 > `admin` · React 18 · Vite 6 · TypeScript · Live KMB/LWB + TDAS · Accessible Calm Minimal
 
+**品牌 / Brand：已确认 10 号「朱印车迹」纯图形 Logo / Approved option 10, graphic only.** [品牌规范 / Brand guide](docs/BRAND.md) · [本次品牌验证 / Current brand checks](docs/BRAND-ROLLOUT.md)
+
 ## 中文说明
 
 独立 React 18 / Vite 6 / TypeScript 运营后台，连接 `backend` 分支真实 API。沿用暖白、深蓝与青绿 Accessible Calm Minimal。无需其他前端源码即可构建，运行时需要 Backend 和授权管理账号。

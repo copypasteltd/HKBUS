@@ -1,0 +1,5 @@
+
+> @hkbusgo/alipay@1.0.0 assets
+> node scripts/assets.cjs
+
+Generated 204 UI PNG icons and approved #10 brand assets.

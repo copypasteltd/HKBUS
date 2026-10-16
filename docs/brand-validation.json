@@ -1,0 +1,890 @@
+{
+  "checkedAt": "2026-10-16T21:53:33.277556+00:00",
+  "selectedOption": "10",
+  "brandAssetVersion": "1.0.0",
+  "productRequirementsVersion": "1.6.0",
+  "passed": true,
+  "assets": {
+    "assetVersion": "1.0.0",
+    "product": "港巴通 / HKBusGo",
+    "selectedOption": "10",
+    "direction": "朱印车迹 / Contemporary Seal",
+    "status": "approved",
+    "approvedAt": "2026-10-17",
+    "updatedAt": "2026-10-16T21:35:28.053249+00:00",
+    "wordmark": false,
+    "source": {
+      "file": "selected-source-10.png",
+      "sha256": "bfc947261d043dd49aa96e2009d26b4e891e5fe773c8c401cb6053680cbcc71b",
+      "origin": "User-selected gpt-image-2.5 concept generated using sub2-image-gen"
+    },
+    "vectorization": {
+      "method": "Trace selected raster contour, simplify within 0.55 source pixels, flatten fill, preserve negative-space pictogram",
+      "viewBox": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "markExtent": 768,
+      "clearSpaceEachSide": 128,
+      "compoundContours": 7,
+      "outlineNotRedesigned": true
+    },
+    "palette": {
+      "vermilion": "#B9533D",
+      "ink": "#163B63",
+      "teal": "#0C716E",
+      "surface": "#F8FAF9",
+      "white": "#FFFFFF"
+    },
+    "android": {
+      "adaptiveForegroundScale": 0.628768946463721,
+      "splashUsesSameSafeContour": true,
+      "splashCanvasDp": 288,
+      "maskChecks": [
+        {
+          "mask": "circle",
+          "clippedForegroundPixels": 0
+        },
+        {
+          "mask": "rounded-square",
+          "clippedForegroundPixels": 0
+        },
+        {
+          "mask": "squircle",
+          "clippedForegroundPixels": 0
+        }
+      ],
+      "verification": "Static contour and mask calculation; not a physical-device screenshot."
+    },
+    "files": [
+      {
+        "file": "android-adaptive-foreground-432.png",
+        "bytes": 8372,
+        "sha256": "1c84e662707f46e39c523714dbcb3734fb3bfbb266338a9958192747bd8c84ce"
+      },
+      {
+        "file": "android-adaptive-foreground.svg",
+        "bytes": 17142,
+        "sha256": "390ad4f444f4386d1307663fa7fc80f8a3da1e534f80f8d2ba6649ea8d9fe8ef"
+      },
+      {
+        "file": "android-mask-preview.png",
+        "bytes": 22618,
+        "sha256": "3ab91b3d56c8ccf921952766a2aacfe2c81b9643cddd0a542f80279e7f9aae97"
+      },
+      {
+        "file": "app-icon-1024.png",
+        "bytes": 30143,
+        "sha256": "92dbd573d1a62beaaab04357f6413b537f4bc175946c2a6cb68657ecb9251a75"
+      },
+      {
+        "file": "app-icon-192.png",
+        "bytes": 4616,
+        "sha256": "2a01503f16ce28c40a28a0d9b608117b2ae92f789babca43ec6c3cf3d133bf57"
+      },
+      {
+        "file": "app-icon-512.png",
+        "bytes": 13661,
+        "sha256": "b9e8bc8e87a547b50d2fca9cfc8186beabce2fe34af851d6eaa4ce399a5eafc4"
+      },
+      {
+        "file": "app-icon.svg",
+        "bytes": 17109,
+        "sha256": "f2f98fb50eeafe409e3d8196535651a87af6db803036e9643d2eb8e862ee095d"
+      },
+      {
+        "file": "brand-overview.png",
+        "bytes": 133467,
+        "sha256": "d2a50dbc4a6ca3e1518c90d970b2b608381ddddc9aeeeff1c79a16cbead0c88b"
+      },
+      {
+        "file": "logo-ink-1024.png",
+        "bytes": 30305,
+        "sha256": "b098b1b702a7f4c353e9ef2901684e513021a128d397868d2e761c5fe2837e1b"
+      },
+      {
+        "file": "logo-ink-128.png",
+        "bytes": 3295,
+        "sha256": "d2524db61aa06f335cae5bf688ceb6957d5d8565251261db23b04804c1f74bb9"
+      },
+      {
+        "file": "logo-ink-24.png",
+        "bytes": 719,
+        "sha256": "38a6816d69de81a0e873ceea9ab6d5fa2da3327c0534677f7896221a5fe10885"
+      },
+      {
+        "file": "logo-ink-256.png",
+        "bytes": 6801,
+        "sha256": "2929709713c4bc334d6a4b391601d2837f3fea133b62cd28b13fa6530e268f1b"
+      },
+      {
+        "file": "logo-ink-32.png",
+        "bytes": 924,
+        "sha256": "4bc1c187b54413b8a58a5983fc83df3dbf6ee71534eb81a3876ae00d5d0e2956"
+      },
+      {
+        "file": "logo-ink-48.png",
+        "bytes": 1292,
+        "sha256": "1b6af08dbf21242e76334ae6dbed8971da2b4ddd42a11ab34a0593f375096175"
+      },
+      {
+        "file": "logo-ink-512.png",
+        "bytes": 14150,
+        "sha256": "a8d93c03b73bebbeb6466acf256c3e3363d9dd6a23e5e1a0c40d849b1ebd09e0"
+      },
+      {
+        "file": "logo-ink-64.png",
+        "bytes": 1720,
+        "sha256": "bea0028a5cfb211d327102b02a11b9a9b329908719cbe9d04ef4483e4fe3da68"
+      },
+      {
+        "file": "logo-ink.svg",
+        "bytes": 17065,
+        "sha256": "40165982de8c8bd46aaddcc9435272d00be8041008ad14e4622994f8780fab70"
+      },
+      {
+        "file": "logo-primary-1024.png",
+        "bytes": 29975,
+        "sha256": "38e71381a9434b2457080ed854c292726a305e6e4dc9da48debd5b7b945288c4"
+      },
+      {
+        "file": "logo-primary-128.png",
+        "bytes": 3221,
+        "sha256": "4ce5bec13c364753a586611e3d0bf7da4d18d091256983da6b405baec44ccc64"
+      },
+      {
+        "file": "logo-primary-24.png",
+        "bytes": 712,
+        "sha256": "1ce0db265f5d316d9aee269987b3947c1e536620913f372923c727282e104d33"
+      },
+      {
+        "file": "logo-primary-256.png",
+        "bytes": 6674,
+        "sha256": "95fabeb0be7540fad1ea6f0b05327868f61f0544afe3127cb5d0eeaa6f2f0991"
+      },
+      {
+        "file": "logo-primary-32.png",
+        "bytes": 893,
+        "sha256": "26bb6cd6a3404bee76ef30acf5fdd3c7275bedef7906e8bb73668d0da374a666"
+      },
+      {
+        "file": "logo-primary-48.png",
+        "bytes": 1280,
+        "sha256": "2d3eb34c93cd09b47c7cffd6a823542d62249ab4da746745ace1e45698fc33b3"
+      },
+      {
+        "file": "logo-primary-512.png",
+        "bytes": 13941,
+        "sha256": "932d60b5b66484a51e8107512c99b8ef2bff6b68ed08b25ae96ab437d4b22185"
+      },
+      {
+        "file": "logo-primary-64.png",
+        "bytes": 1672,
+        "sha256": "399e757da2c82504fe535fb5592dc037c05b4bed26bb409f3b4fa65ec0f196ba"
+      },
+      {
+        "file": "logo-primary.svg",
+        "bytes": 17065,
+        "sha256": "595823afda6163ebf2b2581d007730b5dd09984fb7acfd90136c30061c099524"
+      },
+      {
+        "file": "logo-white-1024.png",
+        "bytes": 32263,
+        "sha256": "13bffa457f891da523477ac7739f514ead1547f936d5979af31693b635b00812"
+      },
+      {
+        "file": "logo-white-128.png",
+        "bytes": 3168,
+        "sha256": "5f1c4ca5c0087da1eae3a7f136685fbb1bf9ac783c606566ff00cddd691235e8"
+      },
+      {
+        "file": "logo-white-24.png",
+        "bytes": 563,
+        "sha256": "40266bfc1b637176c888c031d997ae1d4120f62f8e00a69fcca73171384442fc"
+      },
+      {
+        "file": "logo-white-256.png",
+        "bytes": 6960,
+        "sha256": "04482da940b904324eb1a16f8157abc0295b65ef9a9930159766e5a5dbdc9702"
+      },
+      {
+        "file": "logo-white-32.png",
+        "bytes": 713,
+        "sha256": "1d8dab4935b202bd80ad316ac392ee21b0e848d624218a0d7f8be4fdd3db43f0"
+      },
+      {
+        "file": "logo-white-48.png",
+        "bytes": 1085,
+        "sha256": "c28c05d4edee3fd632c2435e97fe0e501cceca66f5d61098bc971fcd06cb23c3"
+      },
+      {
+        "file": "logo-white-512.png",
+        "bytes": 15065,
+        "sha256": "a21ea25a1a63e3e3a92e32820b340010887139f7b92ff98a0bb1ff9acd33e1e2"
+      },
+      {
+        "file": "logo-white-64.png",
+        "bytes": 1446,
+        "sha256": "08049640d58411937f812762bc6bb62384867604a722d06e4094082ab0de608d"
+      },
+      {
+        "file": "logo-white.svg",
+        "bytes": 17065,
+        "sha256": "c4d39c678376688d0f6aa99670795c226fef543110220b1ab0cbb580a130ca73"
+      },
+      {
+        "file": "selected-source-10.png",
+        "bytes": 1087228,
+        "sha256": "bfc947261d043dd49aa96e2009d26b4e891e5fe773c8c401cb6053680cbcc71b"
+      }
+    ]
+  },
+  "builds": {
+    "startedAt": "2026-10-16T21:27:54.809941+00:00",
+    "finishedAt": "2026-10-16T21:49:35.937350+00:00",
+    "passed": true,
+    "environment": "Windows native / existing dependencies / no Docker, WSL, VM or emulator",
+    "projects": [
+      {
+        "project": "admin",
+        "passed": true,
+        "phases": [
+          {
+            "phase": "typecheck",
+            "command": "npm run typecheck",
+            "exitCode": 0,
+            "seconds": 6.0,
+            "log": "admin-typecheck.log"
+          },
+          {
+            "phase": "build",
+            "command": "npm run build",
+            "exitCode": 0,
+            "seconds": 15.4,
+            "log": "admin-build.log"
+          }
+        ]
+      },
+      {
+        "project": "alipay",
+        "passed": true,
+        "phases": [
+          {
+            "phase": "assets",
+            "command": "npm run assets",
+            "exitCode": 0,
+            "seconds": 110.2,
+            "log": "alipay-assets.log"
+          },
+          {
+            "phase": "typecheck",
+            "command": "npm run typecheck",
+            "exitCode": 0,
+            "seconds": 3.1,
+            "log": "alipay-typecheck.log"
+          },
+          {
+            "phase": "build",
+            "command": "npm run build",
+            "exitCode": 0,
+            "seconds": 13.6,
+            "log": "alipay-build.log"
+          }
+        ]
+      },
+      {
+        "project": "android",
+        "passed": true,
+        "phases": [
+          {
+            "phase": "assets",
+            "command": "npm run assets",
+            "exitCode": 0,
+            "seconds": 115.4,
+            "log": "android-assets.log"
+          },
+          {
+            "phase": "typecheck",
+            "command": "npm run typecheck",
+            "exitCode": 0,
+            "seconds": 3.7,
+            "log": "android-typecheck.log"
+          },
+          {
+            "phase": "build",
+            "command": "npm run build",
+            "exitCode": 0,
+            "seconds": 52.7,
+            "log": "android-build.log"
+          },
+          {
+            "phase": "tests",
+            "command": "npm run test",
+            "exitCode": 0,
+            "seconds": 1.1,
+            "log": "android-tests.log"
+          }
+        ]
+      },
+      {
+        "project": "backend",
+        "passed": true,
+        "phases": [
+          {
+            "phase": "typecheck",
+            "command": "npm run typecheck",
+            "exitCode": 0,
+            "seconds": 9.9,
+            "log": "backend-typecheck.log"
+          },
+          {
+            "phase": "build",
+            "command": "npm run build",
+            "exitCode": 0,
+            "seconds": 3.8,
+            "log": "backend-build.log"
+          },
+          {
+            "phase": "tests",
+            "command": "npm run test",
+            "exitCode": 0,
+            "seconds": 21.6,
+            "log": "backend-tests.log"
+          }
+        ]
+      },
+      {
+        "project": "douyin",
+        "passed": true,
+        "phases": [
+          {
+            "phase": "assets",
+            "command": "npm run assets",
+            "exitCode": 0,
+            "seconds": 115.5,
+            "log": "douyin-assets.log"
+          },
+          {
+            "phase": "typecheck",
+            "command": "npm run typecheck",
+            "exitCode": 0,
+            "seconds": 3.7,
+            "log": "douyin-typecheck.log"
+          },
+          {
+            "phase": "build",
+            "command": "npm run build",
+            "exitCode": 0,
+            "seconds": 14.3,
+            "log": "douyin-build.log"
+          }
+        ]
+      },
+      {
+        "project": "wechat",
+        "passed": true,
+        "phases": [
+          {
+            "phase": "assets",
+            "command": "npm run assets",
+            "exitCode": 0,
+            "seconds": 109.2,
+            "log": "wechat-assets.log"
+          },
+          {
+            "phase": "typecheck",
+            "command": "npm run typecheck",
+            "exitCode": 0,
+            "seconds": 3.1,
+            "log": "wechat-typecheck.log"
+          },
+          {
+            "phase": "build",
+            "command": "npm run build",
+            "exitCode": 0,
+            "seconds": 13.6,
+            "log": "wechat-build.log"
+          }
+        ]
+      }
+    ],
+    "sharedSourceFiles": 254,
+    "sharedSourcesMatch": true,
+    "regressionTests": {
+      "backend": 22,
+      "mobileSharedLogic": 7,
+      "newUnitTestsWritten": false
+    },
+    "android": {
+      "apk": "implementation/android/android/app/build/outputs/apk/debug/app-debug.apk",
+      "sha256": "7f5ac3002cb1fb158149fa59d32a19f70d801fbee0c6c20306188beeb938b40c",
+      "bytes": 6075676,
+      "rendererFilesMatched": 245,
+      "nativeLauncherDensities": 5,
+      "notificationResourcePackaged": true
+    },
+    "scope": {
+      "officialIDE": false,
+      "physicalDevice": false,
+      "storePublication": false,
+      "productionDeployment": false,
+      "prototypeTouched": false
+    },
+    "narrowBrandLayout": "Brand logo min 48 CSS px; adjacent accessibility control min 44 CSS px, preserved from viewport unit scaling"
+  },
+  "browser": {
+    "startedAt": "2026-10-16T21:50:25.335Z",
+    "renderer": "Taro Android web renderer in Chromium, not official mini-program IDE or physical device",
+    "data": "Official KMB/TDAS via real HTTP; isolated memory database",
+    "screenshots": [
+      {
+        "file": "mobile-home-unlocated.png",
+        "description": "Home without a location; no invented station or weather",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-route.png",
+        "description": "Full official route sequence",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-arrivals.png",
+        "description": "Official ETA, including genuine no-estimate or stale states",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-reminder-editor.png",
+        "description": "Arrival reminder editor",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-home.png",
+        "description": "Home using a user-saved official stop",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-nearby.png",
+        "description": "Nearby official stops; browser location input is simulated, not physical GPS",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-routes.png",
+        "description": "Official route catalogue",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-search.png",
+        "description": "Search against official routes",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-bookmarks.png",
+        "description": "Real bookmark writes in the isolated documentation identity",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-settings.png",
+        "description": "Reading preferences and anonymous profile management",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-about.png",
+        "description": "Approved graphic logo in the actual About modal",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-help.png",
+        "description": "Coverage, source and privacy information",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-reminders.png",
+        "description": "Reminder created through the real API in the isolated identity",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-notices.png",
+        "description": "Honest empty publication state; no generated service disruption",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-notice-unavailable.png",
+        "description": "Notice detail unavailable state; no fabricated article",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-planner.png",
+        "description": "Journey candidates from real official stop sequences",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-traffic.png",
+        "description": "Actual TDAS road result, separate from bus ETA",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "admin-login.png",
+        "description": "Admin login with no credentials in the image",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        }
+      },
+      {
+        "file": "admin-overview.png",
+        "description": "Actual Admin overview with isolated documentation traffic",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        }
+      },
+      {
+        "file": "admin-routes.png",
+        "description": "Actual Admin routes with isolated documentation traffic",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        }
+      },
+      {
+        "file": "admin-stops.png",
+        "description": "Actual Admin stops with isolated documentation traffic",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        }
+      },
+      {
+        "file": "admin-notices.png",
+        "description": "Actual Admin notices with isolated documentation traffic",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        }
+      },
+      {
+        "file": "admin-content.png",
+        "description": "Actual Admin content with isolated documentation traffic",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        }
+      },
+      {
+        "file": "admin-features.png",
+        "description": "Actual Admin features with isolated documentation traffic",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        }
+      },
+      {
+        "file": "admin-providers.png",
+        "description": "Actual Admin providers with isolated documentation traffic",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        }
+      },
+      {
+        "file": "admin-jobs.png",
+        "description": "Actual Admin jobs with isolated documentation traffic",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        }
+      },
+      {
+        "file": "admin-audit.png",
+        "description": "Actual Admin audit with isolated documentation traffic",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        }
+      },
+      {
+        "file": "admin-users.png",
+        "description": "Actual Admin users with isolated documentation traffic",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        }
+      },
+      {
+        "file": "backend-openapi.png",
+        "description": "Swagger UI from the actual API contract",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        }
+      },
+      {
+        "file": "backend-routes-json.png",
+        "description": "Actual live HTTP route response; no credentials",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        }
+      },
+      {
+        "file": "brand-home-tc-320.png",
+        "description": "Actual branded Home: {\"locale\":\"tc\",\"label\":\"繁體中文\",\"width\":320,\"height\":740,\"large\":false}",
+        "viewport": {
+          "width": 320,
+          "height": 740
+        }
+      },
+      {
+        "file": "brand-home-tc-375-large.png",
+        "description": "Actual branded Home: {\"locale\":\"tc\",\"label\":\"繁體中文\",\"width\":375,\"height\":812,\"large\":true}",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        }
+      },
+      {
+        "file": "brand-home-sc-320-large.png",
+        "description": "Actual branded Home: {\"locale\":\"sc\",\"label\":\"简体中文\",\"width\":320,\"height\":740,\"large\":true}",
+        "viewport": {
+          "width": 320,
+          "height": 740
+        }
+      },
+      {
+        "file": "brand-home-en-320.png",
+        "description": "Actual branded Home: {\"locale\":\"en\",\"label\":\"English\",\"width\":320,\"height\":740,\"large\":false}",
+        "viewport": {
+          "width": 320,
+          "height": 740
+        }
+      },
+      {
+        "file": "brand-home-en-375-large.png",
+        "description": "Actual branded Home: {\"locale\":\"en\",\"label\":\"English\",\"width\":375,\"height\":812,\"large\":true}",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        }
+      },
+      {
+        "file": "brand-home-en-844-large.png",
+        "description": "Actual branded Home: {\"locale\":\"en\",\"label\":\"English\",\"width\":844,\"height\":390,\"large\":true}",
+        "viewport": {
+          "width": 844,
+          "height": 390
+        }
+      }
+    ],
+    "pageErrors": [],
+    "expectedHttpErrors": [],
+    "browserClosed": true,
+    "temporaryServersClosed": true,
+    "existingBackendUntouched": true,
+    "brandChecks": [
+      {
+        "surface": "Taro bundled logo",
+        "status": 200,
+        "exactAssetMatch": true
+      },
+      {
+        "surface": "Admin logo",
+        "status": 200,
+        "exactAssetMatch": true
+      },
+      {
+        "surface": "API documentation logo + favicon",
+        "status": 200,
+        "exactAssetMatch": true
+      }
+    ],
+    "responsive": [
+      {
+        "locale": "tc",
+        "label": "繁體中文",
+        "width": 320,
+        "height": 740,
+        "large": false,
+        "horizontalOverflow": false,
+        "brandOverlapsControl": false,
+        "buttonHeight": 44,
+        "logoWidth": 48,
+        "logoHeight": 48,
+        "logoHiddenFromAccessibility": "true",
+        "passed": true
+      },
+      {
+        "locale": "tc",
+        "label": "繁體中文",
+        "width": 375,
+        "height": 812,
+        "large": true,
+        "horizontalOverflow": false,
+        "brandOverlapsControl": false,
+        "buttonHeight": 44,
+        "logoWidth": 48,
+        "logoHeight": 48,
+        "logoHiddenFromAccessibility": "true",
+        "passed": true
+      },
+      {
+        "locale": "sc",
+        "label": "简体中文",
+        "width": 320,
+        "height": 740,
+        "large": true,
+        "horizontalOverflow": false,
+        "brandOverlapsControl": false,
+        "buttonHeight": 44,
+        "logoWidth": 48,
+        "logoHeight": 48,
+        "logoHiddenFromAccessibility": "true",
+        "passed": true
+      },
+      {
+        "locale": "en",
+        "label": "English",
+        "width": 320,
+        "height": 740,
+        "large": false,
+        "horizontalOverflow": false,
+        "brandOverlapsControl": false,
+        "buttonHeight": 44,
+        "logoWidth": 48,
+        "logoHeight": 48,
+        "logoHiddenFromAccessibility": "true",
+        "passed": true
+      },
+      {
+        "locale": "en",
+        "label": "English",
+        "width": 375,
+        "height": 812,
+        "large": true,
+        "horizontalOverflow": false,
+        "brandOverlapsControl": false,
+        "buttonHeight": 44,
+        "logoWidth": 48,
+        "logoHeight": 48,
+        "logoHiddenFromAccessibility": "true",
+        "passed": true
+      },
+      {
+        "locale": "en",
+        "label": "English",
+        "width": 844,
+        "height": 390,
+        "large": true,
+        "horizontalOverflow": false,
+        "brandOverlapsControl": false,
+        "buttonHeight": 44,
+        "logoWidth": 48,
+        "logoHeight": 48,
+        "logoHiddenFromAccessibility": "true",
+        "passed": true
+      }
+    ],
+    "catalogue": {
+      "routes": 1611,
+      "stops": 6775,
+      "relations": 36377
+    },
+    "entities": {
+      "routeId": "KMB:112:O:1",
+      "stopId": "6CAA11E0FD871B20",
+      "endStopId": "C3FD63E226246052"
+    },
+    "transport": "Unmodified APK renderer; compiled localhost API origin forwarded to isolated live BFF with real HTTP responses",
+    "finishedAt": "2026-10-16T21:50:42.288Z"
+  },
+  "runtime": {
+    "checkedAt": "2026-10-16T21:49:47.841828+00:00",
+    "base": "http://127.0.0.1:4100",
+    "health": {
+      "data": {
+        "status": "ok",
+        "version": "1.0.0",
+        "database": "ready",
+        "catalogRoutes": 1611,
+        "catalogSyncedAt": "2026-10-16T19:15:28.118Z",
+        "source": "live"
+      },
+      "meta": {
+        "requestId": "13c1c125-877c-484d-901b-5ab02be44c86",
+        "mode": "live",
+        "generatedAt": "2026-10-16T21:49:47.752Z"
+      }
+    },
+    "http": {
+      "health": 200,
+      "apiDocs": 200,
+      "brandScript": 200,
+      "favicon": 200
+    },
+    "faviconExactMatch": true,
+    "faviconSha256": "26bb6cd6a3404bee76ef30acf5fdd3c7275bedef7906e8bb73668d0da374a666",
+    "existingServiceRestarted": true,
+    "databaseReplaced": false,
+    "productionDeployment": false
+  },
+  "scope": {
+    "prototypeTouched": false,
+    "productionDeployment": false,
+    "officialIDE": false,
+    "physicalDevice": false,
+    "platformAvatarUploaded": false,
+    "storePublication": false
+  }
+}
