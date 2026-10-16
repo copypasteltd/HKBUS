@@ -1,17 +1,22 @@
 {
   "remote": "git@github.com:copypasteltd/HKBUS.git",
+  "brand": {
+    "approvedOption": "10",
+    "assetVersion": "1.0.0",
+    "wordmark": false
+  },
   "projects": [
     {
       "branch": "backend",
-      "commit": "b99cd272c04903b2b4cc38facec0afc2e4db4861",
+      "commit": "6fbb76e1bea30c3042bf8327c6c31fead240020d",
       "url": "https://github.com/copypasteltd/HKBUS/tree/backend",
       "docs": {
-        "localLinks": 52,
-        "images": 32,
-        "bilingualReadmeBytes": 12207
+        "localLinks": 80,
+        "images": 39,
+        "bilingualReadmeBytes": 12430
       },
       "git": {
-        "trackedFiles": 78,
+        "trackedFiles": 146,
         "historyBlobsChecked": 96,
         "privateMaterialExcluded": true,
         "submodules": false,
@@ -20,15 +25,15 @@
     },
     {
       "branch": "admin",
-      "commit": "ac1072bc477603048243947f07e9d040db085723",
+      "commit": "c8d457e55ceefdf566cc1b43c7e31896341aa80d",
       "url": "https://github.com/copypasteltd/HKBUS/tree/admin",
       "docs": {
-        "localLinks": 51,
-        "images": 32,
-        "bilingualReadmeBytes": 8902
+        "localLinks": 79,
+        "images": 39,
+        "bilingualReadmeBytes": 9125
       },
       "git": {
-        "trackedFiles": 66,
+        "trackedFiles": 136,
         "historyBlobsChecked": 71,
         "privateMaterialExcluded": true,
         "submodules": false,
@@ -37,15 +42,15 @@
     },
     {
       "branch": "wechat",
-      "commit": "609223aa6118b7bca4c44475f211551131f4c281",
+      "commit": "b25847fbf2b79b72ca33978b027eddef96c209db",
       "url": "https://github.com/copypasteltd/HKBUS/tree/wechat",
       "docs": {
-        "localLinks": 53,
-        "images": 32,
-        "bilingualReadmeBytes": 11966
+        "localLinks": 81,
+        "images": 39,
+        "bilingualReadmeBytes": 12189
       },
       "git": {
-        "trackedFiles": 311,
+        "trackedFiles": 388,
         "historyBlobsChecked": 288,
         "privateMaterialExcluded": true,
         "submodules": false,
@@ -54,15 +59,15 @@
     },
     {
       "branch": "alipay",
-      "commit": "08358d0fecd86712a0175759298df12621f481c5",
+      "commit": "a85158b5be3da4d9ddfc70ea21707d42d7f25592",
       "url": "https://github.com/copypasteltd/HKBUS/tree/alipay",
       "docs": {
-        "localLinks": 53,
-        "images": 32,
-        "bilingualReadmeBytes": 11910
+        "localLinks": 81,
+        "images": 39,
+        "bilingualReadmeBytes": 12133
       },
       "git": {
-        "trackedFiles": 310,
+        "trackedFiles": 387,
         "historyBlobsChecked": 287,
         "privateMaterialExcluded": true,
         "submodules": false,
@@ -71,15 +76,15 @@
     },
     {
       "branch": "douyin",
-      "commit": "c73c208cd2b4fe8bb0932e7345ee4c6f79fe02e4",
+      "commit": "06c8f5c5d37a69b7c7093ba1ccfa96263f76bc46",
       "url": "https://github.com/copypasteltd/HKBUS/tree/douyin",
       "docs": {
-        "localLinks": 53,
-        "images": 32,
-        "bilingualReadmeBytes": 11864
+        "localLinks": 81,
+        "images": 39,
+        "bilingualReadmeBytes": 12087
       },
       "git": {
-        "trackedFiles": 311,
+        "trackedFiles": 388,
         "historyBlobsChecked": 288,
         "privateMaterialExcluded": true,
         "submodules": false,
@@ -88,16 +93,16 @@
     },
     {
       "branch": "android",
-      "commit": "4c08644d86e2a0cd95a54dd0e6bae81c5f6f6521",
+      "commit": "3aaf54fa080edae8850c77b60d9c7a8f331c9e7b",
       "url": "https://github.com/copypasteltd/HKBUS/tree/android",
       "docs": {
-        "localLinks": 53,
-        "images": 32,
-        "bilingualReadmeBytes": 13235
+        "localLinks": 81,
+        "images": 39,
+        "bilingualReadmeBytes": 13458
       },
       "git": {
-        "trackedFiles": 369,
-        "historyBlobsChecked": 0,
+        "trackedFiles": 451,
+        "historyBlobsChecked": 339,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false

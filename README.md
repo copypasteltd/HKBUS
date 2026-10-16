@@ -8,6 +8,8 @@
 
 > `main` · Accessible Calm Minimal · Live data · Live KMB/LWB + TDAS · Accessible Calm Minimal
 
+**品牌 / Brand：已确认 10 号「朱印车迹」纯图形 Logo / Approved option 10, graphic only.** [品牌规范 / Brand guide](docs/BRAND.md) · [本次品牌验证 / Current brand checks](docs/BRAND-ROLLOUT.md)
+
 ## 中文说明
 
 港巴通（HKBusGo）是面向香港 KMB／LWB 客户的巴士查询产品，参考 SG Bus 的信息结构，采用已确认的 **Accessible Calm Minimal** 视觉。路线、站点、站序与 ETA 使用 KMB/LWB 官方数据；道路参考使用 TDAS。没有接口支撑的天气、票价、车辆追踪、客流不会补造。
