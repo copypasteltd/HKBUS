@@ -1,0 +1,255 @@
+{
+  "startedAt": "2026-10-16T20:16:48.530Z",
+  "renderer": "Taro Android web renderer in Chromium, not official mini-program IDE or physical device",
+  "data": "Official KMB/TDAS via real HTTP; isolated memory database",
+  "screenshots": [
+    {
+      "file": "mobile-home-unlocated.png",
+      "description": "Home without a location; no invented station or weather",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "mobile-route.png",
+      "description": "Full official route sequence",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "mobile-arrivals.png",
+      "description": "Official ETA, including genuine no-estimate or stale states",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "mobile-reminder-editor.png",
+      "description": "Arrival reminder editor",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "mobile-home.png",
+      "description": "Home using a user-saved official stop",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "mobile-nearby.png",
+      "description": "Nearby official stops; browser location input is simulated, not physical GPS",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "mobile-routes.png",
+      "description": "Official route catalogue",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "mobile-search.png",
+      "description": "Search against official routes",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "mobile-bookmarks.png",
+      "description": "Real bookmark writes in the isolated documentation identity",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "mobile-settings.png",
+      "description": "Reading preferences and anonymous profile management",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "mobile-help.png",
+      "description": "Coverage, source and privacy information",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "mobile-reminders.png",
+      "description": "Reminder created through the real API in the isolated identity",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "mobile-notices.png",
+      "description": "Honest empty publication state; no generated service disruption",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "mobile-notice-unavailable.png",
+      "description": "Notice detail unavailable state; no fabricated article",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "mobile-planner.png",
+      "description": "Journey candidates from real official stop sequences",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "mobile-traffic.png",
+      "description": "Actual TDAS road result, separate from bus ETA",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "admin-login.png",
+      "description": "Admin login with no credentials in the image",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "file": "admin-overview.png",
+      "description": "Actual Admin overview with isolated documentation traffic",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "file": "admin-routes.png",
+      "description": "Actual Admin routes with isolated documentation traffic",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "file": "admin-stops.png",
+      "description": "Actual Admin stops with isolated documentation traffic",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "file": "admin-notices.png",
+      "description": "Actual Admin notices with isolated documentation traffic",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "file": "admin-content.png",
+      "description": "Actual Admin content with isolated documentation traffic",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "file": "admin-features.png",
+      "description": "Actual Admin features with isolated documentation traffic",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "file": "admin-providers.png",
+      "description": "Actual Admin providers with isolated documentation traffic",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "file": "admin-jobs.png",
+      "description": "Actual Admin jobs with isolated documentation traffic",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "file": "admin-audit.png",
+      "description": "Actual Admin audit with isolated documentation traffic",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "file": "admin-users.png",
+      "description": "Actual Admin users with isolated documentation traffic",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "file": "backend-openapi.png",
+      "description": "Swagger UI from the actual API contract",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "file": "backend-routes-json.png",
+      "description": "Actual live HTTP route response; no credentials",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    }
+  ],
+  "pageErrors": [],
+  "expectedHttpErrors": [],
+  "browserClosed": true,
+  "temporaryServersClosed": true,
+  "existingBackendUntouched": true,
+  "catalogue": {
+    "routes": 1611,
+    "stops": 6775,
+    "relations": 36377
+  },
+  "entities": {
+    "routeId": "KMB:112:O:1",
+    "stopId": "6CAA11E0FD871B20",
+    "endStopId": "C3FD63E226246052"
+  },
+  "finishedAt": "2026-10-16T20:17:37.818Z"
+}

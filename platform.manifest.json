@@ -1,0 +1,17 @@
+{
+  "product": "港巴通 / HKBusGo",
+  "branch": "alipay",
+  "platform": "Alipay Mini Program",
+  "taroTarget": "alipay",
+  "standalone": true,
+  "build": "npm run build",
+  "sourceBaseline": "live-data-2026-10-17",
+  "sourceOrigin": "Taro shared application; full source is vendored here, not a sibling dependency",
+  "backendBranch": "backend",
+  "dataMode": "live-only",
+  "verification": {
+    "officialIDE": false,
+    "physicalDevice": false,
+    "storeRelease": false
+  }
+}

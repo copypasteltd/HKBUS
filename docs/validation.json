@@ -1,0 +1,71 @@
+{
+  "project": "alipay",
+  "passed": true,
+  "checks": {
+    "install": {
+      "exitCode": 0,
+      "passed": true
+    },
+    "typecheck": {
+      "exitCode": 0,
+      "passed": true
+    },
+    "build": {
+      "exitCode": 0,
+      "passed": true
+    },
+    "tests": {
+      "exitCode": 0,
+      "passed": true
+    }
+  },
+  "evidence": {
+    "install": {
+      "file": "docs/evidence/standalone-install.txt",
+      "sha256": "21c24761b370828a151ede99658dd0547f11871f7513252217e4260d7457a8a0"
+    },
+    "typecheck": {
+      "file": "docs/evidence/standalone-typecheck.txt",
+      "sha256": "cad36e4efa216985841f586151e4bf478cae9abeaab6d7ee65e4e345a4575c31"
+    },
+    "build": {
+      "file": "docs/evidence/standalone-build.txt",
+      "sha256": "d519fdf92af116fa87c0e5c6be5ae6648704de3b15c224f783e649304d130fee"
+    },
+    "tests": {
+      "file": "docs/evidence/standalone-tests.txt",
+      "sha256": "2d9fc63db10640c4fe4b4e74b8a809422ef059d6e9db153edb48d982a774bd89"
+    }
+  },
+  "testCount": 7,
+  "sharedApplicationSource": {
+    "files": 249,
+    "matchesLiveIntegrationSource": true,
+    "siblingDependency": false
+  },
+  "artifact": {
+    "type": "alipay",
+    "pages": 14,
+    "files": 261
+  },
+  "warnings": "Existing postcss-calc safe-area env()/rpx minimizer warnings retained; official IDE validation is outstanding.",
+  "checkedAt": "2026-10-16T20:24:55.409507+00:00",
+  "scope": {
+    "officialIDE": false,
+    "physicalDevice": false,
+    "storePublication": false,
+    "productionDeployment": false,
+    "prototypeTouched": false
+  },
+  "screenshots": {
+    "count": 29,
+    "renderer": "Taro Android web renderer in Chromium, not official mini-program IDE or physical device",
+    "catalogue": {
+      "routes": 1611,
+      "stops": 6775,
+      "relations": 36377
+    },
+    "browserClosed": true,
+    "temporaryServersClosed": true
+  }
+}
