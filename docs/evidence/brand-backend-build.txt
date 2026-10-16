@@ -1,0 +1,4 @@
+
+> @hkbusgo/backend@1.0.0 build
+> node scripts/build.mjs
+

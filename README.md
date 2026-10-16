@@ -8,6 +8,8 @@
 
 > `wechat` · Taro 4.3 · React 18 · TypeScript · Live KMB/LWB + TDAS · Accessible Calm Minimal
 
+**品牌 / Brand：已确认 10 号「朱印车迹」纯图形 Logo / Approved option 10, graphic only.** [品牌规范 / Brand guide](docs/BRAND.md) · [本次品牌验证 / Current brand checks](docs/BRAND-ROLLOUT.md)
+
 ## 中文说明
 
 这是港巴通 **微信小程序** 的独立 Git 工程。完整 Taro 源码、图标、测试、配置及锁文件均在本分支内；不引用其他分支的本地目录、不依赖子模块，也不需要克隆共享 Mobile 工程。独立仓库不代表离线后端：运行时仍需要 `backend` 分支的 API。

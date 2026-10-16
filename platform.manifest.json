@@ -13,5 +13,13 @@
     "officialIDE": false,
     "physicalDevice": false,
     "storeRelease": false
+  },
+  "brand": {
+    "approvedOption": "10",
+    "assetVersion": "1.0.0",
+    "wordmark": false,
+    "vectorMaster": "assets/brand/logo-primary.svg",
+    "pageLogo": "src/assets/brand/logo-256.png",
+    "platformAvatar": "resources/mini-program-avatar.png"
   }
 }

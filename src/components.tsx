@@ -6,6 +6,7 @@ import {go,back,currentPath,openStop,openRoute,type Screen} from './navigation';
 import type {Stop,Route,Arrival,Arrivals} from './services/types';
 import type {ApiError} from './services/api';
 export function Icon({name,size=20,color='ink'}:{name:string;size?:number;color?:'ink'|'teal'|'muted'|'white'|'amber'|'coral'}){const aliases:Record<string,string>={back:'arrowLeft',swap:'route'};return <Image className='icon' src={'/assets/icons/'+(aliases[name]||name)+'-'+color+'.png'} style={{width:Taro.pxTransform(size),height:Taro.pxTransform(size)}} mode='aspectFit' ariaHidden/>;}
+export function BrandLogo({size=48,decorative=true}:{size?:number;decorative?:boolean}){return <Image className='brand-logo' src='/assets/brand/logo-256.png' mode='aspectFit' style={{width:Taro.pxTransform(size),height:Taro.pxTransform(size)}} ariaHidden={decorative} ariaLabel={decorative?undefined:'港巴通'}/>;}
 export function Action({children,onClick,secondary=false,loading=false,disabled=false,small=false,label}:{children:ReactNode;onClick:()=>void;secondary?:boolean;loading?:boolean;disabled?:boolean;small?:boolean;label?:string}){return <Button className={'action '+(secondary?'secondary ':'')+(small?'small':'')} onClick={onClick} loading={loading} disabled={disabled||loading} ariaLabel={label}>{children}</Button>;}
 export function Shell({children,title,subtitle,screen,backButton=true}:{children:ReactNode;title?:string;subtitle?:string;screen:Screen;backButton?:boolean}){
   const app=useApp();useShareAppMessage(()=>({title:'港巴通',path:currentPath()}));

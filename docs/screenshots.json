@@ -1,5 +1,5 @@
 {
-  "startedAt": "2026-10-16T20:16:48.530Z",
+  "startedAt": "2026-10-16T21:50:25.335Z",
   "renderer": "Taro Android web renderer in Chromium, not official mini-program IDE or physical device",
   "data": "Official KMB/TDAS via real HTTP; isolated memory database",
   "screenshots": [
@@ -78,6 +78,14 @@
     {
       "file": "mobile-settings.png",
       "description": "Reading preferences and anonymous profile management",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "mobile-about.png",
+      "description": "Approved graphic logo in the actual About modal",
       "viewport": {
         "width": 390,
         "height": 844
@@ -234,6 +242,54 @@
         "width": 1440,
         "height": 1000
       }
+    },
+    {
+      "file": "brand-home-tc-320.png",
+      "description": "Actual branded Home: {\"locale\":\"tc\",\"label\":\"繁體中文\",\"width\":320,\"height\":740,\"large\":false}",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      }
+    },
+    {
+      "file": "brand-home-tc-375-large.png",
+      "description": "Actual branded Home: {\"locale\":\"tc\",\"label\":\"繁體中文\",\"width\":375,\"height\":812,\"large\":true}",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      }
+    },
+    {
+      "file": "brand-home-sc-320-large.png",
+      "description": "Actual branded Home: {\"locale\":\"sc\",\"label\":\"简体中文\",\"width\":320,\"height\":740,\"large\":true}",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      }
+    },
+    {
+      "file": "brand-home-en-320.png",
+      "description": "Actual branded Home: {\"locale\":\"en\",\"label\":\"English\",\"width\":320,\"height\":740,\"large\":false}",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      }
+    },
+    {
+      "file": "brand-home-en-375-large.png",
+      "description": "Actual branded Home: {\"locale\":\"en\",\"label\":\"English\",\"width\":375,\"height\":812,\"large\":true}",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      }
+    },
+    {
+      "file": "brand-home-en-844-large.png",
+      "description": "Actual branded Home: {\"locale\":\"en\",\"label\":\"English\",\"width\":844,\"height\":390,\"large\":true}",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      }
     }
   ],
   "pageErrors": [],
@@ -241,6 +297,109 @@
   "browserClosed": true,
   "temporaryServersClosed": true,
   "existingBackendUntouched": true,
+  "brandChecks": [
+    {
+      "surface": "Taro bundled logo",
+      "status": 200,
+      "exactAssetMatch": true
+    },
+    {
+      "surface": "Admin logo",
+      "status": 200,
+      "exactAssetMatch": true
+    },
+    {
+      "surface": "API documentation logo + favicon",
+      "status": 200,
+      "exactAssetMatch": true
+    }
+  ],
+  "responsive": [
+    {
+      "locale": "tc",
+      "label": "繁體中文",
+      "width": 320,
+      "height": 740,
+      "large": false,
+      "horizontalOverflow": false,
+      "brandOverlapsControl": false,
+      "buttonHeight": 44,
+      "logoWidth": 48,
+      "logoHeight": 48,
+      "logoHiddenFromAccessibility": "true",
+      "passed": true
+    },
+    {
+      "locale": "tc",
+      "label": "繁體中文",
+      "width": 375,
+      "height": 812,
+      "large": true,
+      "horizontalOverflow": false,
+      "brandOverlapsControl": false,
+      "buttonHeight": 44,
+      "logoWidth": 48,
+      "logoHeight": 48,
+      "logoHiddenFromAccessibility": "true",
+      "passed": true
+    },
+    {
+      "locale": "sc",
+      "label": "简体中文",
+      "width": 320,
+      "height": 740,
+      "large": true,
+      "horizontalOverflow": false,
+      "brandOverlapsControl": false,
+      "buttonHeight": 44,
+      "logoWidth": 48,
+      "logoHeight": 48,
+      "logoHiddenFromAccessibility": "true",
+      "passed": true
+    },
+    {
+      "locale": "en",
+      "label": "English",
+      "width": 320,
+      "height": 740,
+      "large": false,
+      "horizontalOverflow": false,
+      "brandOverlapsControl": false,
+      "buttonHeight": 44,
+      "logoWidth": 48,
+      "logoHeight": 48,
+      "logoHiddenFromAccessibility": "true",
+      "passed": true
+    },
+    {
+      "locale": "en",
+      "label": "English",
+      "width": 375,
+      "height": 812,
+      "large": true,
+      "horizontalOverflow": false,
+      "brandOverlapsControl": false,
+      "buttonHeight": 44,
+      "logoWidth": 48,
+      "logoHeight": 48,
+      "logoHiddenFromAccessibility": "true",
+      "passed": true
+    },
+    {
+      "locale": "en",
+      "label": "English",
+      "width": 844,
+      "height": 390,
+      "large": true,
+      "horizontalOverflow": false,
+      "brandOverlapsControl": false,
+      "buttonHeight": 44,
+      "logoWidth": 48,
+      "logoHeight": 48,
+      "logoHiddenFromAccessibility": "true",
+      "passed": true
+    }
+  ],
   "catalogue": {
     "routes": 1611,
     "stops": 6775,
@@ -251,5 +410,6 @@
     "stopId": "6CAA11E0FD871B20",
     "endStopId": "C3FD63E226246052"
   },
-  "finishedAt": "2026-10-16T20:17:37.818Z"
+  "transport": "Unmodified APK renderer; compiled localhost API origin forwarded to isolated live BFF with real HTTP responses",
+  "finishedAt": "2026-10-16T21:50:42.288Z"
 }
