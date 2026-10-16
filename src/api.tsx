@@ -5,6 +5,7 @@ export async function request<T>(path:string,method='GET',data?:unknown):Promise
   try{response=await fetch((import.meta.env.VITE_API_BASE||'/api')+path,{method,credentials:'include',headers:{'Content-Type':'application/json','X-HKBus-Admin':'1'},...(data!==undefined?{body:JSON.stringify(data)}:{}),signal:AbortSignal.timeout(20000)});}catch{throw new ApiError('NETWORK_ERROR','無法連線至服務，請檢查網絡或後端狀態。');}
   const body=await response.json().catch(()=>({}));
   if(!response.ok){if(response.status===401&&!path.endsWith('/auth/login')&&!path.endsWith('/auth/me'))window.dispatchEvent(new Event('hkbus-session-expired'));throw new ApiError(body.error?.code||'REQUEST_FAILED',body.error?.message||'操作未完成，請重試。',response.status,body.error?.requestId,body.error?.fields);}
+  if(body.meta?.mode!=='live')throw new ApiError('NON_LIVE_DATA','管理台只連接真實資料服務，請檢查 API 地址。');
   return body.data as T;
 }
 export function useResource<T>(path:string|null){

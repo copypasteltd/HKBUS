@@ -1,0 +1,51 @@
+{
+  "project": "admin",
+  "passed": true,
+  "checks": {
+    "install": {
+      "exitCode": 0,
+      "passed": true
+    },
+    "typecheck": {
+      "exitCode": 0,
+      "passed": true
+    },
+    "build": {
+      "exitCode": 0,
+      "passed": true
+    }
+  },
+  "evidence": {
+    "install": {
+      "file": "docs/evidence/standalone-install.txt",
+      "sha256": "dfdaaa609428dd00e183ab39e1dcc9d6ee172462b4522f7d5d55ebd5a84934e1"
+    },
+    "typecheck": {
+      "file": "docs/evidence/standalone-typecheck.txt",
+      "sha256": "6e84f11baf932f43e2d6889cb07a74ce0119f956032ef3f3bff1bd21f8e96498"
+    },
+    "build": {
+      "file": "docs/evidence/standalone-build.txt",
+      "sha256": "a91d0da9ed310a82909d541959dbd8de60a565ba8b23e732ccc383aee89b898d"
+    }
+  },
+  "checkedAt": "2026-10-16T20:24:55.409507+00:00",
+  "scope": {
+    "officialIDE": false,
+    "physicalDevice": false,
+    "storePublication": false,
+    "productionDeployment": false,
+    "prototypeTouched": false
+  },
+  "screenshots": {
+    "count": 29,
+    "renderer": "Taro Android web renderer in Chromium, not official mini-program IDE or physical device",
+    "catalogue": {
+      "routes": 1611,
+      "stops": 6775,
+      "relations": 36377
+    },
+    "browserClosed": true,
+    "temporaryServersClosed": true
+  }
+}

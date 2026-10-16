@@ -1,33 +1,106 @@
-# 港巴通 Admin
+# 港巴通 HKBusGo — 运营管理后台 / Operations Admin
 
-React 18 + Vite 6 + TypeScript，延續已鎖定的暖白、深藍與青綠 Accessible Calm Minimal 視覺。
+![HKBusGo Operations Admin](docs/assets/banner-admin.png)
 
-## 啟動與構建
+[中文说明](#中文说明) · [English](#english) · [完整图册 / Gallery](docs/GALLERY.md) · [数据与验证 / Data & validation](docs/DATA-AND-VALIDATION.md)
+
+[总览 / Index](https://github.com/copypasteltd/HKBUS/tree/main) · [Backend](https://github.com/copypasteltd/HKBUS/tree/backend) · [Admin](https://github.com/copypasteltd/HKBUS/tree/admin) · [微信 / WeChat](https://github.com/copypasteltd/HKBUS/tree/wechat) · [支付宝 / Alipay](https://github.com/copypasteltd/HKBUS/tree/alipay) · [抖音 / Douyin](https://github.com/copypasteltd/HKBUS/tree/douyin) · [Android](https://github.com/copypasteltd/HKBUS/tree/android)
+
+> `admin` · React 18 · Vite 6 · TypeScript · Live KMB/LWB + TDAS · Accessible Calm Minimal
+
+## 中文说明
+
+独立 React 18 / Vite 6 / TypeScript 运营后台，连接 `backend` 分支真实 API。沿用暖白、深蓝与青绿 Accessible Calm Minimal。无需其他前端源码即可构建，运行时需要 Backend 和授权管理账号。
+
+### 实际截图
+
+![Admin overview](docs/assets/admin-overview.png)
+
+| 登录 / Login | 数据来源 / Providers |
+|---|---|
+| <img src="docs/assets/admin-login.png" width="500" alt="Admin login"> | <img src="docs/assets/admin-providers.png" width="500" alt="Provider health"> |
+
+截图来自实际 Admin 构建与真实官方数据。请求量是隔离文档检查流量，通告为空，不代表真实客户运营规模。[完整图册](docs/GALLERY.md)包含登录及全部 10 个后台板块。
+
+### 克隆与运行
 
 ```powershell
+git clone --branch admin --single-branch git@github.com:copypasteltd/HKBUS.git hkbusgo-admin
+cd hkbusgo-admin
 npm ci
 npm run dev
+```
+
+Node.js 22.14+、npm 10。开发入口 `http://127.0.0.1:5174`，默认 `/api` 代理 Backend `http://127.0.0.1:4100`。先按 Backend README 生成本机凭证、同步并启动；再从本机 Backend `.env.local` 读取初始账号登录，前端不内置密码。
+
+```powershell
+npm run typecheck
 npm run build
 npm run preview
 ```
 
-開發入口 `http://127.0.0.1:5174`，預設代理 `/api` 至 `http://127.0.0.1:4100`。先啟動 Backend，再使用 Backend 本機 `.env.local` 的初始帳號登入。前端不內置管理員密碼或 API 密鑰。
+产物 `dist/`，本机构建预览 `http://127.0.0.1:4174`。`VITE_API_BASE` 默认 `/api`；生产由同源 HTTPS 网站反向代理到 Backend。`ADMIN_API_PROXY` 调整开发/预览代理地址，需要在启动进程前设置环境变量；`.env.example` 是参考。更改 `VITE_API_BASE` 后重新构建。
 
-複製 `.env.example` 為 `.env.local` 可更改開發代理；正式構建建議保留 `VITE_API_BASE=/api`，由 HTTPS 網站反向代理 API。`npm run preview` 為本機驗收，非正式服務。
+### 功能与权限
 
-## 功能
-
-| 區域 | 內容 |
+| 板块 | 业务 |
 |---|---|
-| 營運總覽 | 實際請求流量、路線方向/車站數、提醒數、同步與最近操作 |
-| 路線 / 車站 | 官方資料搜尋、分頁、站序詳情、目前到站預覽；官方主資料唯讀 |
-| 服務通告 | 三語編輯、有效時間、平台、路線/車站多選；草稿→審核→通過→發布；撤回、歷史和回滾 |
-| 產品內容 | 三語覆蓋、私隱、使用說明、來源、支援電郵和維護提示 |
-| 功能設定 | 提醒、行程、道路、位置示意開關與 ETA 新鮮度策略 |
-| 資料來源 / 任務 | 真實上游成功率與延遲、資料品質、同步任務、快取清除、提醒評估 |
-| 操作審計 | 唯讀追蹤發布、設定和帳號變更 |
-| 管理帳號 | 新增帳號、角色、停用、重設密碼、會話撤銷、最後管理員保護 |
+| 总览 | 当前路线/站点、有效已发布通告、提醒、实际 API 流量/时延、同步和操作 |
+| 路线 / 站点 | 官方目录搜索、分页、方向/服务类型、完整站序、真实 ETA 预览；主数据只读 |
+| 服务通告 | 三语、有效期、平台/路线/站点、多阶段发布、撤回、历史和回滚 |
+| 产品内容 / 功能设置 | 三语覆盖、隐私、帮助、来源、维护、功能开关、ETA 时效策略 |
+| 数据来源 / 同步任务 | KMB/TDAS 实际成功率和延迟、目录质量、任务状态、缓存清理和提醒评估 |
+| 审计 / 账号 | 关键操作追溯、账号新建/角色/停用/密码重设/会话撤销、最后管理员保护 |
 
-角色同時在 UI 和 Backend 限制。viewer 唯讀；editor 維護和提交內容；operator 審核、發布與運維；admin 管理帳號。沒有收到 API 成功回應時，介面不會顯示保存成功。
+| 角色 | 可执行操作 |
+|---|---|
+| viewer | 只读授权页面 |
+| editor | 内容编辑和送审 |
+| operator | 内容审核/批准/发布、配置和运维 |
+| admin | operator 能力及管理账号 |
 
-支援鍵盤操作、原生 dialog 焦點管理、表單標籤、錯誤追蹤編號、小螢幕側欄與橫向表格捲動。報表來自實際 API 請求，不填充虛構營運指標。
+UI 与 Backend 双重限制。Admin 使用 HttpOnly Cookie、允许的 Origin 和 `X-HKBus-Admin: 1`。表单仅在 API 成功后显示成功，401 恢复登录，409 版本冲突须重载后核对。只接受 live envelope，不能连接历史 fixture 服务。
+
+### 目录、联调与发行
+
+`src/App.tsx` 管理会话和导航；`src/api.tsx` 统一真实请求、错误与资源状态；`src/pages` 包含各业务板块；`src/ui.tsx` 提供角色、表单、弹窗和反馈组件；`src/styles.css` 实现设计系统；`docs` 为素材与验证。
+
+生产部署 `dist`，以同源 HTTPS 代理 `/api`，保留 `/api/admin` Cookie 路径。Backend CORS 需包含实际 Admin origin；如跨源还需正确 Cookie/凭证策略，建议同源配置。不上传 `.env.local`、密码或服务器数据库。没有新增 demo 或 Vercel 部署。
+
+| 问题 | 处理 |
+|---|---|
+| 无法连接 | 检查 Backend 4100、`ADMIN_API_PROXY` 与 `/api` 代理 |
+| 401 / 403 | 检查会话、角色、Origin 和 X-HKBus-Admin；失效后重新登录 |
+| 409 | 其他人已改版，重新读取后核对，不强制覆盖 |
+| 指标为空 | 尚无真实请求或发布内容，不填充假增长 |
+| 同步失败 | 查看实际任务与上游状态；旧完整目录继续可用 |
+
+类型/编译与真实浏览器登录/目录/数据源已检查；不等于生产部署或四端真机通过。[验证记录](docs/validation.json)、[数据边界](docs/DATA-AND-VALIDATION.md)、[素材来源](docs/ASSETS.md)。
+
+## English
+
+This is the independent React 18 / Vite 6 / TypeScript Operations Admin. It connects to the real Backend API and uses the Accessible Calm Minimal warm-white, navy and teal design. Building requires no sibling frontend checkout; runtime requires the Backend and an authorised administrator.
+
+### Screenshots and setup
+
+The screenshots above and the [full gallery](docs/GALLERY.md) show the actual Admin build with official data. Request metrics reflect isolated documentation traffic, not customers. Empty notice content is intentional. The gallery covers login and all 10 navigation areas.
+
+Clone branch `admin`, run `npm ci` then `npm run dev` with Node.js 22.14+ and npm 10. Development runs on `http://127.0.0.1:5174`, proxying `/api` to `http://127.0.0.1:4100`. Bootstrap/synchronise/start the Backend first, then read the initial credentials from its ignored local environment file. This frontend embeds no password.
+
+Run `npm run typecheck` and `npm run build`; output is `dist/`. `npm run preview` serves the local build at `http://127.0.0.1:4174`. `VITE_API_BASE` defaults to `/api`; production should reverse proxy that path on the same HTTPS origin. Set `ADMIN_API_PROXY` in the process environment before starting dev/preview when changing its target; `.env.example` documents the values. Changes to `VITE_API_BASE` require rebuilding.
+
+### Features and access control
+
+Overview shows current catalogue/publication/reminder counts, actual API traffic/latency, sync and recent operations. Routes and Stops support official directory search, paging, directions/service types, sequences and live ETA previews; official master data is read-only.
+
+Notices support three languages, validity windows, platform/route/stop targeting, staged review/approval/publication, withdrawal, history and rollback. Product Content and Controls manage coverage, privacy, help, sources, maintenance, feature switches and ETA freshness. Providers and Jobs show real upstream success/latency, data quality, task state, cache purging and reminder evaluation. Audit and Team Access track operations and manage users, roles, disabling, password reset and session revocation, with last-admin protection.
+
+Viewer is read-only; editor edits/submits content; operator reviews/publishes and operates settings/jobs; admin additionally manages accounts. Both UI and Backend enforce access. Mutations use an HttpOnly session cookie, allowed Origin and `X-HKBus-Admin: 1`. Success is shown only after actual API success. A 401 restores login; a 409 requires reloading/reviewing the latest version. Non-live envelopes are rejected.
+
+### Structure, deployment and troubleshooting
+
+`src/App.tsx` handles navigation/session; `src/api.tsx` implements transport/errors/resources; `src/pages` contains business areas; `src/ui.tsx` handles role-aware shared controls/forms/dialogs; `src/styles.css` contains the design system; `docs` holds images/evidence.
+
+For production, serve `dist` over HTTPS and proxy `/api` on the same origin, preserving the `/api/admin` cookie path. Add the actual origin to Backend CORS. Cross-origin cookies require additional correct credential policy; same-origin hosting is the documented default. Keep local environment files, passwords and server databases outside Git. No demo or Vercel deployment is part of this work.
+
+For connection failure, check Backend 4100 and the proxy. For 401/403, inspect session, role, Origin and mutation header, then re-authenticate. For 409, reload/review rather than force overwrite. Empty metrics mean no actual traffic/content; sync failures retain the last complete catalogue. Types/build and real browser login/catalogue/provider checks are recorded separately from production and physical-device acceptance. See [checkout validation](docs/validation.json), [data rules](docs/DATA-AND-VALIDATION.md) and [provenance](docs/ASSETS.md).

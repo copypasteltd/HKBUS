@@ -1,0 +1,122 @@
+{
+  "errors": 0,
+  "warnings": 23,
+  "issues": [
+    {
+      "id": "ManifestOrder",
+      "severity": "Warning",
+      "message": "`<uses-permission>` tag appears after `<application>` tag"
+    },
+    {
+      "id": "DataExtractionRules",
+      "severity": "Warning",
+      "message": "The attribute `android:allowBackup` is deprecated from Android 12 and higher and may be removed in future versions. Consider adding the attribute `android:dataExtractionRules` specifying an `@xml` resource which configures cloud backups and device transfers on Android 12 and higher."
+    },
+    {
+      "id": "ObsoleteSdkInt",
+      "severity": "Warning",
+      "message": "This folder configuration (`v24`) is unnecessary; `minSdkVersion` is 24. Merge all the resources in this folder into `drawable`."
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.layout.activity_main` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.xml.config` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.drawable.ic_launcher_background` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.drawable.ic_launcher_foreground` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.drawable.splash` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.string.package_name` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.string.custom_url_scheme` appears to be unused"
+    },
+    {
+      "id": "IconLauncherShape",
+      "severity": "Warning",
+      "message": "Launcher icon used as round icon did not have a circular shape"
+    },
+    {
+      "id": "IconLauncherShape",
+      "severity": "Warning",
+      "message": "Launcher icon used as round icon did not have a circular shape"
+    },
+    {
+      "id": "IconLauncherShape",
+      "severity": "Warning",
+      "message": "Launcher icon used as round icon did not have a circular shape"
+    },
+    {
+      "id": "IconLauncherShape",
+      "severity": "Warning",
+      "message": "Launcher icon used as round icon did not have a circular shape"
+    },
+    {
+      "id": "IconLauncherShape",
+      "severity": "Warning",
+      "message": "Launcher icon used as round icon did not have a circular shape"
+    },
+    {
+      "id": "IconDipSize",
+      "severity": "Warning",
+      "message": "The image `splash.png` varies significantly in its density-independent (dip) size across the various density versions: drawable-land-hdpi/splash.png: 533x320 dp (800x480 px), drawable-land-mdpi/splash.png: 480x320 dp (480x320 px), drawable-land-xhdpi/splash.png: 640x360 dp (1280x720 px), drawable-land-xxhdpi/splash.png: 533x320 dp (1600x960 px), drawable-land-xxxhdpi/splash.png: 480x320 dp (1920x1280 px)"
+    },
+    {
+      "id": "IconDuplicatesConfig",
+      "severity": "Warning",
+      "message": "The `splash.png` icon has identical contents in the following configuration folders: drawable-land-mdpi, drawable"
+    },
+    {
+      "id": "IconLocation",
+      "severity": "Warning",
+      "message": "Found bitmap drawable `res/drawable/splash.png` in densityless folder"
+    },
+    {
+      "id": "IconDuplicates",
+      "severity": "Warning",
+      "message": "The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png"
+    },
+    {
+      "id": "IconDuplicates",
+      "severity": "Warning",
+      "message": "The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png"
+    },
+    {
+      "id": "IconDuplicates",
+      "severity": "Warning",
+      "message": "The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png"
+    },
+    {
+      "id": "IconDuplicates",
+      "severity": "Warning",
+      "message": "The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png"
+    },
+    {
+      "id": "IconDuplicates",
+      "severity": "Warning",
+      "message": "The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png"
+    }
+  ],
+  "propertyEscapeFixed": true
+}
