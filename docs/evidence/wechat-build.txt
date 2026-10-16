@@ -1,0 +1,275 @@
+
+> @hkbusgo/wechat@1.0.0 build
+> taro build --type weapp
+
+👽 Taro v4.3.0
+
+Tips:
+1. 建议开启持久化缓存功能，能有效提升二次编译速度，详情请参考: https://docs.taro.zone/docs/config-detail#cache。
+
+
+
+● Webpack █████████████████████████  (0%)  
+ 
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ setup (2%)  
+ run
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ setup (9%) compilation 
+ mini-css-extract-plugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ setup (9%) compilation 
+ CssMinimizerPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/32 entries 30/32 dependen
+cies 0/30 modules 1 active 
+ babel-loader › src\app.config.ts
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/32 entries 30/32 dependen
+cies 0/30 modules 1 active 
+ babel-loader › src\app.config.ts
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/32 entries 30/32 dependen
+cies 0/30 modules 2 active 
+ babel-loader › src\app.tsx
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/32 entries 30/32 dependen
+cies 1/30 modules 29 active 
+ babel-loader › src\pages\traffic\index.tsx
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 48/91 depende
+ncies 14/48 modules 34 active 
+ babel-loader › src\state.tsx
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 52/91 depende
+ncies 14/52 modules 35 active 
+ ...\implementation\wechat\node_modules\@babel\runtime\helpers\esm\objectSprea
+d2.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 67/93 depende
+ncies 14/58 modules 44 active 
+ babel-loader › node_modules\@tarojs\plugin-framework-react\dist\runtime.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 68/93 depende
+ncies 14/59 modules 45 active 
+ babel-loader › node_modules\@tarojs\plugin-platform-weapp\dist\runtime.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 128/161 depen
+dencies 14/65 modules 51 active 
+ ...ss
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%)  
+ import loader .\node_modules\css-loader\dist\cjs.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%)  
+ import loader .\node_modules\postcss-loader\dist\cjs.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%)  
+ import loader .\node_modules\resolve-url-loader\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%)  
+ import loader .\node_modules\sass-loader\dist\cjs.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 128/161 depen
+dencies 14/65 modules 51 active 
+ ...ss
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 145/162 depen
+dencies 14/70 modules 52 active 
+ ...\implementation\wechat\node_modules\@babel\runtime\helpers\esm\slicedToArr
+ay.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 164/175 depen
+dencies 16/76 modules 60 active 
+ ...lementation\wechat\node_modules\@babel\runtime\helpers\esm\regeneratorDefi
+ne.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 179/200 depen
+dencies 16/80 modules 60 active 
+ ...lementation\wechat\node_modules\@babel\runtime\helpers\esm\regeneratorDefi
+ne.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 225/270 depen
+dencies 20/94 modules 71 active 
+ babel-loader › node_modules\@tarojs\runtime\dist\next-tick.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 240/275 depen
+dencies 21/108 modules 79 active 
+ babel-loader › node_modules\@tarojs\runtime\dist\bom\document.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 261/278 depen
+dencies 30/128 modules 98 active 
+ ...der › node_modules\@tarojs\runtime\dist\dom-external\mutation-observer\ind
+ex.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 265/278 depen
+dencies 30/132 modules 101 active 
+ ...implementation\wechat\node_modules\@babel\runtime\helpers\esm\setPrototype
+Of.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 269/295 depen
+dencies 34/133 modules 99 active 
+ ...plementation\wechat\node_modules\@babel\runtime\helpers\esm\arrayLikeToArr
+ay.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 286/300 depen
+dencies 34/134 modules 99 active 
+ ...plementation\wechat\node_modules\@babel\runtime\helpers\esm\arrayLikeToArr
+ay.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 348/444 depen
+dencies 39/134 modules 94 active 
+ ...plementation\wechat\node_modules\@babel\runtime\helpers\esm\arrayLikeToArr
+ay.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 413/473 depen
+dencies 47/136 modules 87 active 
+ babel-loader › node_modules\@tarojs\shared\dist\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/32 entries 462/473 depen
+dencies 55/155 modules 100 active 
+ ... node_modules\@tarojs\runtime\dist\dom-external\mutation-observer\implemen
+ts.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (35%) 15/32 entries 497/520 depen
+dencies 71/157 modules 86 active 
+ ...sted\HKBUS\implementation\wechat\node_modules\@babel\runtime\helpers\esm\g
+et.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (35%) 15/32 entries 506/527 depen
+dencies 78/163 modules 80 active 
+ ...\implementation\wechat\node_modules\@babel\runtime\helpers\esm\readOnlyErr
+or.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (35%) 15/32 entries 516/538 depen
+dencies 79/166 modules 85 active 
+ babel-loader › node_modules\@tarojs\api\dist\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (35%) 15/32 entries 519/539 depen
+dencies 80/167 modules 87 active 
+ node_modules\@capacitor\core\dist\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (35%) 15/32 entries 558/558 depen
+dencies 87/183 modules 95 active 
+ ...\implementation\wechat\node_modules\@babel\runtime\helpers\esm\superPropBa
+se.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (35%) 15/32 entries 586/588 depen
+dencies 100/183 modules 83 active 
+ ...|D:\dev\copypasted\HKBUS\implementation\wechat\node_modules\tslib\tslib.es
+6.mjs
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (35%) 15/32 entries 596/605 depen
+dencies 130/189 modules 53 active 
+ node_modules\@capacitor\share\dist\esm\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (42%) 19/32 entries 614/617 depen
+dencies 151/193 modules 42 active 
+ babel-loader › node_modules\@tarojs\api\dist\interceptor\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (42%) 19/32 entries 620/623 depen
+dencies 156/196 modules 40 active 
+ node_modules\scheduler\cjs\scheduler.production.min.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (42%) 19/32 entries 626/626 depen
+dencies 160/200 modules 40 active 
+ ...ed\HKBUS\implementation\wechat\node_modules\@capacitor\synapse\dist\synaps
+e.mjs
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (71%) dependencies optimization 
+ FlagDependencyUsagePlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (78%)  
+ chunk modules optimization
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (88%)  
+ runtime requirements
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ TaroMiniPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ CssMinimizerPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ RealContentHashPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ emitting (98%)  
+ after emit
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+√ Webpack
+  Compiled successfully in 1.37m
+
+⚠️ Warnings: 
+
+Warning: app.wxss from Css Minimizer plugin
+postcss-calc: D:\dev\copypasted\HKBUS\implementation\wechat\app.wxss:57:3: Parse error on line 1: 
+env(safe-area-inset-top, 0rpx) + 19.23077rpx
+-----------------------------------^
+Expecting end of input, "RPAREN", "ADD", "SUB", "MUL", "DIV", got unexpected "UNKNOWN_DIMENSION"
+
+Warning: app.wxss from Css Minimizer plugin
+postcss-calc: D:\dev\copypasted\HKBUS\implementation\wechat\app.wxss:182:3: Parse error on line 1: 
+env(safe-area-inset-bottom, 0rpx) + 9.61538rpx
+-------------------------------------^
+Expecting end of input, "RPAREN", "ADD", "SUB", "MUL", "DIV", got unexpected "UNKNOWN_DIMENSION"
+
+Warning: app.wxss from Css Minimizer plugin
+postcss-calc: D:\dev\copypasted\HKBUS\implementation\wechat\app.wxss:222:3: Parse error on line 1: 
+env(safe-area-inset-top, 0rpx) + 34.61538rpx
+-----------------------------------^
+Expecting end of input, "RPAREN", "ADD", "SUB", "MUL", "DIV", got unexpected "UNKNOWN_DIMENSION"
+
+Warning: app.wxss from Css Minimizer plugin
+postcss-calc: D:\dev\copypasted\HKBUS\implementation\wechat\app.wxss:755:3: Parse error on line 1: 
+env(safe-area-inset-bottom, 0rpx) + 46.15385rpx
+--------------------------------------^
+Expecting end of input, "RPAREN", "ADD", "SUB", "MUL", "DIV", got unexpected "UNKNOWN_DIMENSION"
+

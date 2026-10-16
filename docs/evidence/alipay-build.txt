@@ -1,0 +1,314 @@
+
+> @hkbusgo/alipay@1.0.0 build
+> taro build --type alipay
+
+👽 Taro v4.3.0
+
+Tips:
+1. 建议开启持久化缓存功能，能有效提升二次编译速度，详情请参考: https://docs.taro.zone/docs/config-detail#cache。
+
+
+
+● Webpack █████████████████████████  (0%)  
+ 
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ setup (2%)  
+ run
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ setup (9%) compilation 
+ mini-css-extract-plugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ setup (9%) compilation 
+ CssMinimizerPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/31 entries 31/31 dependen
+cies 0/31 modules 1 active 
+ babel-loader › src\app.config.ts
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/31 entries 31/31 dependen
+cies 0/31 modules 1 active 
+ babel-loader › src\app.config.ts
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/31 entries 31/31 dependen
+cies 0/31 modules 2 active 
+ babel-loader › src\app.tsx
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/31 entries 31/31 dependen
+cies 0/31 modules 4 active 
+ babel-loader › src\pages\routes\index.tsx
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/31 entries 31/32 dependen
+cies 0/31 modules 31 active 
+ ...l-loader › node_modules\@tarojs\webpack5-runner\dist\template\custom-wrapp
+er.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 46/68 depende
+ncies 14/46 modules 18 active 
+ taro-loader › src\pages\routes\index.tsx
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 65/91 depende
+ncies 14/56 modules 38 active 
+ babel-loader › src\screens\discovery.tsx
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 66/91 depende
+ncies 14/57 modules 43 active 
+ babel-loader › node_modules\@tarojs\plugin-framework-react\dist\runtime.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 67/91 depende
+ncies 14/58 modules 44 active 
+ babel-loader › node_modules\@tarojs\plugin-platform-alipay\dist\runtime.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 84/91 depende
+ncies 14/59 modules 45 active 
+ babel-loader › node_modules\@tarojs\runtime\dist\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 89/126 depend
+encies 14/62 modules 47 active 
+ node_modules\react\jsx-runtime.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%)  
+ import loader .\node_modules\css-loader\dist\cjs.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%)  
+ import loader .\node_modules\postcss-loader\dist\cjs.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%)  
+ import loader .\node_modules\resolve-url-loader\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%)  
+ import loader .\node_modules\sass-loader\dist\cjs.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 117/161 depen
+dencies 16/67 modules 47 active 
+ ...ss
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 117/162 depen
+dencies 16/67 modules 48 active 
+ ...\implementation\alipay\node_modules\@babel\runtime\helpers\esm\slicedToArr
+ay.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 160/162 depen
+dencies 16/73 modules 52 active 
+ ...ss
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 166/175 depen
+dencies 16/75 modules 58 active 
+ ...implementation\alipay\node_modules\@babel\runtime\helpers\esm\defineProper
+ty.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 174/228 depen
+dencies 16/81 modules 64 active 
+ ...entation\alipay\node_modules\@babel\runtime\helpers\esm\iterableToArrayLim
+it.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 187/235 depen
+dencies 18/83 modules 64 active 
+ ...implementation\alipay\node_modules\@babel\runtime\helpers\esm\arrayWithHol
+es.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 191/235 depen
+dencies 19/83 modules 64 active 
+ ...mplementation\alipay\node_modules\@babel\runtime\helpers\esm\nonIterableRe
+st.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 248/265 depen
+dencies 23/123 modules 73 active 
+ ...der › node_modules\@tarojs\runtime\dist\dom-external\mutation-observer\ind
+ex.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 255/265 depen
+dencies 23/129 modules 106 active 
+ ...ion\alipay\node_modules\@babel\runtime\helpers\esm\possibleConstructorRetu
+rn.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 259/265 depen
+dencies 24/131 modules 106 active 
+ ...plementation\alipay\node_modules\@babel\runtime\helpers\esm\arrayLikeToArr
+ay.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 260/288 depen
+dencies 27/132 modules 105 active 
+ ...implementation\alipay\node_modules\@babel\runtime\helpers\esm\setPrototype
+Of.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 281/297 depen
+dencies 32/133 modules 100 active 
+ ...implementation\alipay\node_modules\@babel\runtime\helpers\esm\setPrototype
+Of.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 426/469 depen
+dencies 50/137 modules 82 active 
+ babel-loader › node_modules\@tarojs\shared\dist\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 448/471 depen
+dencies 51/143 modules 91 active 
+ babel-loader › node_modules\@tarojs\runtime\dist\dom\class-list.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 452/471 depen
+dencies 51/146 modules 94 active 
+ babel-loader › node_modules\@tarojs\runtime\dist\utils\cache.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 476/499 depen
+dencies 55/161 modules 99 active 
+ babel-loader › node_modules\@tarojs\shared\dist\event-channel.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 486/500 depen
+dencies 57/164 modules 104 active 
+ babel-loader › node_modules\@tarojs\shared\dist\event-emitter.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 514/535 depen
+dencies 81/167 modules 84 active 
+ ...sted\HKBUS\implementation\alipay\node_modules\@babel\runtime\helpers\esm\s
+et.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 523/535 depen
+dencies 82/171 modules 89 active 
+ ...bel-loader › node_modules\@tarojs\runtime\dist\dom-external\inner-html\uti
+ls.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 527/559 depen
+dencies 86/175 modules 89 active 
+ node_modules\@capacitor\core\dist\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 551/561 depen
+dencies 107/176 modules 69 active 
+ node_modules\@capacitor\local-notifications\dist\esm\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 560/583 depen
+dencies 108/179 modules 71 active 
+ ...\implementation\alipay\node_modules\@babel\runtime\helpers\esm\superPropBa
+se.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 587/596 depen
+dencies 127/183 modules 54 active 
+ node_modules\react-reconciler\cjs\react-reconciler.production.min.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (41%) 18/31 entries 596/600 depen
+dencies 138/189 modules 50 active 
+ node_modules\@capacitor\geolocation\dist\esm\definitions.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (41%) 18/31 entries 597/602 depen
+dencies 140/190 modules 50 active 
+ babel-loader › node_modules\@tarojs\api\dist\interceptor\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (41%) 18/31 entries 608/611 depen
+dencies 151/192 modules 41 active 
+ babel-loader › node_modules\@tarojs\api\dist\interceptor\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (41%) 18/31 entries 612/616 depen
+dencies 151/193 modules 42 active 
+ babel-loader › node_modules\@tarojs\api\dist\interceptor\chain.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (41%) 18/31 entries 620/620 depen
+dencies 156/199 modules 43 active 
+ node_modules\scheduler\cjs\scheduler.production.min.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (43%) 19/31 entries 624/624 depen
+dencies 191/199 modules 8 active 
+ node_modules\scheduler\cjs\scheduler.production.min.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (71%)  
+ dependencies optimization
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (78%)  
+ chunk modules optimization
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (88%)  
+ runtime requirements
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ TaroMiniPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ CssMinimizerPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ RealContentHashPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ emitting (98%)  
+ after emit
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+√ Webpack
+  Compiled successfully in 1.68m
+
+⚠️ Warnings: 
+
+Warning: app.acss from Css Minimizer plugin
+postcss-calc: D:\dev\copypasted\HKBUS\implementation\alipay\app.acss:57:3: Parse error on line 1: 
+env(safe-area-inset-top, 0rpx) + 19.23077rpx
+-----------------------------------^
+Expecting end of input, "RPAREN", "ADD", "SUB", "MUL", "DIV", got unexpected "UNKNOWN_DIMENSION"
+
+Warning: app.acss from Css Minimizer plugin
+postcss-calc: D:\dev\copypasted\HKBUS\implementation\alipay\app.acss:182:3: Parse error on line 1: 
+env(safe-area-inset-bottom, 0rpx) + 9.61538rpx
+-------------------------------------^
+Expecting end of input, "RPAREN", "ADD", "SUB", "MUL", "DIV", got unexpected "UNKNOWN_DIMENSION"
+
+Warning: app.acss from Css Minimizer plugin
+postcss-calc: D:\dev\copypasted\HKBUS\implementation\alipay\app.acss:222:3: Parse error on line 1: 
+env(safe-area-inset-top, 0rpx) + 34.61538rpx
+-----------------------------------^
+Expecting end of input, "RPAREN", "ADD", "SUB", "MUL", "DIV", got unexpected "UNKNOWN_DIMENSION"
+
+Warning: app.acss from Css Minimizer plugin
+postcss-calc: D:\dev\copypasted\HKBUS\implementation\alipay\app.acss:755:3: Parse error on line 1: 
+env(safe-area-inset-bottom, 0rpx) + 46.15385rpx
+--------------------------------------^
+Expecting end of input, "RPAREN", "ADD", "SUB", "MUL", "DIV", got unexpected "UNKNOWN_DIMENSION"
+

@@ -1,0 +1,315 @@
+
+> @hkbusgo/douyin@1.0.0 build
+> taro build --type tt
+
+👽 Taro v4.3.0
+
+Tips:
+1. 建议开启持久化缓存功能，能有效提升二次编译速度，详情请参考: https://docs.taro.zone/docs/config-detail#cache。
+
+
+
+● Webpack █████████████████████████  (0%)  
+ 
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ setup (1%)  
+ before run
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ setup (2%)  
+ run
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ setup (9%) compilation 
+ mini-css-extract-plugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ setup (9%) compilation 
+ CssMinimizerPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/31 entries 31/31 dependen
+cies 0/31 modules 1 active 
+ babel-loader › src\app.tsx
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%)  
+ import loader .\node_modules\babel-loader\lib\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/31 entries 31/31 dependen
+cies 0/31 modules 1 active 
+ babel-loader › src\app.tsx
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/31 entries 31/31 dependen
+cies 0/31 modules 4 active 
+ babel-loader › src\pages\home\index.tsx
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (10%) 0/31 entries 31/32 dependen
+cies 0/31 modules 31 active 
+ ...l-loader › node_modules\@tarojs\webpack5-runner\dist\template\custom-wrapp
+er.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 46/68 depende
+ncies 14/46 modules 18 active 
+ taro-loader › src\pages\home\index.tsx
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 65/91 depende
+ncies 14/56 modules 38 active 
+ babel-loader › src\screens\discovery.tsx
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 66/91 depende
+ncies 14/57 modules 43 active 
+ babel-loader › node_modules\@tarojs\plugin-platform-tt\dist\runtime.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 89/149 depend
+encies 16/62 modules 44 active 
+ babel-loader › node_modules\@tarojs\plugin-framework-react\dist\runtime.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%)  
+ import loader .\node_modules\css-loader\dist\cjs.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%)  
+ import loader .\node_modules\postcss-loader\dist\cjs.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%)  
+ import loader .\node_modules\resolve-url-loader\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%)  
+ import loader .\node_modules\sass-loader\dist\cjs.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 161/161 depen
+dencies 16/74 modules 55 active 
+ ...ss
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 161/162 depen
+dencies 16/74 modules 56 active 
+ babel-loader › src\services\api.ts
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 162/171 depen
+dencies 18/75 modules 57 active 
+ ...ss
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 181/190 depen
+dencies 18/80 modules 58 active 
+ ...implementation\douyin\node_modules\@babel\runtime\helpers\esm\arrayWithHol
+es.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 186/190 depen
+dencies 19/83 modules 61 active 
+ ...mplementation\douyin\node_modules\@babel\runtime\helpers\esm\nonIterableRe
+st.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 188/213 depen
+dencies 19/85 modules 65 active 
+ node_modules\react\cjs\react-jsx-runtime.production.min.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 200/213 depen
+dencies 19/85 modules 66 active 
+ node_modules\react\cjs\react.production.min.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 215/267 depen
+dencies 20/91 modules 65 active 
+ node_modules\react\cjs\react.production.min.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 221/271 depen
+dencies 23/92 modules 69 active 
+ babel-loader › node_modules\@tarojs\runtime\dist\hydrate.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 268/283 depen
+dencies 30/130 modules 98 active 
+ babel-loader › node_modules\@tarojs\runtime\dist\dsl\common.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 271/283 depen
+dencies 31/132 modules 100 active 
+ ...implementation\douyin\node_modules\@babel\runtime\helpers\esm\getPrototype
+Of.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (34%) 14/31 entries 276/284 depen
+dencies 32/136 modules 101 active 
+ ...ion\douyin\node_modules\@babel\runtime\helpers\esm\possibleConstructorRetu
+rn.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 309/343 depen
+dencies 47/136 modules 89 active 
+ ...KBUS\implementation\douyin\node_modules\@babel\runtime\helpers\esm\constru
+ct.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 424/454 depen
+dencies 55/137 modules 82 active 
+ babel-loader › node_modules\@tarojs\runtime\dist\dom\event-target.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 435/471 depen
+dencies 57/145 modules 81 active 
+ ...S\implementation\douyin\node_modules\@babel\runtime\helpers\esm\superPropG
+et.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 458/473 depen
+dencies 62/150 modules 88 active 
+ babel-loader › node_modules\@tarojs\runtime\dist\polyfill\object.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 461/482 depen
+dencies 62/153 modules 91 active 
+ ...ntation\douyin\node_modules\@babel\runtime\helpers\esm\assertThisInitializ
+ed.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 467/500 depen
+dencies 63/156 modules 92 active 
+ node_modules\react-reconciler\constants.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 500/525 depen
+dencies 65/166 modules 92 active 
+ babel-loader › node_modules\@tarojs\shared\dist\components.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 525/534 depen
+dencies 77/174 modules 90 active 
+ ...sted\HKBUS\implementation\douyin\node_modules\@babel\runtime\helpers\esm\g
+et.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 529/536 depen
+dencies 77/178 modules 100 active 
+ node_modules\@capacitor\share\dist\esm\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 571/579 depen
+dencies 100/178 modules 78 active 
+ node_modules\@capacitor\geolocation\dist\esm\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 578/586 depen
+dencies 109/181 modules 72 active 
+ ...|D:\dev\copypasted\HKBUS\implementation\douyin\node_modules\tslib\tslib.es
+6.mjs
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (36%) 15/31 entries 589/601 depen
+dencies 115/185 modules 70 active 
+ babel-loader › node_modules\@tarojs\api\dist\env.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (38%) 16/31 entries 600/602 depen
+dencies 133/192 modules 58 active 
+ babel-loader › node_modules\@tarojs\api\dist\interceptor\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (38%) 16/31 entries 609/611 depen
+dencies 143/192 modules 49 active 
+ babel-loader › node_modules\@tarojs\api\dist\interceptor\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (38%) 16/31 entries 612/616 depen
+dencies 144/193 modules 49 active 
+ babel-loader › node_modules\@tarojs\api\dist\interceptor\chain.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (38%) 16/31 entries 618/619 depen
+dencies 146/197 modules 51 active 
+ ...ed\HKBUS\implementation\douyin\node_modules\@capacitor\synapse\dist\synaps
+e.mjs
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (38%) 16/31 entries 619/620 depen
+dencies 147/198 modules 51 active 
+ ...oader › postcss-loader › resolve-url-loader › sass-loader › src\app.scss|0
+|||}}
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (40%) 17/31 entries 624/624 depen
+dencies 167/199 modules 32 active 
+ node_modules\scheduler\cjs\scheduler.production.min.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ building (63%) 30/31 entries 626/626 depen
+dencies 194/199 modules 5 active 
+ node_modules\scheduler\index.js
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (73%)  
+ after chunk graph
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (80%)  
+ module ids
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (88%)  
+ runtime requirements
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ TaroMiniPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ CssMinimizerPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ sealing (92%) asset processing 
+ RealContentHashPlugin
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+● Webpack █████████████████████████ emitting (98%)  
+ after emit
+
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G
+√ Webpack
+  Compiled successfully in 1.68m
+
+⚠️ Warnings: 
+
+Warning: app.ttss from Css Minimizer plugin
+postcss-calc: D:\dev\copypasted\HKBUS\implementation\douyin\app.ttss:57:3: Parse error on line 1: 
+env(safe-area-inset-top, 0rpx) + 19.23077rpx
+-----------------------------------^
+Expecting end of input, "RPAREN", "ADD", "SUB", "MUL", "DIV", got unexpected "UNKNOWN_DIMENSION"
+
+Warning: app.ttss from Css Minimizer plugin
+postcss-calc: D:\dev\copypasted\HKBUS\implementation\douyin\app.ttss:182:3: Parse error on line 1: 
+env(safe-area-inset-bottom, 0rpx) + 9.61538rpx
+-------------------------------------^
+Expecting end of input, "RPAREN", "ADD", "SUB", "MUL", "DIV", got unexpected "UNKNOWN_DIMENSION"
+
+Warning: app.ttss from Css Minimizer plugin
+postcss-calc: D:\dev\copypasted\HKBUS\implementation\douyin\app.ttss:222:3: Parse error on line 1: 
+env(safe-area-inset-top, 0rpx) + 34.61538rpx
+-----------------------------------^
+Expecting end of input, "RPAREN", "ADD", "SUB", "MUL", "DIV", got unexpected "UNKNOWN_DIMENSION"
+
+Warning: app.ttss from Css Minimizer plugin
+postcss-calc: D:\dev\copypasted\HKBUS\implementation\douyin\app.ttss:755:3: Parse error on line 1: 
+env(safe-area-inset-bottom, 0rpx) + 46.15385rpx
+--------------------------------------^
+Expecting end of input, "RPAREN", "ADD", "SUB", "MUL", "DIV", got unexpected "UNKNOWN_DIMENSION"
+
