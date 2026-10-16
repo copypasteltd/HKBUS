@@ -33,19 +33,19 @@
       },
       "evidence": {
         "install": {
-          "file": "docs/evidence/standalone-install.txt",
+          "file": "docs/evidence/backend-install.txt",
           "sha256": "750625d3ce0acf0611733abd0c223cba6f0b1a20ae2063a18bfb75bb202ad2e8"
         },
         "typecheck": {
-          "file": "docs/evidence/standalone-typecheck.txt",
+          "file": "docs/evidence/backend-typecheck.txt",
           "sha256": "636250e9421f4cec055360143ad2ea954fa6635504d3b9cbe9558a44f6d22645"
         },
         "build": {
-          "file": "docs/evidence/standalone-build.txt",
+          "file": "docs/evidence/backend-build.txt",
           "sha256": "919ca033883a42ca410ba06ecde655ba1376c7d4f3f7f936d032a76a30f88baf"
         },
         "tests": {
-          "file": "docs/evidence/standalone-tests.txt",
+          "file": "docs/evidence/backend-tests.txt",
           "sha256": "390b13a964bad3d42993cfbad66be87b42c7e79c6f1dba6c5e03a8268b33a47b"
         }
       },
@@ -71,15 +71,15 @@
       },
       "evidence": {
         "install": {
-          "file": "docs/evidence/standalone-install.txt",
+          "file": "docs/evidence/admin-install.txt",
           "sha256": "dfdaaa609428dd00e183ab39e1dcc9d6ee172462b4522f7d5d55ebd5a84934e1"
         },
         "typecheck": {
-          "file": "docs/evidence/standalone-typecheck.txt",
+          "file": "docs/evidence/admin-typecheck.txt",
           "sha256": "6e84f11baf932f43e2d6889cb07a74ce0119f956032ef3f3bff1bd21f8e96498"
         },
         "build": {
-          "file": "docs/evidence/standalone-build.txt",
+          "file": "docs/evidence/admin-build.txt",
           "sha256": "a91d0da9ed310a82909d541959dbd8de60a565ba8b23e732ccc383aee89b898d"
         }
       }
@@ -107,19 +107,19 @@
       },
       "evidence": {
         "install": {
-          "file": "docs/evidence/standalone-install.txt",
+          "file": "docs/evidence/wechat-install.txt",
           "sha256": "448e332c30ad00b677da515743fa35ccfa6814fb368ca21bb8ed15bfe42953d0"
         },
         "typecheck": {
-          "file": "docs/evidence/standalone-typecheck.txt",
+          "file": "docs/evidence/wechat-typecheck.txt",
           "sha256": "237b4337f8c5a98eef926113d8be49a328c4255c20b673e0cbf6c599f075028e"
         },
         "build": {
-          "file": "docs/evidence/standalone-build.txt",
+          "file": "docs/evidence/wechat-build.txt",
           "sha256": "51b0cec871a40f4ba9bfa926f96ee1d5bf6f1836f4456c8bde2406592c8768d3"
         },
         "tests": {
-          "file": "docs/evidence/standalone-tests.txt",
+          "file": "docs/evidence/wechat-tests.txt",
           "sha256": "0037571c7f3a21d81ee34bf937468a41958026f650442efcb29a46ea19bf7f98"
         }
       },
@@ -159,19 +159,19 @@
       },
       "evidence": {
         "install": {
-          "file": "docs/evidence/standalone-install.txt",
+          "file": "docs/evidence/alipay-install.txt",
           "sha256": "21c24761b370828a151ede99658dd0547f11871f7513252217e4260d7457a8a0"
         },
         "typecheck": {
-          "file": "docs/evidence/standalone-typecheck.txt",
+          "file": "docs/evidence/alipay-typecheck.txt",
           "sha256": "cad36e4efa216985841f586151e4bf478cae9abeaab6d7ee65e4e345a4575c31"
         },
         "build": {
-          "file": "docs/evidence/standalone-build.txt",
+          "file": "docs/evidence/alipay-build.txt",
           "sha256": "d519fdf92af116fa87c0e5c6be5ae6648704de3b15c224f783e649304d130fee"
         },
         "tests": {
-          "file": "docs/evidence/standalone-tests.txt",
+          "file": "docs/evidence/alipay-tests.txt",
           "sha256": "2d9fc63db10640c4fe4b4e74b8a809422ef059d6e9db153edb48d982a774bd89"
         }
       },
@@ -211,19 +211,19 @@
       },
       "evidence": {
         "install": {
-          "file": "docs/evidence/standalone-install.txt",
+          "file": "docs/evidence/douyin-install.txt",
           "sha256": "21c24761b370828a151ede99658dd0547f11871f7513252217e4260d7457a8a0"
         },
         "typecheck": {
-          "file": "docs/evidence/standalone-typecheck.txt",
+          "file": "docs/evidence/douyin-typecheck.txt",
           "sha256": "077fe3b0be93dbb4fbebdc767a1f10a64fa314a1212687e473ad3b768a6c6528"
         },
         "build": {
-          "file": "docs/evidence/standalone-build.txt",
+          "file": "docs/evidence/douyin-build.txt",
           "sha256": "00f7e047ca74dcdfba3d6f6f97ec25654b1b170ab31dbbd0a37bb2bc8a08358e"
         },
         "tests": {
-          "file": "docs/evidence/standalone-tests.txt",
+          "file": "docs/evidence/douyin-tests.txt",
           "sha256": "5c477367b1e4bfb3bbb86d70a0c2c4d7134c383e55d56a4516eeef4db537efdf"
         }
       },
@@ -263,19 +263,19 @@
       },
       "evidence": {
         "install": {
-          "file": "docs/evidence/standalone-install.txt",
+          "file": "docs/evidence/android-install.txt",
           "sha256": "448e332c30ad00b677da515743fa35ccfa6814fb368ca21bb8ed15bfe42953d0"
         },
         "typecheck": {
-          "file": "docs/evidence/standalone-typecheck.txt",
+          "file": "docs/evidence/android-typecheck.txt",
           "sha256": "594b0c011e3eddd9dc08e0b2a46e7332708cde0c42b981eb8c4bade39d565944"
         },
         "build": {
-          "file": "docs/evidence/standalone-build.txt",
+          "file": "docs/evidence/android-build.txt",
           "sha256": "27d04a5698f1e7358d9c14381501aa346d5f4d8297ff3ab6b2a052de1a689d96"
         },
         "tests": {
-          "file": "docs/evidence/standalone-tests.txt",
+          "file": "docs/evidence/android-tests.txt",
           "sha256": "37b2eafe09ade4d9d88a055c881f2fe6614f52c082850d19d306ff203d017937"
         }
       },
