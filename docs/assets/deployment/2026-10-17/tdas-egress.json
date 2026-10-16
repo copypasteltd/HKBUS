@@ -1,0 +1,126 @@
+{
+  "checkedAt": "2026-10-16T22:19:31.540704+00:00",
+  "request": {
+    "endpoint": "https://tdas-api.hkemobility.gov.hk/tdas/api/route",
+    "method": "POST",
+    "body": {
+      "start": {
+        "lat": 22.2784,
+        "long": 114.1828,
+        "buffer": 200
+      },
+      "end": {
+        "lat": 22.2821,
+        "long": 114.1581,
+        "buffer": 200
+      },
+      "departIn": 0,
+      "lang": "tc",
+      "type": "ST"
+    }
+  },
+  "Windows": [
+    {
+      "userAgent": "Mozilla/5.0",
+      "status": 200,
+      "headers": {
+        "Date": "Fri, 16 Oct 2026 22:19:27 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "768",
+        "Connection": "close",
+        "Cache-Control": "no-cache,no-cache, must-revalidate, private",
+        "Pragma": "no-cache",
+        "Expires": "-1",
+        "access-control-allow-headers": "content-type, access-control-allow-methods",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+        "Content-Security-Policy": "default-src 'none'; frame-ancestors 'self'",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN"
+      },
+      "result": {
+        "jSpeed": "41公里/小時",
+        "distM": 3953,
+        "distU": "3.95公里",
+        "eta": "00:06",
+        "cht": false,
+        "eht": false,
+        "wht": false
+      }
+    },
+    {
+      "userAgent": "node",
+      "status": 200,
+      "headers": {
+        "Date": "Fri, 16 Oct 2026 22:19:29 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "768",
+        "Connection": "close",
+        "Cache-Control": "no-cache,no-cache, must-revalidate, private",
+        "Pragma": "no-cache",
+        "Expires": "-1",
+        "access-control-allow-headers": "content-type, access-control-allow-methods",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+        "Content-Security-Policy": "default-src 'none'; frame-ancestors 'self'",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN"
+      },
+      "result": {
+        "jSpeed": "41公里/小時",
+        "distM": 3953,
+        "distU": "3.95公里",
+        "eta": "00:06",
+        "cht": false,
+        "eht": false,
+        "wht": false
+      }
+    },
+    {
+      "resolved": [
+        "18.163.70.63",
+        "43.198.211.116",
+        "16.162.83.120"
+      ]
+    }
+  ],
+  "Ubuntu": [
+    {
+      "userAgent": "Mozilla/5.0",
+      "status": 403,
+      "headers": {
+        "Server": "awselb/2.0",
+        "Date": "Fri, 16 Oct 2026 22:19:31 GMT",
+        "Content-Type": "text/html",
+        "Content-Length": "118",
+        "Connection": "close",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+        "Content-Security-Policy": "default-src 'none'; frame-ancestors 'self'",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN"
+      },
+      "result": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n"
+    },
+    {
+      "userAgent": "node",
+      "status": 403,
+      "headers": {
+        "Server": "awselb/2.0",
+        "Date": "Fri, 16 Oct 2026 22:19:31 GMT",
+        "Content-Type": "text/html",
+        "Content-Length": "118",
+        "Connection": "close",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+        "Content-Security-Policy": "default-src 'none'; frame-ancestors 'self'",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN"
+      },
+      "result": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n"
+    },
+    {
+      "resolved": [
+        "16.162.83.120",
+        "18.163.70.63",
+        "43.198.211.116"
+      ]
+    }
+  ]
+}

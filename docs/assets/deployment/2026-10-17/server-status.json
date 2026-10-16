@@ -1,0 +1,76 @@
+{
+  "checkedAt": "2026-10-16T22:15:34.728752+00:00",
+  "release": "/www/wwwroot/hkbusgo/releases/20261016T220329Z-6fbb76e1bea3",
+  "service": {
+    "MainPID": "1183801",
+    "NRestarts": "0",
+    "ExecMainStatus": "0",
+    "MemoryCurrent": "178462720",
+    "MemoryHigh": "268435456",
+    "MemoryMax": "402653184",
+    "User": "hkbusgo",
+    "Group": "hkbusgo",
+    "ActiveState": "active",
+    "SubState": "running",
+    "UnitFileState": "enabled"
+  },
+  "environment": {
+    "NODE_ENV": "production",
+    "HOST": "0.0.0.0",
+    "PORT": "39410",
+    "DATABASE_PATH": "/www/wwwroot/hkbusgo/shared/data/hkbusgo.db",
+    "PROVIDER_MODE": "live",
+    "TDAS_ENABLED": "true",
+    "CORS_ORIGINS": "http://43.160.221.28:39410,https://localhost,capacitor://localhost",
+    "TRUSTED_PROXIES": "127.0.0.1,::1",
+    "RATE_LIMIT_MAX": "120",
+    "PUBLIC_APP_URL": "http://43.160.221.28:39410",
+    "PROVIDER_TIMEOUT_MS": "15000",
+    "CATALOG_SYNC_HOURS": "24"
+  },
+  "database": {
+    "engine": "SQLite",
+    "path": "/www/wwwroot/hkbusgo/shared/data/hkbusgo.db",
+    "integrity": "ok",
+    "foreignKeyViolations": 0,
+    "counts": {
+      "routes": 1611,
+      "stops": 6775,
+      "route_stops": 36377,
+      "profiles": 0,
+      "bookmarks": 0,
+      "reminders": 0,
+      "admins": 1,
+      "notices": 0
+    }
+  },
+  "backup": {
+    "createdAt": "2026-10-16T22:15:33.579Z",
+    "file": "/www/backup/database/sqlite/d6ad541c23e9d6a30c484ea7ccd36fe7/20261016_221533_hkbusgo.db",
+    "bytes": 5455872,
+    "sha256": "54091bb19d590798fb208c446de38acb8e2cecd59c7087fbdd5bdc2bd0b0ab32",
+    "integrity": "ok",
+    "foreignKeyViolations": 0,
+    "restoreReadCheck": true,
+    "counts": {
+      "routes": 1611,
+      "stops": 6775,
+      "route_stops": 36377,
+      "profiles": 0,
+      "admins": 1
+    },
+    "retained": 3
+  },
+  "panelBackupListReadback": true,
+  "logrotateConfigValid": true,
+  "listening": "LISTEN 0      511    0.0.0.0:39410 0.0.0.0:*",
+  "firewall": [
+    "Status: active",
+    "39000:40000/tcp            ALLOW       Anywhere                  ",
+    "39000:40000/tcp (v6)       ALLOW       Anywhere (v6)             "
+  ],
+  "disk": {
+    "freeBytes": 4636086272,
+    "totalBytes": 42156257280
+  }
+}

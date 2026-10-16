@@ -1,0 +1,902 @@
+{
+  "startedAt": "2026-10-16T22:13:47.761873+00:00",
+  "target": "http://127.0.0.1:39410",
+  "checks": [
+    {
+      "name": "Health and live catalogue ready",
+      "status": "passed",
+      "health": {
+        "status": "ok",
+        "version": "1.0.0",
+        "database": "ready",
+        "catalogRoutes": 1611,
+        "catalogSyncedAt": "2026-10-16T22:08:35.329Z",
+        "source": "live"
+      }
+    },
+    {
+      "name": "Product configuration uses live-only data",
+      "status": "passed"
+    },
+    {
+      "name": "OpenAPI contract published",
+      "status": "passed",
+      "operations": 53
+    },
+    {
+      "name": "Interactive API documentation and approved favicon",
+      "status": "passed",
+      "faviconSha256": "26bb6cd6a3404bee76ef30acf5fdd3c7275bedef7906e8bb73668d0da374a666"
+    },
+    {
+      "name": "Route search and pagination",
+      "status": "passed"
+    },
+    {
+      "name": "Canonical direction and complete ordered stops",
+      "status": "passed",
+      "routeId": "KMB:112:O:1",
+      "stopCount": 23
+    },
+    {
+      "name": "Stop detail and routes",
+      "status": "passed"
+    },
+    {
+      "name": "Nearby distance ordering",
+      "status": "passed",
+      "nearbyCount": 111
+    },
+    {
+      "name": "Multilingual search returns real entities",
+      "status": "passed"
+    },
+    {
+      "name": "Unlocated home requests location",
+      "status": "passed"
+    },
+    {
+      "name": "Selected-stop home aggregates live ETA",
+      "status": "passed"
+    },
+    {
+      "name": "KMB ETA requested from official upstream",
+      "status": "passed",
+      "stopId": "A3B9F3D6B2668DE3",
+      "freshness": {
+        "state": "fresh",
+        "generatedAt": "2026-10-16T22:13:01.000Z",
+        "fetchedAt": "2026-10-16T22:13:48.110Z",
+        "cached": false,
+        "source": "live",
+        "provider": "KMB"
+      },
+      "arrivals": 6,
+      "nonNullEtas": 0
+    },
+    {
+      "name": "ETA cache preserves source and freshness",
+      "status": "passed"
+    },
+    {
+      "name": "ETA route-direction filtering",
+      "status": "passed"
+    },
+    {
+      "name": "Journey candidates follow real stop order",
+      "status": "passed",
+      "candidates": 5
+    },
+    {
+      "name": "No fabricated published service notices",
+      "status": "passed",
+      "publishedNotices": 0
+    },
+    {
+      "name": "Explicit validation/authentication /api/v1/routes/missing",
+      "status": "passed"
+    },
+    {
+      "name": "Explicit validation/authentication /api/v1/stops/missing/arrivals",
+      "status": "passed"
+    },
+    {
+      "name": "Explicit validation/authentication /api/v1/notices/missing",
+      "status": "passed"
+    },
+    {
+      "name": "Explicit validation/authentication /api/v1/stops?latitude=22.28",
+      "status": "passed"
+    },
+    {
+      "name": "Explicit validation/authentication /api/v1/profile/bookmarks",
+      "status": "passed"
+    },
+    {
+      "name": "Explicit validation/authentication /api/admin/overview",
+      "status": "passed"
+    },
+    {
+      "name": "Identical journey endpoints rejected",
+      "status": "passed"
+    },
+    {
+      "name": "Native app CORS preflight",
+      "status": "passed"
+    },
+    {
+      "name": "Unapproved origin receives no CORS permission",
+      "status": "passed"
+    },
+    {
+      "name": "TDAS real road route",
+      "status": "blocked",
+      "upstreamStatus": 403,
+      "upstreamServer": "awselb/2.0",
+      "reason": "The official upstream rejects this server egress; no mock or unrelated proxy is substituted."
+    },
+    {
+      "name": "Anonymous profile sessions are distinct",
+      "status": "passed"
+    },
+    {
+      "name": "Bookmark writes are idempotent",
+      "status": "passed"
+    },
+    {
+      "name": "Complete bookmark ordering persists",
+      "status": "passed"
+    },
+    {
+      "name": "Incomplete bookmark reorder rejected",
+      "status": "passed"
+    },
+    {
+      "name": "Recent history read/write",
+      "status": "passed"
+    },
+    {
+      "name": "Reminder creation is idempotent",
+      "status": "passed"
+    },
+    {
+      "name": "Reminder ownership enforced",
+      "status": "passed"
+    },
+    {
+      "name": "Reminder pause",
+      "status": "passed"
+    },
+    {
+      "name": "Reminder reactivation and notifications endpoint",
+      "status": "passed"
+    },
+    {
+      "name": "Actual systemd restart preserves SQLite sessions and bookmarks",
+      "status": "passed",
+      "previousPid": 1181275,
+      "newPid": 1183801
+    },
+    {
+      "name": "Refresh rotation revokes old access and prevents replay",
+      "status": "passed"
+    },
+    {
+      "name": "Bookmark deletion",
+      "status": "passed"
+    },
+    {
+      "name": "Recent history and reminder deletion",
+      "status": "passed"
+    },
+    {
+      "name": "Admin authentication retains Secure HttpOnly SameSite cookie",
+      "status": "passed"
+    },
+    {
+      "name": "Admin identity and role",
+      "status": "passed"
+    },
+    {
+      "name": "Authenticated admin overview",
+      "status": "passed"
+    },
+    {
+      "name": "Authenticated admin routes",
+      "status": "passed"
+    },
+    {
+      "name": "Authenticated admin stops",
+      "status": "passed"
+    },
+    {
+      "name": "Authenticated admin notices",
+      "status": "passed"
+    },
+    {
+      "name": "Authenticated admin settings",
+      "status": "passed"
+    },
+    {
+      "name": "Authenticated admin providers",
+      "status": "passed"
+    },
+    {
+      "name": "Authenticated admin jobs",
+      "status": "passed"
+    },
+    {
+      "name": "Authenticated admin audit",
+      "status": "passed"
+    },
+    {
+      "name": "Authenticated admin users",
+      "status": "passed"
+    },
+    {
+      "name": "Admin mutations enforce CSRF header and approved origin",
+      "status": "passed"
+    },
+    {
+      "name": "Admin-triggered real catalogue synchronization",
+      "status": "passed",
+      "jobStatus": "succeeded",
+      "details": {
+        "routes": 1611,
+        "stops": 6775,
+        "relations": 36377,
+        "mode": "live"
+      }
+    },
+    {
+      "name": "Manual live reminder worker",
+      "status": "passed"
+    },
+    {
+      "name": "Admin logout revokes the session",
+      "status": "passed"
+    },
+    {
+      "name": "Database integrity and foreign keys",
+      "status": "passed",
+      "integrity": "ok",
+      "foreignKeyViolations": 0,
+      "counts": {
+        "routes": 1611,
+        "stops": 6775,
+        "route_stops": 36377,
+        "profiles": 0,
+        "profile_credentials": 0,
+        "bookmarks": 0,
+        "recent": 0,
+        "reminders": 0,
+        "notifications": 0,
+        "admins": 1,
+        "notices": 0
+      }
+    },
+    {
+      "name": "Verification profiles and related records removed",
+      "status": "passed",
+      "createdProfilesRemoved": 2
+    },
+    {
+      "name": "Catalogue contains exclusively real data",
+      "status": "passed",
+      "nonLive": {
+        "routes": 0,
+        "stops": 0
+      }
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "status": 200,
+      "elapsedMs": 33,
+      "requestId": "49fa57c3-461c-4f4e-8947-b8fa3fa91e8d"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/config",
+      "status": 200,
+      "elapsedMs": 16,
+      "requestId": "31f9d4eb-808d-423d-b45f-6653ba8c60ed"
+    },
+    {
+      "method": "GET",
+      "path": "/api/openapi.json",
+      "status": 200,
+      "elapsedMs": 4,
+      "requestId": "a47c2ea4-7edc-486d-b6e4-11b7ecd495ba"
+    },
+    {
+      "method": "GET",
+      "path": "/api/docs/",
+      "status": 200,
+      "elapsedMs": 4,
+      "requestId": "a834e9eb-f0ed-45b8-aa8a-02d1bc961d12"
+    },
+    {
+      "method": "GET",
+      "path": "/api/docs/static/theme/hkbus-favicon.png",
+      "status": 200,
+      "elapsedMs": 3,
+      "requestId": "9ab017f4-809a-4620-8d95-81f23009e43a"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/routes?q=112&pageSize=100",
+      "status": 200,
+      "elapsedMs": 19,
+      "requestId": "de322059-e177-49fb-a2e2-2938de6db3d0"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "status": 200,
+      "elapsedMs": 14,
+      "requestId": "07098905-8a76-4cd5-94ec-8d4fd37a85f7"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/stops/A3B9F3D6B2668DE3",
+      "status": 200,
+      "elapsedMs": 5,
+      "requestId": "5eb87512-3d56-4518-b642-8589de687a08"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/stops?latitude=22.288786&longitude=114.194187&radius=1000&pageSize=10",
+      "status": 200,
+      "elapsedMs": 52,
+      "requestId": "cfb7e3a4-4875-43a8-afee-d3b565284162"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/search?q=%E7%82%AE%E5%8F%B0%E5%B1%B1%E7%AB%99",
+      "status": 200,
+      "elapsedMs": 62,
+      "requestId": "d3b60544-ff8a-460e-bb85-363b9f5d9bf0"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/home",
+      "status": 200,
+      "elapsedMs": 22,
+      "requestId": "3ad0946b-2ae4-4530-ad0c-181eefd4352e"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/home?stopId=A3B9F3D6B2668DE3",
+      "status": 200,
+      "elapsedMs": 93,
+      "requestId": "f56d62a9-9647-46b3-b115-03ef25f92b8b"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/stops/A3B9F3D6B2668DE3/arrivals?force=true",
+      "status": 200,
+      "elapsedMs": 22,
+      "requestId": "3608260f-9840-44e3-af86-2efce34fe563"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/stops/A3B9F3D6B2668DE3/arrivals",
+      "status": 200,
+      "elapsedMs": 3,
+      "requestId": "c1bed6f2-05be-4e5e-937d-bf7671cb82d8"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/stops/A3B9F3D6B2668DE3/arrivals?routeId=KMB%3A112%3AO%3A1",
+      "status": 200,
+      "elapsedMs": 3,
+      "requestId": "11dab7bc-4a6f-4e77-a04f-8dbc8fd490ea"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/journeys",
+      "status": 200,
+      "elapsedMs": 185,
+      "requestId": "32bb4e10-990a-40f2-8f47-adcfa6c3f656"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/notices",
+      "status": 200,
+      "elapsedMs": 4,
+      "requestId": "8ba6f93f-2ea7-4cd7-b3d6-0d70663637af"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/routes/missing",
+      "status": 404,
+      "elapsedMs": 5,
+      "requestId": "f7486a25-b294-48e1-a41a-1ec25fda03e5"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/stops/missing/arrivals",
+      "status": 404,
+      "elapsedMs": 3,
+      "requestId": "36755330-fd2b-4518-8ff7-4699ccc3d3ad"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/notices/missing",
+      "status": 404,
+      "elapsedMs": 4,
+      "requestId": "1fbbd4bd-b63c-450e-b061-4bc8ba515c82"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/stops?latitude=22.28",
+      "status": 422,
+      "elapsedMs": 5,
+      "requestId": "7d192649-77e9-4e86-ac90-86363605a5c1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 401,
+      "elapsedMs": 4,
+      "requestId": "6781f738-ce06-41cd-8c82-e56e153704a2"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/overview",
+      "status": 401,
+      "elapsedMs": 5,
+      "requestId": "cfa38842-2828-43f6-893b-1f027a86157a"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/journeys",
+      "status": 422,
+      "elapsedMs": 4,
+      "requestId": "daba5ff6-3c45-477a-a190-d63c2dfb6f45"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 204,
+      "elapsedMs": 7,
+      "requestId": null
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 404,
+      "elapsedMs": 3,
+      "requestId": "c4bda654-ac6e-458a-8f2c-050c43a45140"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/traffic/route",
+      "status": 502,
+      "elapsedMs": 334,
+      "requestId": "332859ba-a25d-40fa-90ad-f7e57e99ff23"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/profile/sessions",
+      "status": 200,
+      "elapsedMs": 15,
+      "requestId": "9c2a954d-4f85-4ac4-980b-afad0895ee15"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/profile/sessions",
+      "status": 200,
+      "elapsedMs": 10,
+      "requestId": "65c4e98b-5292-433f-8c61-28bacd1e3a3a"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200,
+      "elapsedMs": 11,
+      "requestId": "c1b7a34f-d7d5-4d3d-aff4-bbac999d709c"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200,
+      "elapsedMs": 4,
+      "requestId": "f3c11139-31ff-494c-8eca-e8f734bef96c"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200,
+      "elapsedMs": 3,
+      "requestId": "cb2920fb-8a20-42ab-a0cf-dca9ede9da66"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200,
+      "elapsedMs": 9,
+      "requestId": "b41287a5-8ca1-40a1-acb3-0350d623231f"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/bookmarks/order",
+      "status": 200,
+      "elapsedMs": 7,
+      "requestId": "7e6edc6a-d23f-4fa7-b656-cedeaa68c01c"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/bookmarks/order",
+      "status": 422,
+      "elapsedMs": 4,
+      "requestId": "34e72c81-c0b8-4eaf-856c-6028c9dd29d5"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/profile/recent",
+      "status": 200,
+      "elapsedMs": 10,
+      "requestId": "20e09adc-4866-4281-b5e0-e0011b168fec"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/recent",
+      "status": 200,
+      "elapsedMs": 4,
+      "requestId": "95d6c827-62d7-4b4c-9283-927a1b97ae36"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/reminders",
+      "status": 200,
+      "elapsedMs": 9,
+      "requestId": "554e0c21-b060-499c-a099-4d5328c27f54"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/reminders",
+      "status": 200,
+      "elapsedMs": 7,
+      "requestId": "a27f302e-d335-4209-96f5-c1d5233c09de"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/reminders/bd10402b-eda2-4f5b-b3f5-623e7bdf979d",
+      "status": 404,
+      "elapsedMs": 2,
+      "requestId": "c136886e-662d-4f37-8fd8-5399079f62d8"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200,
+      "elapsedMs": 3,
+      "requestId": "e7dde0b2-a48c-4df4-9c59-e6cd0bd0bbc5"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/reminders/bd10402b-eda2-4f5b-b3f5-623e7bdf979d",
+      "status": 200,
+      "elapsedMs": 6,
+      "requestId": "b9d8ebc3-fdd2-4c29-8234-9f44db118f8a"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/reminders",
+      "status": 200,
+      "elapsedMs": 3,
+      "requestId": "2d2d5c93-9ebf-4954-b2a8-accc285be926"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/reminders/bd10402b-eda2-4f5b-b3f5-623e7bdf979d",
+      "status": 200,
+      "elapsedMs": 8,
+      "requestId": "f94e90b5-7c5a-481d-85c0-454243d9fee5"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/reminders/bd10402b-eda2-4f5b-b3f5-623e7bdf979d",
+      "status": 200,
+      "elapsedMs": 9,
+      "requestId": "8e0c996f-611e-418e-b28a-58aab7639921"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/notifications",
+      "status": 200,
+      "elapsedMs": 4,
+      "requestId": "8e1e87ee-2280-4d56-bed6-49368669657a"
+    },
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "status": 200,
+      "elapsedMs": 26,
+      "requestId": "4ca67d60-509d-4cea-8071-5605c065f49e"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200,
+      "elapsedMs": 7,
+      "requestId": "fabbb830-956b-44d5-8593-730ae43265bb"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/profile/sessions/refresh",
+      "status": 200,
+      "elapsedMs": 22,
+      "requestId": "fd4fedf5-ef7a-4a0e-90c8-473880fe3504"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 401,
+      "elapsedMs": 4,
+      "requestId": "4661cafc-1345-45d0-a577-95f26d68180c"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/profile/sessions/refresh",
+      "status": 401,
+      "elapsedMs": 9,
+      "requestId": "da3c5854-99f1-4592-8962-45e066d577a1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200,
+      "elapsedMs": 4,
+      "requestId": "31d3632f-d332-4c06-b4ce-7aef8a13e4f0"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/profile/bookmarks/route/KMB%3A112%3AO%3A1",
+      "status": 200,
+      "elapsedMs": 12,
+      "requestId": "ba62f2e3-a6f5-416a-9bfd-4087f0090051"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200,
+      "elapsedMs": 3,
+      "requestId": "ed5ff87d-2421-4341-a902-6d166d681b94"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/profile/recent",
+      "status": 200,
+      "elapsedMs": 7,
+      "requestId": "ccc903c0-465c-4b78-ba3a-e70dc5c19f89"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/profile/reminders/bd10402b-eda2-4f5b-b3f5-623e7bdf979d",
+      "status": 200,
+      "elapsedMs": 7,
+      "requestId": "976c3642-a9ab-4bbf-b2fe-d46d9e1bc142"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/recent",
+      "status": 200,
+      "elapsedMs": 5,
+      "requestId": "4dc4880e-5637-46c6-a5c9-b48de5d7c98e"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/reminders",
+      "status": 200,
+      "elapsedMs": 4,
+      "requestId": "0c756571-bef6-4f84-95da-d5f166f1e138"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/auth/login",
+      "status": 200,
+      "elapsedMs": 53,
+      "requestId": "b651c181-b355-4b72-8e60-2ed51c2b8419"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/auth/me",
+      "status": 200,
+      "elapsedMs": 3,
+      "requestId": "88d896da-9ef4-4abb-a531-1c5be3a42b1a"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/overview",
+      "status": 200,
+      "elapsedMs": 40,
+      "requestId": "89f18e18-83b6-457f-9b2b-c34eac340acd"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/routes",
+      "status": 200,
+      "elapsedMs": 16,
+      "requestId": "2babd588-2ab2-48b7-8d00-837ccea4d3f8"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/stops",
+      "status": 200,
+      "elapsedMs": 33,
+      "requestId": "5b66ecee-3e63-4a31-afa0-5b15eb698d8d"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/notices",
+      "status": 200,
+      "elapsedMs": 9,
+      "requestId": "49bd0deb-c6c7-4b6b-96ac-ce790ce6307a"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/settings",
+      "status": 200,
+      "elapsedMs": 4,
+      "requestId": "da73c80f-20d8-4acd-bf0d-dc949c975a5e"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/providers",
+      "status": 200,
+      "elapsedMs": 84,
+      "requestId": "3442521a-ae63-4025-b660-ee3362f76b4e"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/jobs",
+      "status": 200,
+      "elapsedMs": 5,
+      "requestId": "aaadb59c-d1d6-41f4-bde6-8f784e2c7678"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/audit",
+      "status": 200,
+      "elapsedMs": 4,
+      "requestId": "0ecbc3e9-dd09-4a86-9a1b-ec13012e0246"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/users",
+      "status": 200,
+      "elapsedMs": 4,
+      "requestId": "befee647-1fd8-489d-af53-9ad86ef79a5f"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/jobs/sync",
+      "status": 403,
+      "elapsedMs": 3,
+      "requestId": "490adcf0-1bc9-4625-b11b-9e5c6de85907"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/jobs/sync",
+      "status": 403,
+      "elapsedMs": 4,
+      "requestId": "4b276e2b-07de-4485-8870-0af46233cc07"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/jobs/sync",
+      "status": 202,
+      "elapsedMs": 36,
+      "requestId": "fb8a38bd-6a28-4da5-9fbd-266f22d57aa1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/jobs",
+      "status": 200,
+      "elapsedMs": 10,
+      "requestId": "3c8cda9d-fb7e-4c50-9c62-761fb77ad7ed"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/jobs",
+      "status": 200,
+      "elapsedMs": 950,
+      "requestId": "0c575f5b-5ce7-44ce-83c2-b1243dc96f36"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/reminders/evaluate",
+      "status": 200,
+      "elapsedMs": 6,
+      "requestId": "acbe4904-d7cb-4f59-b1c9-6384322a1556"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/auth/logout",
+      "status": 200,
+      "elapsedMs": 5,
+      "requestId": "bd1f08d8-6a04-4633-b85d-d87970c422c2"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/auth/me",
+      "status": 401,
+      "elapsedMs": 3,
+      "requestId": "c531fd77-44b6-41de-8eac-ff10be148fae"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/profile",
+      "status": 200,
+      "elapsedMs": 6,
+      "requestId": "fb76a2e8-ecb7-43ca-9e52-0ca49ef87726"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 401,
+      "elapsedMs": 3,
+      "requestId": "fae82be2-e154-413a-bd00-15dfd3bdc456"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/profile/sessions/refresh",
+      "status": 401,
+      "elapsedMs": 5,
+      "requestId": "1bc1f727-5cbe-4ffb-b05e-fdb588dc893d"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/profile",
+      "status": 200,
+      "elapsedMs": 10,
+      "requestId": "f58446d4-5e61-422d-9c04-4a0db9d85bb9"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 401,
+      "elapsedMs": 3,
+      "requestId": "f632b490-29d5-4ad4-a18f-a0a51093dd85"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/profile/sessions/refresh",
+      "status": 401,
+      "elapsedMs": 6,
+      "requestId": "e2d188f1-c006-473f-a992-879ee3a11f3b"
+    }
+  ],
+  "scope": "real HTTP, live upstreams, SQLite and service restart; no browser/IDE/device/store acceptance",
+  "database": {
+    "path": "/www/wwwroot/hkbusgo/shared/data/hkbusgo.db",
+    "integrity": "ok",
+    "foreignKeyViolations": 0,
+    "counts": {
+      "routes": 1611,
+      "stops": 6775,
+      "route_stops": 36377,
+      "profiles": 0,
+      "profile_credentials": 0,
+      "bookmarks": 0,
+      "recent": 0,
+      "reminders": 0,
+      "notifications": 0,
+      "admins": 1,
+      "notices": 0
+    },
+    "userVersion": 2,
+    "journalMode": "wal"
+  },
+  "finishedAt": "2026-10-16T22:13:52.619562+00:00",
+  "summary": {
+    "passed": 56,
+    "failed": 0,
+    "blocked": 1
+  }
+}

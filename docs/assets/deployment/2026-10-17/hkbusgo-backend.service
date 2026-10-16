@@ -1,0 +1,38 @@
+[Unit]
+Description=HKBusGo production API
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=hkbusgo
+Group=hkbusgo
+WorkingDirectory=/www/wwwroot/hkbusgo/current
+EnvironmentFile=/www/wwwroot/hkbusgo/shared/backend.env
+ExecStart=/usr/local/bin/node --max-old-space-size=256 /www/wwwroot/hkbusgo/current/dist/main.js
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=45
+KillSignal=SIGTERM
+UMask=0027
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+# Node uses netlink to enumerate listening network interfaces on Linux.
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_NETLINK
+ReadWritePaths=/www/wwwroot/hkbusgo/shared /www/backup/database/sqlite /www/wwwlogs/hkbusgo
+MemoryHigh=256M
+MemoryMax=384M
+LimitNOFILE=8192
+StandardOutput=append:/www/wwwlogs/hkbusgo/backend.log
+StandardError=append:/www/wwwlogs/hkbusgo/backend.log
+
+[Install]
+WantedBy=multi-user.target

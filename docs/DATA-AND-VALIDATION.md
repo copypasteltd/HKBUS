@@ -22,6 +22,8 @@ ETA 默认缓存 15 秒，60 秒后较旧，180 秒后不可作为可用预计�
 
 验证严格区分：源码 / 类型检查、编译、实际 HTTP、浏览器、官方 IDE、物理设备、商店审核。既有真实数据基线为 Backend 22 项回归、Mobile 7 项回归、14 项真实 API/浏览器检查；分仓后检查见 `validation.json`。三个小程序官方 IDE、物理设备定位/分享/通知、商店上架和公网正式部署尚未验收。Android 采用 Taro H5 内嵌原生容器，并未新增独立 H5 demo。
 
+2026-10-17 部署补充：Backend 已在 `43.160.221.28:39410` 提供公网服务，业务库由宝塔 SQLite 管理；56 项服务器和 17 项公网检查通过。TDAS 从该服务器出口得到官方 403，属于未解决阻塞；域名 HTTPS、IDE、真机与上架不由此完成。以 [正式部署记录](DEPLOYMENT.md) 区分本次结果与上述历史基线。
+
 ## English
 
 The runtime accepts live data only. Route identity includes route number, direction and service type. The official KMB catalogue is validated and replaced atomically. Normal catalogue refresh is every 24 hours; failures retain the last complete version. An empty first run never injects samples.
@@ -43,6 +45,8 @@ The 2026-10-17 official snapshot contained 1,611 direction/service-type records,
 These counts describe the earlier live-integration baseline. Screenshot capture synchronised again; its newer catalogue counts are recorded in `screenshots.json`. Differences between the two upstream snapshots are preserved rather than replaced with fixed values.
 
 Verification layers are separate: source/types, compilation, real HTTP, browser, official IDE, physical device and store review. The preceding live-data baseline passed 22 Backend tests, 7 Mobile tests and 14 real API/browser checks. See `validation.json` for checks of these standalone checkouts. Mini-program IDE acceptance, physical-device location/sharing/notifications, store publication and production hosting remain outstanding. Android embeds the Taro renderer; this is not a newly deployed H5 demo.
+
+Deployment addendum, 2026-10-17: the Backend is publicly reachable on `43.160.221.28:39410`, with BaoTa-managed SQLite. Server acceptance passed 56 checks and public-network acceptance passed 17 checks. TDAS is blocked by the official upstream's 403 from this server. Domain TLS, IDEs, devices and stores remain separate. See the [deployment record](DEPLOYMENT.md) for current results rather than interpreting historical baselines as current production acceptance.
 
 ## 官方资料 / Official references
 

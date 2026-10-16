@@ -1,0 +1,38 @@
+{
+  "repositories": {
+    "backend": {
+      "docs": {
+        "localLinks": 74,
+        "images": 34
+      },
+      "readme": {
+        "localLinks": 20,
+        "images": 4
+      },
+      "totalLocalLinks": 96,
+      "totalImages": 38,
+      "deploymentReadme": {
+        "localLinks": 2,
+        "images": 0
+      },
+      "checkedFiles": 166,
+      "bilingualReadmeBytes": 13220
+    },
+    "catalog": {
+      "docs": {
+        "localLinks": 74,
+        "images": 34
+      },
+      "readme": {
+        "localLinks": 24,
+        "images": 7
+      },
+      "totalLocalLinks": 98,
+      "totalImages": 41,
+      "deploymentReadme": {},
+      "checkedFiles": 148,
+      "bilingualReadmeBytes": 10847
+    }
+  },
+  "privateValuesFound": 0
+}

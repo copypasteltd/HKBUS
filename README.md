@@ -10,6 +10,8 @@
 
 **品牌 / Brand：已确认 10 号「朱印车迹」纯图形 Logo / Approved option 10, graphic only.** [品牌规范 / Brand guide](docs/BRAND.md) · [本次品牌验证 / Current brand checks](docs/BRAND-ROLLOUT.md)
 
+**2026-10-17 部署 / Deployment：** 后端已运行于 `43.160.221.28:39410`，SQLite 已纳入宝塔管理和每日一致性备份。服务器 56 项、公网 17 项检查通过；TDAS 道路查询被官方返回 403，尚未可用。Native Backend and BaoTa-managed SQLite are deployed; 56 server and 17 public checks passed, while TDAS remains blocked by upstream 403. [完整中英部署与运维手册 / Deployment handover](docs/DEPLOYMENT.md) · [在线接口文档 / Live API docs](http://43.160.221.28:39410/api/docs/)
+
 ## 中文说明
 
 港巴通的独立 Backend：Node.js 22.14+、Fastify 5、TypeScript、原生 SQLite。为四个移动端及运营后台提供同一套 BFF、匿名身份、内容工作流、任务和审计。无需 Docker、WSL、容器或其他仓库才能编译；外部数据依赖 KMB/LWB 与 TDAS 官方 API。
@@ -94,7 +96,7 @@ npm run backup -- ./data/backups/manual.db
 
 本项目基线有 22 项 Backend 自动化测试，真实接口和浏览器证据另存 [验证资料](docs/DATA-AND-VALIDATION.md)、[本仓库检查](docs/validation.json)。上游出错只返回时效内真实缓存或明确错误，不生成虚构结果。
 
-生产环境先构建，以专用账号运行单一 Node 进程，设置 NODE_ENV=production、持久化目录、随机凭证和 HTTPS 反向代理；按真实域名配置 CORS、分享入口和可信代理。保存业务库一致性备份。公网部署、容量、真机和平台上架不属于已完成验收。
+生产环境先构建，以专用账号运行单一 Node 进程，设置 NODE_ENV=production、持久化目录、随机凭证和 HTTPS 反向代理；按真实域名配置 CORS、分享入口和可信代理。保存业务库一致性备份。本次已完成 Backend 高端口部署与宝塔 SQLite 接入；TDAS 上游、域名 HTTPS、容量、真机和平台上架须按 [部署手册](docs/DEPLOYMENT.md) 的边界继续验收。
 
 遇到 initializing，检查官方同步任务和网络；SAMPLE_DATABASE_FORBIDDEN 表示旧示例库被拒绝，应指定干净的真实库；401/403 检查会话、角色、Origin、请求头；无 ETA 则对照真实运营时间/官方空值。完整数据规则见 [Data & validation](docs/DATA-AND-VALIDATION.md)。
 
@@ -132,6 +134,6 @@ An offline [OpenAPI JSON contract](docs/openapi.json) is included; regenerate it
 
 Run `npm run typecheck`, `npm test` (22 baseline cases), `npm run smoke:live`, `npm run openapi` and `npm run backup -- ./data/backups/manual.db` as needed. Live smoke uses a separate memory database and writes a local result. Backup uses SQLite VACUUM INTO; stop before restoring, check integrity and preserve a rollback copy. Run one service instance: workers must not compete on a shared SQLite file.
 
-For production, build first, run one dedicated Node service with NODE_ENV=production and persistent storage, inject real credentials, and expose it through an HTTPS reverse proxy. Configure origins, trusted proxies and sharing URL for that environment and retain consistent backups. Production hosting, capacity acceptance, devices and stores are not claimed.
+For production, build first, run one dedicated Node service with NODE_ENV=production and persistent storage, inject real credentials, and expose it through an HTTPS reverse proxy. Configure origins, trusted proxies and sharing URL for that environment and retain consistent backups. This release now has a deployed Backend high port and BaoTa-managed SQLite. TDAS upstream access, domain TLS, capacity, device and store acceptance remain separate; see the [deployment handover](docs/DEPLOYMENT.md).
 
 For initializing, inspect official sync/network status. SAMPLE_DATABASE_FORBIDDEN rejects a historical sample database; select a clean live database. For 401/403, check the session, role, Origin and mutation header. A null ETA may reflect actual operation. Upstream failure returns bounded real cache or an explicit error, never invented arrivals. See [validation and sources](docs/DATA-AND-VALIDATION.md), [checkout checks](docs/validation.json) and [asset provenance](docs/ASSETS.md).

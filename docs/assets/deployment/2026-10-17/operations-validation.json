@@ -1,0 +1,39 @@
+{
+  "syntaxChecks": {
+    "bash": 2,
+    "node": 1,
+    "python": 3
+  },
+  "installedOperations": {
+    "backup.sh": "2eadb20954d6e835bd4d1ea59be3fb0fce0b72731f6ab01087323f3c8adf7531",
+    "register-panel.py": "57e03abfa3ac5c52107fd97c46ae49b8ac09411817186c6493c04e92f149d201",
+    "README.md": "9d239610a56c5f9f4ca9d93de730eec047cecca987458e51a1c3af7f64bf5de5",
+    "setup.sh": "10b0ab13f0f7ac8c5254659eb0ea8504f39cdd6e3f692217db6ac3c945f18847",
+    "start-panel-backup.py": "6cade2db0cd199f1319480b8c30917e33cc5b2539bb40074cb66313467182cdd",
+    "verify-deployment.py": "fabaae4df11538dee58b25290ec6075d090347c1d1f011e9a23ac7dde0af09fb",
+    "backup.mjs": "5492b4ef1c4c61cbfac654e0a0351674a61a276d687a0d883c7dd559a934a8f5",
+    "hkbusgo-backend.service": "36a1b3fdd663f8aed20c4a4a0a681c1b92d2907f4f6edbb64668061e2727a43a"
+  },
+  "serviceUnitMatches": true,
+  "health": {
+    "data": {
+      "status": "ok",
+      "version": "1.0.0",
+      "database": "ready",
+      "catalogRoutes": 1611,
+      "catalogSyncedAt": "2026-10-16T22:13:52.439Z",
+      "source": "live"
+    },
+    "meta": {
+      "requestId": "91e396d8-1a22-42da-9349-2df94bec1fcd",
+      "mode": "live",
+      "generatedAt": "2026-10-16T22:20:15.537Z"
+    }
+  },
+  "service": {
+    "NRestarts": "0",
+    "MemoryCurrent": "111968256",
+    "ActiveState": "active",
+    "SubState": "running"
+  }
+}
