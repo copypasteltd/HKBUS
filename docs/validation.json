@@ -1,0 +1,71 @@
+{
+  "project": "android",
+  "passed": true,
+  "checks": {
+    "install": {
+      "exitCode": 0,
+      "passed": true
+    },
+    "typecheck": {
+      "exitCode": 0,
+      "passed": true
+    },
+    "build": {
+      "exitCode": 0,
+      "passed": true
+    },
+    "tests": {
+      "exitCode": 0,
+      "passed": true
+    }
+  },
+  "evidence": {
+    "install": {
+      "file": "docs/evidence/standalone-install.txt",
+      "sha256": "448e332c30ad00b677da515743fa35ccfa6814fb368ca21bb8ed15bfe42953d0"
+    },
+    "typecheck": {
+      "file": "docs/evidence/standalone-typecheck.txt",
+      "sha256": "594b0c011e3eddd9dc08e0b2a46e7332708cde0c42b981eb8c4bade39d565944"
+    },
+    "build": {
+      "file": "docs/evidence/standalone-build.txt",
+      "sha256": "27d04a5698f1e7358d9c14381501aa346d5f4d8297ff3ab6b2a052de1a689d96"
+    },
+    "tests": {
+      "file": "docs/evidence/standalone-tests.txt",
+      "sha256": "37b2eafe09ade4d9d88a055c881f2fe6614f52c082850d19d306ff203d017937"
+    }
+  },
+  "testCount": 7,
+  "sharedApplicationSource": {
+    "files": 249,
+    "matchesLiveIntegrationSource": true,
+    "siblingDependency": false
+  },
+  "artifact": {
+    "type": "debug-apk",
+    "bytes": 5646276,
+    "sha256": "d18fc51c10a261ea9bfd4bda0e446d23598b64c563a38c28029b2dad975315a8",
+    "rendererFilesMatched": 240
+  },
+  "checkedAt": "2026-10-16T20:24:55.409507+00:00",
+  "scope": {
+    "officialIDE": false,
+    "physicalDevice": false,
+    "storePublication": false,
+    "productionDeployment": false,
+    "prototypeTouched": false
+  },
+  "screenshots": {
+    "count": 29,
+    "renderer": "Taro Android web renderer in Chromium, not official mini-program IDE or physical device",
+    "catalogue": {
+      "routes": 1611,
+      "stops": 6775,
+      "relations": 36377
+    },
+    "browserClosed": true,
+    "temporaryServersClosed": true
+  }
+}
