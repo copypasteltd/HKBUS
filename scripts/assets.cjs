@@ -7,6 +7,12 @@ for(const [name,shape]of Object.entries(paths))for(const [color,value]of Object.
   const svg=`<svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="${value}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">${shape}</svg>`;
   fs.writeFileSync(path.join(folder,`${name}-${color}.png`),new Resvg(svg).render().asPng());
 }
-const appSvg=`<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#0c716e"/><g transform="translate(3.5 3.5) scale(.71)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${paths.bus}</g></svg>`;
-fs.mkdirSync(path.join(root,'resources'),{recursive:true});fs.writeFileSync(path.join(root,'resources/icon.png'),new Resvg(appSvg).render().asPng());
-console.log(`Generated ${Object.keys(paths).length*Object.keys(colors).length} faithful PNG icons and app icon.`);
+// The approved logo is a checked-in vector asset. Never regenerate a generic bus logo.
+const logoSvg=fs.readFileSync(path.join(root,'assets/brand/logo-primary.svg'),'utf8');
+const brandFolder=path.join(root,'src/assets/brand');fs.mkdirSync(brandFolder,{recursive:true});
+for(const size of [64,128,256])fs.writeFileSync(path.join(brandFolder,`logo-${size}.png`),new Resvg(logoSvg,{fitTo:{mode:'width',value:size}}).render().asPng());
+fs.writeFileSync(path.join(brandFolder,'favicon-32.png'),new Resvg(logoSvg,{fitTo:{mode:'width',value:32}}).render().asPng());
+const appSvg=logoSvg.replace(/(<svg[^>]*>)/,'$1<path fill="#FFFFFF" d="M0 0H1024V1024H0Z"/>');
+fs.mkdirSync(path.join(root,'resources'),{recursive:true});
+for(const [size,file] of [[1024,'resources/icon.png'],[512,'resources/mini-program-avatar.png'],[192,'src/assets/brand/app-icon-192.png']])fs.writeFileSync(path.join(root,file),new Resvg(appSvg,{fitTo:{mode:'width',value:size}}).render().asPng());
+console.log(`Generated ${Object.keys(paths).length*Object.keys(colors).length} UI PNG icons and approved #10 brand assets.`);

@@ -1,7 +1,7 @@
 import {useState,useEffect,useMemo,useRef} from 'react';
 import {View,Text,Button,Input} from '@tarojs/components';
 import Taro,{useDidShow,useDidHide} from '@tarojs/taro';
-import {Shell,Section,Intro,Icon,Action,StateCard,ResourceState,ModeNote,StopRow,RouteRow,ArrivalNumber,Freshness} from '../components';
+import {Shell,Section,Intro,Icon,BrandLogo,Action,StateCard,ResourceState,ModeNote,StopRow,RouteRow,ArrivalNumber,Freshness} from '../components';
 import {useApp,useResource,useAction} from '../state';
 import {api,query} from '../services/api';
 import {position,platformName} from '../services/platform';
@@ -21,7 +21,7 @@ export function Home(){
   const nextDirection=()=>{const other=result?.routes.find(x=>x.routeNo===route?.routeNo&&x.bound!==route.bound&&x.serviceType===route.serviceType);if(other)setRouteId(other.id);else if(route)openRoute(route.id);};
   const locate=()=>void action.run(async()=>{try{app.setCoordinates(await position());setPermissionError(false);}catch{setPermissionError(true);throw new Error(app.tr('定位未開啟，仍可手動搜尋車站','定位未开启，仍可手动搜索车站','Location unavailable. You can still search for stops.'));}});
   return <Shell screen='home'>
-    <View className='brand-header'><View><Text className='brand-name'>港巴通</Text><Text className='brand-tagline'>{app.tr('出行 · 連繫香港','出行 · 连系香港','Connecting Hong Kong')}</Text></View><Button className='accessible' ariaLabel={app.tr('切換大字模式','切换大字模式','Toggle large text')} onClick={()=>app.setLarge(!app.large)}><Icon name='accessibility' size={19}/><Text>{app.tr('無障礙模式','无障碍模式','Accessible')}</Text><Text>A A</Text></Button></View>
+    <View className='brand-header'><View className='brand-identity'><BrandLogo/><View className='brand-copy'><Text className='brand-name'>港巴通</Text><Text className='brand-tagline'>{app.tr('出行 · 連繫香港','出行 · 连系香港','Connecting Hong Kong')}</Text></View></View><Button className='accessible' ariaLabel={app.tr('切換大字模式','切换大字模式','Toggle large text')} onClick={()=>app.setLarge(!app.large)}><Icon name='accessibility' size={19}/><Text>{app.tr('無障礙模式','无障碍模式','Accessible')}</Text><Text>A A</Text></Button></View>
     <Button className='location-bar' onClick={locate} loading={action.busy}><Icon name='pin' size={28} color='teal'/><View className='location-content'><Text className='location-title'>{app.coordinates?app.tr('你附近的巴士站','你附近的巴士站','Stops near you'):app.tr('尋找附近車站','寻找附近车站','Find nearby stops')}</Text><Text className='caption location-caption'>{app.coordinates?app.tr('位置僅用於本次查詢','位置仅用于本次查询','Location is used only for this query'):app.tr('點按定位，或手動搜尋','点击定位，或手动搜索','Use location or search manually')}</Text></View><View className='weather'><Icon name='bus' size={27} color='teal'/><View><Text className='weather-temp'>KMB</Text><Text className='caption'> / LWB</Text></View></View></Button>
     <Button className='search-bar' onClick={()=>go('search')}><Icon name='search' size={17} color='muted'/><Text>{app.tr('搜尋路線、車站或目的地','搜索路线、车站或目的地','Search routes, stops or places')}</Text><Icon name='arrow' size={18} color='muted'/></Button>
     {permissionError&&<View className='status-banner warning'><Icon name='pin'/><Text>{app.tr('定位尚未開啟，可繼續手動搜尋','定位尚未开启，可继续手动搜索','You can search without location permission.')}</Text></View>}
