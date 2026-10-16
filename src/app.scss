@@ -8,3 +8,6 @@ view,text,button,input,textarea,taro-view-core,taro-text-core,taro-button-core,t
 @media(max-width:360px){.stop-row{flex-wrap:wrap;gap:8px}.walk-column{min-width:64px}.stop-name{min-width:150px}.inline-chips{margin-left:73px;max-width:none}.stop-row>.icon:last-child{margin-left:auto}.hero-destination{font-size:15px}.hero-card{padding:12px}.hero-top{gap:8px}.direction-button{font-size:11px;padding:7px}.next-bus{gap:6px}.hero-upcoming{padding-left:8px}.eta-number{font-size:56px}.notice-label{min-width:70px;font-size:13px}.notice-card{gap:7px}.accessible{font-size:11px;padding:7px 9px}.brand-name{font-size:32px}.arrival-main{flex-wrap:wrap}.arrival-copy{min-width:130px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 }
+
+/* Approved #10 seal; logo colour is independent of transit/status colours. */
+.app-root{--brand-vermilion:#b9533d;.brand-logo{display:block;flex-shrink:0;min-width:48Px;min-height:48Px}.brand-header{flex-wrap:wrap}.brand-identity{display:flex;align-items:center;gap:8px;flex-shrink:0}.brand-copy{min-width:0}.brand-identity .brand-name{font-size:30px;white-space:nowrap}.brand-identity .brand-tagline{font-size:11px;margin-top:5px}.brand-header>.accessible{margin-left:auto;min-height:44Px}.about-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}}
