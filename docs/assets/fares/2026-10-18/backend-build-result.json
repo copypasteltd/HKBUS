@@ -1,0 +1,58 @@
+{
+  "project": "backend",
+  "passed": true,
+  "sourceSha256": {
+    "src/admin-api.ts": "e85d2470ca6682c86174019c52060e5607e1ed5f77b7bdbcd097b03df061497a",
+    "src/app.ts": "be60fc4f78d7bd3d3b59630d59d79b8600e08bd1a96c45596dabf9026e6704b7",
+    "src/auth.ts": "06b272531ed1f8891b34f9618afc8ea4527aad43f5c64285e0de75c9ad939d4f",
+    "src/brand.ts": "5e6b228f3a4a3765661438c96d5aa35cd548302da4e74474830984b1324899d9",
+    "src/config.ts": "97530b91b8e1022e3b3e01444466b9b5636eecff7f036e639a5e93bb60cb3f73",
+    "src/contracts.ts": "918330ca22ce8beac1d08a3ef0c4e69de0b22d6b2d2a3d0d55de889e26de0d5f",
+    "src/database.ts": "606f329071ac65d6b150c5dc025dbacdab0f5aedf6b8f7658259f1c6ef9455e4",
+    "src/domain.ts": "f64b5b63b59e3ff4f313ccb5d75a28cee04b4c5aaf6e4fec247341fe6657c551",
+    "src/fare-source.ts": "8a58934f1258fa286476dd75627d32d742eb54c473d957eb2bd12f6df0f1356f",
+    "src/fares.ts": "f9e7103aca30d6818f3f1e33cc02fba0c23d009db6c4673bb7bb9a7c295334db",
+    "src/main.ts": "75e4e763b3a99edddce2badfcd9d439b574b446590ed388e497a80fd12875ee0",
+    "src/profile-api.ts": "24f2db651470435ae7f91eca5aa8077d22af034c3bad5ebf559d3765a63e0eb6",
+    "src/providers.ts": "1691eb16caea5849261709d7355de85a8d4b28c6af108b6c460e3b4b1393780d",
+    "src/public-api.ts": "e00cbb5eb79fe03b2374f8ac923ac706c656fcf21329fcdcb71915db293814d2",
+    "src/settings.ts": "f6f7840c3d128e7eb2ed6634d2290c34c8f9f9c75a4dad9ef738fdc9ce3a07e8",
+    "src/usecases.ts": "96e135389a7341992757a8ec2d1129cdd213042156538a67bbc161a49ffe2f31",
+    "test/api.test.ts": "4015aed387efebf00f2382dcb66668fd0966ad29dca77a0672c6537b8ebfafe8",
+    "test/cors.test.ts": "75bf916ede39733b4ab24d67c151c6e6a35509da8af19ca6b7d611e3a09f41a7",
+    "test/fares.test.ts": "fb1e7724d052ceec3513d936c732c4aaa81265f803aa2699b3b202800100c04e",
+    "test/live-data-policy.test.ts": "cc713ddc80360fbb22ac86c1ffa677ac7d34f91290c87665f796b33267ccd6a8",
+    "test/persistence.test.ts": "35fcffce139a152f55ac0ea14c900b7fa2e3968659221238d77db905fe8639bc",
+    "test/providers.test.ts": "1fb9dcb99cc1e3d8651aca1029f72c995b512bd96c9cb46c347cd06b325a6b4d",
+    "test/route-arrivals.test.ts": "99be67c9b7f7de4d47ee2c87a4454dbd264770cf9de458829e8fe3013eddb5e9",
+    "test/support.ts": "2188b34d1ee05245287ae55b7f93b5f2cb06ad37d1a35ecac32995850878804e",
+    "test/tdas.test.ts": "41bca8aa660a843e82211bdb5837e76cf2d3f3040ab97a831262a24c4123e05e",
+    "scripts/backup.ts": "a8ea26cc668397460f3101deef6aad62a94d770641502d14f79ef0138c573306",
+    "scripts/bootstrap.ts": "1a37084a8199db553676fa91d82bd3e34df0eb552a11a7062c973f62c79def7b",
+    "scripts/build.mjs": "32e6c5c3c55125d47c43288c62a6cbe42133df0bb4f7240e25652fdb6dc4f4d7",
+    "scripts/check-fare-source.ts": "fa9cba421f825e9799001bf1e7a65dfd66a30a11a93e004fa8e313df77879658",
+    "scripts/export-openapi.ts": "ed794f13956dbf4a8d47a437d9f649026957a0a36f6f55394ac8b7bc8406b200",
+    "scripts/live-smoke.ts": "6d8d5a9a6efd6122e127f3697dc6b850a7d4360d21c748067be882b3e54d78fb",
+    "scripts/sync-live.ts": "c47ccc1e42c8c4a5235bba87e5c173905f56ccd422ea132d64b23c5d9db35fd0"
+  },
+  "phases": [
+    {
+      "phase": "typecheck",
+      "exitCode": 0,
+      "seconds": 71.9,
+      "log": "backend-typecheck.log"
+    },
+    {
+      "phase": "test",
+      "exitCode": 0,
+      "seconds": 94.3,
+      "log": "backend-test.log"
+    },
+    {
+      "phase": "build",
+      "exitCode": 0,
+      "seconds": 14.9,
+      "log": "backend-build.log"
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "checks": [
+    {
+      "name": "An actual invalid notice ID returns an honest error and navigates back to notices",
+      "passed": true
+    },
+    {
+      "name": "An in-app contextual guide opens the correct topic and its related action",
+      "passed": true
+    },
+    {
+      "name": "An enabled primary button retains full contrast and a visible keyboard focus outline",
+      "passed": true,
+      "opacity": "1",
+      "outlineStyle": "solid",
+      "outlineWidth": "3px",
+      "background": "rgb(12, 113, 110)",
+      "color": "rgb(255, 255, 255)"
+    },
+    {
+      "name": "Manual home refresh reaches the real force endpoint and keeps the saved stop identity",
+      "passed": true,
+      "stopId": "7FBF4EAFB18821CA",
+      "freshness": "fresh",
+      "operatorRows": 2
+    },
+    {
+      "name": "320px Simplified Chinese large text fits home, route, help and planner",
+      "passed": true
+    }
+  ],
+  "requests": [
+    {
+      "path": "/api/v1/config",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/notices/not-an-existing-published-notice",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/notices",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/home",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/stops/7FBF4EAFB18821CA/arrivals",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/home",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/home",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/home",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "authorization": false
+    }
+  ],
+  "pageErrors": [],
+  "apiResponsesSubstituted": false,
+  "browserClosed": true,
+  "passed": true
+}
