@@ -8,7 +8,7 @@ import swagger from '@fastify/swagger';
 import swaggerUI from '@fastify/swagger-ui';
 import { randomUUID } from 'node:crypto';
 import { z } from 'zod';
-import { loadConfig, type Config } from './config.js';
+import { loadConfig, isOriginAllowed, type Config } from './config.js';
 import { Store, passwordHash } from './database.js';
 import { AppError, now } from './domain.js';
 import { Providers, type Fetcher } from './providers.js';
@@ -36,7 +36,8 @@ export async function createApp(overrides:Partial<Config>={},options:{logger?:bo
   }
   const app=Fastify({logger:options.logger===false?false:{level:'info',redact:['req.headers.authorization','req.headers.cookie','res.headers.set-cookie','password','token'],serializers:{req:req=>({method:req.method,url:String(req.url).split('?')[0]})}},genReqId:()=>randomUUID(),bodyLimit:262144,trustProxy:config.trustedProxies.length?config.trustedProxies:false});
   await app.register(cookie);
-  await app.register(cors,{origin:(origin,cb)=>cb(null,!origin||config.origins.includes(origin)),credentials:true,methods:['GET','HEAD','POST','PUT','PATCH','DELETE','OPTIONS'],allowedHeaders:['Content-Type','Authorization','X-HKBus-Admin']});
+  // Reflect each permitted Origin so credentials work; omitted allowedHeaders reflects every requested header.
+  await app.register(cors,{origin:(origin,cb)=>cb(null,isOriginAllowed(config,origin)),credentials:true,methods:['GET','HEAD','POST','PUT','PATCH','DELETE','OPTIONS']});
   await app.register(jwt,{secret:config.jwtSecret,cookie:{cookieName:'hkbus_admin',signed:false}});
   await app.register(rateLimit,{max:config.rateLimitMax,timeWindow:'1 minute',errorResponseBuilder:()=>({error:{code:'RATE_LIMITED',message:'請求過於頻繁，請稍後重試',retryable:true}})});
   await app.register(swagger,{transform:({schema,url})=>({schema:documentSchema(schema),url}),openapi:{info:{title:'港巴通 API',version:'1.0.0',description:'KMB/LWB BFF、TDAS 道路參考及運營 API。只支援真實資料模式。成功：{data,meta:{requestId,mode:live,generatedAt}}；錯誤：{error:{code,message,requestId,retryable,fields?}}。Admin 寫入需 X-HKBus-Admin: 1；Zod 是輸入校驗來源。'},components:{securitySchemes:{bearerAuth:{type:'http',scheme:'bearer'},adminCookie:{type:'apiKey',in:'cookie',name:'hkbus_admin'}}}}});

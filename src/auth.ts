@@ -2,7 +2,7 @@ import type { FastifyInstance, FastifyRequest } from 'fastify';
 import { randomUUID } from 'node:crypto';
 import type { Store } from './database.js';
 import { AppError, now, type Identity } from './domain.js';
-import type { Config } from './config.js';
+import { isOriginAllowed, type Config } from './config.js';
 
 export async function requireIdentity(app:FastifyInstance,store:Store,request:FastifyRequest,kind:'admin'|'profile',roles?:string[]):Promise<Identity>{
   let value:Identity;
@@ -25,7 +25,7 @@ export function issueSession(app:FastifyInstance,store:Store,subject:string,kind
 export function validateMutationOrigin(config:Config,request:FastifyRequest){
   if(!['POST','PUT','PATCH','DELETE'].includes(request.method)||!request.url.startsWith('/api/admin'))return;
   const origin=request.headers.origin;
-  if(origin&&!config.origins.includes(origin))throw new AppError('ORIGIN_FORBIDDEN','不允許的請求來源',403);
-  // Browser cookie mutations must carry a same-origin custom header. Cross-origin fetch preflights are restricted by CORS.
+  if(!isOriginAllowed(config,origin))throw new AppError('ORIGIN_FORBIDDEN','不允許的請求來源',403);
+  // Cookie-authenticated writes require the Admin client marker, independently of the CORS origin policy.
   if(request.cookies.hkbus_admin&&request.headers['x-hkbus-admin']!=='1')throw new AppError('CSRF_REJECTED','管理操作缺少請求標識',403);
 }

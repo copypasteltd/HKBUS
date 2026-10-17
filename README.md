@@ -1,6 +1,8 @@
 # 港巴通 HKBusGo — 后端服务 / Backend API
 
 **正式 API / Finalized API:** `https://hkbus-api.copypaste.hk/api/` · [五端编译与 HTTPS 验证 / Builds and HTTPS verification](docs/PRODUCTION-API.md)
+**任意来源跨域 / Any-origin CORS:** 默认 `CORS_ORIGINS=*`，回显 Origin 并允许凭证与任意请求头；[配置和验证 / Policy and verification](docs/CORS-OPEN.md)。
+
 ![HKBusGo Backend API](docs/assets/banner-backend.png)
 
 [中文说明](#中文说明) · [English](#english) · [完整图册 / Gallery](docs/GALLERY.md) · [数据与验证 / Data & validation](docs/DATA-AND-VALIDATION.md)
@@ -68,11 +70,11 @@ npm start
 | `PROVIDER_MODE` / `TDAS_ENABLED` | 只接受 live；TDAS 默认 true |
 | `KMB_BASE_URL` / `TDAS_BASE_URL` | 官方适配器地址；详见 .env.example |
 | `PROVIDER_TIMEOUT_MS` / `CATALOG_SYNC_HOURS` | 默认 15000ms / 24h |
-| `CORS_ORIGINS` / `TRUSTED_PROXIES` | 明确来源和代理；默认不信任任意代理 |
+| `CORS_ORIGINS` / `TRUSTED_PROXIES` | CORS 默认 `*` 接受任意来源；代理独立配置，默认不信任任意代理 |
 | `PUBLIC_APP_URL` | 实际分享入口，部署时替换本机地址 |
 | `RATE_LIMIT_MAX` | 每 IP 每分钟默认 120 |
 
-Admin 写入需要 HttpOnly 会话 Cookie、白名单 Origin 和 `X-HKBus-Admin: 1`。角色为 viewer/editor/operator/admin。内容与配置采用版本锁，409 后应重新读取；不要强制覆盖。不要将浏览器保存的凭证复制到文档。
+Admin 写入需要 HttpOnly 会话 Cookie 和 `X-HKBus-Admin: 1`；默认接受任意 Origin，登录与角色权限独立校验。角色为 viewer/editor/operator/admin。内容与配置采用版本锁，409 后应重新读取；不要强制覆盖。不要将浏览器保存的凭证复制到文档。
 
 ### API、目录与命令
 
@@ -97,7 +99,7 @@ npm run backup -- ./data/backups/manual.db
 
 本项目基线有 22 项 Backend 自动化测试，真实接口和浏览器证据另存 [验证资料](docs/DATA-AND-VALIDATION.md)、[本仓库检查](docs/validation.json)。上游出错只返回时效内真实缓存或明确错误，不生成虚构结果。
 
-生产环境先构建，以专用账号运行单一 Node 进程，设置 NODE_ENV=production、持久化目录、随机凭证和 HTTPS 反向代理；按真实域名配置 CORS、分享入口和可信代理。保存业务库一致性备份。本次已完成 Backend 高端口部署与宝塔 SQLite 接入；TDAS 上游、域名 HTTPS、容量、真机和平台上架须按 [部署手册](docs/DEPLOYMENT.md) 的边界继续验收。
+生产环境先构建，以专用账号运行单一 Node 进程，设置 NODE_ENV=production、持久化目录、随机凭证和 HTTPS 反向代理；CORS 默认 `*`；分享入口和可信代理单独配置。保存业务库一致性备份。本次已完成 Backend 高端口部署与宝塔 SQLite 接入；TDAS 上游、域名 HTTPS、容量、真机和平台上架须按 [部署手册](docs/DEPLOYMENT.md) 的边界继续验收。
 
 遇到 initializing，检查官方同步任务和网络；SAMPLE_DATABASE_FORBIDDEN 表示旧示例库被拒绝，应指定干净的真实库；401/403 检查会话、角色、Origin、请求头；无 ETA 则对照真实运营时间/官方空值。完整数据规则见 [Data & validation](docs/DATA-AND-VALIDATION.md)。
 
@@ -123,9 +125,9 @@ CMS supports three languages, validity windows, platform/route/stop targeting, d
 
 ### Configuration and API contract
 
-See `.env.example`. `HOST`/`PORT` default to 127.0.0.1:4100; `DATABASE_PATH` defaults to ./data/hkbusgo.db. `JWT_SECRET`, `ADMIN_EMAIL` and `ADMIN_PASSWORD` are local/private values. `PROVIDER_MODE` accepts only live; `TDAS_ENABLED` defaults true. Official adapter addresses use `KMB_BASE_URL`/`TDAS_BASE_URL`; default provider timeout is 15000ms and catalogue interval 24h. Configure exact `CORS_ORIGINS`, bounded `TRUSTED_PROXIES`, real `PUBLIC_APP_URL` and the default per-IP 120/minute rate limit as appropriate.
+See `.env.example`. `HOST`/`PORT` default to 127.0.0.1:4100; `DATABASE_PATH` defaults to ./data/hkbusgo.db. `JWT_SECRET`, `ADMIN_EMAIL` and `ADMIN_PASSWORD` are local/private values. `PROVIDER_MODE` accepts only live; `TDAS_ENABLED` defaults true. Official adapter addresses use `KMB_BASE_URL`/`TDAS_BASE_URL`; default provider timeout is 15000ms and catalogue interval 24h. `CORS_ORIGINS=*` is the default and permits any origin. Configure bounded `TRUSTED_PROXIES`, real `PUBLIC_APP_URL` and the default per-IP 120/minute rate limit separately.
 
-Admin mutations require an HttpOnly session cookie, permitted Origin and `X-HKBus-Admin: 1`. Roles are viewer, editor, operator and admin. Optimistic version locks return 409 on conflicts; reload and review rather than overwriting. Successful responses contain `{data,meta:{mode:"live",requestId,generatedAt}}`; errors contain `{error:{code,message,requestId,retryable,fields?}}`.
+Admin mutations require an HttpOnly session cookie and `X-HKBus-Admin: 1`; any origin is accepted by default, with authentication and roles checked independently. Roles are viewer, editor, operator and admin. Optimistic version locks return 409 on conflicts; reload and review rather than overwriting. Successful responses contain `{data,meta:{mode:"live",requestId,generatedAt}}`; errors contain `{error:{code,message,requestId,retryable,fields?}}`.
 
 An offline [OpenAPI JSON contract](docs/openapi.json) is included; regenerate it with `npm run openapi -- ./docs/openapi.json`.
 
@@ -135,6 +137,6 @@ An offline [OpenAPI JSON contract](docs/openapi.json) is included; regenerate it
 
 Run `npm run typecheck`, `npm test` (22 baseline cases), `npm run smoke:live`, `npm run openapi` and `npm run backup -- ./data/backups/manual.db` as needed. Live smoke uses a separate memory database and writes a local result. Backup uses SQLite VACUUM INTO; stop before restoring, check integrity and preserve a rollback copy. Run one service instance: workers must not compete on a shared SQLite file.
 
-For production, build first, run one dedicated Node service with NODE_ENV=production and persistent storage, inject real credentials, and expose it through an HTTPS reverse proxy. Configure origins, trusted proxies and sharing URL for that environment and retain consistent backups. This release now has a deployed Backend high port and BaoTa-managed SQLite. TDAS upstream access, domain TLS, capacity, device and store acceptance remain separate; see the [deployment handover](docs/DEPLOYMENT.md).
+For production, build first, run one dedicated Node service with NODE_ENV=production and persistent storage, inject real credentials, and expose it through an HTTPS reverse proxy. Keep `CORS_ORIGINS=*` for any-origin access, configure trusted proxies and sharing URL separately, and retain consistent backups. This release now has a deployed Backend high port and BaoTa-managed SQLite. TDAS upstream access, domain TLS, capacity, device and store acceptance remain separate; see the [deployment handover](docs/DEPLOYMENT.md).
 
 For initializing, inspect official sync/network status. SAMPLE_DATABASE_FORBIDDEN rejects a historical sample database; select a clean live database. For 401/403, check the session, role, Origin and mutation header. A null ETA may reflect actual operation. Upstream failure returns bounded real cache or an explicit error, never invented arrivals. See [validation and sources](docs/DATA-AND-VALIDATION.md), [checkout checks](docs/validation.json) and [asset provenance](docs/ASSETS.md).

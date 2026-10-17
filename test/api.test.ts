@@ -7,7 +7,7 @@ let ctx:Awaited<ReturnType<typeof createApp>>;
 let cookie='',token='',profileId='';
 const adminHeaders=()=>({cookie,'x-hkbus-admin':'1',origin:'http://localhost:5174'});
 const userHeaders=()=>({authorization:'Bearer '+token});
-before(async()=>{ctx=await createTestApp({adminEmail:'test@example.com',adminPassword:'test-only-password-123'});});
+before(async()=>{ctx=await createTestApp({adminEmail:'test@example.com',adminPassword:'test-only-password-123',origins:['http://localhost:5174']});});
 after(async()=>{await ctx.app.close();});
 test('rotating device credentials preserve data, reject replay and revoke deleted profiles',async()=>{
   const session=(await ctx.app.inject({method:'POST',url:'/api/v1/profile/sessions'})).json().data;

@@ -36,7 +36,7 @@ from pathlib import Path
 import json,secrets,os
 base=Path('/www/wwwroot/hkbusgo');shared=base/'shared'
 email='admin@hkbusgo.local';password=secrets.token_urlsafe(24)
-settings={'NODE_ENV':'production','HOST':'0.0.0.0','PORT':'39410','DATABASE_PATH':str(shared/'data/hkbusgo.db'),'JWT_SECRET':secrets.token_urlsafe(64),'ADMIN_EMAIL':email,'ADMIN_PASSWORD':password,'PROVIDER_MODE':'live','TDAS_ENABLED':'true','CORS_ORIGINS':'http://43.160.221.28:39410,https://localhost,capacitor://localhost','TRUSTED_PROXIES':'127.0.0.1,::1','RATE_LIMIT_MAX':'120','PUBLIC_APP_URL':'http://43.160.221.28:39410','PROVIDER_TIMEOUT_MS':'15000','CATALOG_SYNC_HOURS':'24'}
+settings={'NODE_ENV':'production','HOST':'0.0.0.0','PORT':'39410','DATABASE_PATH':str(shared/'data/hkbusgo.db'),'JWT_SECRET':secrets.token_urlsafe(64),'ADMIN_EMAIL':email,'ADMIN_PASSWORD':password,'PROVIDER_MODE':'live','TDAS_ENABLED':'true','CORS_ORIGINS':'*','TRUSTED_PROXIES':'127.0.0.1,::1','RATE_LIMIT_MAX':'120','PUBLIC_APP_URL':'http://43.160.221.28:39410','PROVIDER_TIMEOUT_MS':'15000','CATALOG_SYNC_HOURS':'24'}
 env=shared/'backend.env'
 if env.exists():raise RuntimeError('Refusing to replace existing environment credentials')
 env.write_text(''.join(k+'='+v+'\n' for k,v in settings.items()));os.chmod(env,0o640)

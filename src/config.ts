@@ -13,7 +13,7 @@ export function loadConfig(overrides: Partial<Config> = {}): Config {
     adminEmail: process.env.ADMIN_EMAIL, adminPassword: process.env.ADMIN_PASSWORD,
     providerMode: 'live',
     trustedProxies:(process.env.TRUSTED_PROXIES||'').split(',').map(x=>x.trim()).filter(Boolean),
-    origins: (process.env.CORS_ORIGINS || 'http://localhost:5174,http://127.0.0.1:5174,http://localhost:4174,http://127.0.0.1:4174,http://localhost:10086,http://127.0.0.1:10086,http://localhost:10087,http://127.0.0.1:10087,https://localhost').split(',').map(x => x.trim()),
+    origins: (process.env.CORS_ORIGINS || '*').split(',').map(x => x.trim()).filter(Boolean),
     publicAppUrl: process.env.PUBLIC_APP_URL || 'http://localhost:10086',
     kmbBaseUrl: process.env.KMB_BASE_URL || 'https://data.etabus.gov.hk/v1/transport/kmb',
     tdasBaseUrl: process.env.TDAS_BASE_URL || 'https://tdas-api.hkemobility.gov.hk/tdas/api/route',
@@ -25,4 +25,8 @@ export function loadConfig(overrides: Partial<Config> = {}): Config {
   if (!Number.isFinite(cfg.providerTimeoutMs) || cfg.providerTimeoutMs < 100 || cfg.providerTimeoutMs > 30000) throw new Error('Invalid provider timeout.');
   if(!Number.isInteger(cfg.rateLimitMax)||cfg.rateLimitMax<1||cfg.rateLimitMax>10000)throw new Error('Invalid RATE_LIMIT_MAX.');
   return cfg;
+}
+
+export function isOriginAllowed(config: Pick<Config, 'origins'>, origin: string | undefined): boolean {
+  return !origin || config.origins.includes('*') || config.origins.includes(origin);
 }
