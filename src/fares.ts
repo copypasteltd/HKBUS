@@ -15,10 +15,10 @@ export class Fares {
  private source(){return this.store.setting<FareSource|null>('fareSource',null);}
  private direction(key:string){const source=this.source(),version=source?.syncedAt||'';if(version!==this.cacheVersion){this.directions.clear();this.cacheVersion=version;}let value=this.directions.get(key);if(!value){const row=this.store.get<{document:string}>('SELECT document FROM fare_directions WHERE id=?',key);if(row){value=JSON.parse(row.document) as FareDirection;this.directions.set(key,value);}}return value;}
  private mapping(route:Route,stops:OrderedStop[]){const row=this.store.get<{document:string}>('SELECT document FROM fare_mappings WHERE route_id=?',route.id);if(!row)return null;const mapped=JSON.parse(row.document) as FareMapping;return mapped.signature===routeSignature(route,stops)?mapped:null;}
- health(){const source=this.source(),checkedAt=this.store.setting<string|null>('fareCheckedAt',null),lastFailure=this.store.setting<{at:string;code:string}|null>('fareLastFailure',null);const stale=!!source&&(!checkedAt||Date.now()-Date.parse(checkedAt)>48*3600000||Date.now()-Date.parse(source.dataDate+'T00:00:00Z')>45*86400000||!!lastFailure&&(!checkedAt||lastFailure.at>checkedAt));return{state:!source?'unavailable':stale?'stale':'available',dataDate:source?.dataDate||null,checkedAt,lastFailure};}
+ health(){const source=this.source(),checkedAt=this.store.setting<string|null>('fareCheckedAt',null),lastFailure=this.store.setting<{at:string;code:string}|null>('fareLastFailure',null);const stale=!!source&&(!checkedAt||Date.now()-Date.parse(checkedAt)>48*3600000||Date.now()-Date.parse(source.dataDate+'T00:00:00Z')>45*86400000||!!lastFailure);return{state:!source?'unavailable':stale?'stale':'available',dataDate:source?.dataDate||null,checkedAt,lastFailure};}
  status(){
   const source=this.source(),checkedAt=this.store.setting<string|null>('fareCheckedAt',null),lastFailure=this.store.setting<{at:string;code:string}|null>('fareLastFailure',null);
-  const stale=!!source&&(!checkedAt||Date.now()-Date.parse(checkedAt)>48*3600000||Date.now()-Date.parse(source.dataDate+'T00:00:00Z')>45*86400000||!!lastFailure&&(!checkedAt||lastFailure.at>checkedAt));
+  const stale=!!source&&(!checkedAt||Date.now()-Date.parse(checkedAt)>48*3600000||Date.now()-Date.parse(source.dataDate+'T00:00:00Z')>45*86400000||!!lastFailure);
   const rows=this.store.all<{document:string}>('SELECT document FROM fare_mappings').map(x=>JSON.parse(x.document) as FareMapping),routes=this.store.routes();
   const coverage={total:routes.length,matched:0,partial:0,unmatched:0,ambiguous:0,changed:0};const byId=new Map(rows.map(x=>[x.routeId,x]));
   for(const route of routes){const m=byId.get(route.id);if(!m)coverage.unmatched++;else if(m.signature!==routeSignature(route,this.store.sequence(route.id)))coverage.changed++;else coverage[m.status]++;}
@@ -39,7 +39,7 @@ export class Fares {
   if(tdOn?.pickup===1)return fail('PICKUP_NOT_ALLOWED');if(tdOff?.pickup===2)return fail('DROPOFF_NOT_ALLOWED');
   result.options=direction.cells.filter(c=>c[0]===on&&c[1]===off).map(c=>({dayCode:c[2],amountCents:c[3]}));
   if(!result.options.length)return fail('NO_FARE');
-  const failure=this.store.setting<{at:string}|null>('fareLastFailure',null),stale=!checkedAt||Date.now()-Date.parse(checkedAt)>48*3600000||Date.now()-Date.parse(source.dataDate+'T00:00:00Z')>45*86400000||!!failure&&failure.at>checkedAt;
+  const failure=this.store.setting<{at:string}|null>('fareLastFailure',null),stale=!checkedAt||Date.now()-Date.parse(checkedAt)>48*3600000||Date.now()-Date.parse(source.dataDate+'T00:00:00Z')>45*86400000||!!failure;
   const unconditional=result.options.length===1&&[null,511].includes(result.options[0]!.dayCode);
   result.state=stale?'stale':unconditional?'available':'conditional';result.reason=stale?'STALE_SOURCE':unconditional?null:'CONDITIONAL';result.amountCents=unconditional?result.options[0]!.amountCents:null;
   return result;
