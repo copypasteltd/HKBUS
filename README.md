@@ -1,5 +1,6 @@
 # 港巴通 HKBusGo — 运营管理后台 / Operations Admin
 
+**正式 API / Finalized API:** `https://hkbus-api.copypaste.hk/api/` · [2026-10-17 编译与交付 / Build and delivery](docs/PRODUCTION-API.md)
 ![HKBusGo Operations Admin](docs/assets/banner-admin.png)
 
 [中文说明](#中文说明) · [English](#english) · [完整图册 / Gallery](docs/GALLERY.md) · [数据与验证 / Data & validation](docs/DATA-AND-VALIDATION.md)
@@ -33,7 +34,7 @@ npm ci
 npm run dev
 ```
 
-Node.js 22.14+、npm 10。开发入口 `http://127.0.0.1:5174`，默认 `/api` 代理 Backend `http://127.0.0.1:4100`。先按 Backend README 生成本机凭证、同步并启动；再从本机 Backend `.env.local` 读取初始账号登录，前端不内置密码。
+Node.js 22.14+、npm 10。开发入口 `http://127.0.0.1:5174`；默认 API 为 `https://hkbus-api.copypaste.hk/api`。正式浏览器管理台建议同源托管，避免开发站点与正式站点之间的 Cookie 限制。本机联调请显式设置 `VITE_API_BASE=/api` 后使用本机 Backend 和本机账号；前端不内置密码。
 
 ```powershell
 npm run typecheck
@@ -41,7 +42,7 @@ npm run build
 npm run preview
 ```
 
-产物 `dist/`，本机构建预览 `http://127.0.0.1:4174`。`VITE_API_BASE` 默认 `/api`；生产由同源 HTTPS 网站反向代理到 Backend。`ADMIN_API_PROXY` 调整开发/预览代理地址，需要在启动进程前设置环境变量；`.env.example` 是参考。更改 `VITE_API_BASE` 后重新构建。
+产物 `dist/`，本机构建预览 `http://127.0.0.1:4174`。`VITE_API_BASE` 默认 `https://hkbus-api.copypaste.hk/api`；静态资源使用相对路径，支持根目录或 `/admin/`。建议静态后台与 API 同源。`ADMIN_API_PROXY` 调整开发/预览代理地址，需要在启动进程前设置环境变量；`.env.example` 是参考。更改 `VITE_API_BASE` 后重新构建。
 
 ### 功能与权限
 
@@ -67,11 +68,11 @@ UI 与 Backend 双重限制。Admin 使用 HttpOnly Cookie、允许的 Origin �
 
 `src/App.tsx` 管理会话和导航；`src/api.tsx` 统一真实请求、错误与资源状态；`src/pages` 包含各业务板块；`src/ui.tsx` 提供角色、表单、弹窗和反馈组件；`src/styles.css` 实现设计系统；`docs` 为素材与验证。
 
-生产部署 `dist`，以同源 HTTPS 代理 `/api`，保留 `/api/admin` Cookie 路径。Backend CORS 需包含实际 Admin origin；如跨源还需正确 Cookie/凭证策略，建议同源配置。不上传 `.env.local`、密码或服务器数据库。没有新增 demo 或 Vercel 部署。
+生产部署 `dist`，建议放到 `https://hkbus-api.copypaste.hk/admin/`，保留 `/api/admin` Cookie 路径。该静态站点本次仅交付 dist，未发布。Backend CORS 需包含实际 Admin origin；如跨源还需正确 Cookie/凭证策略，建议同源配置。不上传 `.env.local`、密码或服务器数据库。没有新增 demo 或 Vercel 部署。
 
 | 问题 | 处理 |
 |---|---|
-| 无法连接 | 检查 Backend 4100、`ADMIN_API_PROXY` 与 `/api` 代理 |
+| 无法连接 | 检查正式 API、CORS、HTTPS 和 Cookie；本机开发另查 Backend 4100 与代理 |
 | 401 / 403 | 检查会话、角色、Origin 和 X-HKBus-Admin；失效后重新登录 |
 | 409 | 其他人已改版，重新读取后核对，不强制覆盖 |
 | 指标为空 | 尚无真实请求或发布内容，不填充假增长 |
@@ -87,9 +88,9 @@ This is the independent React 18 / Vite 6 / TypeScript Operations Admin. It conn
 
 The screenshots above and the [full gallery](docs/GALLERY.md) show the actual Admin build with official data. Request metrics reflect isolated documentation traffic, not customers. Empty notice content is intentional. The gallery covers login and all 10 navigation areas.
 
-Clone branch `admin`, run `npm ci` then `npm run dev` with Node.js 22.14+ and npm 10. Development runs on `http://127.0.0.1:5174`, proxying `/api` to `http://127.0.0.1:4100`. Bootstrap/synchronise/start the Backend first, then read the initial credentials from its ignored local environment file. This frontend embeds no password.
+Clone branch `admin`, run `npm ci` then `npm run dev` with Node.js 22.14+ and npm 10. Development runs on `http://127.0.0.1:5174`. The default API is `https://hkbus-api.copypaste.hk/api`; use same-origin HTTPS static hosting for the production cookie. For local integration explicitly set `VITE_API_BASE=/api` and use the local Backend and credentials. No password is embedded in the frontend.
 
-Run `npm run typecheck` and `npm run build`; output is `dist/`. `npm run preview` serves the local build at `http://127.0.0.1:4174`. `VITE_API_BASE` defaults to `/api`; production should reverse proxy that path on the same HTTPS origin. Set `ADMIN_API_PROXY` in the process environment before starting dev/preview when changing its target; `.env.example` documents the values. Changes to `VITE_API_BASE` require rebuilding.
+Run `npm run typecheck` and `npm run build`; output is `dist/`. `npm run preview` serves the local build at `http://127.0.0.1:4174`. `VITE_API_BASE` defaults to `https://hkbus-api.copypaste.hk/api`. Relative asset paths support root or `/admin/` static hosting; the production Admin should share the API origin. Set `ADMIN_API_PROXY` in the process environment before starting dev/preview when changing its target; `.env.example` documents the values. Changes to `VITE_API_BASE` require rebuilding.
 
 ### Features and access control
 
@@ -103,6 +104,6 @@ Viewer is read-only; editor edits/submits content; operator reviews/publishes an
 
 `src/App.tsx` handles navigation/session; `src/api.tsx` implements transport/errors/resources; `src/pages` contains business areas; `src/ui.tsx` handles role-aware shared controls/forms/dialogs; `src/styles.css` contains the design system; `docs` holds images/evidence.
 
-For production, serve `dist` over HTTPS and proxy `/api` on the same origin, preserving the `/api/admin` cookie path. Add the actual origin to Backend CORS. Cross-origin cookies require additional correct credential policy; same-origin hosting is the documented default. Keep local environment files, passwords and server databases outside Git. No demo or Vercel deployment is part of this work.
+For production, serve `dist` at `https://hkbus-api.copypaste.hk/admin/`, preserving the `/api/admin` cookie path. This delivery contains the static dist and does not publish an Admin site. Add the actual origin to Backend CORS. Cross-origin cookies require additional correct credential policy; same-origin hosting is the documented default. Keep local environment files, passwords and server databases outside Git. No demo or Vercel deployment is part of this work.
 
-For connection failure, check Backend 4100 and the proxy. For 401/403, inspect session, role, Origin and mutation header, then re-authenticate. For 409, reload/review rather than force overwrite. Empty metrics mean no actual traffic/content; sync failures retain the last complete catalogue. Types/build and real browser login/catalogue/provider checks are recorded separately from production and physical-device acceptance. See [checkout validation](docs/validation.json), [data rules](docs/DATA-AND-VALIDATION.md) and [provenance](docs/ASSETS.md).
+For connection failure, check the finalized API, CORS, HTTPS and cookie policy; local development additionally uses Backend 4100 and its proxy. For 401/403, inspect session, role, Origin and mutation header, then re-authenticate. For 409, reload/review rather than force overwrite. Empty metrics mean no actual traffic/content; sync failures retain the last complete catalogue. Types/build and real browser login/catalogue/provider checks are recorded separately from production and physical-device acceptance. See [checkout validation](docs/validation.json), [data rules](docs/DATA-AND-VALIDATION.md) and [provenance](docs/ASSETS.md).
