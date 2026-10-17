@@ -1,0 +1,1312 @@
+{
+  "website": "https://hkbus.copypaste.hk",
+  "startedAt": "2026-10-17T20:54:41.534Z",
+  "checks": [
+    {
+      "name": "Home presents four real task entrances and an actionable empty saved-stop state",
+      "passed": true
+    },
+    {
+      "name": "Route overview, real sequence search, empty filter, clear and expandable arrival details",
+      "passed": true,
+      "routeId": "KMB:112:O:1",
+      "stops": 23
+    },
+    {
+      "name": "Stop arrivals retain full official ID, bound and sequence, with an actual route-number filter",
+      "passed": true
+    },
+    {
+      "name": "Actual saved/recent shortcuts navigate to correct entities and saved home stop loads the live hero",
+      "passed": true
+    },
+    {
+      "name": "Route directory suggestions are real route numbers and drive the live query",
+      "passed": true,
+      "routeNumber": "1"
+    },
+    {
+      "name": "Journey form chooses actual locally saved stops and returns real direct/transfer candidates",
+      "passed": true,
+      "candidates": 5,
+      "start": "616738F21326814A",
+      "end": "6CAA11E0FD871B20"
+    },
+    {
+      "name": "Road form uses real TDAS road reference separately from bus ETA",
+      "passed": true,
+      "provider": "TDAS",
+      "source": "live"
+    },
+    {
+      "name": "Eight contextual trilingual guides, deep links and accessible expanded state",
+      "passed": true
+    },
+    {
+      "name": "All 14 actual pages load without component or document horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320/375/430 portrait and 844 landscape in English large text, reduced motion and 44px touch controls",
+      "passed": true,
+      "states": 44,
+      "minimumControlHeight": 48
+    },
+    {
+      "name": "No page errors, missing assets, personal profile requests or Authorization headers",
+      "passed": true,
+      "realRequests": 130
+    }
+  ],
+  "navigation": [
+    {
+      "screen": "home",
+      "loaded": true,
+      "horizontalOverflow": false,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "routes",
+      "loaded": true,
+      "horizontalOverflow": false,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "search",
+      "loaded": true,
+      "horizontalOverflow": false,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "nearby",
+      "loaded": true,
+      "horizontalOverflow": false,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "arrivals",
+      "loaded": true,
+      "horizontalOverflow": false,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "route",
+      "loaded": true,
+      "horizontalOverflow": false,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "bookmarks",
+      "loaded": true,
+      "horizontalOverflow": false,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "settings",
+      "loaded": true,
+      "horizontalOverflow": false,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "notices",
+      "loaded": true,
+      "horizontalOverflow": false,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "notice",
+      "loaded": true,
+      "horizontalOverflow": false,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "help",
+      "loaded": true,
+      "horizontalOverflow": false,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "reminders",
+      "loaded": true,
+      "horizontalOverflow": false,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "planner",
+      "loaded": true,
+      "horizontalOverflow": false,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "traffic",
+      "loaded": true,
+      "horizontalOverflow": false,
+      "bottomControlClear": true
+    }
+  ],
+  "requests": [
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/home",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops/616738F21326814A/arrivals",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops/6CAA11E0FD871B20/arrivals",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/home",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops/616738F21326814A/arrivals",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/home",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/home",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A110%3AO%3A1",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A110%3AO%3A1/arrivals",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A110%3AO%3A1/fare",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/journeys",
+      "method": "POST",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/traffic/route",
+      "method": "POST",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/home",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops/616738F21326814A/arrivals",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/notices",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/home",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops/616738F21326814A/arrivals",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/notices",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/home",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops/616738F21326814A/arrivals",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/notices",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/home",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops/616738F21326814A/arrivals",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/notices",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/home",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops/616738F21326814A/arrivals",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/notices",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "method": "GET",
+      "authorization": false
+    }
+  ],
+  "pageErrors": [],
+  "missingAssets": [],
+  "screenshots": [
+    "after-home-empty.png",
+    "after-route.png",
+    "after-route-filter.png",
+    "after-arrivals.png",
+    "after-home-saved.png",
+    "after-home-live.png",
+    "after-routes.png",
+    "after-planner-input.png",
+    "after-planner-result.png",
+    "after-traffic.png",
+    "after-help.png",
+    "after-bookmarks.png",
+    "after-settings.png",
+    "after-notices.png",
+    "after-reminders.png",
+    "after-settings-320-en-large.png",
+    "after-settings-375-en-large.png",
+    "after-settings-430-en-large.png",
+    "after-settings-844-en-large.png"
+  ],
+  "responsive": [
+    {
+      "screen": "home",
+      "width": 320,
+      "height": 740,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "routes",
+      "width": 320,
+      "height": 740,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "route",
+      "width": 320,
+      "height": 740,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "arrivals",
+      "width": 320,
+      "height": 740,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "bookmarks",
+      "width": 320,
+      "height": 740,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "settings",
+      "width": 320,
+      "height": 740,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "help",
+      "width": 320,
+      "height": 740,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "planner",
+      "width": 320,
+      "height": 740,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "traffic",
+      "width": 320,
+      "height": 740,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "reminders",
+      "width": 320,
+      "height": 740,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "notices",
+      "width": 320,
+      "height": 740,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "home",
+      "width": 375,
+      "height": 812,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "routes",
+      "width": 375,
+      "height": 812,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "route",
+      "width": 375,
+      "height": 812,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "arrivals",
+      "width": 375,
+      "height": 812,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "bookmarks",
+      "width": 375,
+      "height": 812,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "settings",
+      "width": 375,
+      "height": 812,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "help",
+      "width": 375,
+      "height": 812,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "planner",
+      "width": 375,
+      "height": 812,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "traffic",
+      "width": 375,
+      "height": 812,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "reminders",
+      "width": 375,
+      "height": 812,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "notices",
+      "width": 375,
+      "height": 812,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "home",
+      "width": 430,
+      "height": 932,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "routes",
+      "width": 430,
+      "height": 932,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "route",
+      "width": 430,
+      "height": 932,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "arrivals",
+      "width": 430,
+      "height": 932,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "bookmarks",
+      "width": 430,
+      "height": 932,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "settings",
+      "width": 430,
+      "height": 932,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "help",
+      "width": 430,
+      "height": 932,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "planner",
+      "width": 430,
+      "height": 932,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "traffic",
+      "width": 430,
+      "height": 932,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "reminders",
+      "width": 430,
+      "height": 932,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "notices",
+      "width": 430,
+      "height": 932,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "home",
+      "width": 844,
+      "height": 390,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "routes",
+      "width": 844,
+      "height": 390,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "route",
+      "width": 844,
+      "height": 390,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "arrivals",
+      "width": 844,
+      "height": 390,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "bookmarks",
+      "width": 844,
+      "height": 390,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "settings",
+      "width": 844,
+      "height": 390,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "help",
+      "width": 844,
+      "height": 390,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "planner",
+      "width": 844,
+      "height": 390,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "traffic",
+      "width": 844,
+      "height": 390,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "reminders",
+      "width": 844,
+      "height": 390,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "notices",
+      "width": 844,
+      "height": 390,
+      "largeText": true,
+      "locale": "en",
+      "horizontalOverflow": false
+    }
+  ],
+  "apiResponsesSubstituted": false,
+  "browserClosed": true,
+  "officialMiniProgramIDE": false,
+  "physicalDevice": false,
+  "passed": true,
+  "finishedAt": "2026-10-17T20:55:57.074Z"
+}

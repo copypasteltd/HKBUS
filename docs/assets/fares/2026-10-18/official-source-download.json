@@ -1,0 +1,37 @@
+{
+  "sources": [
+    {
+      "name": "ROUTE_BUS.xml",
+      "url": "https://static.data.gov.hk/td/routes-fares-xml/ROUTE_BUS.xml",
+      "bytes": 1656773,
+      "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+      "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT",
+      "preview": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<dataroot xmlns:od=\"urn:schemas-microsoft-com:officedata\" generated=\"2026-10-14T12:37:19\">\r\n<ROUTE>\r\n<ROUTE_ID>1001</ROUTE_ID>\r\n<COMPANY_CODE>KMB</COMPANY_CODE>\r\n<ROUTE_NAMEC>1</ROUTE_NAMEC>\r\n<ROUTE_NAMES>1</ROUTE_NAMES>\r\n<ROUTE_NAMEE>1</ROUTE_NAMEE>\r\n<ROUTE_TYPE>1</ROUTE_TYPE>\r\n<SERVICE_MODE>R</SERVICE_MODE>\r\n<SPECIAL_TYPE>0</SPECIAL_TYPE>\r\n<JOURNEY_TIME>46</JOURNEY_TIME>\r\n<LOC_START_NAMEC>竹園邨</LOC_START_NAMEC>\r\n<LOC_START_NAMES>竹园邨</LOC_START_NAMES>\r\n<LOC_START_NAMEE>CHUK YUEN ESTATE</LOC_ST"
+    },
+    {
+      "name": "RSTOP_BUS.xml",
+      "url": "https://static.data.gov.hk/td/routes-fares-xml/RSTOP_BUS.xml",
+      "bytes": 20693789,
+      "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT",
+      "preview": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<dataroot xmlns:od=\"urn:schemas-microsoft-com:officedata\" generated=\"2026-10-14T12:37:29\">\r\n<RSTOP>\r\n<ROUTE_ID>1001</ROUTE_ID>\r\n<ROUTE_SEQ>1</ROUTE_SEQ>\r\n<STOP_SEQ>1</STOP_SEQ>\r\n<STOP_ID>4001</STOP_ID>\r\n<STOP_PICK_DROP>2</STOP_PICK_DROP>\r\n<STOP_NAMEC>竹園邨總站</STOP_NAMEC>\r\n<STOP_NAMES>竹园邨总站</STOP_NAMES>\r\n<STOP_NAMEE>CHUK YUEN ESTATE BUS TERMINUS</STOP_NAMEE>\r\n<LAST_UPDATE_DATE>2026-05-20T00:00:00</LAST_UPDATE_DATE>\r\n</RSTOP>\r\n<RSTOP>\r\n<ROUTE_ID>1001</ROUTE_ID>\r\n<ROUTE_SEQ>1</ROUTE_SEQ>\r\n<"
+    },
+    {
+      "name": "FARE_BUS.xml",
+      "url": "https://static.data.gov.hk/td/routes-fares-xml/FARE_BUS.xml",
+      "bytes": 149238184,
+      "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+      "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT",
+      "preview": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<dataroot xmlns:od=\"urn:schemas-microsoft-com:officedata\" generated=\"2026-10-14T12:37:45\">\r\n<FARE>\r\n<ROUTE_ID>1001</ROUTE_ID>\r\n<ROUTE_SEQ>1</ROUTE_SEQ>\r\n<ON_SEQ>1</ON_SEQ>\r\n<OFF_SEQ>2</OFF_SEQ>\r\n<PRICE>6.7</PRICE>\r\n<LAST_UPDATE_DATE>2026-05-22T00:00:00</LAST_UPDATE_DATE>\r\n</FARE>\r\n<FARE>\r\n<ROUTE_ID>1001</ROUTE_ID>\r\n<ROUTE_SEQ>1</ROUTE_SEQ>\r\n<ON_SEQ>1</ON_SEQ>\r\n<OFF_SEQ>3</OFF_SEQ>\r\n<PRICE>6.7</PRICE>\r\n<LAST_UPDATE_DATE>2026-05-22T00:00:00</LAST_UPDATE_DATE>\r\n</FARE>\r\n<FARE>\r\n<ROUTE_ID>1001</ROUTE_ID>\r\n<RO"
+    },
+    {
+      "name": "DATA_LAST_UPDATED_DATE.csv",
+      "url": "https://static.data.gov.hk/td/routes-fares-xml/DATA_LAST_UPDATED_DATE.csv",
+      "bytes": 95,
+      "sha256": "984ece41f7c8498e509ab4e00f9d349ce59e3bf4de7513a9fd5631de299708e0",
+      "lastModified": "Wed, 14 Oct 2026 13:03:36 GMT",
+      "preview": "數據修正截止日期 / 数据修正截止日期 / Data revision cut-off date\r\n2026-10-14"
+    }
+  ],
+  "checkedAt": 1792266969.059709
+}
