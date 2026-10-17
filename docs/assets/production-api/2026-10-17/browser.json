@@ -1,0 +1,133 @@
+{
+  "startedAt": "2026-10-17T06:56:53.578Z",
+  "apiBase": "https://hkbus-api.copypaste.hk/api",
+  "staticTransport": "Playwright fulfills local compiled static assets only. All /api/ responses come from the real production HTTPS endpoint, without interception or substitution.",
+  "physicalDevice": false,
+  "officialMiniProgramIDE": false,
+  "screenshots": [
+    {
+      "file": "admin-login.png",
+      "description": "Exact Admin dist under /admin/, empty login form; no credentials in the screenshot."
+    },
+    {
+      "file": "admin-overview.png",
+      "description": "Real production catalogue and service metrics, served through the finalized HTTPS API."
+    },
+    {
+      "file": "admin-routes.png",
+      "description": "Exact Admin dist: real routes data over HTTPS."
+    },
+    {
+      "file": "admin-providers.png",
+      "description": "Exact Admin dist: real providers data over HTTPS."
+    },
+    {
+      "file": "android-home.png",
+      "description": "Exact APK renderer, fresh browser identity, no invented station or ETA. API is real HTTPS."
+    },
+    {
+      "file": "android-routes.png",
+      "description": "Official KMB/LWB routes fetched from the finalized API."
+    },
+    {
+      "file": "android-route.png",
+      "description": "Official complete stop sequence and a successful production bookmark write in a temporary test profile."
+    },
+    {
+      "file": "android-arrivals.png",
+      "description": "Real KMB ETA through the public HTTPS domain; null/stale states are kept as supplied."
+    }
+  ],
+  "requests": [
+    {
+      "surface": "admin",
+      "path": "/api/admin/auth/me",
+      "status": 401
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/auth/login",
+      "status": 200
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/overview",
+      "status": 200
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/routes",
+      "status": 200
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/providers",
+      "status": 200
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/auth/logout",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/home",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/config",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/routes",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/profile/sessions",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/stops/6CAA11E0FD871B20/arrivals",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/home",
+      "status": 200
+    }
+  ],
+  "pageErrors": [],
+  "browserClosed": true,
+  "testProfileDeleted": true,
+  "adminCookieVerified": true,
+  "adminSubdirectoryBrand": {
+    "src": "./brand/logo.svg",
+    "loaded": true
+  },
+  "adminLogoutVerified": true,
+  "mobileNarrowLayout": {
+    "horizontalOverflow": false,
+    "accessibleControlHeight": 44
+  },
+  "finishedAt": "2026-10-17T06:57:10.235Z",
+  "passed": true
+}

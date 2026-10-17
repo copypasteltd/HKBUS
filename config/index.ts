@@ -1,9 +1,10 @@
 import { defineConfig } from '@tarojs/cli';
 const target=process.env.TARO_ENV||'h5';
+const apiBase=(process.env.TARO_APP_API_BASE||'https://hkbus-api.copypaste.hk/api').replace(/\/+$/,'');
 export default defineConfig<'webpack5'>({
   projectName:'hkbusgo-wechat',date:'2026-10-16',designWidth:390,deviceRatio:{390:750/390,375:2,750:1},
   sourceRoot:'src',outputRoot:'dist/'+target,framework:'react',compiler:'webpack5',cache:{enable:false},
-  defineConstants:{__API_BASE__:JSON.stringify(process.env.TARO_APP_API_BASE||(target==='h5'?'/api':'http://127.0.0.1:4100/api'))},
+  defineConstants:{__API_BASE__:JSON.stringify(apiBase)},
   plugins:[],
   copy:{patterns:[{from:'src/assets',to:'dist/'+target+'/assets'}],options:{}},
   mini:{postcss:{pxtransform:{enable:true,config:{}},cssModules:{enable:false}},miniCssExtractPluginOption:{ignoreOrder:true}},
