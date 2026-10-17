@@ -12,4 +12,7 @@ export interface ProductConfig {mode:'live';features:Features;content:ProductCon
 export interface Bookmark {kind:'stop'|'route';entityId:string;alias:string;position:number;available:boolean;entity:Stop|Route|null}
 export interface Reminder {id:string;stop_id:string;route_id:string;threshold:number;status:'active'|'paused'|'sent'|'expired';channel:string;expires_at:string;stop:Stop|null;route:Route|null}
 export interface PageResult<T> {items:T[];total:number;page:number;pageSize:number}
+export interface FareQuote {state:'available'|'conditional'|'unavailable'|'stale';currency:'HKD';amountCents:number|null;options:{dayCode:number|null;amountCents:number}[];reason:string|null;basis:'adult-single-undiscounted';routeId:string;boardSequence:number;alightSequence:number;source:{provider:'TD';source:'live';url:string;dataDate:string;syncedAt:string}|null;checkedAt:string|null;officialUrl:string}
+export interface RouteFares {fullFare:FareQuote|null;boardingFares:(FareQuote|null)[]}
+export interface JourneyPricing {state:'complete'|'partial'|'unavailable';currency:'HKD';totalCents:number|null;knownSubtotalCents:number;pricedLegs:number;totalLegs:number;discountsApplied:false}
 export interface HomeData {nextBus:Arrivals|null;nearbyStops:Stop[];notices:Notice[];features:Features;content:ProductContent;warnings:{code:string;message:string;retryable:boolean}[];mode:'live';selection:'location'|'selected'|'none'}

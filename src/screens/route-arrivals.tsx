@@ -3,9 +3,10 @@ import {useApp} from '../state';
 import {ArrivalNumber,Icon} from '../components';
 import {openStop} from '../navigation';
 import {arrivalView,stationArrivals} from '../services/arrivals';
-import type {Arrival,Route,Stop} from '../services/types';
+import {fareAmount,fareReason} from '../services/fares';
+import type {Arrival,Route,Stop,FareQuote} from '../services/types';
 
-export function RouteStopArrivals({route,stop,arrivals,clock,stale,phase,expanded,onToggle,onRemind}:{route:Route;stop:Stop;arrivals:Arrival[];clock:number;stale:boolean;phase:'loading'|'error'|'ready';expanded:boolean;onToggle:()=>void;onRemind?:()=>void}){
+export function RouteStopArrivals({route,stop,arrivals,clock,stale,phase,fare,onFare,expanded,onToggle,onRemind}:{route:Route;stop:Stop;arrivals:Arrival[];clock:number;stale:boolean;phase:'loading'|'error'|'ready';fare?:FareQuote|null;onFare?:()=>void;expanded:boolean;onToggle:()=>void;onRemind?:()=>void}){
   const app=useApp(),rows=stationArrivals(arrivals,route.id,stop.id,stop.sequence,clock).slice(0,3);
   const values=rows.map(row=>arrivalView(row,clock,stale));
   const summary=phase==='loading'?app.tr('讀取到站中','读取到站中','Loading arrivals'):phase==='error'?app.tr('到站資料暫不可用','到站数据暂不可用','Arrivals unavailable'):stale||values[0]?.state==='stale'?app.tr('資料較舊','数据较旧','Stale data'):app.preferences.etaDisplay==='clock'&&values[0]?.time?values[0].time+' HKT':values[0]?.state==='minutes'?values[0].minutes+' '+app.tr('分鐘','分钟','min'):values[0]?.state==='due'?app.tr('即將到達','即将到达','Due'):app.tr('暫無預計','暂无预计','No estimate');
@@ -25,6 +26,7 @@ export function RouteStopArrivals({route,stop,arrivals,clock,stale,phase,expande
         {app.name(row.remark)&&<Text className='caption route-prediction-remark'>{app.name(row.remark)}</Text>}
       </View>;})}
       {phase==='ready'&&!rows.length&&<Text className='description'>{app.tr('本站暫無預計到站資料，不代表路線停駛。','本站暂无预计到站数据，不代表路线停驶。','No arrival estimate is available for this stop. This does not mean the route is suspended.')}</Text>}
+      {fare&&<View className='route-boarding-fare'><View><Text className='caption'>{app.tr('由本站至終點 · 普通成人單程','由本站至终点 · 普通成人单程','From here to terminus · standard adult single')}</Text><Text className='row-title'>{fare.state==='available'?fareAmount(fare.amountCents):fareReason(fare,app.locale)}</Text></View><Button className='text-button' onClick={onFare}>{app.tr('選擇下車站','选择下车站','Choose alighting stop')}<Icon name='chevron' size={14}/></Button></View>}
       <View className='route-stop-actions'><Button className='text-button' onClick={()=>openStop(stop.id)}><Icon name='bus' color='teal' size={17}/>{app.tr('車站所有路線','车站所有路线','All routes at this stop')}</Button>{onRemind&&<Button className='text-button' onClick={onRemind}><Icon name='bell' color='teal' size={17}/>{app.tr('到站提醒','到站提醒','Arrival reminder')}</Button>}</View>
     </View>}
   </View>;

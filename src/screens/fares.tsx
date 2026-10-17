@@ -1,0 +1,31 @@
+import {useState} from 'react';
+import {View,Text,Button,Picker} from '@tarojs/components';
+import {useApp,useResource} from '../state';
+import {Icon,ResourceState} from '../components';
+import {query} from '../services/api';
+import {fareAmount,fareReason,fareDay} from '../services/fares';
+import {openExternal} from '../services/platform';
+import type {FareQuote,Route,Stop,RouteFares,JourneyPricing} from '../services/types';
+export function FareValue({quote,offline=false}:{quote:FareQuote|null|undefined;offline?:boolean}){
+ const app=useApp();return <View className={'fare-value '+(offline||quote?.state==='stale'?'fare-stale':'')}><Text className='fare-amount'>{quote?.amountCents!==null&&quote?.amountCents!==undefined?fareAmount(quote.amountCents):app.tr('未核實','未核实','Unverified')}</Text>{(offline||quote?.state!=='available')&&<Text className='caption'>{offline?app.tr('離線保存的舊資料，請連線確認','离线保存的旧数据，请联网确认','Saved offline data; reconnect to confirm'):fareReason(quote,app.locale)}</Text>}</View>;
+}
+export function FarePanel({route,stops,fares,boardSequence,onBoardChange,offline}:{route:Route;stops:Stop[];fares?:RouteFares;boardSequence:number|null;onBoardChange:(sequence:number)=>void;offline:boolean}){
+ const app=useApp(),[to,setTo]=useState(stops[stops.length-1]?.sequence||0),[details,setDetails]=useState(false);
+ const board=stops.find(s=>s.sequence===boardSequence)||stops[0],boardIndex=Math.max(0,stops.indexOf(board)),alights=stops.filter(s=>(s.sequence||0)>(board?.sequence||0));
+ const alight=alights.find(s=>s.sequence===to)||alights[alights.length-1];
+ const resource=useResource<FareQuote>(board&&alight?'/v1/routes/'+encodeURIComponent(route.id)+'/fare'+query({boardSequence:board.sequence,alightSequence:alight.sequence}):null);
+ const quote=resource.data?.routeId===route.id&&resource.data.boardSequence===board?.sequence&&resource.data.alightSequence===alight?.sequence?resource.data:null;
+ const label=(s:Stop)=>s.sequence+' · '+app.name(s.name);
+ return <View className='card fare-panel' id='route-fare-panel'>
+  <View className='fare-heading'><View><Text className='eyebrow'>HKD · {app.tr('官方收費','官方收费','Official fares')}</Text><Text className='card-title'>{app.tr('這一程，車費多少','这一程，车费多少','Your fare for this journey')}</Text></View><Icon name='bus' color='teal' size={25}/></View>
+  <Text className='caption'>{app.tr('普通成人單程 · 未計優惠','普通成人单程 · 未计优惠','Standard adult single fare · before discounts')}</Text>
+  <View className='fare-fields'><View className='field'><Text className='field-label'>{app.tr('上車站','上车站','Board at')}</Text><Picker range={stops.slice(0,-1).map(label)} value={boardIndex} onChange={e=>onBoardChange(stops[Number(e.detail.value)].sequence!)}><View className='field-control'><Text>{board?label(board):'—'}</Text><Icon name='chevronDown' size={17}/></View></Picker></View><View className='field'><Text className='field-label'>{app.tr('下車站','下车站','Alight at')}</Text><Picker range={alights.map(label)} value={Math.max(0,alights.indexOf(alight!))} onChange={e=>setTo(alights[Number(e.detail.value)].sequence!)}><View className='field-control'><Text>{alight?label(alight):'—'}</Text><Icon name='chevronDown' size={17}/></View></Picker></View></View>
+  <View className='fare-result' {...(process.env.TARO_ENV==='h5'?{role:'status','aria-live':'polite'}:{})}>{resource.loading&&!quote?<Text className='description'>{app.tr('查詢官方車費中…','查询官方票价中…','Checking the official fare…')}</Text>:<FareValue quote={quote}/>}</View>
+  {resource.error&&<ResourceState resource={resource}/>}{quote?.options&&quote.state==='conditional'&&quote.options.map((option,index)=><View className='fare-option' key={index}><Text>{fareDay(option.dayCode,app.locale)}</Text><Text>{fareAmount(option.amountCents)}</Text></View>)}
+  <Text className='caption fare-full'>{app.tr('由起點至終點：','由起点至终点：','Origin to terminus: ')}{fares?.fullFare?.state==='available'&&!offline?fareAmount(fares.fullFare.amountCents):app.tr('請以目前查詢及資料狀態確認','请以当前查询及数据状态确认','Check the current quote and data status')}</Text>
+  {quote?.source&&<Text className='caption fare-source'>{app.tr('運輸署收費資料 · 版本 ','运输署收费数据 · 版本 ','Transport Department fare data · version ')+quote.source.dataDate}</Text>}
+  <Button className='text-button fare-disclosure' onClick={()=>setDetails(!details)}>{app.tr('收費條件與資料來源','收费条件与数据来源','Fare conditions and source')}<Icon name={details?'chevronDown':'chevron'} size={15}/></Button>
+  {details&&<View className='fare-conditions'><Text className='description'>{app.tr('車費按本方向、服務類型及所選站序核對。未計轉乘、八達通、支付、兒童、長者或其他優惠；不代替上車時營辦商實收。','票价按本方向、服务类型及所选站序核对。未计换乘、八达通、支付、儿童、长者或其他优惠；不代替上车时营办商实收。','Fares are matched to this direction, service and stop sequence. Transfer, Octopus, payment, child, senior and other discounts are excluded. The operator’s fare at boarding applies.')}</Text><Text className='caption'>{quote?.options.length===1?fareDay(quote.options[0].dayCode,app.locale):app.tr('不推定適用日或優惠資格。','不推定适用日或优惠资格。','Applicable days and discount eligibility are not inferred.')}</Text><Button className='text-button' onClick={()=>void openExternal(quote?.officialUrl||fares?.fullFare?.officialUrl||'https://www.kmb.hk/')}><Icon name='chevron' size={15}/>{app.tr('核對營辦商收費','核对营办商收费','Check operator fares')}</Button><Button className='text-button' onClick={()=>void openExternal('https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml')}>{app.tr('官方資料說明','官方数据说明','Official data source')}<Icon name='chevron' size={15}/></Button></View>}
+ </View>;
+}
+export function JourneyFare({pricing}:{pricing?:JourneyPricing}){const app=useApp();return <View className='journey-fare'><Text className='row-title'>{pricing?.state==='complete'?app.tr('普通單程車費合計','普通单程票价合计','Total standard single fares'):app.tr('車費尚未完整核實','票价尚未完整核实','Fare total is not fully verified')}</Text><Text className='fare-amount'>{pricing?.state==='complete'?fareAmount(pricing.totalCents):'—'}</Text>{pricing?.state==='partial'&&<Text className='caption'>{app.tr('已核實部分：','已核实部分：','Verified subtotal: ')+fareAmount(pricing.knownSubtotalCents)+' · '+pricing.pricedLegs+'/'+pricing.totalLegs}</Text>}<Text className='caption'>{app.tr('未計轉乘、付款及其他優惠。缺少的車費不當作零。','未计换乘、付款及其他优惠。缺少的票价不作为零。','Before transfer, payment and other discounts. Missing fares are not treated as zero.')}</Text></View>;}
