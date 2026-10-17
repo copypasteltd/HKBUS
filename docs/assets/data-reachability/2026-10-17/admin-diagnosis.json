@@ -1,0 +1,39 @@
+{
+  "requests": [
+    "/admin/",
+    "/admin/assets/index-hyNJqHtF.js",
+    "/admin/assets/index-CDaJk-j6.css",
+    "/admin/brand/logo.svg",
+    "/api/admin/auth/me",
+    "/admin/brand/favicon.svg"
+  ],
+  "responses": [
+    {
+      "path": "/admin/",
+      "status": 200
+    },
+    {
+      "path": "/admin/assets/index-CDaJk-j6.css",
+      "status": 200
+    },
+    {
+      "path": "/admin/assets/index-hyNJqHtF.js",
+      "status": 200
+    },
+    {
+      "path": "/admin/brand/logo.svg",
+      "status": 200
+    },
+    {
+      "path": "/admin/brand/favicon.svg",
+      "status": 200
+    },
+    {
+      "path": "/api/admin/auth/me",
+      "status": 401
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "body": "港巴通\nConnecting Hong Kong\nHKBusGo · Operations\n清楚的資訊，\n從容的每一程。\n\n在服務與出發之間，\n讓每一條重要訊息都能準確抵達。\n\nKMB / LWB 開放資料 · TDAS 道路參考\nWelcome back\n登入營運管理台\n\n使用獲授權的管理帳號繼續。\n\n電郵\n密碼\n登入管理台\n需要帳號或重設密碼？請聯絡你所屬的系統管理員。"
+}

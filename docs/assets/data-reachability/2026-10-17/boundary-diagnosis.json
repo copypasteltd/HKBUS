@@ -1,0 +1,666 @@
+{
+  "checkedAt": "2026-10-17T08:57:01.814075+00:00",
+  "latestEvents": [
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 1,
+      "duration_ms": 1145,
+      "code": null,
+      "created_at": "2026-10-17T08:56:51.220Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 1,
+      "duration_ms": 1100,
+      "code": null,
+      "created_at": "2026-10-17T08:56:48.805Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 0,
+      "duration_ms": 59,
+      "code": "UPSTREAM_FORBIDDEN",
+      "created_at": "2026-10-17T08:54:26.985Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 0,
+      "duration_ms": 69,
+      "code": "UPSTREAM_FORBIDDEN",
+      "created_at": "2026-10-17T08:54:26.712Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 1,
+      "duration_ms": 1358,
+      "code": null,
+      "created_at": "2026-10-17T08:54:25.941Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 1,
+      "duration_ms": 1278,
+      "code": null,
+      "created_at": "2026-10-17T08:54:23.059Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 1,
+      "duration_ms": 901,
+      "code": null,
+      "created_at": "2026-10-17T08:54:20.349Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 1,
+      "duration_ms": 1214,
+      "code": null,
+      "created_at": "2026-10-17T08:54:19.082Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 1,
+      "duration_ms": 1455,
+      "code": null,
+      "created_at": "2026-10-17T08:54:17.824Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 1,
+      "duration_ms": 1598,
+      "code": null,
+      "created_at": "2026-10-17T08:54:16.281Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 1,
+      "duration_ms": 1441,
+      "code": null,
+      "created_at": "2026-10-17T08:54:14.635Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 1,
+      "duration_ms": 1935,
+      "code": null,
+      "created_at": "2026-10-17T08:54:13.109Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 1,
+      "duration_ms": 1432,
+      "code": null,
+      "created_at": "2026-10-17T08:54:10.924Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 1,
+      "duration_ms": 1443,
+      "code": null,
+      "created_at": "2026-10-17T08:54:09.446Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 1,
+      "duration_ms": 1435,
+      "code": null,
+      "created_at": "2026-10-17T08:54:07.919Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 1,
+      "duration_ms": 1435,
+      "code": null,
+      "created_at": "2026-10-17T08:54:06.304Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 1,
+      "duration_ms": 1467,
+      "code": null,
+      "created_at": "2026-10-17T08:54:04.716Z"
+    },
+    {
+      "provider": "TDAS",
+      "operation": "road-route-egress",
+      "success": 1,
+      "duration_ms": 1734,
+      "code": null,
+      "created_at": "2026-10-17T08:54:03.140Z"
+    }
+  ],
+  "checks": [
+    {
+      "name": "loopback",
+      "status": 200,
+      "server": null,
+      "region": null,
+      "upstreamStatus": null,
+      "elapsedMs": 1476,
+      "data": {
+        "data": {
+          "provider": "TDAS",
+          "source": "live",
+          "distanceMeters": 3389,
+          "durationSeconds": 600,
+          "averageSpeedKmh": 21,
+          "generatedAt": "2026-10-17T08:57:03.288Z",
+          "cached": false,
+          "departIn": 75,
+          "routeType": "SD",
+          "tunnels": {
+            "cht": false,
+            "eht": false,
+            "wht": false
+          },
+          "segments": [
+            {
+              "start": {
+                "rid": 2728,
+                "intersect": [
+                  22.278403,
+                  114.182788
+                ]
+              },
+              "end": {
+                "rid": 2722,
+                "intersect": [
+                  22.281935,
+                  114.158052
+                ]
+              },
+              "segment": [
+                {
+                  "dir": 3,
+                  "rid": [
+                    2728
+                  ]
+                },
+                {
+                  "dir": 1,
+                  "rid": [
+                    4251,
+                    115457
+                  ]
+                },
+                {
+                  "dir": 1,
+                  "rid": [
+                    263083,
+                    2434,
+                    855,
+                    2606,
+                    1388,
+                    1208
+                  ]
+                },
+                {
+                  "dir": 2,
+                  "rid": [
+                    4181
+                  ]
+                },
+                {
+                  "dir": 2,
+                  "rid": [
+                    143,
+                    4955,
+                    5285,
+                    185
+                  ]
+                },
+                {
+                  "dir": 1,
+                  "rid": [
+                    3915,
+                    956,
+                    2136,
+                    4087,
+                    1412,
+                    386,
+                    594,
+                    5761
+                  ]
+                },
+                {
+                  "dir": 1,
+                  "rid": [
+                    3443,
+                    4083,
+                    3219,
+                    5492,
+                    2617,
+                    181,
+                    1252,
+                    4915,
+                    2560,
+                    1357,
+                    2333,
+                    5593,
+                    1528,
+                    2665,
+                    220,
+                    304
+                  ]
+                },
+                {
+                  "dir": 1,
+                  "rid": [
+                    4202
+                  ]
+                },
+                {
+                  "dir": 3,
+                  "rid": [
+                    3866,
+                    3460,
+                    4674,
+                    5550,
+                    5490,
+                    1863,
+                    2680
+                  ]
+                },
+                {
+                  "dir": 1,
+                  "rid": [
+                    3491,
+                    564,
+                    1353,
+                    1457,
+                    117,
+                    2855,
+                    605,
+                    401,
+                    4085,
+                    885
+                  ]
+                },
+                {
+                  "dir": 2,
+                  "rid": [
+                    465
+                  ]
+                },
+                {
+                  "dir": 2,
+                  "rid": [
+                    2722
+                  ],
+                  "ped": [
+                    {
+                      "id": 140007,
+                      "desc": "General Public Holidays: 7am-Midnight"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "alternatives": [],
+          "notice": "道路交通參考，不代表巴士到站、候車或乘車時間"
+        },
+        "meta": {
+          "requestId": "aee2b9b1-36d6-49e7-ad10-efe84a223cc9",
+          "mode": "live",
+          "generatedAt": "2026-10-17T08:57:03.289Z"
+        }
+      }
+    },
+    {
+      "name": "managed-egress",
+      "status": 200,
+      "server": "Vercel",
+      "region": "hkg1",
+      "upstreamStatus": "200",
+      "elapsedMs": 1469,
+      "data": {
+        "jSpeed": "21 km/h",
+        "distM": 3389,
+        "distU": "3.39 km",
+        "eta": "00:10",
+        "cht": false,
+        "eht": false,
+        "wht": false,
+        "route": [
+          {
+            "start": {
+              "rid": 2728,
+              "intersect": [
+                22.278403,
+                114.182788
+              ]
+            },
+            "end": {
+              "rid": 2722,
+              "intersect": [
+                22.281935,
+                114.158052
+              ]
+            },
+            "segment": [
+              {
+                "dir": 3,
+                "rid": [
+                  2728
+                ]
+              },
+              {
+                "dir": 1,
+                "rid": [
+                  4251,
+                  115457
+                ]
+              },
+              {
+                "dir": 1,
+                "rid": [
+                  263083,
+                  2434,
+                  855,
+                  2606,
+                  1388,
+                  1208
+                ]
+              },
+              {
+                "dir": 2,
+                "rid": [
+                  4181
+                ]
+              },
+              {
+                "dir": 2,
+                "rid": [
+                  143,
+                  4955,
+                  5285,
+                  185
+                ]
+              },
+              {
+                "dir": 1,
+                "rid": [
+                  3915,
+                  956,
+                  2136,
+                  4087,
+                  1412,
+                  386,
+                  594,
+                  5761
+                ]
+              },
+              {
+                "dir": 1,
+                "rid": [
+                  3443,
+                  4083,
+                  3219,
+                  5492,
+                  2617,
+                  181,
+                  1252,
+                  4915,
+                  2560,
+                  1357,
+                  2333,
+                  5593,
+                  1528,
+                  2665,
+                  220,
+                  304
+                ]
+              },
+              {
+                "dir": 1,
+                "rid": [
+                  4202
+                ]
+              },
+              {
+                "dir": 3,
+                "rid": [
+                  3866,
+                  3460,
+                  4674,
+                  5550,
+                  5490,
+                  1863,
+                  2680
+                ]
+              },
+              {
+                "dir": 1,
+                "rid": [
+                  3491,
+                  564,
+                  1353,
+                  1457,
+                  117,
+                  2855,
+                  605,
+                  401,
+                  4085,
+                  885
+                ]
+              },
+              {
+                "dir": 2,
+                "rid": [
+                  465
+                ]
+              },
+              {
+                "dir": 2,
+                "rid": [
+                  2722
+                ],
+                "ped": [
+                  {
+                    "id": 140007,
+                    "desc": "General Public Holidays: 7am-Midnight"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "public",
+      "status": 200,
+      "server": "cloudflare",
+      "region": null,
+      "upstreamStatus": null,
+      "elapsedMs": 87,
+      "data": {
+        "data": {
+          "provider": "TDAS",
+          "source": "live",
+          "distanceMeters": 3389,
+          "durationSeconds": 600,
+          "averageSpeedKmh": 21,
+          "generatedAt": "2026-10-17T08:57:03.288Z",
+          "cached": true,
+          "departIn": 75,
+          "routeType": "SD",
+          "tunnels": {
+            "cht": false,
+            "eht": false,
+            "wht": false
+          },
+          "segments": [
+            {
+              "start": {
+                "rid": 2728,
+                "intersect": [
+                  22.278403,
+                  114.182788
+                ]
+              },
+              "end": {
+                "rid": 2722,
+                "intersect": [
+                  22.281935,
+                  114.158052
+                ]
+              },
+              "segment": [
+                {
+                  "dir": 3,
+                  "rid": [
+                    2728
+                  ]
+                },
+                {
+                  "dir": 1,
+                  "rid": [
+                    4251,
+                    115457
+                  ]
+                },
+                {
+                  "dir": 1,
+                  "rid": [
+                    263083,
+                    2434,
+                    855,
+                    2606,
+                    1388,
+                    1208
+                  ]
+                },
+                {
+                  "dir": 2,
+                  "rid": [
+                    4181
+                  ]
+                },
+                {
+                  "dir": 2,
+                  "rid": [
+                    143,
+                    4955,
+                    5285,
+                    185
+                  ]
+                },
+                {
+                  "dir": 1,
+                  "rid": [
+                    3915,
+                    956,
+                    2136,
+                    4087,
+                    1412,
+                    386,
+                    594,
+                    5761
+                  ]
+                },
+                {
+                  "dir": 1,
+                  "rid": [
+                    3443,
+                    4083,
+                    3219,
+                    5492,
+                    2617,
+                    181,
+                    1252,
+                    4915,
+                    2560,
+                    1357,
+                    2333,
+                    5593,
+                    1528,
+                    2665,
+                    220,
+                    304
+                  ]
+                },
+                {
+                  "dir": 1,
+                  "rid": [
+                    4202
+                  ]
+                },
+                {
+                  "dir": 3,
+                  "rid": [
+                    3866,
+                    3460,
+                    4674,
+                    5550,
+                    5490,
+                    1863,
+                    2680
+                  ]
+                },
+                {
+                  "dir": 1,
+                  "rid": [
+                    3491,
+                    564,
+                    1353,
+                    1457,
+                    117,
+                    2855,
+                    605,
+                    401,
+                    4085,
+                    885
+                  ]
+                },
+                {
+                  "dir": 2,
+                  "rid": [
+                    465
+                  ]
+                },
+                {
+                  "dir": 2,
+                  "rid": [
+                    2722
+                  ],
+                  "ped": [
+                    {
+                      "id": 140007,
+                      "desc": "General Public Holidays: 7am-Midnight"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "alternatives": [],
+          "notice": "道路交通參考，不代表巴士到站、候車或乘車時間"
+        },
+        "meta": {
+          "requestId": "b22938c7-ed41-42f6-856f-78b808701ae0",
+          "mode": "live",
+          "generatedAt": "2026-10-17T08:57:04.840Z"
+        }
+      }
+    }
+  ]
+}

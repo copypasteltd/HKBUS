@@ -1,0 +1,29 @@
+{
+  "checks": [
+    {
+      "name": "original-offshore-no-match",
+      "status": 400,
+      "upstreamStatus": "400",
+      "region": "hkg1",
+      "elapsedMs": 257,
+      "body": {
+        "error": {
+          "code": "TDAS_UPSTREAM_HTTP",
+          "upstreamStatus": 400
+        }
+      }
+    },
+    {
+      "name": "valid-after",
+      "status": 200,
+      "upstreamStatus": "200",
+      "region": "hkg1",
+      "elapsedMs": 1414,
+      "body": {
+        "eta": "00:06",
+        "distM": 3953
+      }
+    }
+  ],
+  "scope": "same original failed no-road body, two spaced low-volume real official requests"
+}

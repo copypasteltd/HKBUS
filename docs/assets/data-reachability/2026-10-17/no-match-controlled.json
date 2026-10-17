@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-10-17T08:59:35.654777+00:00",
+  "scope": "three real upstream requests, spaced six seconds, to distinguish no-road behavior from burst denial",
+  "checks": [
+    {
+      "name": "valid-before",
+      "status": 200,
+      "region": "hkg1",
+      "upstreamStatus": "200",
+      "elapsedMs": 1645,
+      "body": {
+        "eta": "00:06",
+        "distM": 3953
+      }
+    },
+    {
+      "name": "water-no-match",
+      "status": 400,
+      "region": "hkg1",
+      "upstreamStatus": "400",
+      "elapsedMs": 254,
+      "body": {
+        "error": {
+          "code": "TDAS_UPSTREAM_HTTP",
+          "upstreamStatus": 400
+        }
+      }
+    },
+    {
+      "name": "valid-after",
+      "status": 200,
+      "region": "hkg1",
+      "upstreamStatus": "200",
+      "elapsedMs": 1396,
+      "body": {
+        "eta": "00:06",
+        "distM": 3953
+      }
+    }
+  ]
+}

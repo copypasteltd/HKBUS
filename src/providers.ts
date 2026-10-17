@@ -33,6 +33,7 @@ export class Providers {
   private inFlight=new Map<string,Promise<unknown>>();
   private jobs=new Set<Promise<unknown>>();
   private syncing:string|null=null;
+  private nextTdasRequestAt=0;
   constructor(readonly store:Store,readonly config:Config,private fetcher:Fetcher=fetch){}
   status(){
     return (['KMB','TDAS'] as const).map(provider=>{
@@ -44,13 +45,23 @@ export class Providers {
       return{provider,enabled,transport:provider==='TDAS'&&this.config.tdasEgressUrl?'authenticated-egress':'direct',state,checkedAt:event?.created_at||null,lastCode:event?.code||null};
     });
   }
+  private async tdasSlot(){
+    const at=Date.now(),scheduled=Math.max(at,this.nextTdasRequestAt),wait=scheduled-at;
+    if(wait>4000)throw new AppError('TDAS_BUSY','道路查詢繁忙，請稍後重試',429,true);
+    this.nextTdasRequestAt=scheduled+this.config.tdasMinIntervalMs;
+    if(wait>0)await new Promise(resolve=>setTimeout(resolve,wait));
+  }
   private async request<T=unknown>(provider:'KMB'|'TDAS',operation:string,url:string,body?:unknown,options:{headers?:Record<string,string>;validate?:(data:unknown)=>T}={}):Promise<T>{
     const recent=this.store.all<{success:number;created_at:string}>("SELECT success,created_at FROM provider_events WHERE provider=? AND operation=? AND (code IS NULL OR code<>'ROAD_MATCH_FAILED') ORDER BY created_at DESC,rowid DESC LIMIT 5",provider,operation);
     if(recent.length===5&&recent.every(x=>!x.success)&&Date.now()-Date.parse(recent[0]!.created_at)<30000)throw new AppError('UPSTREAM_CIRCUIT_OPEN','資料服務暫時不可用，請稍後重試',503,true);
+    const deadline=Date.now()+30000;
     for(let attempt=0;attempt<2;attempt++){
+      if(provider==='TDAS')await this.tdasSlot();
       const start=Date.now();let failure:unknown;
       try{
-        const response=await this.fetcher(url,{method:body?'POST':'GET',headers:{Accept:'application/json','User-Agent':'HKBusGo/1.0',...(body?{'Content-Type':'application/json'}:{}),...options.headers},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(this.config.providerTimeoutMs)});
+        const timeout=provider==='TDAS'?Math.min(this.config.providerTimeoutMs,deadline-Date.now()):this.config.providerTimeoutMs;
+        if(timeout<=0)throw new AppError('UPSTREAM_TIMEOUT','道路查詢逾時，請稍後重試',504,true);
+        const response=await this.fetcher(url,{method:body?'POST':'GET',headers:{Accept:'application/json','User-Agent':'HKBusGo/1.0',...(body?{'Content-Type':'application/json'}:{}),...options.headers},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(timeout)});
         if(!response.ok){
           if(provider==='TDAS'&&response.status===400)throw new AppError('ROAD_MATCH_FAILED','沒有合適道路，請調整起終點位置',422,false);
           if(operation==='road-route-egress'&&(response.status===401||response.status===403))throw new AppError('TDAS_EGRESS_AUTH','道路資料出口認證失敗，請聯絡管理員',503,false);

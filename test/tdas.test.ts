@@ -10,7 +10,7 @@ const egress='https://owned-egress.example/api/route';
 const input=tdasInputSchema.parse({start:{lat:22.2784,long:114.1828,buffer:200},end:{lat:22.2821,long:114.1581,buffer:200}});
 // Contract examples for isolated tests only; the running provider always uses the official API.
 const road={jSpeed:'41公里/小時',distM:3953,eta:'01:06',cht:false,eht:false,wht:false,route:[{start:{rid:2728},end:{rid:2722},segment:[{dir:3,rid:[2728]}]}],ar:[{name:'Alternative',distU:'4.5 km',eta:'00:08'}]};
-const config={databasePath:':memory:',jwtSecret:'isolated-tdas-test-jwt-secret-at-least-32-characters',workerEnabled:false,tdasEgressUrl:egress,tdasEgressSecret:key};
+const config={databasePath:':memory:',jwtSecret:'isolated-tdas-test-jwt-secret-at-least-32-characters',workerEnabled:false,tdasEgressUrl:egress,tdasEgressSecret:key,tdasMinIntervalMs:0};
 const json=(value:unknown,status=200)=>new Response(JSON.stringify(value),{status});
 const problem=(code:string,status:number,retryable:boolean)=>(error:unknown)=>error instanceof AppError&&error.code===code&&error.status===status&&error.retryable===retryable;
 
@@ -85,4 +85,25 @@ test('partial or unsafe egress configuration fails startup without echoing crede
     assert.throws(()=>loadConfig({...base,...bad}),error=>error instanceof Error&&error.message.startsWith('TDAS_EGRESS_')&&!error.message.includes(key));
   }
   assert.equal(loadConfig({...base,tdasEgressUrl:egress,tdasEgressSecret:key}).tdasEgressUrl,egress);
+});
+
+test('different TDAS queries respect the configured upstream interval',async()=>{
+  const starts:number[]=[];
+  const ctx=await createApp({...config,tdasMinIntervalMs:50},{logger:false,fetcher:async()=>{starts.push(Date.now());return json(road);}});
+  try{
+    await Promise.all([ctx.providers.roadRoute(input),ctx.providers.roadRoute({...input,lang:'en'})]);
+    assert.equal(starts.length,2);assert.ok(starts[1]!-starts[0]!>=40);
+  }finally{await ctx.app.close();}
+});
+
+test('local TDAS backpressure is bounded, explicit and does not fabricate a provider failure',async()=>{
+  let calls=0;
+  const ctx=await createApp({...config,tdasMinIntervalMs:5000},{logger:false,fetcher:async()=>{calls++;return json(road);}});
+  try{
+    await ctx.providers.roadRoute(input);
+    await assert.rejects(ctx.providers.roadRoute({...input,lang:'en'}),problem('TDAS_BUSY',429,true));assert.equal(calls,1);
+    assert.equal(ctx.providers.status().find(service=>service.provider==='TDAS')!.state,'available');
+    assert.equal(ctx.store.get<{n:number}>('SELECT count(*) n FROM provider_events')!.n,1);
+    assert.equal((await ctx.providers.roadRoute(input)).cached,true);
+  }finally{await ctx.app.close();}
 });
