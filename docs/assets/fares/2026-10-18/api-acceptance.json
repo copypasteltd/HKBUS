@@ -1,0 +1,1677 @@
+{
+  "passed": true,
+  "checkedAt": "2026-10-17T20:29:39.443378+00:00",
+  "transport": "Actual public HTTPS from the owned Hong Kong production host; TLS verified",
+  "responsesSubstituted": false,
+  "status": {
+    "state": "available",
+    "currency": "HKD",
+    "basis": "adult-single-undiscounted",
+    "source": {
+      "provider": "TD",
+      "source": "live",
+      "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+      "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+      "dataDate": "2026-10-14",
+      "syncedAt": "2026-10-17T20:20:12.859Z",
+      "files": [
+        {
+          "name": "ROUTE_BUS.xml",
+          "bytes": 1656773,
+          "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+          "generatedDate": "2026-10-14",
+          "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+        },
+        {
+          "name": "STOP_BUS.xml",
+          "bytes": 702333,
+          "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+          "generatedDate": "2026-10-14",
+          "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+        },
+        {
+          "name": "RSTOP_BUS.xml",
+          "bytes": 20693789,
+          "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+          "generatedDate": "2026-10-14",
+          "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+        },
+        {
+          "name": "FARE_BUS.xml",
+          "bytes": 149238184,
+          "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+          "generatedDate": "2026-10-14",
+          "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+        }
+      ],
+      "fareRows": 452071,
+      "directions": 1503
+    },
+    "checkedAt": "2026-10-17T20:20:13.068Z",
+    "lastFailure": null,
+    "runningJobId": null,
+    "coverage": {
+      "total": 1611,
+      "matched": 1150,
+      "partial": 17,
+      "unmatched": 444,
+      "ambiguous": 0,
+      "changed": 0
+    },
+    "limitations": "普通成人單程車費；未計轉乘、付款、兒童、長者或其他優惠。適用日未標示時不推定每天適用。",
+    "sourceUrl": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml"
+  },
+  "quoteChecks": [
+    {
+      "routeId": "KMB:112:O:1",
+      "boardSequence": 1,
+      "alightSequence": 23,
+      "amountCents": 1220
+    },
+    {
+      "routeId": "KMB:112:O:1",
+      "boardSequence": 10,
+      "alightSequence": 23,
+      "amountCents": 770
+    },
+    {
+      "routeId": "KMB:112:O:1",
+      "boardSequence": 22,
+      "alightSequence": 23,
+      "amountCents": 680
+    },
+    {
+      "routeId": "KMB:112:I:1",
+      "boardSequence": 1,
+      "alightSequence": 24,
+      "amountCents": 1220
+    },
+    {
+      "routeId": "KMB:112:I:1",
+      "boardSequence": 10,
+      "alightSequence": 24,
+      "amountCents": 1220
+    },
+    {
+      "routeId": "KMB:112:I:1",
+      "boardSequence": 23,
+      "alightSequence": 24,
+      "amountCents": 770
+    },
+    {
+      "routeId": "KMB:48X:O:1",
+      "boardSequence": 1,
+      "alightSequence": 19,
+      "amountCents": 930
+    },
+    {
+      "routeId": "KMB:48X:O:1",
+      "boardSequence": 10,
+      "alightSequence": 19,
+      "amountCents": 670
+    },
+    {
+      "routeId": "KMB:48X:O:1",
+      "boardSequence": 18,
+      "alightSequence": 19,
+      "amountCents": 460
+    },
+    {
+      "routeId": "KMB:1:O:1",
+      "boardSequence": 1,
+      "alightSequence": 25,
+      "amountCents": 670
+    },
+    {
+      "routeId": "KMB:1:O:1",
+      "boardSequence": 10,
+      "alightSequence": 25,
+      "amountCents": 670
+    },
+    {
+      "routeId": "KMB:1:O:1",
+      "boardSequence": 24,
+      "alightSequence": 25,
+      "amountCents": 580
+    }
+  ],
+  "unknownQuote": {
+    "state": "unavailable",
+    "currency": "HKD",
+    "amountCents": null,
+    "options": [],
+    "reason": "ROUTE_UNMATCHED",
+    "basis": "adult-single-undiscounted",
+    "routeId": "KMB:A43:O:1",
+    "boardSequence": 1,
+    "alightSequence": 22,
+    "boardStopId": "B63202433AD89E92",
+    "alightStopId": "21466046C6868AA7",
+    "source": {
+      "provider": "TD",
+      "source": "live",
+      "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+      "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+      "dataDate": "2026-10-14",
+      "syncedAt": "2026-10-17T20:20:12.859Z",
+      "files": [
+        {
+          "name": "ROUTE_BUS.xml",
+          "bytes": 1656773,
+          "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+          "generatedDate": "2026-10-14",
+          "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+        },
+        {
+          "name": "STOP_BUS.xml",
+          "bytes": 702333,
+          "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+          "generatedDate": "2026-10-14",
+          "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+        },
+        {
+          "name": "RSTOP_BUS.xml",
+          "bytes": 20693789,
+          "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+          "generatedDate": "2026-10-14",
+          "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+        },
+        {
+          "name": "FARE_BUS.xml",
+          "bytes": 149238184,
+          "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+          "generatedDate": "2026-10-14",
+          "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+        }
+      ],
+      "fareRows": 452071,
+      "directions": 1503
+    },
+    "checkedAt": "2026-10-17T20:20:13.068Z",
+    "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=A43&lang=zh-hk"
+  },
+  "journeyCases": [
+    {
+      "case": "direct",
+      "startId": "BFC406EB675EF22E",
+      "endId": "44AF4BBD0B0BB3A0",
+      "journeys": [
+        {
+          "id": "KMB:112:O:1",
+          "transfers": 0,
+          "legs": [
+            {
+              "route": {
+                "id": "KMB:112:O:1",
+                "routeNo": "112",
+                "bound": "O",
+                "serviceType": "1",
+                "operator": "KMB/LWB",
+                "origin": {
+                  "tc": "北角(百福道)",
+                  "sc": "北角(百福道)",
+                  "en": "NORTH POINT (PAK FUK ROAD)"
+                },
+                "destination": {
+                  "tc": "長沙灣(蘇屋邨)",
+                  "sc": "长沙湾(苏屋邨)",
+                  "en": "CHEUNG SHA WAN (SO UK ESTATE)"
+                },
+                "source": "live"
+              },
+              "board": {
+                "id": "BFC406EB675EF22E",
+                "name": {
+                  "tc": "北角(百福道)總站",
+                  "sc": "北角(百福道)总站",
+                  "en": "NORTH POINT (PAK FUK ROAD) BUS TERMINUS"
+                },
+                "latitude": 22.291039,
+                "longitude": 114.205064,
+                "source": "live",
+                "sequence": 1
+              },
+              "alight": {
+                "id": "44AF4BBD0B0BB3A0",
+                "name": {
+                  "tc": "長沙灣(蘇屋邨)巴士總站 (SS941)",
+                  "sc": "长沙湾(苏屋邨)巴士总站 (SS941)",
+                  "en": "CHEUNG SHA WAN (SO UK ESTATE) BUS TERMINUS (SS941)"
+                },
+                "latitude": 22.340959,
+                "longitude": 114.15865,
+                "source": "live",
+                "sequence": 23
+              },
+              "stops": 22,
+              "fare": {
+                "state": "available",
+                "currency": "HKD",
+                "amountCents": 1220,
+                "options": [
+                  {
+                    "dayCode": null,
+                    "amountCents": 1220
+                  }
+                ],
+                "reason": null,
+                "basis": "adult-single-undiscounted",
+                "routeId": "KMB:112:O:1",
+                "boardSequence": 1,
+                "alightSequence": 23,
+                "boardStopId": "BFC406EB675EF22E",
+                "alightStopId": "44AF4BBD0B0BB3A0",
+                "source": {
+                  "provider": "TD",
+                  "source": "live",
+                  "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+                  "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+                  "dataDate": "2026-10-14",
+                  "syncedAt": "2026-10-17T20:20:12.859Z",
+                  "files": [
+                    {
+                      "name": "ROUTE_BUS.xml",
+                      "bytes": 1656773,
+                      "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+                    },
+                    {
+                      "name": "STOP_BUS.xml",
+                      "bytes": 702333,
+                      "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "RSTOP_BUS.xml",
+                      "bytes": 20693789,
+                      "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "FARE_BUS.xml",
+                      "bytes": 149238184,
+                      "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+                    }
+                  ],
+                  "fareRows": 452071,
+                  "directions": 1503
+                },
+                "checkedAt": "2026-10-17T20:20:13.068Z",
+                "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=112&lang=zh-hk"
+              }
+            }
+          ],
+          "stopCount": 22,
+          "pricing": {
+            "state": "complete",
+            "currency": "HKD",
+            "totalCents": 1220,
+            "knownSubtotalCents": 1220,
+            "pricedLegs": 1,
+            "totalLegs": 1,
+            "basis": "adult-single-undiscounted",
+            "discountsApplied": false
+          }
+        },
+        {
+          "id": "KMB:112:O:1|63B3694BF40FBEC6|KMB:6E:I:1",
+          "transfers": 1,
+          "legs": [
+            {
+              "route": {
+                "id": "KMB:112:O:1",
+                "routeNo": "112",
+                "bound": "O",
+                "serviceType": "1",
+                "operator": "KMB/LWB",
+                "origin": {
+                  "tc": "北角(百福道)",
+                  "sc": "北角(百福道)",
+                  "en": "NORTH POINT (PAK FUK ROAD)"
+                },
+                "destination": {
+                  "tc": "長沙灣(蘇屋邨)",
+                  "sc": "长沙湾(苏屋邨)",
+                  "en": "CHEUNG SHA WAN (SO UK ESTATE)"
+                },
+                "source": "live"
+              },
+              "board": {
+                "id": "BFC406EB675EF22E",
+                "name": {
+                  "tc": "北角(百福道)總站",
+                  "sc": "北角(百福道)总站",
+                  "en": "NORTH POINT (PAK FUK ROAD) BUS TERMINUS"
+                },
+                "latitude": 22.291039,
+                "longitude": 114.205064,
+                "source": "live",
+                "sequence": 1
+              },
+              "alight": {
+                "id": "63B3694BF40FBEC6",
+                "name": {
+                  "tc": "寶熙苑 (SS685)",
+                  "sc": "宝熙苑 (SS685)",
+                  "en": "PO HEI COURT (SS685)"
+                },
+                "latitude": 22.337426,
+                "longitude": 114.159322,
+                "source": "live",
+                "sequence": 21
+              },
+              "stops": 20,
+              "fare": {
+                "state": "available",
+                "currency": "HKD",
+                "amountCents": 1220,
+                "options": [
+                  {
+                    "dayCode": null,
+                    "amountCents": 1220
+                  }
+                ],
+                "reason": null,
+                "basis": "adult-single-undiscounted",
+                "routeId": "KMB:112:O:1",
+                "boardSequence": 1,
+                "alightSequence": 21,
+                "boardStopId": "BFC406EB675EF22E",
+                "alightStopId": "63B3694BF40FBEC6",
+                "source": {
+                  "provider": "TD",
+                  "source": "live",
+                  "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+                  "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+                  "dataDate": "2026-10-14",
+                  "syncedAt": "2026-10-17T20:20:12.859Z",
+                  "files": [
+                    {
+                      "name": "ROUTE_BUS.xml",
+                      "bytes": 1656773,
+                      "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+                    },
+                    {
+                      "name": "STOP_BUS.xml",
+                      "bytes": 702333,
+                      "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "RSTOP_BUS.xml",
+                      "bytes": 20693789,
+                      "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "FARE_BUS.xml",
+                      "bytes": 149238184,
+                      "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+                    }
+                  ],
+                  "fareRows": 452071,
+                  "directions": 1503
+                },
+                "checkedAt": "2026-10-17T20:20:13.068Z",
+                "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=112&lang=zh-hk"
+              }
+            },
+            {
+              "route": {
+                "id": "KMB:6E:I:1",
+                "routeNo": "6E",
+                "bound": "I",
+                "serviceType": "1",
+                "operator": "KMB/LWB",
+                "origin": {
+                  "tc": "鯉魚門邨",
+                  "sc": "鲤鱼门邨",
+                  "en": "LEI YUE MUN ESTATE"
+                },
+                "destination": {
+                  "tc": "長沙灣(蘇屋邨)",
+                  "sc": "长沙湾(苏屋邨)",
+                  "en": "CHEUNG SHA WAN (SO UK ESTATE)"
+                },
+                "source": "live"
+              },
+              "board": {
+                "id": "63B3694BF40FBEC6",
+                "name": {
+                  "tc": "寶熙苑 (SS685)",
+                  "sc": "宝熙苑 (SS685)",
+                  "en": "PO HEI COURT (SS685)"
+                },
+                "latitude": 22.337426,
+                "longitude": 114.159322,
+                "source": "live",
+                "sequence": 26
+              },
+              "alight": {
+                "id": "44AF4BBD0B0BB3A0",
+                "name": {
+                  "tc": "長沙灣(蘇屋邨)巴士總站 (SS941)",
+                  "sc": "长沙湾(苏屋邨)巴士总站 (SS941)",
+                  "en": "CHEUNG SHA WAN (SO UK ESTATE) BUS TERMINUS (SS941)"
+                },
+                "latitude": 22.340959,
+                "longitude": 114.15865,
+                "source": "live",
+                "sequence": 28
+              },
+              "stops": 2,
+              "fare": {
+                "state": "available",
+                "currency": "HKD",
+                "amountCents": 740,
+                "options": [
+                  {
+                    "dayCode": null,
+                    "amountCents": 740
+                  }
+                ],
+                "reason": null,
+                "basis": "adult-single-undiscounted",
+                "routeId": "KMB:6E:I:1",
+                "boardSequence": 26,
+                "alightSequence": 28,
+                "boardStopId": "63B3694BF40FBEC6",
+                "alightStopId": "44AF4BBD0B0BB3A0",
+                "source": {
+                  "provider": "TD",
+                  "source": "live",
+                  "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+                  "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+                  "dataDate": "2026-10-14",
+                  "syncedAt": "2026-10-17T20:20:12.859Z",
+                  "files": [
+                    {
+                      "name": "ROUTE_BUS.xml",
+                      "bytes": 1656773,
+                      "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+                    },
+                    {
+                      "name": "STOP_BUS.xml",
+                      "bytes": 702333,
+                      "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "RSTOP_BUS.xml",
+                      "bytes": 20693789,
+                      "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "FARE_BUS.xml",
+                      "bytes": 149238184,
+                      "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+                    }
+                  ],
+                  "fareRows": 452071,
+                  "directions": 1503
+                },
+                "checkedAt": "2026-10-17T20:20:13.068Z",
+                "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=6E&lang=zh-hk"
+              }
+            }
+          ],
+          "stopCount": 22,
+          "pricing": {
+            "state": "complete",
+            "currency": "HKD",
+            "totalCents": 1960,
+            "knownSubtotalCents": 1960,
+            "pricedLegs": 2,
+            "totalLegs": 2,
+            "basis": "adult-single-undiscounted",
+            "discountsApplied": false
+          }
+        },
+        {
+          "id": "KMB:112:O:1|63B3694BF40FBEC6|KMB:6P:I:1",
+          "transfers": 1,
+          "legs": [
+            {
+              "route": {
+                "id": "KMB:112:O:1",
+                "routeNo": "112",
+                "bound": "O",
+                "serviceType": "1",
+                "operator": "KMB/LWB",
+                "origin": {
+                  "tc": "北角(百福道)",
+                  "sc": "北角(百福道)",
+                  "en": "NORTH POINT (PAK FUK ROAD)"
+                },
+                "destination": {
+                  "tc": "長沙灣(蘇屋邨)",
+                  "sc": "长沙湾(苏屋邨)",
+                  "en": "CHEUNG SHA WAN (SO UK ESTATE)"
+                },
+                "source": "live"
+              },
+              "board": {
+                "id": "BFC406EB675EF22E",
+                "name": {
+                  "tc": "北角(百福道)總站",
+                  "sc": "北角(百福道)总站",
+                  "en": "NORTH POINT (PAK FUK ROAD) BUS TERMINUS"
+                },
+                "latitude": 22.291039,
+                "longitude": 114.205064,
+                "source": "live",
+                "sequence": 1
+              },
+              "alight": {
+                "id": "63B3694BF40FBEC6",
+                "name": {
+                  "tc": "寶熙苑 (SS685)",
+                  "sc": "宝熙苑 (SS685)",
+                  "en": "PO HEI COURT (SS685)"
+                },
+                "latitude": 22.337426,
+                "longitude": 114.159322,
+                "source": "live",
+                "sequence": 21
+              },
+              "stops": 20,
+              "fare": {
+                "state": "available",
+                "currency": "HKD",
+                "amountCents": 1220,
+                "options": [
+                  {
+                    "dayCode": null,
+                    "amountCents": 1220
+                  }
+                ],
+                "reason": null,
+                "basis": "adult-single-undiscounted",
+                "routeId": "KMB:112:O:1",
+                "boardSequence": 1,
+                "alightSequence": 21,
+                "boardStopId": "BFC406EB675EF22E",
+                "alightStopId": "63B3694BF40FBEC6",
+                "source": {
+                  "provider": "TD",
+                  "source": "live",
+                  "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+                  "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+                  "dataDate": "2026-10-14",
+                  "syncedAt": "2026-10-17T20:20:12.859Z",
+                  "files": [
+                    {
+                      "name": "ROUTE_BUS.xml",
+                      "bytes": 1656773,
+                      "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+                    },
+                    {
+                      "name": "STOP_BUS.xml",
+                      "bytes": 702333,
+                      "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "RSTOP_BUS.xml",
+                      "bytes": 20693789,
+                      "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "FARE_BUS.xml",
+                      "bytes": 149238184,
+                      "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+                    }
+                  ],
+                  "fareRows": 452071,
+                  "directions": 1503
+                },
+                "checkedAt": "2026-10-17T20:20:13.068Z",
+                "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=112&lang=zh-hk"
+              }
+            },
+            {
+              "route": {
+                "id": "KMB:6P:I:1",
+                "routeNo": "6P",
+                "bound": "I",
+                "serviceType": "1",
+                "operator": "KMB/LWB",
+                "origin": {
+                  "tc": "鯉魚門邨",
+                  "sc": "鲤鱼门邨",
+                  "en": "LEI YUE MUN ESTATE"
+                },
+                "destination": {
+                  "tc": "長沙灣(蘇屋邨)",
+                  "sc": "长沙湾(苏屋邨)",
+                  "en": "CHEUNG SHA WAN (SO UK ESTATE)"
+                },
+                "source": "live"
+              },
+              "board": {
+                "id": "63B3694BF40FBEC6",
+                "name": {
+                  "tc": "寶熙苑 (SS685)",
+                  "sc": "宝熙苑 (SS685)",
+                  "en": "PO HEI COURT (SS685)"
+                },
+                "latitude": 22.337426,
+                "longitude": 114.159322,
+                "source": "live",
+                "sequence": 35
+              },
+              "alight": {
+                "id": "44AF4BBD0B0BB3A0",
+                "name": {
+                  "tc": "長沙灣(蘇屋邨)巴士總站 (SS941)",
+                  "sc": "长沙湾(苏屋邨)巴士总站 (SS941)",
+                  "en": "CHEUNG SHA WAN (SO UK ESTATE) BUS TERMINUS (SS941)"
+                },
+                "latitude": 22.340959,
+                "longitude": 114.15865,
+                "source": "live",
+                "sequence": 37
+              },
+              "stops": 2,
+              "fare": {
+                "state": "available",
+                "currency": "HKD",
+                "amountCents": 740,
+                "options": [
+                  {
+                    "dayCode": null,
+                    "amountCents": 740
+                  }
+                ],
+                "reason": null,
+                "basis": "adult-single-undiscounted",
+                "routeId": "KMB:6P:I:1",
+                "boardSequence": 35,
+                "alightSequence": 37,
+                "boardStopId": "63B3694BF40FBEC6",
+                "alightStopId": "44AF4BBD0B0BB3A0",
+                "source": {
+                  "provider": "TD",
+                  "source": "live",
+                  "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+                  "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+                  "dataDate": "2026-10-14",
+                  "syncedAt": "2026-10-17T20:20:12.859Z",
+                  "files": [
+                    {
+                      "name": "ROUTE_BUS.xml",
+                      "bytes": 1656773,
+                      "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+                    },
+                    {
+                      "name": "STOP_BUS.xml",
+                      "bytes": 702333,
+                      "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "RSTOP_BUS.xml",
+                      "bytes": 20693789,
+                      "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "FARE_BUS.xml",
+                      "bytes": 149238184,
+                      "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+                    }
+                  ],
+                  "fareRows": 452071,
+                  "directions": 1503
+                },
+                "checkedAt": "2026-10-17T20:20:13.068Z",
+                "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=6P&lang=zh-hk"
+              }
+            }
+          ],
+          "stopCount": 22,
+          "pricing": {
+            "state": "complete",
+            "currency": "HKD",
+            "totalCents": 1960,
+            "knownSubtotalCents": 1960,
+            "pricedLegs": 2,
+            "totalLegs": 2,
+            "basis": "adult-single-undiscounted",
+            "discountsApplied": false
+          }
+        }
+      ]
+    },
+    {
+      "case": "transfer",
+      "startId": "BFC406EB675EF22E",
+      "endId": "9096776C02070F8E",
+      "journeys": [
+        {
+          "id": "KMB:112:O:1|D7C46496C9C7B7BA|KMB:81:I:1",
+          "transfers": 1,
+          "legs": [
+            {
+              "route": {
+                "id": "KMB:112:O:1",
+                "routeNo": "112",
+                "bound": "O",
+                "serviceType": "1",
+                "operator": "KMB/LWB",
+                "origin": {
+                  "tc": "北角(百福道)",
+                  "sc": "北角(百福道)",
+                  "en": "NORTH POINT (PAK FUK ROAD)"
+                },
+                "destination": {
+                  "tc": "長沙灣(蘇屋邨)",
+                  "sc": "长沙湾(苏屋邨)",
+                  "en": "CHEUNG SHA WAN (SO UK ESTATE)"
+                },
+                "source": "live"
+              },
+              "board": {
+                "id": "BFC406EB675EF22E",
+                "name": {
+                  "tc": "北角(百福道)總站",
+                  "sc": "北角(百福道)总站",
+                  "en": "NORTH POINT (PAK FUK ROAD) BUS TERMINUS"
+                },
+                "latitude": 22.291039,
+                "longitude": 114.205064,
+                "source": "live",
+                "sequence": 1
+              },
+              "alight": {
+                "id": "D7C46496C9C7B7BA",
+                "name": {
+                  "tc": "弼街,始創中心 (MK182)",
+                  "sc": "弼街,始创中心 (MK182)",
+                  "en": "BUTE STREET, PIONEER CENTRE (MK182)"
+                },
+                "latitude": 22.321828,
+                "longitude": 114.168686,
+                "source": "live",
+                "sequence": 15
+              },
+              "stops": 14,
+              "fare": {
+                "state": "available",
+                "currency": "HKD",
+                "amountCents": 1220,
+                "options": [
+                  {
+                    "dayCode": null,
+                    "amountCents": 1220
+                  }
+                ],
+                "reason": null,
+                "basis": "adult-single-undiscounted",
+                "routeId": "KMB:112:O:1",
+                "boardSequence": 1,
+                "alightSequence": 15,
+                "boardStopId": "BFC406EB675EF22E",
+                "alightStopId": "D7C46496C9C7B7BA",
+                "source": {
+                  "provider": "TD",
+                  "source": "live",
+                  "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+                  "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+                  "dataDate": "2026-10-14",
+                  "syncedAt": "2026-10-17T20:20:12.859Z",
+                  "files": [
+                    {
+                      "name": "ROUTE_BUS.xml",
+                      "bytes": 1656773,
+                      "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+                    },
+                    {
+                      "name": "STOP_BUS.xml",
+                      "bytes": 702333,
+                      "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "RSTOP_BUS.xml",
+                      "bytes": 20693789,
+                      "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "FARE_BUS.xml",
+                      "bytes": 149238184,
+                      "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+                    }
+                  ],
+                  "fareRows": 452071,
+                  "directions": 1503
+                },
+                "checkedAt": "2026-10-17T20:20:13.068Z",
+                "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=112&lang=zh-hk"
+              }
+            },
+            {
+              "route": {
+                "id": "KMB:81:I:1",
+                "routeNo": "81",
+                "bound": "I",
+                "serviceType": "1",
+                "operator": "KMB/LWB",
+                "origin": {
+                  "tc": "高鐵(西九龍站)",
+                  "sc": "高铁(西九龙站)",
+                  "en": "HIGH SPEED RAIL WEST KOWLOON STATION"
+                },
+                "destination": {
+                  "tc": "禾輋",
+                  "sc": "禾輋",
+                  "en": "WO CHE"
+                },
+                "source": "live"
+              },
+              "board": {
+                "id": "D7C46496C9C7B7BA",
+                "name": {
+                  "tc": "弼街,始創中心 (MK182)",
+                  "sc": "弼街,始创中心 (MK182)",
+                  "en": "BUTE STREET, PIONEER CENTRE (MK182)"
+                },
+                "latitude": 22.321828,
+                "longitude": 114.168686,
+                "source": "live",
+                "sequence": 8
+              },
+              "alight": {
+                "id": "9096776C02070F8E",
+                "name": {
+                  "tc": "禾輋巴士總站 (ST950)",
+                  "sc": "禾輋巴士总站 (ST950)",
+                  "en": "WO CHE BUS TERMINUS (ST950)"
+                },
+                "latitude": 22.388591,
+                "longitude": 114.194423,
+                "source": "live",
+                "sequence": 29
+              },
+              "stops": 21,
+              "fare": {
+                "state": "available",
+                "currency": "HKD",
+                "amountCents": 780,
+                "options": [
+                  {
+                    "dayCode": null,
+                    "amountCents": 780
+                  }
+                ],
+                "reason": null,
+                "basis": "adult-single-undiscounted",
+                "routeId": "KMB:81:I:1",
+                "boardSequence": 8,
+                "alightSequence": 29,
+                "boardStopId": "D7C46496C9C7B7BA",
+                "alightStopId": "9096776C02070F8E",
+                "source": {
+                  "provider": "TD",
+                  "source": "live",
+                  "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+                  "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+                  "dataDate": "2026-10-14",
+                  "syncedAt": "2026-10-17T20:20:12.859Z",
+                  "files": [
+                    {
+                      "name": "ROUTE_BUS.xml",
+                      "bytes": 1656773,
+                      "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+                    },
+                    {
+                      "name": "STOP_BUS.xml",
+                      "bytes": 702333,
+                      "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "RSTOP_BUS.xml",
+                      "bytes": 20693789,
+                      "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "FARE_BUS.xml",
+                      "bytes": 149238184,
+                      "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+                    }
+                  ],
+                  "fareRows": 452071,
+                  "directions": 1503
+                },
+                "checkedAt": "2026-10-17T20:20:13.068Z",
+                "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=81&lang=zh-hk"
+              }
+            }
+          ],
+          "stopCount": 35,
+          "pricing": {
+            "state": "complete",
+            "currency": "HKD",
+            "totalCents": 2000,
+            "knownSubtotalCents": 2000,
+            "pricedLegs": 2,
+            "totalLegs": 2,
+            "basis": "adult-single-undiscounted",
+            "discountsApplied": false
+          }
+        }
+      ]
+    },
+    {
+      "case": "unverified-service",
+      "startId": "B63202433AD89E92",
+      "endId": "21466046C6868AA7",
+      "journeys": [
+        {
+          "id": "KMB:A43P:O:1",
+          "transfers": 0,
+          "legs": [
+            {
+              "route": {
+                "id": "KMB:A43P:O:1",
+                "routeNo": "A43P",
+                "bound": "O",
+                "serviceType": "1",
+                "operator": "KMB/LWB",
+                "origin": {
+                  "tc": "粉嶺(聯和墟)",
+                  "sc": "粉岭(联和墟)",
+                  "en": "FANLING (LUEN WO HUI)"
+                },
+                "destination": {
+                  "tc": "機場(地面運輸中心)",
+                  "sc": "机场(地面运输中心)",
+                  "en": "AIRPORT (GROUND TRANSPORTATION CENTRE)"
+                },
+                "source": "live"
+              },
+              "board": {
+                "id": "B63202433AD89E92",
+                "name": {
+                  "tc": "聯和墟總站 (ND961)",
+                  "sc": "联和墟总站 (ND961)",
+                  "en": "LUEN WO HUI BUS TERMINUS (ND961)"
+                },
+                "latitude": 22.500346,
+                "longitude": 114.143625,
+                "source": "live",
+                "sequence": 1
+              },
+              "alight": {
+                "id": "21466046C6868AA7",
+                "name": {
+                  "tc": "機場地面運輸中心 (落客站)",
+                  "sc": "机场地面运输中心 (落客站)",
+                  "en": "AIRPORT (GTC) (ALIGHTING STOP) (CL900)"
+                },
+                "latitude": 22.312604,
+                "longitude": 113.937526,
+                "source": "live",
+                "sequence": 16
+              },
+              "stops": 15,
+              "fare": {
+                "state": "unavailable",
+                "currency": "HKD",
+                "amountCents": null,
+                "options": [],
+                "reason": "ROUTE_UNMATCHED",
+                "basis": "adult-single-undiscounted",
+                "routeId": "KMB:A43P:O:1",
+                "boardSequence": 1,
+                "alightSequence": 16,
+                "boardStopId": "B63202433AD89E92",
+                "alightStopId": "21466046C6868AA7",
+                "source": {
+                  "provider": "TD",
+                  "source": "live",
+                  "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+                  "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+                  "dataDate": "2026-10-14",
+                  "syncedAt": "2026-10-17T20:20:12.859Z",
+                  "files": [
+                    {
+                      "name": "ROUTE_BUS.xml",
+                      "bytes": 1656773,
+                      "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+                    },
+                    {
+                      "name": "STOP_BUS.xml",
+                      "bytes": 702333,
+                      "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "RSTOP_BUS.xml",
+                      "bytes": 20693789,
+                      "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "FARE_BUS.xml",
+                      "bytes": 149238184,
+                      "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+                    }
+                  ],
+                  "fareRows": 452071,
+                  "directions": 1503
+                },
+                "checkedAt": "2026-10-17T20:20:13.068Z",
+                "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=A43P&lang=zh-hk"
+              }
+            }
+          ],
+          "stopCount": 15,
+          "pricing": {
+            "state": "unavailable",
+            "currency": "HKD",
+            "totalCents": null,
+            "knownSubtotalCents": 0,
+            "pricedLegs": 0,
+            "totalLegs": 1,
+            "basis": "adult-single-undiscounted",
+            "discountsApplied": false
+          }
+        },
+        {
+          "id": "KMB:A43P:O:3",
+          "transfers": 0,
+          "legs": [
+            {
+              "route": {
+                "id": "KMB:A43P:O:3",
+                "routeNo": "A43P",
+                "bound": "O",
+                "serviceType": "3",
+                "operator": "KMB/LWB",
+                "origin": {
+                  "tc": "皇后山",
+                  "sc": "皇后山",
+                  "en": "QUEEN'S HILL"
+                },
+                "destination": {
+                  "tc": "機場(地面運輸中心)",
+                  "sc": "机场(地面运输中心)",
+                  "en": "AIRPORT (GROUND TRANSPORTATION CENTRE)"
+                },
+                "source": "live"
+              },
+              "board": {
+                "id": "B63202433AD89E92",
+                "name": {
+                  "tc": "聯和墟總站 (ND961)",
+                  "sc": "联和墟总站 (ND961)",
+                  "en": "LUEN WO HUI BUS TERMINUS (ND961)"
+                },
+                "latitude": 22.500346,
+                "longitude": 114.143625,
+                "source": "live",
+                "sequence": 5
+              },
+              "alight": {
+                "id": "21466046C6868AA7",
+                "name": {
+                  "tc": "機場地面運輸中心 (落客站)",
+                  "sc": "机场地面运输中心 (落客站)",
+                  "en": "AIRPORT (GTC) (ALIGHTING STOP) (CL900)"
+                },
+                "latitude": 22.312604,
+                "longitude": 113.937526,
+                "source": "live",
+                "sequence": 20
+              },
+              "stops": 15,
+              "fare": {
+                "state": "unavailable",
+                "currency": "HKD",
+                "amountCents": null,
+                "options": [],
+                "reason": "ROUTE_UNMATCHED",
+                "basis": "adult-single-undiscounted",
+                "routeId": "KMB:A43P:O:3",
+                "boardSequence": 5,
+                "alightSequence": 20,
+                "boardStopId": "B63202433AD89E92",
+                "alightStopId": "21466046C6868AA7",
+                "source": {
+                  "provider": "TD",
+                  "source": "live",
+                  "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+                  "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+                  "dataDate": "2026-10-14",
+                  "syncedAt": "2026-10-17T20:20:12.859Z",
+                  "files": [
+                    {
+                      "name": "ROUTE_BUS.xml",
+                      "bytes": 1656773,
+                      "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+                    },
+                    {
+                      "name": "STOP_BUS.xml",
+                      "bytes": 702333,
+                      "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "RSTOP_BUS.xml",
+                      "bytes": 20693789,
+                      "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "FARE_BUS.xml",
+                      "bytes": 149238184,
+                      "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+                    }
+                  ],
+                  "fareRows": 452071,
+                  "directions": 1503
+                },
+                "checkedAt": "2026-10-17T20:20:13.068Z",
+                "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=A43P&lang=zh-hk"
+              }
+            }
+          ],
+          "stopCount": 15,
+          "pricing": {
+            "state": "unavailable",
+            "currency": "HKD",
+            "totalCents": null,
+            "knownSubtotalCents": 0,
+            "pricedLegs": 0,
+            "totalLegs": 1,
+            "basis": "adult-single-undiscounted",
+            "discountsApplied": false
+          }
+        },
+        {
+          "id": "KMB:A43:O:1",
+          "transfers": 0,
+          "legs": [
+            {
+              "route": {
+                "id": "KMB:A43:O:1",
+                "routeNo": "A43",
+                "bound": "O",
+                "serviceType": "1",
+                "operator": "KMB/LWB",
+                "origin": {
+                  "tc": "粉嶺(聯和墟)",
+                  "sc": "粉岭(联和墟)",
+                  "en": "FANLING (LUEN WO HUI)"
+                },
+                "destination": {
+                  "tc": "機場(地面運輸中心)",
+                  "sc": "机场(地面运输中心)",
+                  "en": "AIRPORT (GROUND TRANSPORTATION CENTRE)"
+                },
+                "source": "live"
+              },
+              "board": {
+                "id": "B63202433AD89E92",
+                "name": {
+                  "tc": "聯和墟總站 (ND961)",
+                  "sc": "联和墟总站 (ND961)",
+                  "en": "LUEN WO HUI BUS TERMINUS (ND961)"
+                },
+                "latitude": 22.500346,
+                "longitude": 114.143625,
+                "source": "live",
+                "sequence": 1
+              },
+              "alight": {
+                "id": "21466046C6868AA7",
+                "name": {
+                  "tc": "機場地面運輸中心 (落客站)",
+                  "sc": "机场地面运输中心 (落客站)",
+                  "en": "AIRPORT (GTC) (ALIGHTING STOP) (CL900)"
+                },
+                "latitude": 22.312604,
+                "longitude": 113.937526,
+                "source": "live",
+                "sequence": 22
+              },
+              "stops": 21,
+              "fare": {
+                "state": "unavailable",
+                "currency": "HKD",
+                "amountCents": null,
+                "options": [],
+                "reason": "ROUTE_UNMATCHED",
+                "basis": "adult-single-undiscounted",
+                "routeId": "KMB:A43:O:1",
+                "boardSequence": 1,
+                "alightSequence": 22,
+                "boardStopId": "B63202433AD89E92",
+                "alightStopId": "21466046C6868AA7",
+                "source": {
+                  "provider": "TD",
+                  "source": "live",
+                  "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+                  "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+                  "dataDate": "2026-10-14",
+                  "syncedAt": "2026-10-17T20:20:12.859Z",
+                  "files": [
+                    {
+                      "name": "ROUTE_BUS.xml",
+                      "bytes": 1656773,
+                      "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+                    },
+                    {
+                      "name": "STOP_BUS.xml",
+                      "bytes": 702333,
+                      "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "RSTOP_BUS.xml",
+                      "bytes": 20693789,
+                      "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "FARE_BUS.xml",
+                      "bytes": 149238184,
+                      "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+                    }
+                  ],
+                  "fareRows": 452071,
+                  "directions": 1503
+                },
+                "checkedAt": "2026-10-17T20:20:13.068Z",
+                "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=A43&lang=zh-hk"
+              }
+            }
+          ],
+          "stopCount": 21,
+          "pricing": {
+            "state": "unavailable",
+            "currency": "HKD",
+            "totalCents": null,
+            "knownSubtotalCents": 0,
+            "pricedLegs": 0,
+            "totalLegs": 1,
+            "basis": "adult-single-undiscounted",
+            "discountsApplied": false
+          }
+        },
+        {
+          "id": "KMB:A43:O:2",
+          "transfers": 0,
+          "legs": [
+            {
+              "route": {
+                "id": "KMB:A43:O:2",
+                "routeNo": "A43",
+                "bound": "O",
+                "serviceType": "2",
+                "operator": "KMB/LWB",
+                "origin": {
+                  "tc": "粉嶺(聯和墟)",
+                  "sc": "粉岭(联和墟)",
+                  "en": "FANLING (LUEN WO HUI)"
+                },
+                "destination": {
+                  "tc": "機場(地面運輸中心)",
+                  "sc": "机场(地面运输中心)",
+                  "en": "AIRPORT (GROUND TRANSPORTATION CENTRE)"
+                },
+                "source": "live"
+              },
+              "board": {
+                "id": "B63202433AD89E92",
+                "name": {
+                  "tc": "聯和墟總站 (ND961)",
+                  "sc": "联和墟总站 (ND961)",
+                  "en": "LUEN WO HUI BUS TERMINUS (ND961)"
+                },
+                "latitude": 22.500346,
+                "longitude": 114.143625,
+                "source": "live",
+                "sequence": 1
+              },
+              "alight": {
+                "id": "21466046C6868AA7",
+                "name": {
+                  "tc": "機場地面運輸中心 (落客站)",
+                  "sc": "机场地面运输中心 (落客站)",
+                  "en": "AIRPORT (GTC) (ALIGHTING STOP) (CL900)"
+                },
+                "latitude": 22.312604,
+                "longitude": 113.937526,
+                "source": "live",
+                "sequence": 23
+              },
+              "stops": 22,
+              "fare": {
+                "state": "unavailable",
+                "currency": "HKD",
+                "amountCents": null,
+                "options": [],
+                "reason": "ROUTE_UNMATCHED",
+                "basis": "adult-single-undiscounted",
+                "routeId": "KMB:A43:O:2",
+                "boardSequence": 1,
+                "alightSequence": 23,
+                "boardStopId": "B63202433AD89E92",
+                "alightStopId": "21466046C6868AA7",
+                "source": {
+                  "provider": "TD",
+                  "source": "live",
+                  "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+                  "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+                  "dataDate": "2026-10-14",
+                  "syncedAt": "2026-10-17T20:20:12.859Z",
+                  "files": [
+                    {
+                      "name": "ROUTE_BUS.xml",
+                      "bytes": 1656773,
+                      "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+                    },
+                    {
+                      "name": "STOP_BUS.xml",
+                      "bytes": 702333,
+                      "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "RSTOP_BUS.xml",
+                      "bytes": 20693789,
+                      "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+                    },
+                    {
+                      "name": "FARE_BUS.xml",
+                      "bytes": 149238184,
+                      "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+                      "generatedDate": "2026-10-14",
+                      "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+                    }
+                  ],
+                  "fareRows": 452071,
+                  "directions": 1503
+                },
+                "checkedAt": "2026-10-17T20:20:13.068Z",
+                "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=A43&lang=zh-hk"
+              }
+            }
+          ],
+          "stopCount": 22,
+          "pricing": {
+            "state": "unavailable",
+            "currency": "HKD",
+            "totalCents": null,
+            "knownSubtotalCents": 0,
+            "pricedLegs": 0,
+            "totalLegs": 1,
+            "basis": "adult-single-undiscounted",
+            "discountsApplied": false
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "path": "/health",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/fares/status",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AO%3A1",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AI%3A1",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A48X%3AO%3A1",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A1%3AO%3A1",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3AA43%3AO%3A1",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A81%3AI%3A1",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AO%3A1/fare?boardSequence=1&alightSequence=23",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AO%3A1/fare?boardSequence=10&alightSequence=23",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AO%3A1/fare?boardSequence=22&alightSequence=23",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AI%3A1/fare?boardSequence=1&alightSequence=24",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AI%3A1/fare?boardSequence=10&alightSequence=24",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AI%3A1/fare?boardSequence=23&alightSequence=24",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A48X%3AO%3A1/fare?boardSequence=1&alightSequence=19",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A48X%3AO%3A1/fare?boardSequence=10&alightSequence=19",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A48X%3AO%3A1/fare?boardSequence=18&alightSequence=19",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A1%3AO%3A1/fare?boardSequence=1&alightSequence=25",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A1%3AO%3A1/fare?boardSequence=10&alightSequence=25",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A1%3AO%3A1/fare?boardSequence=24&alightSequence=25",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AO%3A1/fare?boardSequence=10&alightSequence=23",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AO%3A1/fare?boardSequence=1&alightSequence=23",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AO%3A1/fare?boardSequence=23&alightSequence=1",
+      "method": "GET",
+      "status": 422
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AO%3A1/fare?boardSequence=1&alightSequence=1",
+      "method": "GET",
+      "status": 422
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AO%3A1/fare?boardSequence=1.1&alightSequence=23",
+      "method": "GET",
+      "status": 422
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AO%3A1/fare?boardSequence=0&alightSequence=23",
+      "method": "GET",
+      "status": 422
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AO%3A1/fare?boardSequence=1&alightSequence=300",
+      "method": "GET",
+      "status": 422
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AO%3A1/fare?boardSequence=1",
+      "method": "GET",
+      "status": 422
+    },
+    {
+      "path": "/v1/routes/KMB%3AA43%3AO%3A1/fare?boardSequence=1&alightSequence=22",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AO%3A1/fare?boardSequence=1&alightSequence=23&boardStopId=BFC406EB675EF22E&alightStopId=44AF4BBD0B0BB3A0",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AO%3A1/fare?boardSequence=1&alightSequence=23&boardStopId=outdated-stop&alightStopId=44AF4BBD0B0BB3A0",
+      "method": "GET",
+      "status": 409
+    },
+    {
+      "path": "/v1/routes/KMB%3A112%3AO%3A1/fare?boardSequence=1&alightSequence=23&boardStopId=BFC406EB675EF22E",
+      "method": "GET",
+      "status": 422
+    },
+    {
+      "path": "/admin/fares",
+      "method": "GET",
+      "status": 401
+    },
+    {
+      "path": "/admin/jobs/fares/sync",
+      "method": "POST",
+      "status": 401
+    },
+    {
+      "path": "/v1/journeys",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/v1/journeys",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/v1/journeys",
+      "method": "POST",
+      "status": 200
+    }
+  ],
+  "memory": "MemoryCurrent=78852096\nMemoryMax=402653184\n",
+  "productionAndDownloadedOfficialFileHashesMatch": true,
+  "sshClosed": true
+}

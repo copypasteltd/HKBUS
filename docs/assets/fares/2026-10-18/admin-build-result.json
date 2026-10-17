@@ -1,0 +1,33 @@
+{
+  "project": "admin",
+  "passed": true,
+  "sourceSha256": {
+    "src/api.tsx": "ae971a774db2bde50b86bb4d5e92f3586fb50359ee6c09c85819f343323e980a",
+    "src/App.tsx": "c9650f9f7d46d7a6154718fd5d63691a50cdb4c42cc957cd38d8381718d38231",
+    "src/main.tsx": "ac23a80cd315c1fc7da1e13e350ddc03b238a9aad3b856959f97b567994f71ad",
+    "src/styles.css": "53e5cb9fac3c98941d7d210b5385391eaf6f0e197c75e868a434ad00a3181f8c",
+    "src/types.ts": "da3ce6c87b78cf1495beb298b6c80b224f974114c4a87887b9774ac4c4a4638d",
+    "src/ui.tsx": "874313dc89e031220aa548ef76f8ac9b737f867c77d53f0fa3bcfc6062ca9161",
+    "src/pages/Catalog.tsx": "b6f17b835abd82b4d5aa6c6194e933e300196163f2bfe64f1e35406e420dfc48",
+    "src/pages/Fares.tsx": "dca6e93c05895262d4e0de2f1ca1f2d1d94578280f0fb4423eff38fca822e9b3",
+    "src/pages/Notices.tsx": "ed20404ed804d5731650e8c16c4d210ece5a5b044924ab80d93e65d92810a88a",
+    "src/pages/Operations.tsx": "d87650ae8571d9e44dc5fda33abc4bbec37d0a59df304070539afc1326590aaf",
+    "src/pages/Overview.tsx": "8adb249e78bd3cd1c7076b90965290a5a0a5cc5edd9620c5de8e1f73c015a7ce",
+    "src/pages/Settings.tsx": "24ff03a81fc6ce3678403db9792ce428df27b4d687dd0e167e9438f27613da07",
+    "src/pages/Users.tsx": "832e643eaa8e5b9bb4315be26bdb4daa22940d42ee27fd71d05863348b8c50e1"
+  },
+  "phases": [
+    {
+      "phase": "typecheck",
+      "exitCode": 0,
+      "seconds": 85.1,
+      "log": "admin-typecheck.log"
+    },
+    {
+      "phase": "build",
+      "exitCode": 0,
+      "seconds": 53.5,
+      "log": "admin-build.log"
+    }
+  ]
+}

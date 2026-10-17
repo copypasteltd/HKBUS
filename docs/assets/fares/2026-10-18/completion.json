@@ -1,0 +1,140 @@
+{
+  "passed": true,
+  "completedAt": "2026-10-17T21:06:35.802555+00:00",
+  "requirements": [
+    {
+      "id": "FARE-01",
+      "implemented": true
+    },
+    {
+      "id": "FARE-02",
+      "implemented": true
+    },
+    {
+      "id": "FARE-03",
+      "implemented": true
+    },
+    {
+      "id": "FARE-04",
+      "implemented": true
+    },
+    {
+      "id": "FARE-05",
+      "implemented": true
+    },
+    {
+      "id": "FARE-06",
+      "implemented": true
+    },
+    {
+      "id": "FARE-07",
+      "implemented": true
+    },
+    {
+      "id": "FARE-08",
+      "implemented": true
+    },
+    {
+      "id": "FARE-09",
+      "implemented": true
+    },
+    {
+      "id": "FARE-10",
+      "implemented": true
+    },
+    {
+      "id": "FARE-11",
+      "implemented": true
+    },
+    {
+      "id": "FARE-12",
+      "implemented": true
+    },
+    {
+      "id": "FARE-13",
+      "implemented": true
+    }
+  ],
+  "evidenceGates": [
+    "build",
+    "builds",
+    "deployment",
+    "transport",
+    "backend-deployment",
+    "admin-deployment",
+    "api-acceptance",
+    "operator-crosscheck",
+    "browser",
+    "browser-network",
+    "regression",
+    "regression-network",
+    "details",
+    "details-network",
+    "pricing",
+    "pricing-network",
+    "admin",
+    "admin-network",
+    "final-audit",
+    "artifacts"
+  ],
+  "sourceBuildCommits": {
+    "backend": "a1ec760d8bedf7e5f921a7e5c41a228afeccfdc0",
+    "admin": "63843ad100afe7b8291ccf73b7b0dedfbb26d37d",
+    "wechat": "055758b3fc8d89473881b0818151cb20f3561df9",
+    "alipay": "6755152dffdd72615b9379085e3556db365bee3c",
+    "douyin": "d665282c00785c8e46a25e63d6347ec73a79852d",
+    "android": "be0ff19f497eeec69e640b28aec3b7c1662553ee"
+  },
+  "h5Release": "20261017T205331Z-be0ff19f497e",
+  "backendRelease": "20261017T202836Z-a1ec760d8bed",
+  "adminRelease": "20261017T205911Z-63843ad100af",
+  "coverage": {
+    "total": 1611,
+    "matched": 1150,
+    "partial": 17,
+    "unmatched": 444,
+    "ambiguous": 0,
+    "changed": 0
+  },
+  "tests": {
+    "backend": [
+      49,
+      3
+    ],
+    "android": [
+      29
+    ],
+    "wechat": [
+      29
+    ],
+    "alipay": [
+      29
+    ],
+    "douyin": [
+      29
+    ]
+  },
+  "apiRequests": 37,
+  "browserGroups": {
+    "pages": 11,
+    "localPreferences": 13,
+    "details": 5,
+    "fares": 13,
+    "admin": 3
+  },
+  "officialMiniProgramIDE": false,
+  "physicalDevice": false,
+  "storeSubmission": false,
+  "iosBuilt": false,
+  "demoTouched": false,
+  "passengerAccounts": false,
+  "profileRequests": 0,
+  "databaseBusinessRowsPreserved": true,
+  "actualClockRoute": "KMB:N182:O:1",
+  "initialClockSource": {
+    "routeId": "KMB:112:O:1",
+    "source": "live",
+    "rows": 23,
+    "datedPredictions": 0
+  }
+}

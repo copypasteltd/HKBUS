@@ -1,0 +1,475 @@
+{
+  "checkedAt": "2026-10-17T20:15:12.848983+00:00",
+  "fareSource": "TD official XML; KMB response used solely for cross-check",
+  "sourceDate": "2026-10-14",
+  "results": [
+    {
+      "routeId": "KMB:112:O:1",
+      "operatorUrl": "https://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=getstops&route=112&bound=1&serviceType=1",
+      "rawSha256": "951e5170fb1cc526ff59be3ce2275d0f9eb51bbd561d33d13c4e91b2fbedc6da",
+      "operatorSequenceIsZeroBased": true,
+      "checks": [
+        {
+          "sequence": 1,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 2,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 3,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 4,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 5,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 6,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 7,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 8,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 9,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 10,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 11,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 12,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 13,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 14,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 15,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 16,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 17,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 18,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 19,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 20,
+          "tdAmountCents": 680,
+          "operatorAmountCents": 680
+        },
+        {
+          "sequence": 21,
+          "tdAmountCents": 680,
+          "operatorAmountCents": 680
+        },
+        {
+          "sequence": 22,
+          "tdAmountCents": 680,
+          "operatorAmountCents": 680
+        }
+      ],
+      "passed": true
+    },
+    {
+      "routeId": "KMB:112:I:1",
+      "operatorUrl": "https://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=getstops&route=112&bound=2&serviceType=1",
+      "rawSha256": "ad7a7467db2e1067e1edd041ff3bfe484378520414dda87a64ab09e762da428f",
+      "operatorSequenceIsZeroBased": true,
+      "checks": [
+        {
+          "sequence": 1,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 2,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 3,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 4,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 5,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 6,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 7,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 8,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 9,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 10,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 11,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 12,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 13,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 14,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 15,
+          "tdAmountCents": 1220,
+          "operatorAmountCents": 1220
+        },
+        {
+          "sequence": 16,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 17,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 18,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 19,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 20,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 21,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 22,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        },
+        {
+          "sequence": 23,
+          "tdAmountCents": 770,
+          "operatorAmountCents": 770
+        }
+      ],
+      "passed": true
+    },
+    {
+      "routeId": "KMB:48X:O:1",
+      "operatorUrl": "https://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=getstops&route=48X&bound=1&serviceType=1",
+      "rawSha256": "9b5c28adb128a9f7640c74b9dcc93a63669c0e2343dd937672cdb4b8dc7aba46",
+      "operatorSequenceIsZeroBased": true,
+      "checks": [
+        {
+          "sequence": 1,
+          "tdAmountCents": 930,
+          "operatorAmountCents": 930
+        },
+        {
+          "sequence": 2,
+          "tdAmountCents": 930,
+          "operatorAmountCents": 930
+        },
+        {
+          "sequence": 3,
+          "tdAmountCents": 930,
+          "operatorAmountCents": 930
+        },
+        {
+          "sequence": 4,
+          "tdAmountCents": 930,
+          "operatorAmountCents": 930
+        },
+        {
+          "sequence": 6,
+          "tdAmountCents": 0,
+          "operatorAmountCents": 0
+        },
+        {
+          "sequence": 7,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 8,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 9,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 10,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 11,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 12,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 13,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 14,
+          "tdAmountCents": 460,
+          "operatorAmountCents": 460
+        },
+        {
+          "sequence": 15,
+          "tdAmountCents": 460,
+          "operatorAmountCents": 460
+        },
+        {
+          "sequence": 16,
+          "tdAmountCents": 460,
+          "operatorAmountCents": 460
+        },
+        {
+          "sequence": 17,
+          "tdAmountCents": 460,
+          "operatorAmountCents": 460
+        },
+        {
+          "sequence": 18,
+          "tdAmountCents": 460,
+          "operatorAmountCents": 460
+        }
+      ],
+      "passed": true
+    },
+    {
+      "routeId": "KMB:1:O:1",
+      "operatorUrl": "https://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=getstops&route=1&bound=1&serviceType=1",
+      "rawSha256": "eac152d7f7a9f04f57050821a0eba73aaf8a01ea364ae7e231cf3e11564b9017",
+      "operatorSequenceIsZeroBased": true,
+      "checks": [
+        {
+          "sequence": 1,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 2,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 3,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 4,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 5,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 6,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 7,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 8,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 9,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 10,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 11,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 12,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 13,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 14,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 15,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 16,
+          "tdAmountCents": 670,
+          "operatorAmountCents": 670
+        },
+        {
+          "sequence": 17,
+          "tdAmountCents": 580,
+          "operatorAmountCents": 580
+        },
+        {
+          "sequence": 18,
+          "tdAmountCents": 580,
+          "operatorAmountCents": 580
+        },
+        {
+          "sequence": 19,
+          "tdAmountCents": 580,
+          "operatorAmountCents": 580
+        },
+        {
+          "sequence": 20,
+          "tdAmountCents": 580,
+          "operatorAmountCents": 580
+        },
+        {
+          "sequence": 21,
+          "tdAmountCents": 580,
+          "operatorAmountCents": 580
+        },
+        {
+          "sequence": 22,
+          "tdAmountCents": 580,
+          "operatorAmountCents": 580
+        },
+        {
+          "sequence": 23,
+          "tdAmountCents": 580,
+          "operatorAmountCents": 580
+        },
+        {
+          "sequence": 24,
+          "tdAmountCents": 580,
+          "operatorAmountCents": 580
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "checkedBoardingSections": 86,
+  "passed": true
+}

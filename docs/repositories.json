@@ -8,15 +8,15 @@
   "projects": [
     {
       "branch": "backend",
-      "commit": "c520a9f035284275261608439258a88371e35eb1",
+      "commit": "57fdd4042262b30edd587a4b85ebfbc8d52ae7eb",
       "docs": {
-        "localLinks": 214,
+        "localLinks": 235,
         "images": 39,
-        "bilingualReadmeBytes": 18112
+        "bilingualReadmeBytes": 19122
       },
       "git": {
-        "trackedFiles": 418,
-        "historyBlobsChecked": 470,
+        "trackedFiles": 505,
+        "historyBlobsChecked": 541,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -24,15 +24,15 @@
     },
     {
       "branch": "admin",
-      "commit": "0c49cec19692dbe7eabd4fba69113b2d199a2bc6",
+      "commit": "1772c8cb2af4dab0b9288a7e9013ee69dd02dd05",
       "docs": {
-        "localLinks": 187,
+        "localLinks": 208,
         "images": 39,
-        "bilingualReadmeBytes": 14059
+        "bilingualReadmeBytes": 15069
       },
       "git": {
-        "trackedFiles": 361,
-        "historyBlobsChecked": 337,
+        "trackedFiles": 444,
+        "historyBlobsChecked": 396,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -40,15 +40,15 @@
     },
     {
       "branch": "wechat",
-      "commit": "d01fd2cc69cc1a427a24f60667a126e0c1f4cd3f",
+      "commit": "cc87e8614a83b71208893b0099f22af6353e1851",
       "docs": {
-        "localLinks": 189,
+        "localLinks": 210,
         "images": 39,
-        "bilingualReadmeBytes": 16803
+        "bilingualReadmeBytes": 17813
       },
       "git": {
-        "trackedFiles": 626,
-        "historyBlobsChecked": 600,
+        "trackedFiles": 711,
+        "historyBlobsChecked": 667,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -56,15 +56,15 @@
     },
     {
       "branch": "alipay",
-      "commit": "2de9ee3e725795c7f6f1c63545eb31ba3eb64fb4",
+      "commit": "b944c2f97dcbaae8aa607b7b9d6ff9f548f1562a",
       "docs": {
-        "localLinks": 189,
+        "localLinks": 210,
         "images": 39,
-        "bilingualReadmeBytes": 16747
+        "bilingualReadmeBytes": 17757
       },
       "git": {
-        "trackedFiles": 625,
-        "historyBlobsChecked": 599,
+        "trackedFiles": 710,
+        "historyBlobsChecked": 666,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -72,15 +72,15 @@
     },
     {
       "branch": "douyin",
-      "commit": "5ecb319f969afe56b6f0b298375019d43722f331",
+      "commit": "ceb091f729c8b712496c02811d5c410cf63b11d1",
       "docs": {
-        "localLinks": 189,
+        "localLinks": 210,
         "images": 39,
-        "bilingualReadmeBytes": 16701
+        "bilingualReadmeBytes": 17711
       },
       "git": {
-        "trackedFiles": 626,
-        "historyBlobsChecked": 600,
+        "trackedFiles": 711,
+        "historyBlobsChecked": 667,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -88,15 +88,15 @@
     },
     {
       "branch": "android",
-      "commit": "84da29df076de4c47694f5f3380dc285d0cccaf7",
+      "commit": "8a4f08ee34b284221dc35c9a8a3d8c9f20169b5f",
       "docs": {
-        "localLinks": 197,
+        "localLinks": 218,
         "images": 39,
-        "bilingualReadmeBytes": 18613
+        "bilingualReadmeBytes": 19623
       },
       "git": {
-        "trackedFiles": 703,
-        "historyBlobsChecked": 707,
+        "trackedFiles": 788,
+        "historyBlobsChecked": 774,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -152,13 +152,18 @@
   "routeArrivals": "docs/ROUTE-ARRIVALS.md",
   "routeArrivalRuntimeCommit": "eabd6a04f0f84dbaebe584b2220d630851747fe4",
   "actualH5Url": "https://hkbus.copypaste.hk/",
-  "actualH5Release": "20261017T150048Z-edeca230be17",
-  "actualH5BuildCommit": "edeca230be17fedc8045e4616988ce8af90c5941",
+  "actualH5Release": "20261017T205331Z-be0ff19f497e",
+  "actualH5BuildCommit": "be0ff19f497eeec69e640b28aec3b7c1662553ee",
   "h5ReleaseReport": "docs/H5-SITE-LIVE.md",
   "frontendPublicationAuthorized": true,
   "personalDataStorage": "frontend-on-device",
   "passengerAccounts": false,
   "profileRequestsFromUpdatedClients": false,
   "personalDataReport": "docs/LOCAL-PREFERENCES.md",
-  "designRefinementReport": "docs/DESIGN-REFINEMENT.md"
+  "designRefinementReport": "docs/DESIGN-REFINEMENT.md",
+  "faresReport": "docs/FARES-INTEGRATION.md",
+  "fareDataSource": "Transport Department official routes and fares XML",
+  "fareBasis": "adult-single-undiscounted",
+  "backendFareRelease": "20261017T202836Z-a1ec760d8bed",
+  "adminFareRelease": "20261017T205911Z-63843ad100af"
 }
