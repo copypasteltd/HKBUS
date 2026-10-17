@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "checkedAt": "2026-10-17T20:07:02.213264+00:00",
+  "readOnly": true,
+  "serviceActive": "active",
+  "runtimeRelease": "/www/wwwroot/hkbusgo/releases/20261017T112442Z-eabd6a04f0f8",
+  "siteRelease": "/www/wwwroot/hkbus.copypaste.hk/.hkbusgo/releases/20261017T150048Z-edeca230be17",
+  "siteOwner": {
+    "project": "HKBusGo H5",
+    "releaseId": "20261017T150048Z-edeca230be17",
+    "sourceCommit": "edeca230be17fedc8045e4616988ce8af90c5941",
+    "updatedAt": "2026-10-17T15:01:21.573313+00:00"
+  },
+  "siteIndexSha256": "e1432d2759b0af09f50425856b915089c78915f717f1a284f57f9fa1a0bc25a9",
+  "mainVhostSha256": "23e96f34f52a67554a9ce08c26de804baf463e0b10bcd87e68eea52ae6ac9bee",
+  "snippetSha256": "0806a784b39680693de39095593267227cfa95e66d5644cb0c8085edb4dc950c",
+  "database": {
+    "integrity": "ok",
+    "foreignKeyViolations": 0,
+    "counts": {
+      "routes": 1611,
+      "stops": 6775,
+      "route_stops": 36377,
+      "profiles": 2,
+      "admins": 1
+    },
+    "nonLiveRows": {
+      "routes": 0,
+      "stops": 0
+    },
+    "baoTaRegistered": true
+  },
+  "health": {
+    "status": "ok",
+    "version": "1.0.0",
+    "database": "ready",
+    "catalogRoutes": 1611,
+    "catalogSyncedAt": "2026-10-17T09:25:04.478Z",
+    "source": "live",
+    "dataStatus": "unverified",
+    "dataServices": [
+      {
+        "provider": "KMB",
+        "enabled": true,
+        "transport": "direct",
+        "state": "unverified",
+        "checkedAt": "2026-10-17T15:08:33.035Z",
+        "lastCode": null
+      },
+      {
+        "provider": "TDAS",
+        "enabled": true,
+        "transport": "authenticated-egress",
+        "state": "unverified",
+        "checkedAt": "2026-10-17T15:02:49.545Z",
+        "lastCode": null
+      }
+    ]
+  },
+  "adminHttp200": true,
+  "privateConfigurationRecorded": false
+}

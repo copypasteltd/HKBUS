@@ -1,0 +1,97 @@
+{
+  "checks": [
+    {
+      "name": "Authenticated console exposes actual source version and honest mapped/unmapped coverage",
+      "passed": true,
+      "coverage": {
+        "total": 1611,
+        "matched": 1150,
+        "partial": 17,
+        "unmatched": 444,
+        "ambiguous": 0,
+        "changed": 0
+      }
+    },
+    {
+      "name": "Operator section selector fetches a real stop-identified quote",
+      "passed": true,
+      "amountCents": 770,
+      "boardSequence": 10
+    },
+    {
+      "name": "Actual operations button starts and completes an audited official fare sync",
+      "passed": true,
+      "id": "ae758067-8975-4500-9918-08d508d6c833",
+      "status": "succeeded"
+    }
+  ],
+  "requests": [
+    {
+      "path": "/api/admin/auth/me",
+      "status": 401
+    },
+    {
+      "path": "/api/admin/auth/login",
+      "status": 200
+    },
+    {
+      "path": "/api/admin/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/admin/fares",
+      "status": 200
+    },
+    {
+      "path": "/api/admin/fares",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "status": 200
+    },
+    {
+      "path": "/api/admin/jobs/fares/sync",
+      "status": 202
+    },
+    {
+      "path": "/api/admin/fares",
+      "status": 200
+    },
+    {
+      "path": "/api/admin/jobs",
+      "status": 200
+    },
+    {
+      "path": "/api/admin/fares",
+      "status": 200
+    },
+    {
+      "path": "/api/admin/auth/logout",
+      "status": 200
+    }
+  ],
+  "pageErrors": [],
+  "screenshots": [
+    "fare-admin-coverage.png",
+    "fare-admin-section.png",
+    "fare-admin-sync.png"
+  ],
+  "apiResponsesSubstituted": false,
+  "browserClosed": true,
+  "syncJob": {
+    "id": "ae758067-8975-4500-9918-08d508d6c833",
+    "status": "succeeded"
+  },
+  "passed": true,
+  "loggedOut": true,
+  "finishedAt": "2026-10-17T21:02:11.394Z"
+}
