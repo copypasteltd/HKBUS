@@ -1,0 +1,806 @@
+{
+  "startedAt": "2026-10-17T11:49:42.034Z",
+  "staticTransport": "All HTML, JavaScript, CSS, images and API responses load from the actual public HTTPS website/API. No requests are intercepted or fulfilled locally.",
+  "checks": [
+    {
+      "name": "h5 route ETA values match real response",
+      "passed": true,
+      "routeId": "KMB:112:O:1",
+      "stops": 23,
+      "numericStationsVerified": 16
+    },
+    {
+      "name": "h5 one route request instead of per-stop ETA fanout",
+      "passed": true
+    },
+    {
+      "name": "h5 station expansion, next 3, Hong Kong times and official remarks",
+      "passed": true,
+      "stopSequence": 8,
+      "stopId": "D12FB3A70DDAED02",
+      "predictions": 1
+    },
+    {
+      "name": "h5 restored connectivity route ETA values match real response",
+      "passed": true,
+      "routeId": "KMB:112:O:1",
+      "stops": 23,
+      "numericStationsVerified": 16
+    },
+    {
+      "name": "simulated offline refresh uses marked real cache, hides minutes and recovers online",
+      "passed": true,
+      "apiPayloadSubstituted": false
+    },
+    {
+      "name": "visible route automatically refreshes within 30s",
+      "passed": true
+    },
+    {
+      "name": "hidden route stops polling while stop arrivals continue",
+      "passed": true,
+      "observedSeconds": 35
+    },
+    {
+      "name": "h5 direction switch replaces route and ETA identity",
+      "passed": true
+    },
+    {
+      "name": "h5 320px large text in simplified Chinese and English",
+      "passed": true
+    },
+    {
+      "name": "published search to route navigation loads real route arrivals",
+      "passed": true,
+      "routeId": "KMB:112:I:1"
+    },
+    {
+      "name": "all 14 actual published pages load and fit 390px",
+      "passed": true,
+      "pages": 14
+    }
+  ],
+  "screenshots": [
+    "h5-route-overview.png",
+    "h5-route-upcoming.png",
+    "h5-route-offline.png",
+    "h5-stop-arrivals.png",
+    "h5-route-320-sc.png",
+    "h5-route-320-en.png",
+    "h5-published-home.png"
+  ],
+  "requests": [
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:49:43.650Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:49:43.663Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:49:43.845Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "status": 200,
+      "at": "2026-10-17T11:49:44.055Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "status": 200,
+      "at": "2026-10-17T11:49:44.575Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:14.639Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/sessions",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:15.039Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/recent",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:15.241Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops/D12FB3A70DDAED02/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:15.783Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:28.548Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:43.528Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops/D12FB3A70DDAED02/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:45.161Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:51.436Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:51.447Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:51.541Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:51.630Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:51.630Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AI%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:51.748Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AI%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:51.800Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:52.165Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:52.261Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:52.276Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:52.277Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:52.321Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "status": 200,
+      "at": "2026-10-17T11:50:52.415Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:52.775Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:52.880Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:52.881Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:52.885Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:52.949Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "status": 200,
+      "at": "2026-10-17T11:50:53.096Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:53.511Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:53.554Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:53.554Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/home",
+      "query": "?platform=h5",
+      "status": 200,
+      "at": "2026-10-17T11:50:53.560Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:54.179Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:54.179Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:54.179Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes",
+      "query": "?page=1&pageSize=20",
+      "status": 200,
+      "at": "2026-10-17T11:50:54.261Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:54.627Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:54.641Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:54.642Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/recent",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:54.894Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/search",
+      "query": "?q=112&type=all",
+      "status": 200,
+      "at": "2026-10-17T11:50:55.454Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AI%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:55.731Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AI%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:55.844Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/recent",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:55.910Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:56.496Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:56.514Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:56.535Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops",
+      "query": "?radius=3000&pageSize=20",
+      "status": 200,
+      "at": "2026-10-17T11:50:56.684Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:56.961Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops/F8365ACAC0B85C65/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:57.195Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:57.234Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:57.234Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:57.473Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:57.558Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:57.558Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:57.604Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:57.605Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:57.975Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:57.995Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:58.002Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/recent",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:58.068Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:58.538Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:58.538Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:58.540Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:59.045Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:59.045Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:59.062Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/notices",
+      "query": "?platform=h5",
+      "status": 200,
+      "at": "2026-10-17T11:50:59.140Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:59.550Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:59.551Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:50:59.569Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:51:00.007Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:51:00.008Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:51:00.035Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:51:00.472Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:51:00.473Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:51:00.496Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/reminders",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:51:00.655Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:51:01.096Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:51:01.097Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:51:01.097Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:51:01.834Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:51:01.834Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:51:01.856Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:51:02.120Z"
+    }
+  ],
+  "pageErrors": [],
+  "missingAssets": [],
+  "profilesDeleted": [
+    {
+      "surface": "h5",
+      "deleted": true
+    }
+  ],
+  "browserClosed": true,
+  "physicalDevice": false,
+  "officialMiniProgramIDE": false,
+  "websiteDeployed": true,
+  "sourceObservations": [
+    {
+      "surface": "h5",
+      "routeId": "KMB:112:O:1",
+      "freshness": {
+        "state": "fresh",
+        "generatedAt": "2026-10-17T11:49:22.000Z",
+        "fetchedAt": "2026-10-17T11:49:44.310Z",
+        "cached": false,
+        "source": "live",
+        "provider": "KMB"
+      },
+      "usablePredictions": true,
+      "at": "2026-10-17T11:49:44.067Z"
+    }
+  ],
+  "navigation": [
+    {
+      "screen": "home",
+      "url": "https://hkbus.copypaste.hk/?qa=1792237853140#/pages/home/index",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "routes",
+      "url": "https://hkbus.copypaste.hk/?qa=1792237853786#/pages/routes/index",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "search",
+      "url": "https://hkbus.copypaste.hk/?qa=1792237854349#/pages/search/index",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "nearby",
+      "url": "https://hkbus.copypaste.hk/?qa=1792237855734#/pages/nearby/index",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "arrivals",
+      "url": "https://hkbus.copypaste.hk/?qa=1792237856751#/pages/arrivals/index?id=F8365ACAC0B85C65",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "route",
+      "url": "https://hkbus.copypaste.hk/?qa=1792237857228#/pages/route/index?id=KMB%3A112%3AO%3A1",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "bookmarks",
+      "url": "https://hkbus.copypaste.hk/?qa=1792237857493#/pages/bookmarks/index",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "settings",
+      "url": "https://hkbus.copypaste.hk/?qa=1792237858184#/pages/settings/index",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "notices",
+      "url": "https://hkbus.copypaste.hk/?qa=1792237858704#/pages/notices/index",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "notice",
+      "url": "https://hkbus.copypaste.hk/?qa=1792237859146#/pages/notice/index",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "help",
+      "url": "https://hkbus.copypaste.hk/?qa=1792237859588#/pages/help/index",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "reminders",
+      "url": "https://hkbus.copypaste.hk/?qa=1792237860055#/pages/reminders/index",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "planner",
+      "url": "https://hkbus.copypaste.hk/?qa=1792237860662#/pages/planner/index",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "traffic",
+      "url": "https://hkbus.copypaste.hk/?qa=1792237861308#/pages/traffic/index",
+      "loaded": true,
+      "horizontalOverflow": false
+    }
+  ],
+  "passed": true,
+  "finishedAt": "2026-10-17T11:51:02.250Z"
+}
