@@ -1,0 +1,67 @@
+{
+  "url": "https://hkbus-api.copypaste.hk/admin/",
+  "browser": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  "requests": [
+    {
+      "path": "/admin/",
+      "status": 200,
+      "checkedAt": "2026-10-17T09:38:03.291Z"
+    },
+    {
+      "path": "/admin/assets/index-CDaJk-j6.css",
+      "status": 200,
+      "checkedAt": "2026-10-17T09:38:03.647Z"
+    },
+    {
+      "path": "/admin/assets/index-hyNJqHtF.js",
+      "status": 200,
+      "checkedAt": "2026-10-17T09:38:03.707Z"
+    },
+    {
+      "path": "/admin/brand/logo.svg",
+      "status": 200,
+      "checkedAt": "2026-10-17T09:38:03.930Z"
+    },
+    {
+      "path": "/admin/brand/favicon.svg",
+      "status": 200,
+      "checkedAt": "2026-10-17T09:38:04.014Z"
+    },
+    {
+      "path": "/api/admin/auth/me",
+      "status": 401,
+      "checkedAt": "2026-10-17T09:38:04.082Z"
+    },
+    {
+      "path": "/api/admin/auth/login",
+      "status": 200,
+      "checkedAt": "2026-10-17T09:38:05.835Z"
+    },
+    {
+      "path": "/api/admin/overview",
+      "status": 200,
+      "checkedAt": "2026-10-17T09:38:06.745Z"
+    },
+    {
+      "path": "/api/admin/auth/me",
+      "status": 200,
+      "checkedAt": "2026-10-17T09:38:07.682Z"
+    },
+    {
+      "path": "/api/admin/auth/logout",
+      "status": 200,
+      "checkedAt": "2026-10-17T09:38:07.963Z"
+    }
+  ],
+  "failedRequests": [],
+  "pageErrors": [],
+  "browserClosed": true,
+  "networkTransport": "Public HTTPS through the owned server network; end-to-end TLS; no interception",
+  "identity": {
+    "status": 200,
+    "role": "admin"
+  },
+  "passed": true,
+  "loggedOut": true,
+  "checkedAt": "2026-10-17T09:38:08.277Z"
+}

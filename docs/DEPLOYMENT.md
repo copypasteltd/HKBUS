@@ -1,5 +1,7 @@
 # 港巴通后端与数据库部署交付 · 2026-10-17
 
+**后续更新 / Superseding update:** 本文保留此前阶段的验收事实。当前正式 TDAS 与 Admin 的状态、证据和限制见 [数据通达交付 / Current live-data handover](DATA-REACHABILITY.md)。
+
 **后续 CORS 更新 / Subsequent CORS update（2026-10-17）：线上已接受任意来源、任意请求头，55 项正式 HTTPS 与 8 项真实浏览器检查通过，端口仍为 39410。下文首次部署的来源列表及拒绝检查保留为历史记录；当前按 [任意来源运维说明](https://github.com/copypasteltd/HKBUS/blob/backend/docs/CORS-OPEN.md) 操作，无需为新 H5 域名新增白名单。**
 
 部署对象是实际 Backend 与正式业务数据库。**公网服务端口为 `39410`，健康检查和业务请求已从服务器外部验证可达。TDAS 道路查询存在上游 403 阻塞，不能视为全部外部数据能力验收通过。**

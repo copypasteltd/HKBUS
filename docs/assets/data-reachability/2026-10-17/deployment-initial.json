@@ -1,0 +1,14 @@
+{
+  "startedAt": "2026-10-17T08:50:44.516477+00:00",
+  "sourceCommit": "4eb23ecf289ce3043dfdb84ceb0d5ef6f6607c4d",
+  "sourceArchiveSha256": "9031db627aff6845d30d4f368af0cd30a8379b543cbb08e49ae475d0798251f2",
+  "releaseId": "20261017T085043Z-4eb23ecf289c",
+  "staging": "/home/ubuntu/.cache/hkbus-data-20261017T085043Z",
+  "port": 39410,
+  "apiBase": "https://hkbus-api.copypaste.hk/api",
+  "demoTouched": false,
+  "virtualizationUsed": false,
+  "passed": true,
+  "updateExitCode": 0,
+  "finishedAt": "2026-10-17T08:51:23.572712+00:00"
+}

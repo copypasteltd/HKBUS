@@ -1,0 +1,20 @@
+nginx: the configuration file /www/server/nginx/conf/nginx.conf syntax is ok
+nginx: configuration file /www/server/nginx/conf/nginx.conf test is successful
+nginx: the configuration file /www/server/nginx/conf/nginx.conf syntax is ok
+nginx: configuration file /www/server/nginx/conf/nginx.conf test is successful
+Traceback (most recent call last):
+  File "/home/ubuntu/.cache/hkbus-admin-20261017T091509Z/deploy-admin.py", line 73, in <module>
+    with urllib.request.urlopen(request,timeout=20) as response:
+  File "/usr/lib/python3.10/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.10/urllib/request.py", line 525, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.10/urllib/request.py", line 634, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.10/urllib/request.py", line 563, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.10/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.10/urllib/request.py", line 643, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found

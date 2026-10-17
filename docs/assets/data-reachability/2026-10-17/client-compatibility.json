@@ -1,0 +1,82 @@
+{
+  "checkedAt": "2026-10-17T09:05:20.644982+00:00",
+  "apiBase": "https://hkbus-api.copypaste.hk/api",
+  "projects": [
+    {
+      "branch": "wechat",
+      "commit": "3113d325c6193719738a63f2d0ad39c6ebf89b5c",
+      "serviceSha256": "9911e2bd03c43db2be551c00c2f1b227c8309c4357bd7f938147157d06427be1",
+      "trafficScreenSha256": "ebf1793d216addfa9b37ef16f9d7061be3f1ec384b7a1c3a7dbb59cc444b5341",
+      "compiledApiPresent": true,
+      "dataContractUnchanged": true,
+      "verificationLevel": "source and existing compiled artifact; no official IDE/physical device claim"
+    },
+    {
+      "branch": "alipay",
+      "commit": "541f80b5b37b91e9aab680e7cc6a8c2820430922",
+      "serviceSha256": "9911e2bd03c43db2be551c00c2f1b227c8309c4357bd7f938147157d06427be1",
+      "trafficScreenSha256": "ebf1793d216addfa9b37ef16f9d7061be3f1ec384b7a1c3a7dbb59cc444b5341",
+      "compiledApiPresent": true,
+      "dataContractUnchanged": true,
+      "verificationLevel": "source and existing compiled artifact; no official IDE/physical device claim"
+    },
+    {
+      "branch": "douyin",
+      "commit": "dc5ba64d9e60cf44bcc6e6ba22641c2a9cb70b4e",
+      "serviceSha256": "9911e2bd03c43db2be551c00c2f1b227c8309c4357bd7f938147157d06427be1",
+      "trafficScreenSha256": "ebf1793d216addfa9b37ef16f9d7061be3f1ec384b7a1c3a7dbb59cc444b5341",
+      "compiledApiPresent": true,
+      "dataContractUnchanged": true,
+      "verificationLevel": "source and existing compiled artifact; no official IDE/physical device claim"
+    },
+    {
+      "branch": "android",
+      "commit": "6e6c0465bc1c654dd2ad6c9df33063860d763a98",
+      "serviceSha256": "9911e2bd03c43db2be551c00c2f1b227c8309c4357bd7f938147157d06427be1",
+      "trafficScreenSha256": "ebf1793d216addfa9b37ef16f9d7061be3f1ec384b7a1c3a7dbb59cc444b5341",
+      "compiledApiPresent": true,
+      "dataContractUnchanged": true,
+      "verificationLevel": "source and existing compiled artifact; no official IDE/physical device claim"
+    }
+  ],
+  "existingArtifacts": [
+    {
+      "name": "hkbusgo-admin-dist.zip",
+      "bytes": 88071,
+      "sha256": "f5321a613c298024577ff8701bbcbedee1447fe1560d8e59b3ae70c573d0aced"
+    },
+    {
+      "name": "hkbusgo-alipay-dist.zip",
+      "bytes": 429756,
+      "sha256": "0ed7ef09b86a1499fd93d73a7e65cf367bf6236262b6c386da062ddc454aa0aa"
+    },
+    {
+      "name": "hkbusgo-all-platforms.zip",
+      "bytes": 7463076,
+      "sha256": "bff744a8539de0ca1b3ad41c3f96d18c843c2f4afc757e8e0a42b905a68b90a8"
+    },
+    {
+      "name": "hkbusgo-android-debug.apk",
+      "bytes": 6075676,
+      "sha256": "ed95c6399caf4e650000407dd0ba328c16038335043f4da2c3b4e964c13e5303"
+    },
+    {
+      "name": "hkbusgo-douyin-dist.zip",
+      "bytes": 428428,
+      "sha256": "ee8833b77ca3b1edc8590da7bee4b7e83cf02c3fefe6c612e90d1df11582bbed"
+    },
+    {
+      "name": "hkbusgo-h5-dist.zip",
+      "bytes": 766962,
+      "sha256": "d1ab8615b4dcb8c0ccfebb3e534ce3493f6d7a83bd29264d409ad42f311077e1"
+    },
+    {
+      "name": "hkbusgo-wechat-dist.zip",
+      "bytes": 433133,
+      "sha256": "844e202c860fa39fe62797b8a058c4a238a80dc0e767f68979baf4aa69926ad8"
+    }
+  ],
+  "passed": true,
+  "clientRebuildRequired": false,
+  "reason": "Production backend transport changed; existing public road result and official API address are preserved. Four client source consumers are identical."
+}

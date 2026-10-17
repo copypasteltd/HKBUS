@@ -1,5 +1,7 @@
 # 任意来源跨域 / Any-origin CORS · 2026-10-17
 
+**后续更新 / Superseding update:** 本文保留此前阶段的验收事实。当前正式 TDAS 与 Admin 的状态、证据和限制见 [数据通达交付 / Current live-data handover](DATA-REACHABILITY.md)。
+
 本次按用户要求将实际 Backend 的跨域策略改为接受任意来源。正式 API 为 `https://hkbus-api.copypaste.hk/api/`，监听端口继续使用 **39410**。
 
 ## 生效行为
