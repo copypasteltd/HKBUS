@@ -8,6 +8,7 @@ export default function App({children}:PropsWithChildren){
     const enrich=()=>{
       document.querySelectorAll<HTMLElement>('taro-button-core').forEach(element=>{element.setAttribute('role','button');const control=element as HTMLElement & {disabled?:boolean;loading?:boolean};const disabled=control.disabled===true||control.loading===true;element.tabIndex=disabled?-1:0;element.setAttribute('aria-disabled',String(disabled));});
       document.querySelectorAll<HTMLElement>('taro-input-core[aria-label],taro-textarea-core[aria-label]').forEach(element=>element.querySelector('input,textarea')?.setAttribute('aria-label',element.getAttribute('aria-label')||''));
+      document.querySelectorAll<HTMLElement>('.route-stop>.timeline-row').forEach(element=>element.setAttribute('aria-expanded',String(element.parentElement?.classList.contains('is-expanded')||false)));
       document.querySelectorAll<HTMLElement>('.brand-name,.page-heading,.section-title').forEach(element=>{element.setAttribute('role','heading');element.setAttribute('aria-level',element.classList.contains('section-title')?'2':'1');});
     };
     enrich();const observer=new MutationObserver(enrich);observer.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['disabled','loading']});

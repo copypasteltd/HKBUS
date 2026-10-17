@@ -5,6 +5,7 @@ export interface Stop {id:string;name:Names;latitude:number;longitude:number;sou
 export interface Arrival {id:string;routeId:string;routeNo:string;bound:'O'|'I';serviceType:string;stopId:string;stopSequence:number;destination:Names;eta:string|null;etaSequence:number;remark:Names;generatedAt:string;minutes:number|null;status:'scheduled'|'approaching'|'no-estimate'|'stale';source:'live'}
 export interface Notice {id:string;title:Names;body:Names;severity:'info'|'warning'|'critical';status:string;validFrom:string;validUntil:string;routeIds:string[];stopIds:string[];platforms:string[];sourceUrl:string;version:number;routes?:Route[]}
 export interface Arrivals {stop:Stop;arrivals:Arrival[];routes:Route[];freshness:{state:'fresh'|'stale'|'unavailable';generatedAt:string|null;fetchedAt:string|null;cached:boolean;source:'live';provider:string};warning?:string}
+export interface RouteArrivals {route:Route;stops:(Stop & {sequence:number})[];arrivals:Arrival[];freshness:Arrivals['freshness'];warning?:string}
 export interface Features {reminders:boolean;traffic:boolean;planner:boolean;map:boolean}
 export interface ProductContent {coverage:Names;privacy:Names;help:Names;sourceUrl:string;privacyUrl:string;supportEmail:string;maintenance:boolean}
 export interface ProductConfig {mode:'live';features:Features;content:ProductContent;shareBaseUrl?:string;tdasEnabled:boolean;catalogSyncedAt:string|null;sources:{name:string;url:string}[]}
