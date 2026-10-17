@@ -1,30 +1,48 @@
 import {createContext,useContext,useState,useEffect,useCallback,useRef,type PropsWithChildren} from 'react';
 import Taro,{useDidShow} from '@tarojs/taro';
-import {api,ApiError,storage,clearProfileStorage,hasProfileSession} from './services/api';
-import {deliverNotification} from './services/platform';
-import type {Locale,Names,Bookmark,ProductConfig} from './services/types';
+import {api,ApiError} from './services/api';
+import {localUser,publicEntity,startLocalReminders,stopLocalReminders} from './services/local-user';
+import {DEVICE_KEY,type Preferences,type RecentItem,type DeviceReminder} from './services/device-store';
+import type {Locale,Names,Bookmark,ProductConfig,Stop,Route} from './services/types';
 const defaults:ProductConfig={mode:'live',features:{reminders:false,traffic:false,planner:false,map:true},tdasEnabled:false,catalogSyncedAt:null,sources:[],content:{coverage:{tc:'KMB / LWB 到站資訊',sc:'KMB / LWB 到站信息',en:'KMB / LWB arrivals'},privacy:{tc:'',sc:'',en:''},help:{tc:'',sc:'',en:''},sourceUrl:'',privacyUrl:'',supportEmail:'',maintenance:false}};
-interface AppState{locale:Locale;setLocale:(locale:Locale)=>void;large:boolean;setLarge:(large:boolean)=>void;config:ProductConfig;configError:string;reloadConfig:()=>Promise<void>;bookmarks:Bookmark[];refreshBookmarks:()=>Promise<void>;favorite:(kind:'stop'|'route',id:string,alias?:string)=>Promise<void>;isFavorite:(kind:'stop'|'route',id:string)=>boolean;tr:(tc:string,sc:string,en:string)=>string;name:(value:Names|undefined)=>string;coordinates:{latitude:number;longitude:number}|null;setCoordinates:(value:{latitude:number;longitude:number}|null)=>void;clearPersonalData:()=>Promise<void>}
-const State=createContext<AppState|null>(null);
-let notificationTimer:ReturnType<typeof setInterval>|undefined;
-let notificationBusy=false;
-export function stopNotificationPolling(){clearInterval(notificationTimer);notificationTimer=undefined;}
-export function startNotificationPolling(){
-  if(notificationTimer)return;
-  const poll=async()=>{if(notificationBusy||!hasProfileSession())return;notificationBusy=true;try{const items=await api.get<{id:string;message:string;read_at:string|null}[]>('/v1/profile/notifications',true);for(const item of items.filter(x=>!x.read_at).reverse()){await deliverNotification(item.id,item.message);await api.patch('/v1/profile/notifications/'+item.id,{},true);}}catch{/* Query screens remain usable when notification polling fails. */}finally{notificationBusy=false;}};
-  notificationTimer=setInterval(()=>void poll(),15000);void poll();
+interface AppState{
+  locale:Locale;setLocale:(locale:Locale)=>void;large:boolean;setLarge:(large:boolean)=>void;
+  preferences:Preferences;setPreferences:(patch:Partial<Preferences>)=>void;storageError:string;
+  config:ProductConfig;configError:string;reloadConfig:()=>Promise<void>;bookmarks:Bookmark[];recent:RecentItem[];reminders:DeviceReminder[];
+  refreshBookmarks:()=>Promise<void>;favorite:(kind:'stop'|'route',id:string,alias?:string)=>Promise<void>;isFavorite:(kind:'stop'|'route',id:string)=>boolean;
+  visit:(kind:'stop'|'route',entity:Stop|Route)=>void;
+  tr:(tc:string,sc:string,en:string)=>string;name:(value:Names|undefined)=>string;
+  coordinates:{latitude:number;longitude:number}|null;setCoordinates:(value:{latitude:number;longitude:number}|null)=>void;clearPersonalData:()=>Promise<void>;
 }
+const State=createContext<AppState|null>(null);
+export const startNotificationPolling=startLocalReminders,stopNotificationPolling=stopLocalReminders;
 export function AppProvider({children}:PropsWithChildren){
-  const[locale,changeLocale]=useState<Locale>(storage.get('hkbus-locale','tc'));
-  const[large,changeLarge]=useState(storage.get('hkbus-large',false));
-  const[config,setConfig]=useState<ProductConfig>(api.cached('/v1/config')||defaults);
-  const[configError,setConfigError]=useState('');const[bookmarks,setBookmarks]=useState<Bookmark[]>(api.cached('/v1/profile/bookmarks',true)||[]);
+  const[device,setDevice]=useState(()=>localUser.snapshot()),[storageError,setStorageError]=useState(localUser.error());
+  const[config,setConfig]=useState<ProductConfig>(api.cached('/v1/config')||defaults),[configError,setConfigError]=useState('');
   const[coordinates,setCoordinates]=useState<{latitude:number;longitude:number}|null>(null);
+  useEffect(()=>{
+    const refresh=()=>{setDevice(localUser.snapshot());setStorageError(localUser.error());};
+    const remove=localUser.subscribe(refresh);localUser.refresh();
+    const changed=(event:StorageEvent)=>{if(event.key===DEVICE_KEY||event.key===null)localUser.refresh();};
+    if(process.env.TARO_ENV==='h5')window.addEventListener('storage',changed);
+    return()=>{remove();if(process.env.TARO_ENV==='h5')window.removeEventListener('storage',changed);};
+  },[]);
   const reloadConfig=useCallback(async()=>{try{setConfig(await api.get<ProductConfig>('/v1/config'));setConfigError('');}catch(error){setConfigError(error instanceof Error?error.message:'設定無法載入');}},[]);
-  const refreshBookmarks=useCallback(async()=>{setBookmarks(await api.get<Bookmark[]>('/v1/profile/bookmarks',true));},[]);
-  useEffect(()=>{void reloadConfig();if(hasProfileSession())void refreshBookmarks().catch(()=>{});},[reloadConfig,refreshBookmarks]);
-  const favorite=async(kind:'stop'|'route',id:string,alias?:string)=>{const existing=bookmarks.find(x=>x.kind===kind&&x.entityId===id);if(existing&&alias===undefined)await api.delete('/v1/profile/bookmarks/'+kind+'/'+encodeURIComponent(id),true);else await api.put('/v1/profile/bookmarks',{kind,entityId:id,alias:alias??existing?.alias??''},true);await refreshBookmarks();};
-  const value:AppState={locale,setLocale:next=>{changeLocale(next);storage.set('hkbus-locale',next);},large,setLarge:next=>{changeLarge(next);storage.set('hkbus-large',next);},config,configError,reloadConfig,bookmarks,refreshBookmarks,favorite,isFavorite:(kind,id)=>bookmarks.some(x=>x.kind===kind&&x.entityId===id),tr:(tc,sc,en)=>locale==='en'?en:locale==='sc'?sc:tc,name:value=>value?.[locale]||value?.tc||value?.en||'',coordinates,setCoordinates,clearPersonalData:async()=>{try{if(hasProfileSession())await api.delete('/v1/profile',true);}catch(error){if(!(error instanceof ApiError)||error.status!==401)throw error;}clearProfileStorage();setBookmarks([]);}};
+  const refreshBookmarks=useCallback(async()=>{localUser.refresh();},[]);
+  useEffect(()=>{void reloadConfig();},[reloadConfig]);
+  const setPreferences=(patch:Partial<Preferences>)=>{try{localUser.preferences(patch);}catch(error){Taro.showToast({title:error instanceof Error?error.message:'無法儲存到本裝置',icon:'none',duration:3500});}};
+  const favorite=async(kind:'stop'|'route',id:string,alias?:string)=>{
+    const existing=localUser.snapshot().bookmarks.find(x=>x.kind===kind&&x.entityId===id);
+    if(existing&&alias===undefined)localUser.removeBookmark(kind,id);
+    else if(existing)localUser.rename(kind,id,alias||'');
+    else {const version=localUser.snapshot().resetVersion,entity=await publicEntity(kind,id);localUser.assertCurrent(version);localUser.bookmark(kind,entity,alias||'');}
+  };
+  const locale=device.preferences.locale;
+  const value:AppState={locale,setLocale:next=>setPreferences({locale:next}),large:device.preferences.largeText,setLarge:largeText=>setPreferences({largeText}),preferences:device.preferences,setPreferences,storageError,
+    config,configError,reloadConfig,bookmarks:device.bookmarks,recent:device.recent,reminders:device.reminders,refreshBookmarks,favorite,isFavorite:(kind,id)=>device.bookmarks.some(x=>x.kind===kind&&x.entityId===id),
+    visit:(kind,entity)=>{try{localUser.visit(kind,entity);}catch{/* The visible storage banner reports a failed local write. */}},
+    tr:(tc,sc,en)=>locale==='en'?en:locale==='sc'?sc:tc,name:value=>value?.[locale]||value?.tc||value?.en||'',coordinates,setCoordinates,
+    clearPersonalData:async()=>{localUser.clear();api.clearCache();setCoordinates(null);}};
   return <State.Provider value={value}>{children}</State.Provider>;
 }
 export function useApp(){const value=useContext(State);if(!value)throw new Error('AppProvider missing');return value;}
