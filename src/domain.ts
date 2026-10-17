@@ -7,6 +7,7 @@ export interface Arrival { id: string; routeId: string; routeNo: string; bound: 
 export interface Notice { id: string; title: Names; body: Names; severity: 'info' | 'warning' | 'critical'; status: 'draft' | 'review' | 'approved' | 'published' | 'withdrawn'; validFrom: string; validUntil: string; routeIds: string[]; stopIds: string[]; platforms: string[]; sourceUrl: string; source?: 'operator' | 'fixture' | 'legacy'; version: number; updatedAt: string; updatedBy: string }
 export interface Freshness { state: 'fresh' | 'stale' | 'unavailable'; generatedAt: string | null; fetchedAt: string | null; cached: boolean; source: SourceMode; provider: 'KMB' | 'TDAS' }
 export interface ArrivalResult { stop: Stop; arrivals: Arrival[]; routes: Route[]; freshness: Freshness; warning?: string }
+export interface RouteArrivalResult { route: Route; stops: (Stop & {sequence:number})[]; arrivals: Arrival[]; freshness: Freshness; warning?: string }
 export interface Identity { sub: string; kind: 'admin' | 'profile'; role?: 'admin' | 'editor' | 'operator' | 'viewer'; sid: string }
 export class AppError extends Error {
   constructor(public code: string, message: string, public status = 400, public retryable = false) { super(message); }

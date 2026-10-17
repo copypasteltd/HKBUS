@@ -1,6 +1,6 @@
 import { randomUUID, createHash } from 'node:crypto';
 import { z } from 'zod';
-import { AppError, now, names, type Arrival, type ArrivalResult, type Freshness, type Route, type Stop } from './domain.js';
+import { AppError, now, names, type Arrival, type ArrivalResult, type RouteArrivalResult, type Freshness, type Route, type Stop } from './domain.js';
 import type { Config } from './config.js';
 import type { Store } from './database.js';
 
@@ -142,6 +142,42 @@ export class Providers {
         const raw=z.object({generated_timestamp:z.string().optional(),data:z.array(z.unknown())}).parse(await this.request('KMB','stop-eta',this.config.kmbBaseUrl.replace(/\/$/,'')+'/stop-eta/'+encodeURIComponent(stopId)));
         const identities=new Map(routes.map(route=>[route.id,new Set(this.store.sequence(route.id).filter(stop=>stop.id===stopId).map(stop=>stop.sequence))]));
         const arrivals=raw.data.map(row=>normalizeArrival(row,stopId,Date.now(),policy.etaFreshSeconds)).filter(row=>identities.get(row.routeId)?.has(row.stopSequence)).sort((a,b)=>a.routeNo.localeCompare(b.routeNo,undefined,{numeric:true})||a.bound.localeCompare(b.bound)||a.serviceType.localeCompare(b.serviceType)||a.stopSequence-b.stopSequence||a.etaSequence-b.etaSequence);
+        const generatedAt=arrivals.map(x=>x.generatedAt).sort().at(-1)||raw.generated_timestamp||'';
+        if(!Number.isFinite(Date.parse(generatedAt)))throw new AppError('UPSTREAM_SCHEMA','到站資料時間無法解析',502,true);
+        this.writeCache(key,{arrivals,generatedAt},policy.cacheSeconds,policy.etaStaleSeconds);
+        return result(this.cache(key)!,false);
+      }catch(error){
+        if(cache&&Date.parse(cache.stale_until)>Date.now())return result(cache,true,'最新資料暫時無法更新，顯示上次結果');
+        if(error instanceof z.ZodError)throw new AppError('UPSTREAM_SCHEMA','到站資料格式改變，請稍後重試',502,true);
+        throw error;
+      }
+    });
+  }
+  async routeArrivals(id:string,force=false):Promise<RouteArrivalResult>{
+    const route=this.store.route(id);if(!route?.active)throw new AppError('ROUTE_NOT_FOUND','路線已停用或不存在',404);
+    const stops=this.store.sequence(id);
+    if(route.source!=='live'||stops.some(stop=>stop.source!=='live'))throw new AppError('NON_LIVE_DATA','路線主資料來源尚未核實，請重新同步官方資料',503,true);
+    if(!stops.length)throw new AppError('ROUTE_STOPS_UNAVAILABLE','路線站序尚未就緒，請稍後重試',503,true);
+    const bySequence=new Map(stops.map(stop=>[stop.sequence,stop]));
+    const policy=this.store.setting('freshness',{etaFreshSeconds:60,etaStaleSeconds:180,cacheSeconds:15});
+    const key='live:v1:'+createHash('sha256').update(this.config.kmbBaseUrl).digest('hex').slice(0,16)+':route-eta:'+id;
+    const stored=this.cache(key);
+    const isLiveCache=(row:CacheRow)=>{try{const data=JSON.parse(row.data) as {arrivals:Arrival[];generatedAt:string};return Number.isFinite(Date.parse(data.generatedAt))&&Array.isArray(data.arrivals)&&data.arrivals.every(x=>x.source==='live'&&x.routeId===id&&bySequence.get(x.stopSequence)?.id===x.stopId);}catch{return false;}};
+    const cache=stored&&isLiveCache(stored)?stored:undefined;
+    const result=(row:CacheRow,cached:boolean,warning?:string):RouteArrivalResult=>{
+      const payload=JSON.parse(row.data) as {arrivals:Arrival[];generatedAt:string};
+      const clock=Date.now(),age=(clock-Date.parse(payload.generatedAt))/1000;
+      const state:Freshness['state']=age>policy.etaStaleSeconds?'unavailable':warning||age>policy.etaFreshSeconds?'stale':'fresh';
+      const arrivals=payload.arrivals.filter(x=>x.eta===null||Date.parse(x.eta)>=clock-60000).map(x=>({...x,minutes:x.eta===null?null:Math.max(0,Math.ceil((Date.parse(x.eta)-clock)/60000)),...(state!=='fresh'||(clock-Date.parse(x.generatedAt))/1000>policy.etaFreshSeconds?{status:'stale' as const}:{})}));
+      return{route,stops,arrivals,freshness:{state,generatedAt:payload.generatedAt,fetchedAt:row.fetched_at,cached,source:'live',provider:'KMB'},...(warning?{warning}:{})};
+    };
+    if(!force&&cache&&Date.parse(cache.expires_at)>Date.now())return result(cache,true);
+    return this.deduplicate(key,async()=>{
+      try{
+        const raw=await this.request('KMB','route-eta',this.config.kmbBaseUrl.replace(/\/$/,'')+'/route-eta/'+encodeURIComponent(route.routeNo)+'/'+encodeURIComponent(route.serviceType),undefined,{validate:value=>z.object({generated_timestamp:z.string().optional(),data:z.array(etaSchema)}).parse(value)});
+        // The official response includes both directions and has no stop ID. Only the
+        // requested identity and its exact sequence may supply the station mapping.
+        const arrivals=raw.data.filter(row=>routeId(row.route,row.dir,row.service_type)===id&&bySequence.has(row.seq)).map(row=>normalizeArrival(row,bySequence.get(row.seq)!.id,Date.now(),policy.etaFreshSeconds)).sort((a,b)=>a.stopSequence-b.stopSequence||a.etaSequence-b.etaSequence);
         const generatedAt=arrivals.map(x=>x.generatedAt).sort().at(-1)||raw.generated_timestamp||'';
         if(!Number.isFinite(Date.parse(generatedAt)))throw new AppError('UPSTREAM_SCHEMA','到站資料時間無法解析',502,true);
         this.writeCache(key,{arrivals,generatedAt},policy.cacheSeconds,policy.etaStaleSeconds);
