@@ -93,16 +93,16 @@
     },
     {
       "branch": "android",
-      "commit": "f0075fe5fbbdc51be90726ade2af39755afbc6bb",
+      "commit": "2a9a295f4b00d1fdcccd32cb5b839ce65c3c90d5",
       "url": "https://github.com/copypasteltd/HKBUS/tree/android",
       "docs": {
-        "localLinks": 94,
+        "localLinks": 101,
         "images": 39,
-        "bilingualReadmeBytes": 13960
+        "bilingualReadmeBytes": 14123
       },
       "git": {
-        "trackedFiles": 477,
-        "historyBlobsChecked": 470,
+        "trackedFiles": 489,
+        "historyBlobsChecked": 502,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -133,5 +133,14 @@
     "handover": "DEPLOYMENT.md"
   },
   "apiBase": "https://hkbus-api.copypaste.hk/api",
-  "productionApiDelivery": "docs/PRODUCTION-API.md"
+  "productionApiDelivery": "docs/PRODUCTION-API.md",
+  "h5Export": {
+    "sourceBranch": "android",
+    "buildSourceCommit": "f0075fe5fbbdc51be90726ade2af39755afbc6bb",
+    "apiBase": "https://hkbus-api.copypaste.hk/api",
+    "documentation": "docs/H5-DIST.md",
+    "compiledFiles": 245,
+    "pages": 14,
+    "websiteDeployed": false
+  }
 }
