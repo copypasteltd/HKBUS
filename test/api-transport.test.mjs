@@ -24,23 +24,15 @@ test('transport rejects fixture envelopes and nested sample entities without cac
   await assert.rejects(app.api.get('/v1/routes'),error=>error.code==='NON_LIVE_DATA');
   assert.equal(app.api.cached('/v1/routes'),null);
 });
-test('deleting local personal data invalidates in-flight bookmark responses and keeps a new identity separate',async()=>{
-  const received=deferred(),release=deferred();let sessions=0,reads=0;
-  const app=client(async options=>{
-    if(options.url.endsWith('/sessions')){sessions++;return response({accessToken:'test-access-'+sessions,profileId:'test-profile-'+sessions,expiresIn:864000,refreshToken:'test-refresh-'+sessions});}
-    if(options.url.endsWith('/bookmarks')){reads++;if(reads===1){received.resolve();await release.promise;return response([{alias:'Old private bookmark',entity:{source:'live'}}]);}return response([]);}
-    throw new Error('Unexpected request');
-  });
-  const outstanding=app.api.get('/v1/profile/bookmarks',true);await received.promise;
-  app.clearProfileStorage();release.resolve();
-  await assert.rejects(outstanding,error=>error.code==='PROFILE_RESET');
-  assert.equal(app.api.cached('/v1/profile/bookmarks',true),null);assert.equal(app.hasProfileSession(),false);
-  assert.equal((await app.api.get('/v1/profile/bookmarks',true)).length,0);assert.equal(sessions,2);
-  assert.equal(app.storage.get(app.profileKey('id'),''),'test-profile-2');
+test('personal endpoints are rejected before transport and public calls never send stored credentials',async()=>{
+  const requests=[];const app=client(async options=>{requests.push(options);return response([]);},[['hkbus-live-v2:'+encodeURIComponent('https://test-api.invalid/api')+':session:token','legacy-private-token']]);
+  for(const request of [()=>app.api.get('/v1/profile/bookmarks',true),()=>app.api.post('/v1/profile/sessions'),()=>app.api.put('/v1/profile/reminders',{}),()=>app.api.delete('/v1/profile')])await assert.rejects(request(),error=>error.code==='LOCAL_ONLY');
+  assert.equal(requests.length,0);await app.api.get('/v1/routes');assert.equal(requests.length,1);assert.equal(requests[0].header.Authorization,undefined);assert.equal(app.api.cached('/v1/profile/bookmarks',true),null);
 });
-test('an in-flight device session cannot restore credentials after local data deletion',async()=>{
-  const received=deferred(),release=deferred();
-  const app=client(async()=>{received.resolve();await release.promise;return response({accessToken:'test-access',profileId:'test-profile',expiresIn:864000,refreshToken:'test-refresh'});});
-  const outstanding=app.ensureProfile();await received.promise;app.clearProfileStorage();release.resolve();
-  await assert.rejects(outstanding,error=>error.code==='PROFILE_RESET');assert.equal(app.hasProfileSession(),false);
+test('clearing local data invalidates pending responses and clears only app query caches',async()=>{
+  const received=deferred(),release=deferred();let count=0;
+  const app=client(async()=>{count++;if(count===1){received.resolve();await release.promise;}return response({source:'live',name:'official metadata'});},[['unrelated-site-value',true]]);
+  const pending=app.api.get('/v1/routes/one');await received.promise;app.api.clearCache();release.resolve();await assert.rejects(pending,error=>error.code==='LOCAL_RESET');
+  assert.equal(app.api.cached('/v1/routes/one'),null);assert.equal(app.map.get('unrelated-site-value'),true);
+  await app.api.get('/v1/routes/one');assert.equal(app.api.cached('/v1/routes/one').source,'live');
 });

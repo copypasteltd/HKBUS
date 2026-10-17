@@ -45,3 +45,20 @@ view,text,button,input,textarea,taro-view-core,taro-text-core,taro-button-core,t
 
 /* Approved #10 seal; logo colour is independent of transit/status colours. */
 .app-root{--brand-vermilion:#b9533d;.brand-logo{display:block;flex-shrink:0;min-width:48Px;min-height:48Px}.brand-header{flex-wrap:wrap}.brand-identity{display:flex;align-items:center;gap:8px;flex-shrink:0}.brand-copy{min-width:0}.brand-identity .brand-name{font-size:30px;white-space:nowrap}.brand-identity .brand-tagline{font-size:11px;margin-top:5px}.brand-header>.accessible{margin-left:auto;min-height:44Px}.about-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}}
+
+/* Device preferences use the existing calm surfaces and touch controls. */
+.app-root{
+ .local-data-note{display:flex;align-items:flex-start;gap:12px;padding:16px;border:1px solid $line;border-radius:16px;background:#edf7f5;margin-top:20px}
+ .local-data-note>view{min-width:0;flex:1}.local-data-note .caption{display:block;margin-top:5px}
+ .preference-field{padding:15px 14px;border-bottom:1px solid #edf1f4}.preference-field:last-child{border-bottom:0}
+ .preference-field>.caption{display:block;margin-top:9px}.preference-options{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+ .preference-options>.filter-chip{min-height:44Px;flex:1 1 80px;white-space:normal;line-height:1.4;padding:10px 8px}
+ .preference-stop-list{display:flex;flex-direction:column;gap:10px}.preference-stop{width:100%;padding:14px;text-align:left;border:1px solid $line;border-radius:12px;min-height:48Px;white-space:normal;line-height:1.5}
+ .preference-stop.selected{border-color:$teal;background:#e6f4f1}.preference-stop .caption{display:block;margin-top:5px}
+ .device-counts{display:block;margin:0 4px 12px}.local-privacy>.description{display:block;margin-bottom:14px}
+ .local-preferences-card .button-row{margin-top:14px}.local-preferences-card .description{margin-top:7px}
+ .arrival-number.is-clock{gap:4px;flex-wrap:wrap;align-items:baseline}.arrival-number.is-clock .eta-number{font-size:30px;line-height:1.2;white-space:nowrap}
+ &.large-text .arrival-number.is-clock .eta-number{font-size:34px}.arrival-row .arrival-number.is-clock{max-width:145px}
+}
+
+.app-root .bookmark-controls{flex-wrap:wrap}.app-root .bookmark-controls>.text-button{min-height:44Px}

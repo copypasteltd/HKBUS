@@ -22,3 +22,9 @@ test('withdrawable notices, reminders and notifications never use offline cache'
   for(const path of ['/v1/notices','/v1/notices/ABC?platform=weapp','/v1/profile/notifications','/v1/profile/reminders'])assert.equal(usableCache(item,path,clock),null);
   assert.deepEqual(usableCache({...item,value:{mode:'live',notices:[{id:'withdrawn'}]}},'/v1/home',clock).notices,[]);
 });
+
+test('precise location queries never persist as an offline cache',()=>{
+  const clock=1000000,item={at:clock,mode:'live',value:{source:'live'}};
+  for(const path of ['/v1/home?lat=22.31&long=114.17','/v1/stops?latitude=22.31&longitude=114.17','/v1/stops/nearby?lat=22.31&lng=114.17'])assert.equal(usableCache(item,path,clock),null);
+  assert.deepEqual(usableCache(item,'/v1/home?stopId=ABC',clock).source,'live');
+});
