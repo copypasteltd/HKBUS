@@ -13,12 +13,16 @@
 | `start-panel-backup.py` | 经宝塔官方本地任务模块触发已登记的本项目备份 |
 | `verify-deployment.py` | 实际 HTTP、认证/数据事务/同步与重启验收；临时个人档案在 finally 清理，报告不保存 token |
 | `verify-cors.py` | 通过正式 HTTPS 校验任意来源、任意请求头、七种方法预检及管理登录/退出；不建立匿名档案，报告不记录 Cookie 或密码 |
+| `verify-data.py` | 31 项正式 HTTPS 数据检查：三语/时段/路径/海隧、真实站点、原始字段对应、缓存、位置错误恢复与双方健康；按 20 秒上游间隔执行 |
+| `deploy-admin.py` | 校验六个真实 Admin 编译资源，使用宝塔现有站点扩展发布 `/admin/`；等待 Nginx 就绪、校验公开 HTTPS 哈希，失败恢复旧静态版本和扩展 |
 
 首次安装需事先把源码包 `backend-source.tar.gz`、`release-id.txt` 和上述脚本上传到 `/home/ubuntu/.cache/hkbus-deploy-20261017/`。版本号格式为 UTC `YYYYMMDDTHHMMSSZ-<12位提交>`。安装不会建立域名、HTTPS 或前端站点。当前主机已经完成首次安装，后续请按手册更新，勿重新执行 setup。
 
 数据库登记命令使用宝塔解释器；应用验收使用 Ubuntu Python。验收脚本要求 root，会重启本服务并触发真实同步，应在维护窗口执行，不能当成只读健康探针。当前验收强制要求 TDAS 真实结果；403 或其他查询失败均不能通过。`/api/health` 的 `status` 表示进程/数据库就绪，`dataStatus` 和 `dataServices` 另行反映最近五分钟实际请求；没有近期请求时是 unverified，不代表已证明数据通达。
 
 `update-data.sh` 的 staging 目录为 `/home/ubuntu/.cache/hkbus-data-<UTC时间戳>`，包含源码包、release-id.txt 及权限 0600 的 `tdas-egress.json`（私密 `url`、`secret`）。该 JSON 经 SFTP 单独上传，不进入源码包或 Git，消费后删除。只新增/替换两个 TDAS_EGRESS 环境项，其他环境、数据库、宝塔登记和端口保持原配置。私密环境备份仅 root 可读，失败时恢复。出口代码与部署说明见 [TDAS 专用出口](../tdas-egress/README.md)。
+
+`deploy-admin.py /home/ubuntu/.cache/hkbus-admin-<UTC时间戳>` 读取目录内的 `manifest.json` 和 `admin-dist.tar.gz`。清单包含 releaseId、sourceCommit、archiveSha256 和逐文件 assets SHA-256。只接受清单中的常规文件，不接受越界路径或符号链接；已有静态目录必须带本工具的所有权标记。扩展挂入已有 API 站点，不改 `/api/` 反代。`no-transform` 确保 CDN 不改写编译 HTML，所有文件仍需通过正式 HTTPS 的逐字节校验。敏感账号只从私密渠道交付，前端不包含密码。
 
 ## English
 
@@ -31,3 +35,7 @@ The verification script requires root, creates/removes temporary anonymous profi
 `update-data.sh` expects `/home/ubuntu/.cache/hkbus-data-<UTC timestamp>` with a source archive, release ID and separately uploaded 0600 private `tdas-egress.json` containing `url` and `secret`. It consumes/removes that private upload, preserves all environment entries except the two TDAS_EGRESS settings, and keeps the existing database, BaoTa entries and port. The versioned update tests/builds before switching and requires real TDAS and KMB results; failures restore the previous release and private environment. See [the dedicated egress instructions](../tdas-egress/README.md).
 
 `verify-cors.py --output /path/to/report.json` verifies the actual public HTTPS endpoint with 55 CORS/authentication checks, including one temporary Admin session that is logged out. It reads the initial Admin credential file privately (override with `--credentials` if necessary), creates no anonymous profiles and does not restart the service. `update-cors.sh` expects a versioned staging directory and performs a backup, isolated release build, atomic switch and readiness rollback. See [the current CORS handover](../../docs/CORS-OPEN.md).
+
+`verify-data.py` performs 31 actual HTTPS data checks, including all supported departure slots/languages/types/tunnels, real KMB stop coordinates, raw TDAS field correspondence, cold/warm caching, no-road recovery and recent provider health. Upstream requests remain deliberately sparse. KMB freshness follows its official timestamps; stale data is never relabeled fresh, and a final fresh query is required.
+
+`deploy-admin.py` consumes a staging directory with the actual compiled static archive and per-file SHA-256 manifest. It validates ownership and archive paths, publishes an isolated static release through the existing BaoTa site's extension hook, waits for Nginx readiness and verifies all public HTTPS bytes. The API proxy is preserved. `no-transform` prevents CDN HTML rewriting. A failed publication restores the previous symlink and extension. No authentication secret belongs in static files or public documentation.

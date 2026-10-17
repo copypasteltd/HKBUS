@@ -46,7 +46,7 @@ def call(path,method='GET',body=None,expected=200,private=False):
 
 def check(name,action):
     try:
-        details=action() or {};item={'name':name,'status':'passed',**details}
+        details=action() or {};item={**details,'name':name,'status':'passed'}
     except Exception as error:item={'name':name,'status':'failed','errorType':type(error).__name__,'reason':str(error)}
     report['checks'].append(item);print(json.dumps(item,ensure_ascii=True),flush=True)
     return item['status']=='passed'
@@ -88,8 +88,16 @@ try:
     routes=call('/api/v1/routes?q=112&pageSize=100')
     route=call('/api/v1/routes/KMB%3A112%3AO%3A1');stops=route['stops'];stop=stops[4]
     check('KMB canonical route and stop sequence',lambda:(require(routes['total']>=2 and len(stops)>10 and all(s['source']=='live' for s in stops),'Missing real catalogue') or {'routeId':route['route']['id'],'stops':len(stops)}))
-    eta=call('/api/v1/stops/'+stop['id']+'/arrivals?force=true')
-    check('Fresh uncached KMB ETA over public HTTPS',lambda:(require(eta['freshness']['source']=='live' and eta['freshness']['state']=='fresh' and not eta['freshness']['cached'] and any(x['eta'] for x in eta['arrivals']),'KMB ETA missing or stale') or {'stopId':stop['id'],'arrivals':len(eta['arrivals']),'freshness':eta['freshness']}))
+    def initial_eta():
+        eta=call('/api/v1/stops/'+stop['id']+'/arrivals?force=true')
+        policy=next(item['value'] for item in call('/api/admin/settings') if item['key']=='freshness')
+        freshness=eta['freshness'];age=(datetime.datetime.now(datetime.timezone.utc)-datetime.datetime.fromisoformat(freshness['generatedAt'].replace('Z','+00:00'))).total_seconds()
+        context=json.dumps({'freshness':freshness,'ageSeconds':round(age,2),'arrivals':len(eta['arrivals'])})
+        require(freshness['source']=='live' and not freshness['cached'] and any(x['eta'] for x in eta['arrivals']),'Missing uncached real ETA: '+context)
+        require(freshness['state'] in ['fresh','stale'] and -5<=age<=policy['etaStaleSeconds']+2,'ETA outside the explicit freshness window: '+context)
+        require(age<=policy['etaFreshSeconds']+2 if freshness['state']=='fresh' else age>=policy['etaFreshSeconds']-2,'Freshness contradicts the official data timestamp: '+context)
+        return {'stopId':stop['id'],'arrivals':len(eta['arrivals']),'freshness':freshness,'officialDataAgeSeconds':round(age,2),'freshnessPolicy':policy}
+    check('Uncached real KMB ETA with honest upstream freshness',initial_eta)
     provider=call('/api/admin/providers')
     check('Live catalogue quality',lambda:(require(provider['quality']['routes']>1000 and provider['quality']['stops']>6000 and provider['quality']['missingNames']==0 and provider['quality']['invalidCoordinates']==0,'Catalogue quality failed') or {'quality':provider['quality'],'syncedAt':provider['syncedAt']}))
 
@@ -141,7 +149,7 @@ try:
     def health():
         data=call('/api/health')
         require(data['status']=='ok' and data['dataStatus']=='healthy' and all(x['state']=='available' for x in data['dataServices']),'Process readiness differs from working data sources')
-        return {'status':data['status'],'dataStatus':data['dataStatus'],'dataServices':data['dataServices']}
+        return {'processStatus':data['status'],'dataStatus':data['dataStatus'],'dataServices':data['dataServices']}
     check('Final public HTTPS health verifies both actual providers',health)
 except Exception as error:
     report['checks'].append({'name':'Verification execution','status':'failed','errorType':type(error).__name__,'reason':str(error)})

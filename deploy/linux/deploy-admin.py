@@ -8,6 +8,8 @@ import os
 import re
 import subprocess
 import tarfile
+import time
+import urllib.error
 import urllib.request
 
 parser=argparse.ArgumentParser()
@@ -18,6 +20,7 @@ assert re.fullmatch(r'/home/ubuntu/\.cache/hkbus-admin-\d{8}T\d{6}Z',args.stagin
 staging=Path(args.staging);spec=json.loads((staging/'manifest.json').read_text())
 assert re.fullmatch(r'\d{8}T\d{6}Z-[a-f0-9]{12}',spec['releaseId'])
 base=Path('/www/wwwroot/hkbusgo-admin')
+owner=base/'.hkbusgo-owner.json'
 marker=Path('/www/wwwroot/hkbusgo/shared/admin-deployment.json')
 snippet=Path('/www/server/panel/vhost/nginx/extension/hkbus-api.copypaste.hk/hkbusgo-admin.conf')
 vhost=Path('/www/server/panel/vhost/nginx/hkbus-api.copypaste.hk.conf')
@@ -30,13 +33,13 @@ location ^~ /admin/ {
     alias /www/wwwroot/hkbusgo-admin/current/;
     index index.html;
     autoindex off;
-    add_header Cache-Control "private, no-store" always;
+    add_header Cache-Control "private, no-store, no-transform" always;
     add_header X-Content-Type-Options nosniff always;
 }
 '''
 assert 'include '+str(snippet.parent)+'/*.conf;' in vhost.read_text(),'Expected BaoTa extension hook is missing'
-assert not base.exists() or marker.exists(),'Refusing to replace an unowned static directory'
-assert not snippet.exists() or marker.exists() and snippet.read_text()==configuration,'Refusing to replace an unowned or edited Nginx extension'
+assert not base.exists() or owner.exists() and json.loads(owner.read_text())['project']=='HKBusGo Admin','Refusing to replace an unowned static directory'
+assert not snippet.exists() or owner.exists() and snippet.read_text()==configuration,'Refusing to replace an unowned or edited Nginx extension'
 archive=staging/'admin-dist.tar.gz'
 assert hashlib.sha256(archive.read_bytes()).hexdigest()==spec['archiveSha256']
 release=base/'releases'/spec['releaseId'];assert not release.exists()
@@ -47,6 +50,7 @@ switched=False
 os.umask(0o022)
 try:
     release.mkdir(parents=True,mode=0o755)
+    if not owner.exists():owner.write_text(json.dumps({'project':'HKBusGo Admin','createdBy':'deploy-admin.py'})+'\n')
     with tarfile.open(archive,'r:gz') as package:
         entries=package.getmembers()
         for entry in entries:
@@ -67,13 +71,29 @@ try:
     snippet.write_text(configuration);os.chmod(snippet,0o644)
     subprocess.run([nginx,'-t'],check=True)
     subprocess.run([nginx,'-s','reload'],check=True)
+    # A successful reload signal precedes new workers serving requests. Verify readiness first.
+    for attempt in range(30):
+        try:
+            request=urllib.request.Request('http://127.0.0.1/admin/index.html',headers={'Host':'hkbus-api.copypaste.hk','User-Agent':'HKBusGo/1.0'})
+            with urllib.request.urlopen(request,timeout=2) as response:
+                assert hashlib.sha256(response.read()).hexdigest()==spec['assets']['index.html']
+            break
+        except Exception:
+            if attempt==29:raise
+            time.sleep(.5)
     checks=[]
     for name,digest in spec['assets'].items():
         request=urllib.request.Request('https://hkbus-api.copypaste.hk/admin/'+name,headers={'User-Agent':'HKBusGo/1.0','Cache-Control':'no-cache'})
-        with urllib.request.urlopen(request,timeout=20) as response:
-            body=response.read();actual=hashlib.sha256(body).hexdigest()
-            assert response.status==200 and actual==digest,'Published Admin asset differs from compiled dist'
-            checks.append({'path':'/admin/'+name,'status':response.status,'sha256':actual,'cacheControl':response.headers.get('Cache-Control')})
+        for attempt in range(10):
+            try:
+                with urllib.request.urlopen(request,timeout=20) as response:
+                    body=response.read();actual=hashlib.sha256(body).hexdigest()
+                    assert response.status==200 and actual==digest,'Published Admin asset differs from compiled dist: '+name
+                    checks.append({'path':'/admin/'+name,'status':response.status,'sha256':actual,'cacheControl':response.headers.get('Cache-Control')})
+                break
+            except Exception:
+                if attempt==9:raise
+                time.sleep(1)
     request=urllib.request.Request('https://hkbus-api.copypaste.hk/api/health',headers={'User-Agent':'HKBusGo/1.0'})
     with urllib.request.urlopen(request,timeout=20) as response:health=json.load(response)['data']
     assert health['status']=='ok','Existing API is no longer ready'

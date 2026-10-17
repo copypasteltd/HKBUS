@@ -1,145 +1,32 @@
-{"name": "Health and live catalogue ready", "status": "passed", "health": {"status": "ok", "version": "1.0.0", "database": "ready", "catalogRoutes": 1611, "catalogSyncedAt": "2026-10-17T08:53:51.679Z", "source": "live", "dataStatus": "healthy", "dataServices": [{"provider": "KMB", "enabled": true, "transport": "direct", "state": "available", "checkedAt": "2026-10-17T09:05:11.875Z", "lastCode": null}, {"provider": "TDAS", "enabled": true, "transport": "authenticated-egress", "state": "available", "checkedAt": "2026-10-17T09:05:11.762Z", "lastCode": null}]}}
-{"name": "Product configuration uses live-only data", "status": "passed"}
-{"name": "OpenAPI contract published", "status": "passed", "operations": 53}
-{"name": "Interactive API documentation and approved favicon", "status": "passed", "faviconSha256": "26bb6cd6a3404bee76ef30acf5fdd3c7275bedef7906e8bb73668d0da374a666"}
-{"name": "Route search and pagination", "status": "passed"}
-{"name": "Canonical direction and complete ordered stops", "status": "passed", "routeId": "KMB:112:O:1", "stopCount": 23}
-{"name": "Stop detail and routes", "status": "passed"}
-{"name": "Nearby distance ordering", "status": "passed", "nearbyCount": 111}
-{"name": "Multilingual search returns real entities", "status": "passed"}
-{"name": "Unlocated home requests location", "status": "passed"}
-{"name": "Selected-stop home aggregates live ETA", "status": "passed"}
-{"name": "KMB ETA requested from official upstream", "status": "passed", "stopId": "A3B9F3D6B2668DE3", "freshness": {"state": "fresh", "generatedAt": "2026-10-17T09:06:17.000Z", "fetchedAt": "2026-10-17T09:06:20.868Z", "cached": false, "source": "live", "provider": "KMB"}, "arrivals": 14, "nonNullEtas": 12}
-{"name": "ETA cache preserves source and freshness", "status": "passed"}
-{"name": "ETA route-direction filtering", "status": "passed"}
-{"name": "Journey candidates follow real stop order", "status": "passed", "candidates": 5}
-{"name": "No fabricated published service notices", "status": "passed", "publishedNotices": 0}
-{"name": "Explicit validation/authentication /api/v1/routes/missing", "status": "passed"}
-{"name": "Explicit validation/authentication /api/v1/stops/missing/arrivals", "status": "passed"}
-{"name": "Explicit validation/authentication /api/v1/notices/missing", "status": "passed"}
-{"name": "Explicit validation/authentication /api/v1/stops?latitude=22.28", "status": "passed"}
-{"name": "Explicit validation/authentication /api/v1/profile/bookmarks", "status": "passed"}
-{"name": "Explicit validation/authentication /api/admin/overview", "status": "passed"}
-{"name": "Identical journey endpoints rejected", "status": "passed"}
-{"name": "Native app CORS preflight", "status": "passed"}
-{"name": "Arbitrary origin and headers receive CORS permission", "status": "passed"}
-{"name": "TDAS real road route", "status": "passed", "distanceMeters": 3953, "durationSeconds": 360}
-{"name": "Health reports verified data connectivity separately from process readiness", "status": "passed", "dataServices": [{"provider": "KMB", "enabled": true, "transport": "direct", "state": "available", "checkedAt": "2026-10-17T09:06:20.860Z", "lastCode": null}, {"provider": "TDAS", "enabled": true, "transport": "authenticated-egress", "state": "available", "checkedAt": "2026-10-17T09:06:22.660Z", "lastCode": null}]}
-{"name": "Anonymous profile sessions are distinct", "status": "passed"}
-{"name": "Bookmark writes are idempotent", "status": "passed"}
-{"name": "Complete bookmark ordering persists", "status": "passed"}
-{"name": "Incomplete bookmark reorder rejected", "status": "passed"}
-{"name": "Recent history read/write", "status": "passed"}
-{"name": "Reminder creation is idempotent", "status": "passed"}
-{"name": "Reminder ownership enforced", "status": "passed"}
-{"name": "Reminder pause", "status": "passed"}
-{"name": "Reminder reactivation and notifications endpoint", "status": "passed"}
-{"name": "Actual systemd restart preserves SQLite sessions and bookmarks", "status": "passed", "previousPid": 1377881, "newPid": 1378382}
-{"name": "Refresh rotation revokes old access and prevents replay", "status": "passed"}
-{"name": "Bookmark deletion", "status": "passed"}
-{"name": "Recent history and reminder deletion", "status": "passed"}
-{"name": "Admin authentication retains Secure HttpOnly SameSite cookie", "status": "passed"}
-{"name": "Admin identity and role", "status": "passed"}
-{"name": "Authenticated admin overview", "status": "passed"}
-{"name": "Authenticated admin routes", "status": "passed"}
-{"name": "Authenticated admin stops", "status": "passed"}
-{"name": "Authenticated admin notices", "status": "passed"}
-{"name": "Authenticated admin settings", "status": "passed"}
-{"name": "Authenticated admin providers", "status": "passed"}
-{"name": "Authenticated admin jobs", "status": "passed"}
-{"name": "Authenticated admin audit", "status": "passed"}
-{"name": "Authenticated admin users", "status": "passed"}
-{"name": "Admin accepts any origin while requiring session and mutation marker", "status": "passed"}
-{"name": "Admin-triggered real catalogue synchronization", "status": "passed", "jobStatus": "succeeded", "details": {"routes": 1611, "stops": 6775, "relations": 36377, "mode": "live"}}
-{"name": "Manual live reminder worker", "status": "passed"}
-{"name": "Admin logout revokes the session", "status": "passed"}
-{"name": "Database integrity and foreign keys", "status": "passed", "integrity": "ok", "foreignKeyViolations": 0, "counts": {"routes": 1611, "stops": 6775, "route_stops": 36377, "profiles": 1, "profile_credentials": 1, "bookmarks": 0, "recent": 3, "reminders": 0, "notifications": 0, "admins": 1, "notices": 0}}
-{"name": "Verification profiles and related records removed", "status": "passed", "createdProfilesRemoved": 2}
-{"name": "Catalogue contains exclusively real data", "status": "passed", "nonLive": {"routes": 0, "stops": 0}}
-{"report": "/www/wwwroot/hkbusgo/shared/deployment-verification.json", "summary": {"passed": 58, "failed": 0, "blocked": 0}}
-{"name": "Administrative HTTPS identity", "status": "passed", "role": "admin"}
-{"name": "Real road capability remains enabled", "status": "passed", "mode": "live"}
-{"name": "KMB canonical route and stop sequence", "status": "passed", "routeId": "KMB:112:O:1", "stops": 23}
-{"name": "Fresh uncached KMB ETA over public HTTPS", "status": "passed", "stopId": "A3B9F3D6B2668DE3", "arrivals": 14, "freshness": {"state": "fresh", "generatedAt": "2026-10-17T09:06:17.000Z", "fetchedAt": "2026-10-17T09:06:28.425Z", "cached": false, "source": "live", "provider": "KMB"}}
-{"name": "Live catalogue quality", "status": "passed", "quality": {"routes": 1611, "stops": 6775, "relations": 36377, "missingNames": 0, "invalidCoordinates": 0}, "syncedAt": "2026-10-17T09:06:26.105Z"}
-{"name": "TDAS language tc", "status": "passed", "input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 0, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 41, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:06:30.108Z"}
-{"name": "TDAS language sc", "status": "passed", "input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 0, "lang": "sc", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 41, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:06:34.085Z"}
-{"name": "TDAS language en", "status": "passed", "input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 0, "lang": "en", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 41, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:06:38.063Z"}
-{"name": "TDAS shortest-distance route", "status": "passed", "input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 0, "lang": "tc", "type": "SD"}, "source": "live", "distanceMeters": 3389, "durationSeconds": 600, "averageSpeedKmh": 22, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:06:42.075Z"}
-{"name": "TDAS departure +15 minutes", "status": "passed", "input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 15, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 41, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:06:46.180Z"}
-{"name": "TDAS departure +30 minutes", "status": "passed", "input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 30, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 41, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:06:50.237Z"}
-{"name": "TDAS departure +45 minutes", "status": "passed", "input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 45, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 41, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:06:54.235Z"}
-{"name": "TDAS departure +60 minutes", "status": "passed", "input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 60, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 41, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:06:58.132Z"}
-{"name": "TDAS departure +75 minutes", "status": "passed", "input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 75, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 42, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:07:02.335Z"}
-{"name": "TDAS departure +90 minutes", "status": "passed", "input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 90, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 42, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:07:06.465Z"}
-{"name": "TDAS cross-harbour default", "status": "passed", "input": {"start": {"lat": 22.2986, "long": 114.172, "buffer": 200}, "end": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "departIn": 0, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 6274, "durationSeconds": 720, "averageSpeedKmh": 31, "sections": 1, "alternatives": 2, "tunnels": {"cht": true, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:07:10.095Z"}
-{"name": "TDAS harbour tunnel cht", "status": "passed", "input": {"start": {"lat": 22.2986, "long": 114.172, "buffer": 200}, "end": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "departIn": 0, "lang": "tc", "type": "ST", "tunnel": "cht"}, "source": "live", "distanceMeters": 6274, "durationSeconds": 720, "averageSpeedKmh": 31, "sections": 1, "alternatives": 2, "tunnels": {"cht": true, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:07:14.237Z"}
-{"name": "TDAS harbour tunnel eht", "status": "passed", "input": {"start": {"lat": 22.2986, "long": 114.172, "buffer": 200}, "end": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "departIn": 0, "lang": "tc", "type": "ST", "tunnel": "eht"}, "source": "live", "distanceMeters": 18431, "durationSeconds": 1320, "averageSpeedKmh": 51, "sections": 1, "alternatives": 2, "tunnels": {"cht": false, "eht": true, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:07:18.222Z"}
-{"name": "TDAS harbour tunnel wht", "status": "passed", "input": {"start": {"lat": 22.2986, "long": 114.172, "buffer": 200}, "end": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "departIn": 0, "lang": "tc", "type": "ST", "tunnel": "wht"}, "source": "live", "distanceMeters": 11125, "durationSeconds": 1140, "averageSpeedKmh": 35, "sections": 1, "alternatives": 2, "tunnels": {"cht": false, "eht": false, "wht": true}, "cached": false, "generatedAt": "2026-10-17T09:07:22.542Z"}
-{"name": "TDAS using actual KMB-selected stops", "status": "failed", "errorType": "AssertionError", "reason": "POST /api/v1/traffic/route returned 502 instead of 200"}
-{"name": "TDAS New Territories actual KMB stops", "status": "failed", "errorType": "AssertionError", "reason": "POST /api/v1/traffic/route returned 502 instead of 200"}
-{"name": "BFF output matches official TDAS data and HH:MM semantics", "status": "failed", "errorType": "AssertionError", "reason": "POST /api/route returned 502 instead of 200"}
-{"name": "TDAS cold query and real 60-second cache", "status": "failed", "errorType": "AssertionError", "reason": "POST /api/v1/traffic/route returned 502 instead of 200"}
-{"name": "TDAS input rejection: identical endpoints", "status": "passed", "httpStatus": 422}
-{"name": "TDAS input rejection: invalid departure", "status": "passed", "httpStatus": 422}
-{"name": "TDAS input rejection: outside Hong Kong coordinates", "status": "passed", "httpStatus": 422}
-{"name": "Official no-road result is a location error, not an outage", "status": "failed", "errorType": "AssertionError", "reason": "POST /api/v1/traffic/route returned 502 instead of 422"}
-{"name": "TDAS valid query still works after no-road result", "status": "failed", "errorType": "AssertionError", "reason": "POST /api/v1/traffic/route returned 502 instead of 200"}
-{"name": "Final public HTTPS health verifies both actual providers", "status": "failed", "errorType": "AssertionError", "reason": "Process readiness differs from working data sources"}
-{"name": "Temporary Admin session logged out", "status": "passed", "loggedOut": true}
-{"report": "/www/wwwroot/hkbusgo/shared/data-reachability.json", "summary": {"passed": 23, "failed": 7}, "passed": false}
-health https://new-h5.example: 200 PASS
-unauthenticated response https://new-h5.example: 401 PASS
-preflight GET https://new-h5.example: 204 PASS
-preflight HEAD https://new-h5.example: 204 PASS
-preflight POST https://new-h5.example: 204 PASS
-preflight PUT https://new-h5.example: 204 PASS
-preflight PATCH https://new-h5.example: 204 PASS
-preflight DELETE https://new-h5.example: 204 PASS
-preflight OPTIONS https://new-h5.example: 204 PASS
-health http://localhost:9876: 200 PASS
-unauthenticated response http://localhost:9876: 401 PASS
-preflight GET http://localhost:9876: 204 PASS
-preflight HEAD http://localhost:9876: 204 PASS
-preflight POST http://localhost:9876: 204 PASS
-preflight PUT http://localhost:9876: 204 PASS
-preflight PATCH http://localhost:9876: 204 PASS
-preflight DELETE http://localhost:9876: 204 PASS
-preflight OPTIONS http://localhost:9876: 204 PASS
-health https://preview.example:8443: 200 PASS
-unauthenticated response https://preview.example:8443: 401 PASS
-preflight GET https://preview.example:8443: 204 PASS
-preflight HEAD https://preview.example:8443: 204 PASS
-preflight POST https://preview.example:8443: 204 PASS
-preflight PUT https://preview.example:8443: 204 PASS
-preflight PATCH https://preview.example:8443: 204 PASS
-preflight DELETE https://preview.example:8443: 204 PASS
-preflight OPTIONS https://preview.example:8443: 204 PASS
-health capacitor://localhost: 200 PASS
-unauthenticated response capacitor://localhost: 401 PASS
-preflight GET capacitor://localhost: 204 PASS
-preflight HEAD capacitor://localhost: 204 PASS
-preflight POST capacitor://localhost: 204 PASS
-preflight PUT capacitor://localhost: 204 PASS
-preflight PATCH capacitor://localhost: 204 PASS
-preflight DELETE capacitor://localhost: 204 PASS
-preflight OPTIONS capacitor://localhost: 204 PASS
-health null: 200 PASS
-unauthenticated response null: 401 PASS
-preflight GET null: 204 PASS
-preflight HEAD null: 204 PASS
-preflight POST null: 204 PASS
-preflight PUT null: 204 PASS
-preflight PATCH null: 204 PASS
-preflight DELETE null: 204 PASS
-preflight OPTIONS null: 204 PASS
-native/server request without Origin: 200 PASS
-real KMB catalogue with custom headers: 200 PASS
-real public mutation reaches validation: 422 PASS
-unknown resource still readable cross-origin: 404 PASS
-arbitrary Admin origin reaches credential validation: 401 PASS
-Admin login with arbitrary Origin: 200 PASS
-authenticated Admin response with arbitrary Origin: 200 PASS
-Admin marker remains required: 403 PASS
-Admin logout with arbitrary Origin: 200 PASS
-logged-out Admin access is revoked: 401 PASS
+{"role": "admin", "name": "Administrative HTTPS identity", "status": "passed"}
+{"mode": "live", "name": "Real road capability remains enabled", "status": "passed"}
+{"routeId": "KMB:112:O:1", "stops": 23, "name": "KMB canonical route and stop sequence", "status": "passed"}
+{"stopId": "A3B9F3D6B2668DE3", "arrivals": 11, "freshness": {"state": "fresh", "generatedAt": "2026-10-17T09:32:16.000Z", "fetchedAt": "2026-10-17T09:33:04.458Z", "cached": false, "source": "live", "provider": "KMB"}, "officialDataAgeSeconds": 48.55, "freshnessPolicy": {"etaFreshSeconds": 60, "etaStaleSeconds": 180, "cacheSeconds": 15}, "name": "Uncached real KMB ETA with honest upstream freshness", "status": "passed"}
+{"quality": {"routes": 1611, "stops": 6775, "relations": 36377, "missingNames": 0, "invalidCoordinates": 0}, "syncedAt": "2026-10-17T09:25:04.478Z", "name": "Live catalogue quality", "status": "passed"}
+{"input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 0, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 41, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:33:06.187Z", "name": "TDAS language tc", "status": "passed"}
+{"input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 0, "lang": "sc", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 41, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:33:26.495Z", "name": "TDAS language sc", "status": "passed"}
+{"input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 0, "lang": "en", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 41, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:33:46.528Z", "name": "TDAS language en", "status": "passed"}
+{"input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 0, "lang": "tc", "type": "SD"}, "source": "live", "distanceMeters": 3389, "durationSeconds": 600, "averageSpeedKmh": 22, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:34:06.517Z", "name": "TDAS shortest-distance route", "status": "passed"}
+{"input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 15, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 41, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:34:26.571Z", "name": "TDAS departure +15 minutes", "status": "passed"}
+{"input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 30, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 41, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:34:46.266Z", "name": "TDAS departure +30 minutes", "status": "passed"}
+{"input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 45, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 41, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:35:06.320Z", "name": "TDAS departure +45 minutes", "status": "passed"}
+{"input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 60, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 41, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:35:26.853Z", "name": "TDAS departure +60 minutes", "status": "passed"}
+{"input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 75, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 42, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:35:46.461Z", "name": "TDAS departure +75 minutes", "status": "passed"}
+{"input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 90, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 3953, "durationSeconds": 360, "averageSpeedKmh": 42, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:36:06.496Z", "name": "TDAS departure +90 minutes", "status": "passed"}
+{"input": {"start": {"lat": 22.2986, "long": 114.172, "buffer": 200}, "end": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "departIn": 0, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 6274, "durationSeconds": 720, "averageSpeedKmh": 31, "sections": 1, "alternatives": 2, "tunnels": {"cht": true, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:36:26.567Z", "name": "TDAS cross-harbour default", "status": "passed"}
+{"input": {"start": {"lat": 22.2986, "long": 114.172, "buffer": 200}, "end": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "departIn": 0, "lang": "tc", "type": "ST", "tunnel": "cht"}, "source": "live", "distanceMeters": 6274, "durationSeconds": 720, "averageSpeedKmh": 31, "sections": 1, "alternatives": 2, "tunnels": {"cht": true, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:36:46.417Z", "name": "TDAS harbour tunnel cht", "status": "passed"}
+{"input": {"start": {"lat": 22.2986, "long": 114.172, "buffer": 200}, "end": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "departIn": 0, "lang": "tc", "type": "ST", "tunnel": "eht"}, "source": "live", "distanceMeters": 18431, "durationSeconds": 1320, "averageSpeedKmh": 51, "sections": 1, "alternatives": 2, "tunnels": {"cht": false, "eht": true, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:37:06.557Z", "name": "TDAS harbour tunnel eht", "status": "passed"}
+{"input": {"start": {"lat": 22.2986, "long": 114.172, "buffer": 200}, "end": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "departIn": 0, "lang": "tc", "type": "ST", "tunnel": "wht"}, "source": "live", "distanceMeters": 11125, "durationSeconds": 1140, "averageSpeedKmh": 35, "sections": 1, "alternatives": 2, "tunnels": {"cht": false, "eht": false, "wht": true}, "cached": false, "generatedAt": "2026-10-17T09:37:26.539Z", "name": "TDAS harbour tunnel wht", "status": "passed"}
+{"input": {"start": {"lat": 22.288786, "long": 114.194187, "buffer": 200}, "end": {"lat": 22.335413, "long": 114.157855, "buffer": 200}, "departIn": 0, "lang": "tc", "type": "ST"}, "source": "live", "distanceMeters": 12965, "durationSeconds": 900, "averageSpeedKmh": 54, "sections": 1, "alternatives": 2, "tunnels": {"cht": false, "eht": false, "wht": true}, "cached": false, "generatedAt": "2026-10-17T09:37:46.198Z", "name": "TDAS using actual KMB-selected stops", "status": "passed"}
+{"input": {"start": {"lat": 22.382045, "long": 114.188338, "buffer": 200}, "end": {"lat": 22.375396, "long": 114.108571, "buffer": 200}, "departIn": 0, "lang": "en", "type": "ST"}, "source": "live", "distanceMeters": 10927, "durationSeconds": 840, "averageSpeedKmh": 47, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:38:06.812Z", "name": "TDAS New Territories actual KMB stops", "status": "passed"}
+{"rawDistanceMeters": 3389, "rawDuration": "00:10", "distanceMeters": 3389, "durationSeconds": 600, "officialSegmentsPreserved": true, "officialAlternativesPreserved": true, "cached": false, "name": "BFF output matches official TDAS data and HH:MM semantics", "status": "passed"}
+{"firstCached": false, "secondCached": true, "sameGeneratedAt": true, "name": "TDAS cold query and real 60-second cache", "status": "passed"}
+{"httpStatus": 422, "name": "TDAS input rejection: identical endpoints", "status": "passed"}
+{"httpStatus": 422, "name": "TDAS input rejection: invalid departure", "status": "passed"}
+{"httpStatus": 422, "name": "TDAS input rejection: outside Hong Kong coordinates", "status": "passed"}
+{"httpStatus": 422, "code": "ROAD_MATCH_FAILED", "retryable": false, "name": "Official no-road result is a location error, not an outage", "status": "passed"}
+{"input": {"start": {"lat": 22.2784, "long": 114.1828, "buffer": 200}, "end": {"lat": 22.2821, "long": 114.1581, "buffer": 200}, "departIn": 75, "lang": "en", "type": "SD"}, "source": "live", "distanceMeters": 3389, "durationSeconds": 600, "averageSpeedKmh": 21, "sections": 1, "alternatives": 0, "tunnels": {"cht": false, "eht": false, "wht": false}, "cached": false, "generatedAt": "2026-10-17T09:39:33.926Z", "name": "TDAS valid query still works after no-road result", "status": "passed"}
+{"freshness": {"state": "fresh", "generatedAt": "2026-10-17T09:39:22.000Z", "fetchedAt": "2026-10-17T09:39:34.312Z", "cached": false, "source": "live", "provider": "KMB"}, "arrivals": 11, "name": "Final KMB refresh after sustained TDAS queries", "status": "passed"}
+{"processStatus": "ok", "dataStatus": "healthy", "dataServices": [{"provider": "KMB", "enabled": true, "transport": "direct", "state": "available", "checkedAt": "2026-10-17T09:39:34.250Z", "lastCode": null}, {"provider": "TDAS", "enabled": true, "transport": "authenticated-egress", "state": "available", "checkedAt": "2026-10-17T09:39:33.919Z", "lastCode": null}], "name": "Final public HTTPS health verifies both actual providers", "status": "passed"}
+{"loggedOut": true, "name": "Temporary Admin session logged out", "status": "passed"}
+{"report": "/www/wwwroot/hkbusgo/shared/data-reachability.json", "summary": {"passed": 31, "failed": 0}, "passed": true}

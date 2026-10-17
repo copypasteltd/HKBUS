@@ -1,10 +1,11 @@
 {
-  "startedAt": "2026-10-17T08:56:16.312Z",
+  "startedAt": "2026-10-17T09:50:23.894Z",
   "apiBase": "https://hkbus-api.copypaste.hk/api",
-  "staticTransport": "Exact existing dist files fulfilled locally; every /api/ request continues to the real public HTTPS server. No API responses are intercepted or substituted.",
+  "staticTransport": "Exact existing H5/Android dist files fulfilled locally; every /api/ request continues to the real public HTTPS server. Admin loads the actually published HTTPS website. No API responses are intercepted or substituted.",
   "physicalDevice": false,
   "officialMiniProgramIDE": false,
-  "websiteDeployment": false,
+  "h5WebsiteDeployed": false,
+  "adminWebsiteDeployed": true,
   "pages": [
     {
       "surface": "https://hkbus-api.copypaste.hk",
@@ -68,7 +69,71 @@
     },
     {
       "surface": "https://localhost",
+      "page": "route"
+    },
+    {
+      "surface": "https://localhost",
       "page": "traffic"
+    },
+    {
+      "surface": "admin",
+      "page": "overview",
+      "title": "讓每一程，都更從容。",
+      "loaded": true
+    },
+    {
+      "surface": "admin",
+      "page": "routes",
+      "title": "路線資料",
+      "loaded": true
+    },
+    {
+      "surface": "admin",
+      "page": "stops",
+      "title": "車站資料",
+      "loaded": true
+    },
+    {
+      "surface": "admin",
+      "page": "notices",
+      "title": "服務通告",
+      "loaded": true
+    },
+    {
+      "surface": "admin",
+      "page": "content",
+      "title": "產品內容與支援",
+      "loaded": true
+    },
+    {
+      "surface": "admin",
+      "page": "features",
+      "title": "功能與新鮮度設定",
+      "loaded": true
+    },
+    {
+      "surface": "admin",
+      "page": "providers",
+      "title": "資料來源與品質",
+      "loaded": true
+    },
+    {
+      "surface": "admin",
+      "page": "jobs",
+      "title": "同步任務",
+      "loaded": true
+    },
+    {
+      "surface": "admin",
+      "page": "audit",
+      "title": "操作審計",
+      "loaded": true
+    },
+    {
+      "surface": "admin",
+      "page": "users",
+      "title": "管理帳號",
+      "loaded": true
     }
   ],
   "checks": [
@@ -111,17 +176,43 @@
     {
       "name": "Exact Android renderer uses real cross-origin HTTPS TDAS including browser CORS",
       "passed": true
+    },
+    {
+      "name": "Admin actual login, ten sections and both providers recently successful",
+      "passed": true,
+      "providers": [
+        {
+          "provider": "KMB",
+          "lastEvent": {
+            "success": 1,
+            "duration_ms": 255,
+            "code": null,
+            "created_at": "2026-10-17T09:50:31.581Z"
+          },
+          "successRate": 98.33
+        },
+        {
+          "provider": "TDAS",
+          "lastEvent": {
+            "success": 1,
+            "duration_ms": 1224,
+            "code": null,
+            "created_at": "2026-10-17T09:50:58.393Z"
+          },
+          "successRate": 81.54
+        }
+      ]
     }
   ],
   "requests": [
     {
       "surface": "h5",
-      "path": "/api/v1/home",
+      "path": "/api/v1/config",
       "status": 200
     },
     {
       "surface": "h5",
-      "path": "/api/v1/config",
+      "path": "/api/v1/home",
       "status": 200
     },
     {
@@ -162,11 +253,6 @@
     {
       "surface": "h5",
       "path": "/api/v1/profile/bookmarks",
-      "status": 200
-    },
-    {
-      "surface": "h5",
-      "path": "/api/v1/profile/notifications",
       "status": 200
     },
     {
@@ -246,22 +332,22 @@
     },
     {
       "surface": "h5",
+      "path": "/api/v1/traffic/route",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "status": 200
+    },
+    {
+      "surface": "h5",
       "path": "/api/v1/profile/notifications",
       "status": 200
     },
     {
       "surface": "h5",
       "path": "/api/v1/traffic/route",
-      "status": 200
-    },
-    {
-      "surface": "h5",
-      "path": "/api/v1/traffic/route",
-      "status": 200
-    },
-    {
-      "surface": "android-renderer",
-      "path": "/api/v1/config",
       "status": 200
     },
     {
@@ -271,6 +357,31 @@
     },
     {
       "surface": "android-renderer",
+      "path": "/api/v1/config",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/profile/sessions",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
       "path": "/api/v1/stops",
       "status": 200
     },
@@ -300,18 +411,88 @@
       "status": 200
     },
     {
-      "surface": "h5",
-      "path": "/api/v1/profile/notifications",
+      "surface": "admin",
+      "path": "/api/admin/auth/me",
+      "status": 401
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/auth/login",
+      "status": 200
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/overview",
+      "status": 200
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/routes",
+      "status": 200
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/stops",
+      "status": 200
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/notices",
+      "status": 200
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/settings",
+      "status": 200
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/settings",
       "status": 200
     },
     {
       "surface": "h5",
       "path": "/api/v1/profile/notifications",
+      "status": 200
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/providers",
+      "status": 200
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/jobs",
+      "status": 200
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/audit",
+      "status": 200
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/users",
+      "status": 200
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/providers",
       "status": 200
     },
     {
       "surface": "h5",
       "path": "/api/v1/profile",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/profile",
+      "status": 200
+    },
+    {
+      "surface": "admin",
+      "path": "/api/admin/auth/logout",
       "status": 200
     }
   ],
@@ -321,25 +502,27 @@
     "h5-tdas-live.png",
     "h5-tdas-320.png",
     "android-renderer-tdas-live.png",
-    "android-renderer-tdas-320.png"
+    "android-renderer-tdas-320.png",
+    "admin-overview-live.png",
+    "admin-providers-live.png"
   ],
   "pageErrors": [],
   "missingAssets": [],
   "profilesDeleted": [
     {
       "surface": "h5",
-      "profileId": null,
+      "profileId": "49990c54-62fb-4a4e-b4fc-d4c07994882f",
+      "deleted": true
+    },
+    {
+      "surface": "android-renderer",
+      "profileId": "94a45a12-2266-44e4-a20c-1ea48ba41ada",
       "deleted": true
     }
   ],
   "browserClosed": true,
-  "failure": "locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('電郵', { exact: true })\u001b[22m\n",
-  "cleanupErrors": [
-    {
-      "surface": "android-renderer",
-      "reason": "No owned browser profile token available for cleanup"
-    }
-  ],
-  "finishedAt": "2026-10-17T08:57:34.225Z",
-  "passed": false
+  "networkTransport": "Actual public HTTPS through the owned Hong Kong server network; TLS validation enabled; no API substitution",
+  "adminLoggedOut": true,
+  "finishedAt": "2026-10-17T09:51:12.588Z",
+  "passed": true
 }

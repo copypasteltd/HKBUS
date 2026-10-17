@@ -1,5 +1,7 @@
 # 数据与验证 / Data and validation
 
+**后续更新 / Superseding update:** 本文保留此前阶段的验收事实。当前正式 TDAS 与 Admin 的状态、证据和限制见 [数据通达交付 / Current live-data handover](DATA-REACHABILITY.md)。
+
 **当前正式 API / Current production API:** `https://hkbus-api.copypaste.hk/api/`。下文保留既有基线；2026-10-17 本次正式 HTTPS、五端编译和 TDAS 502 限制以 [本次交付 / Current handover](PRODUCTION-API.md) 为准。
 ## 中文
 

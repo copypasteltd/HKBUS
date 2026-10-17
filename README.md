@@ -1,5 +1,7 @@
 # 港巴通 HKBusGo — 后端服务 / Backend API
 
+**最新数据通达 / Current data status · 2026-10-17:** [真实 TDAS 修复、正式 Admin 和完整验收 / Live-data and Admin handover](docs/DATA-REACHABILITY.md)。正式 API 与 Admin 已通过实际 HTTPS 和浏览器检查；旧部署记录保留作历史快照。Production TDAS and the published Admin passed live acceptance; earlier reports are historical snapshots.
+
 **TDAS 修复 / Connectivity repair:** [数据通达检查、专用出口与发布门槛](docs/DATA-REACHABILITY.md)。本次源码新增生产 TDAS 专用鉴权传输及数据健康观测，实际发布结果以该文档为准。
 
 **正式 API / Finalized API:** `https://hkbus-api.copypaste.hk/api/` · [五端编译与 HTTPS 验证 / Builds and HTTPS verification](docs/PRODUCTION-API.md)
@@ -15,7 +17,7 @@
 
 **品牌 / Brand：已确认 10 号「朱印车迹」纯图形 Logo / Approved option 10, graphic only.** [品牌规范 / Brand guide](docs/BRAND.md) · [本次品牌验证 / Current brand checks](docs/BRAND-ROLLOUT.md)
 
-**2026-10-17 部署 / Deployment：** 后端已运行于 `43.160.221.28:39410`，SQLite 已纳入宝塔管理和每日一致性备份。服务器 56 项、公网 17 项检查通过；TDAS 道路查询被官方返回 403，尚未可用。Native Backend and BaoTa-managed SQLite are deployed; 56 server and 17 public checks passed, while TDAS remains blocked by upstream 403. [完整中英部署与运维手册 / Deployment handover](docs/DEPLOYMENT.md) · [在线接口文档 / Live API docs](http://43.160.221.28:39410/api/docs/)
+**2026-10-17 正式部署 / Production:** API 为 `https://hkbus-api.copypaste.hk/api/`，端口 39410；TDAS/KMB 真实查询和正式 Admin 已通过验收。58 项业务、31 项数据、55 项 CORS/认证检查通过。BaoTa SQLite and daily consistent backups remain active. [当前完整中英交付 / Current handover](docs/DATA-REACHABILITY.md) · [Admin](https://hkbus-api.copypaste.hk/admin/)
 
 ## 中文说明
 
@@ -101,7 +103,7 @@ npm run backup -- ./data/backups/manual.db
 
 本项目基线有 22 项 Backend 自动化测试，真实接口和浏览器证据另存 [验证资料](docs/DATA-AND-VALIDATION.md)、[本仓库检查](docs/validation.json)。上游出错只返回时效内真实缓存或明确错误，不生成虚构结果。
 
-生产环境先构建，以专用账号运行单一 Node 进程，设置 NODE_ENV=production、持久化目录、随机凭证和 HTTPS 反向代理；CORS 默认 `*`；分享入口和可信代理单独配置。保存业务库一致性备份。本次已完成 Backend 高端口部署与宝塔 SQLite 接入；TDAS 上游、域名 HTTPS、容量、真机和平台上架须按 [部署手册](docs/DEPLOYMENT.md) 的边界继续验收。
+生产环境先构建，以专用账号运行单一 Node 进程，设置 NODE_ENV=production、持久化目录、随机凭证和 HTTPS 反向代理；CORS 默认 `*`；分享入口和可信代理单独配置。保存业务库一致性备份。本次已完成 Backend 高端口部署与宝塔 SQLite 接入；当前数据通达已另行验收；容量、真机和平台上架须按 [部署手册](docs/DEPLOYMENT.md) 的边界继续验收。
 
 遇到 initializing，检查官方同步任务和网络；SAMPLE_DATABASE_FORBIDDEN 表示旧示例库被拒绝，应指定干净的真实库；401/403 检查会话、角色、Origin、请求头；无 ETA 则对照真实运营时间/官方空值。完整数据规则见 [Data & validation](docs/DATA-AND-VALIDATION.md)。
 
@@ -139,6 +141,6 @@ An offline [OpenAPI JSON contract](docs/openapi.json) is included; regenerate it
 
 Run `npm run typecheck`, `npm test` (22 baseline cases), `npm run smoke:live`, `npm run openapi` and `npm run backup -- ./data/backups/manual.db` as needed. Live smoke uses a separate memory database and writes a local result. Backup uses SQLite VACUUM INTO; stop before restoring, check integrity and preserve a rollback copy. Run one service instance: workers must not compete on a shared SQLite file.
 
-For production, build first, run one dedicated Node service with NODE_ENV=production and persistent storage, inject real credentials, and expose it through an HTTPS reverse proxy. Keep `CORS_ORIGINS=*` for any-origin access, configure trusted proxies and sharing URL separately, and retain consistent backups. This release now has a deployed Backend high port and BaoTa-managed SQLite. TDAS upstream access, domain TLS, capacity, device and store acceptance remain separate; see the [deployment handover](docs/DEPLOYMENT.md).
+For production, build first, run one dedicated Node service with NODE_ENV=production and persistent storage, inject real credentials, and expose it through an HTTPS reverse proxy. Keep `CORS_ORIGINS=*` for any-origin access, configure trusted proxies and sharing URL separately, and retain consistent backups. This release now has a deployed Backend high port and BaoTa-managed SQLite. Current TDAS/TLS acceptance is recorded in the live-data handover; capacity, device and store acceptance remain separate. See the [deployment handover](docs/DEPLOYMENT.md).
 
 For initializing, inspect official sync/network status. SAMPLE_DATABASE_FORBIDDEN rejects a historical sample database; select a clean live database. For 401/403, check the session, role, Origin and mutation header. A null ETA may reflect actual operation. Upstream failure returns bounded real cache or an explicit error, never invented arrivals. See [validation and sources](docs/DATA-AND-VALIDATION.md), [checkout checks](docs/validation.json) and [asset provenance](docs/ASSETS.md).

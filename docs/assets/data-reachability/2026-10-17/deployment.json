@@ -1,14 +1,14 @@
 {
-  "startedAt": "2026-10-17T09:04:41.879011+00:00",
-  "sourceCommit": "6e19c70bbb27263f95e6d4641fcbef04d4b840fb",
-  "sourceArchiveSha256": "555c91d421b31c64bdf9f382e29fa7c126ac4e9a5f34ca729384000434e8d145",
-  "releaseId": "20261017T090441Z-6e19c70bbb27",
-  "staging": "/home/ubuntu/.cache/hkbus-data-20261017T090441Z",
+  "startedAt": "2026-10-17T09:13:52.054997+00:00",
+  "sourceCommit": "c04a08dbe501461466bd194f4f828fc30b8fee71",
+  "sourceArchiveSha256": "5dfcadb1f86edc0f9dd34a403121a469e49bd0a7becc3fd9738ad5f9c008ef02",
+  "releaseId": "20261017T091351Z-c04a08dbe501",
+  "staging": "/home/ubuntu/.cache/hkbus-data-20261017T091351Z",
   "port": 39410,
   "apiBase": "https://hkbus-api.copypaste.hk/api",
   "demoTouched": false,
   "virtualizationUsed": false,
   "passed": true,
   "updateExitCode": 0,
-  "finishedAt": "2026-10-17T09:05:13.131190+00:00"
+  "finishedAt": "2026-10-17T09:14:30.591043+00:00"
 }

@@ -1,5 +1,5 @@
 {
-  "startedAt": "2026-10-17T09:07:42.167998+00:00",
+  "startedAt": "2026-10-17T09:31:37.095728+00:00",
   "apiBase": "https://hkbus-api.copypaste.hk/api",
   "transport": "Ubuntu Python urllib over public HTTPS",
   "tlsVerification": true,
@@ -11,7 +11,7 @@
       "method": "GET",
       "origin": "https://new-h5.example",
       "status": 200,
-      "milliseconds": 759,
+      "milliseconds": 60,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -26,7 +26,7 @@
       "method": "GET",
       "origin": "https://new-h5.example",
       "status": 401,
-      "milliseconds": 81,
+      "milliseconds": 94,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -42,7 +42,7 @@
       "method": "OPTIONS",
       "origin": "https://new-h5.example",
       "status": 204,
-      "milliseconds": 70,
+      "milliseconds": 242,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "https://new-h5.example",
@@ -58,7 +58,7 @@
       "method": "OPTIONS",
       "origin": "https://new-h5.example",
       "status": 204,
-      "milliseconds": 207,
+      "milliseconds": 63,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "https://new-h5.example",
@@ -74,7 +74,7 @@
       "method": "OPTIONS",
       "origin": "https://new-h5.example",
       "status": 204,
-      "milliseconds": 218,
+      "milliseconds": 61,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "https://new-h5.example",
@@ -90,7 +90,7 @@
       "method": "OPTIONS",
       "origin": "https://new-h5.example",
       "status": 204,
-      "milliseconds": 204,
+      "milliseconds": 216,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "https://new-h5.example",
@@ -106,7 +106,7 @@
       "method": "OPTIONS",
       "origin": "https://new-h5.example",
       "status": 204,
-      "milliseconds": 50,
+      "milliseconds": 65,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "https://new-h5.example",
@@ -122,7 +122,7 @@
       "method": "OPTIONS",
       "origin": "https://new-h5.example",
       "status": 204,
-      "milliseconds": 101,
+      "milliseconds": 61,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "https://new-h5.example",
@@ -138,7 +138,7 @@
       "method": "OPTIONS",
       "origin": "https://new-h5.example",
       "status": 204,
-      "milliseconds": 43,
+      "milliseconds": 48,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "https://new-h5.example",
@@ -154,7 +154,7 @@
       "method": "GET",
       "origin": "http://localhost:9876",
       "status": 200,
-      "milliseconds": 76,
+      "milliseconds": 67,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -169,7 +169,7 @@
       "method": "GET",
       "origin": "http://localhost:9876",
       "status": 401,
-      "milliseconds": 6470,
+      "milliseconds": 239,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -185,7 +185,7 @@
       "method": "OPTIONS",
       "origin": "http://localhost:9876",
       "status": 204,
-      "milliseconds": 193,
+      "milliseconds": 33,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "http://localhost:9876",
@@ -217,7 +217,7 @@
       "method": "OPTIONS",
       "origin": "http://localhost:9876",
       "status": 204,
-      "milliseconds": 182,
+      "milliseconds": 41,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "http://localhost:9876",
@@ -233,7 +233,7 @@
       "method": "OPTIONS",
       "origin": "http://localhost:9876",
       "status": 204,
-      "milliseconds": 47,
+      "milliseconds": 26,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "http://localhost:9876",
@@ -249,7 +249,7 @@
       "method": "OPTIONS",
       "origin": "http://localhost:9876",
       "status": 204,
-      "milliseconds": 45,
+      "milliseconds": 91,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "http://localhost:9876",
@@ -265,7 +265,7 @@
       "method": "OPTIONS",
       "origin": "http://localhost:9876",
       "status": 204,
-      "milliseconds": 40,
+      "milliseconds": 86,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "http://localhost:9876",
@@ -281,7 +281,7 @@
       "method": "OPTIONS",
       "origin": "http://localhost:9876",
       "status": 204,
-      "milliseconds": 53,
+      "milliseconds": 51,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "http://localhost:9876",
@@ -297,7 +297,7 @@
       "method": "GET",
       "origin": "https://preview.example:8443",
       "status": 200,
-      "milliseconds": 211,
+      "milliseconds": 215,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -312,7 +312,7 @@
       "method": "GET",
       "origin": "https://preview.example:8443",
       "status": 401,
-      "milliseconds": 44,
+      "milliseconds": 217,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -328,7 +328,7 @@
       "method": "OPTIONS",
       "origin": "https://preview.example:8443",
       "status": 204,
-      "milliseconds": 40,
+      "milliseconds": 212,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "https://preview.example:8443",
@@ -344,7 +344,7 @@
       "method": "OPTIONS",
       "origin": "https://preview.example:8443",
       "status": 204,
-      "milliseconds": 218,
+      "milliseconds": 41,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "https://preview.example:8443",
@@ -360,7 +360,7 @@
       "method": "OPTIONS",
       "origin": "https://preview.example:8443",
       "status": 204,
-      "milliseconds": 30,
+      "milliseconds": 46,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "https://preview.example:8443",
@@ -376,7 +376,7 @@
       "method": "OPTIONS",
       "origin": "https://preview.example:8443",
       "status": 204,
-      "milliseconds": 95,
+      "milliseconds": 172,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "https://preview.example:8443",
@@ -392,7 +392,7 @@
       "method": "OPTIONS",
       "origin": "https://preview.example:8443",
       "status": 204,
-      "milliseconds": 64,
+      "milliseconds": 189,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "https://preview.example:8443",
@@ -408,7 +408,7 @@
       "method": "OPTIONS",
       "origin": "https://preview.example:8443",
       "status": 204,
-      "milliseconds": 58,
+      "milliseconds": 186,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "https://preview.example:8443",
@@ -424,7 +424,7 @@
       "method": "OPTIONS",
       "origin": "https://preview.example:8443",
       "status": 204,
-      "milliseconds": 53,
+      "milliseconds": 52,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "https://preview.example:8443",
@@ -440,7 +440,7 @@
       "method": "GET",
       "origin": "capacitor://localhost",
       "status": 200,
-      "milliseconds": 106,
+      "milliseconds": 216,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -455,7 +455,7 @@
       "method": "GET",
       "origin": "capacitor://localhost",
       "status": 401,
-      "milliseconds": 40,
+      "milliseconds": 219,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -471,7 +471,7 @@
       "method": "OPTIONS",
       "origin": "capacitor://localhost",
       "status": 204,
-      "milliseconds": 52,
+      "milliseconds": 199,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "capacitor://localhost",
@@ -487,7 +487,7 @@
       "method": "OPTIONS",
       "origin": "capacitor://localhost",
       "status": 204,
-      "milliseconds": 55,
+      "milliseconds": 40,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "capacitor://localhost",
@@ -503,7 +503,7 @@
       "method": "OPTIONS",
       "origin": "capacitor://localhost",
       "status": 204,
-      "milliseconds": 191,
+      "milliseconds": 312,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "capacitor://localhost",
@@ -519,7 +519,7 @@
       "method": "OPTIONS",
       "origin": "capacitor://localhost",
       "status": 204,
-      "milliseconds": 40,
+      "milliseconds": 61,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "capacitor://localhost",
@@ -535,7 +535,7 @@
       "method": "OPTIONS",
       "origin": "capacitor://localhost",
       "status": 204,
-      "milliseconds": 83,
+      "milliseconds": 210,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "capacitor://localhost",
@@ -551,7 +551,7 @@
       "method": "OPTIONS",
       "origin": "capacitor://localhost",
       "status": 204,
-      "milliseconds": 39,
+      "milliseconds": 208,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "capacitor://localhost",
@@ -567,7 +567,7 @@
       "method": "OPTIONS",
       "origin": "capacitor://localhost",
       "status": 204,
-      "milliseconds": 46,
+      "milliseconds": 54,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "capacitor://localhost",
@@ -583,7 +583,7 @@
       "method": "GET",
       "origin": "null",
       "status": 200,
-      "milliseconds": 77,
+      "milliseconds": 111,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -598,7 +598,7 @@
       "method": "GET",
       "origin": "null",
       "status": 401,
-      "milliseconds": 67,
+      "milliseconds": 93,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -614,7 +614,7 @@
       "method": "OPTIONS",
       "origin": "null",
       "status": 204,
-      "milliseconds": 375,
+      "milliseconds": 81,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "null",
@@ -630,7 +630,7 @@
       "method": "OPTIONS",
       "origin": "null",
       "status": 204,
-      "milliseconds": 59,
+      "milliseconds": 232,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "null",
@@ -646,7 +646,7 @@
       "method": "OPTIONS",
       "origin": "null",
       "status": 204,
-      "milliseconds": 167,
+      "milliseconds": 39,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "null",
@@ -662,7 +662,7 @@
       "method": "OPTIONS",
       "origin": "null",
       "status": 204,
-      "milliseconds": 196,
+      "milliseconds": 179,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "null",
@@ -678,7 +678,7 @@
       "method": "OPTIONS",
       "origin": "null",
       "status": 204,
-      "milliseconds": 49,
+      "milliseconds": 51,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "null",
@@ -694,7 +694,7 @@
       "method": "OPTIONS",
       "origin": "null",
       "status": 204,
-      "milliseconds": 47,
+      "milliseconds": 200,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "null",
@@ -710,7 +710,7 @@
       "method": "OPTIONS",
       "origin": "null",
       "status": 204,
-      "milliseconds": 40,
+      "milliseconds": 64,
       "headers": {
         "vary": "Origin, Access-Control-Request-Headers",
         "access-control-allow-origin": "null",
@@ -726,7 +726,7 @@
       "method": "GET",
       "origin": null,
       "status": 200,
-      "milliseconds": 98,
+      "milliseconds": 97,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -740,7 +740,7 @@
       "method": "GET",
       "origin": "https://new-h5.example",
       "status": 200,
-      "milliseconds": 50,
+      "milliseconds": 89,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -755,7 +755,7 @@
       "method": "POST",
       "origin": "https://new-h5.example",
       "status": 422,
-      "milliseconds": 193,
+      "milliseconds": 188,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -771,7 +771,7 @@
       "method": "GET",
       "origin": "https://new-h5.example",
       "status": 404,
-      "milliseconds": 49,
+      "milliseconds": 48,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -787,7 +787,7 @@
       "method": "POST",
       "origin": "https://admin-new.example",
       "status": 401,
-      "milliseconds": 89,
+      "milliseconds": 235,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -803,7 +803,7 @@
       "method": "POST",
       "origin": "https://admin-new.example",
       "status": 200,
-      "milliseconds": 286,
+      "milliseconds": 81,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -818,7 +818,7 @@
       "method": "GET",
       "origin": "https://admin-new.example",
       "status": 200,
-      "milliseconds": 207,
+      "milliseconds": 68,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -833,7 +833,7 @@
       "method": "POST",
       "origin": "https://admin-new.example",
       "status": 403,
-      "milliseconds": 45,
+      "milliseconds": 67,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -849,7 +849,7 @@
       "method": "POST",
       "origin": "https://admin-new.example",
       "status": 200,
-      "milliseconds": 49,
+      "milliseconds": 83,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -864,7 +864,7 @@
       "method": "GET",
       "origin": "https://admin-new.example",
       "status": 401,
-      "milliseconds": 195,
+      "milliseconds": 57,
       "headers": {
         "content-type": "application/json; charset=utf-8",
         "vary": "Origin",
@@ -883,6 +883,6 @@
     "sameSite": "Strict"
   },
   "passed": true,
-  "finishedAt": "2026-10-17T09:07:54.873219+00:00",
+  "finishedAt": "2026-10-17T09:31:43.612838+00:00",
   "checkCount": 55
 }
