@@ -11,6 +11,7 @@ const routeSchema = z.object({route:text,bound:z.enum(['O','I']),service_type:nu
 const stopSchema = z.object({stop:text,name_tc:text,name_sc:text,name_en:text,lat:numberValue.refine(n=>n>=22&&n<=23),long:numberValue.refine(n=>n>=113&&n<=115)});
 const relationSchema = z.object({route:text,bound:z.enum(['O','I']),service_type:numericText,seq:numberValue.refine(n=>Number.isInteger(n)&&n>0),stop:text});
 const etaSchema = z.object({co:text.optional(),route:text,dir:z.enum(['O','I']),service_type:numericText,seq:numberValue,eta_seq:numberValue,eta:text.nullable(),dest_tc:text,dest_sc:text,dest_en:text,rmk_tc:text.optional().default(''),rmk_sc:text.optional().default(''),rmk_en:text.optional().default(''),data_timestamp:text});
+const roadSchema=z.object({jSpeed:z.string(),distM:z.number().nonnegative(),eta:z.string(),route:z.array(z.unknown()),ar:z.array(z.object({name:z.string(),distU:z.string(),eta:z.string()})).optional()}).passthrough();
 export const routeId = (route:string,bound:string,serviceType:string) => `KMB:${route}:${bound}:${serviceType}`;
 export function normalizeRoute(raw: unknown): Route { const row=routeSchema.parse(raw);return {id:routeId(row.route,row.bound,row.service_type),routeNo:row.route,bound:row.bound,serviceType:row.service_type,operator:'KMB/LWB',origin:names(row.orig_tc,row.orig_en,row.orig_sc),destination:names(row.dest_tc,row.dest_en,row.dest_sc),source:'live'}; }
 export function normalizeStop(raw: unknown): Stop { const row=stopSchema.parse(raw);return {id:row.stop,name:names(row.name_tc,row.name_en,row.name_sc),latitude:row.lat,longitude:row.long,source:'live'}; }
@@ -33,22 +34,49 @@ export class Providers {
   private jobs=new Set<Promise<unknown>>();
   private syncing:string|null=null;
   constructor(readonly store:Store,readonly config:Config,private fetcher:Fetcher=fetch){}
-  private async request(provider:'KMB'|'TDAS',operation:string,url:string,body?:unknown):Promise<unknown>{
-    const recent=this.store.all<{success:number;created_at:string}>('SELECT success,created_at FROM provider_events WHERE provider=? ORDER BY created_at DESC LIMIT 5',provider);
+  status(){
+    return (['KMB','TDAS'] as const).map(provider=>{
+      const enabled=provider==='KMB'||this.config.tdasEnabled;
+      const operation=provider==='TDAS'?(this.config.tdasEgressUrl?'road-route-egress':'road-route'):null;
+      const event=this.store.get<{success:number;code:string|null;created_at:string}>('SELECT success,code,created_at FROM provider_events WHERE provider=?'+(operation?' AND operation=?':'')+' ORDER BY created_at DESC,rowid DESC LIMIT 1',...(operation?[provider,operation]:[provider]));
+      const recent=!!event&&Date.now()-Date.parse(event.created_at)<=300000;
+      const state=!enabled?'disabled':!recent?'unverified':event!.success||event!.code==='ROAD_MATCH_FAILED'?'available':'unavailable';
+      return{provider,enabled,transport:provider==='TDAS'&&this.config.tdasEgressUrl?'authenticated-egress':'direct',state,checkedAt:event?.created_at||null,lastCode:event?.code||null};
+    });
+  }
+  private async request<T=unknown>(provider:'KMB'|'TDAS',operation:string,url:string,body?:unknown,options:{headers?:Record<string,string>;validate?:(data:unknown)=>T}={}):Promise<T>{
+    const recent=this.store.all<{success:number;created_at:string}>("SELECT success,created_at FROM provider_events WHERE provider=? AND operation=? AND (code IS NULL OR code<>'ROAD_MATCH_FAILED') ORDER BY created_at DESC,rowid DESC LIMIT 5",provider,operation);
     if(recent.length===5&&recent.every(x=>!x.success)&&Date.now()-Date.parse(recent[0]!.created_at)<30000)throw new AppError('UPSTREAM_CIRCUIT_OPEN','資料服務暫時不可用，請稍後重試',503,true);
     for(let attempt=0;attempt<2;attempt++){
       const start=Date.now();let failure:unknown;
       try{
-        const response=await this.fetcher(url,{method:body?'POST':'GET',headers:{Accept:'application/json',...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(this.config.providerTimeoutMs)});
-        if(!response.ok)throw new AppError(response.status===400?'ROAD_MATCH_FAILED':'UPSTREAM_HTTP',response.status===400?'沒有合適道路，請調整起終點位置':'資料供應商暫時不可用',response.status===400?422:502,response.status!==400);
-        const data:unknown=await response.json();
-        this.store.run('INSERT INTO provider_events VALUES(?,?,?,?,?,?,?)',randomUUID(),provider,operation,1,Date.now()-start,null,now());return data;
+        const response=await this.fetcher(url,{method:body?'POST':'GET',headers:{Accept:'application/json','User-Agent':'HKBusGo/1.0',...(body?{'Content-Type':'application/json'}:{}),...options.headers},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(this.config.providerTimeoutMs)});
+        if(!response.ok){
+          if(provider==='TDAS'&&response.status===400)throw new AppError('ROAD_MATCH_FAILED','沒有合適道路，請調整起終點位置',422,false);
+          if(operation==='road-route-egress'&&(response.status===401||response.status===403))throw new AppError('TDAS_EGRESS_AUTH','道路資料出口認證失敗，請聯絡管理員',503,false);
+          let upstreamStatus=response.status;
+          if(operation==='road-route-egress'){
+            const detail=await response.json().catch(()=>null) as {error?:{code?:string;upstreamStatus?:number}}|null;
+            if(detail?.error?.code==='TDAS_UPSTREAM_SCHEMA')throw new AppError('UPSTREAM_SCHEMA','道路資料格式無法解析',502,true);
+            if(detail?.error?.code==='TDAS_UPSTREAM_TIMEOUT')throw new AppError('UPSTREAM_TIMEOUT','道路資料連線逾時，請稍後重試',504,true);
+            if(detail?.error?.code==='TDAS_UPSTREAM_CONNECTION')throw new AppError('UPSTREAM_CONNECTION','道路資料連線失敗，請稍後重試',502,true);
+            if(Number.isInteger(detail?.error?.upstreamStatus))upstreamStatus=detail!.error!.upstreamStatus!;
+          }
+          if(upstreamStatus===401||upstreamStatus===403)throw new AppError('UPSTREAM_FORBIDDEN','資料供應商拒絕請求，請聯絡管理員',502,false);
+          if(upstreamStatus===429)throw new AppError('UPSTREAM_RATE_LIMIT','資料供應商繁忙，請稍後重試',503,true);
+          throw new AppError('UPSTREAM_HTTP','資料供應商暫時不可用',502,upstreamStatus>=500||upstreamStatus===408);
+        }
+        let data:unknown;
+        try{data=await response.json();}catch{throw new AppError('UPSTREAM_SCHEMA','資料供應商回應不是有效 JSON',502,true);}
+        const result=options.validate?options.validate(data):data as T;
+        this.store.run('INSERT INTO provider_events VALUES(?,?,?,?,?,?,?)',randomUUID(),provider,operation,1,Date.now()-start,null,now());return result;
       }catch(error){
-        failure=error;
-        const code=error instanceof AppError?error.code:'UPSTREAM_TIMEOUT';
+        const timeout=error instanceof Error&&(error.name==='TimeoutError'||error.name==='AbortError');
+        const problem=error instanceof AppError?error:error instanceof z.ZodError?new AppError('UPSTREAM_SCHEMA','資料供應商回應格式無法解析',502,true):new AppError(timeout?'UPSTREAM_TIMEOUT':'UPSTREAM_CONNECTION',timeout?'資料服務連線逾時，請稍後重試':'資料服務連線失敗，請稍後重試',timeout?504:502,true);
+        failure=problem;
+        const code=problem.code;
         this.store.run('INSERT INTO provider_events VALUES(?,?,?,?,?,?,?)',randomUUID(),provider,operation,0,Date.now()-start,code,now());
-        if(error instanceof AppError&&!error.retryable)throw error;
-        if(attempt===1)throw error instanceof AppError?error:new AppError('UPSTREAM_TIMEOUT','資料服務連線逾時，請稍後重試',504,true);
+        if(!problem.retryable||attempt===1)throw problem;
       }
       if(failure)await new Promise(resolve=>setTimeout(resolve,150));
     }
@@ -115,13 +143,15 @@ export class Providers {
   }
   async roadRoute(input:TdasInput){
     if(!this.config.tdasEnabled)throw new AppError('TDAS_DISABLED','道路交通參考尚未啟用',503,false);
-    const key='live:v2:tdas:'+createHash('sha256').update(this.config.tdasBaseUrl+JSON.stringify(input)).digest('hex');const cache=this.cache(key);
-    if(cache&&Date.parse(cache.expires_at)>Date.now()){const data=JSON.parse(cache.data);if(data.source==='live')return {...data,cached:true};}
+    const egress=!!this.config.tdasEgressUrl,url=egress?this.config.tdasEgressUrl:this.config.tdasBaseUrl;
+    const key='live:v3:tdas:'+createHash('sha256').update(url+JSON.stringify(input)).digest('hex');const cache=this.cache(key);
+    if(cache&&Date.parse(cache.expires_at)>Date.now()){
+      try{const data=JSON.parse(cache.data);if(data.source==='live'&&data.provider==='TDAS'&&Number.isFinite(data.distanceMeters)&&Number.isFinite(data.durationSeconds)&&Number.isFinite(Date.parse(data.generatedAt))&&Array.isArray(data.segments))return {...data,cached:true};}catch{/* An invalid cache entry must not block a fresh official query. */}
+    }
     return this.deduplicate(key,async()=>{
-      const reply=z.object({jSpeed:z.string(),distM:z.number().nonnegative(),eta:z.string(),route:z.array(z.unknown()),ar:z.array(z.object({name:z.string(),distU:z.string(),eta:z.string()})).optional()}).passthrough().safeParse(await this.request('TDAS','road-route',this.config.tdasBaseUrl,input));
-      if(!reply.success)throw new AppError('UPSTREAM_SCHEMA','道路資料格式無法解析',502,true);
-      const speed=Number.parseFloat(reply.data.jSpeed);
-      const result={provider:'TDAS',source:'live' as const,distanceMeters:reply.data.distM,durationSeconds:durationSeconds(reply.data.eta),averageSpeedKmh:Number.isFinite(speed)?speed:null,generatedAt:now(),cached:false,departIn:input.departIn,routeType:input.type,tunnels:{cht:reply.data.cht===true,eht:reply.data.eht===true,wht:reply.data.wht===true},segments:reply.data.route,alternatives:reply.data.ar||[],notice:'道路交通參考，不代表巴士到站、候車或乘車時間'};
+      const reply=await this.request('TDAS',egress?'road-route-egress':'road-route',url,input,{...(egress?{headers:{Authorization:'Bearer '+this.config.tdasEgressSecret}}:{}),validate:raw=>{const parsed=roadSchema.parse(raw);durationSeconds(parsed.eta);return parsed;}});
+      const speed=Number.parseFloat(reply.jSpeed);
+      const result={provider:'TDAS',source:'live' as const,distanceMeters:reply.distM,durationSeconds:durationSeconds(reply.eta),averageSpeedKmh:Number.isFinite(speed)?speed:null,generatedAt:now(),cached:false,departIn:input.departIn,routeType:input.type,tunnels:{cht:reply.cht===true,eht:reply.eht===true,wht:reply.wht===true},segments:reply.route,alternatives:reply.ar||[],notice:'道路交通參考，不代表巴士到站、候車或乘車時間'};
       this.writeCache(key,result,60,60);return result;
     });
   }

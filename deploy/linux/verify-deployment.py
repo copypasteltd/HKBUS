@@ -1,7 +1,7 @@
 """Run real HTTP acceptance on the installed server; requires root and restarts this service.
 
 Creates two temporary anonymous profiles and removes them in finally. Never prints
-credentials or publishes fabricated notices. TDAS source-side 403 is reported blocked.
+credentials or publishes fabricated notices. A successful real TDAS result is required.
 """
 from pathlib import Path
 import datetime
@@ -104,17 +104,10 @@ try:
     check('Arbitrary origin and headers receive CORS permission',arbitrary.get('access-control-allow-origin')=='https://new-h5.example' and arbitrary.get('access-control-allow-headers')=='authorization,x-custom-client')
 
     traffic_input={'start':{'lat':22.2784,'long':114.1828,'buffer':200},'end':{'lat':22.2821,'long':114.1581,'buffer':200},'departIn':0,'lang':'tc','type':'ST'}
-    try:
-        traffic=call('POST','/api/v1/traffic/route',traffic_input)[0]
-        check('TDAS real road route',traffic['source']=='live' and traffic['distanceMeters']>0 and traffic['durationSeconds']>0,distanceMeters=traffic['distanceMeters'],durationSeconds=traffic['durationSeconds'])
-    except AssertionError as error:
-        req=urllib.request.Request('https://tdas-api.hkemobility.gov.hk/tdas/api/route',data=json.dumps(traffic_input).encode(),headers={'Content-Type':'application/json','Accept':'application/json'})
-        try:upstream=urllib.request.urlopen(req,timeout=35)
-        except urllib.error.HTTPError as response:upstream=response
-        with upstream:status=upstream.status;server=upstream.headers.get('server');upstream.read()
-        if status!=403:raise error
-        item={'name':'TDAS real road route','status':'blocked','upstreamStatus':status,'upstreamServer':server,'reason':'The official upstream rejects this server egress; no mock or unrelated proxy is substituted.'}
-        report['checks'].append(item);print(json.dumps(item),flush=True)
+    traffic=call('POST','/api/v1/traffic/route',traffic_input)[0]
+    check('TDAS real road route',traffic['provider']=='TDAS' and traffic['source']=='live' and traffic['distanceMeters']>0 and traffic['durationSeconds']>0 and len(traffic['segments'])>0,distanceMeters=traffic['distanceMeters'],durationSeconds=traffic['durationSeconds'])
+    data_health=get('/api/health')
+    check('Health reports verified data connectivity separately from process readiness',data_health['dataStatus']=='healthy' and all(item['state']=='available' for item in data_health['dataServices']),dataServices=data_health['dataServices'])
 
     for _ in range(2):sessions.append(call('POST','/api/v1/profile/sessions')[0])
     current,other=sessions

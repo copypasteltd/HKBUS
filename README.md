@@ -1,5 +1,7 @@
 # 港巴通 HKBusGo — 后端服务 / Backend API
 
+**TDAS 修复 / Connectivity repair:** [数据通达检查、专用出口与发布门槛](docs/DATA-REACHABILITY.md)。本次源码新增生产 TDAS 专用鉴权传输及数据健康观测，实际发布结果以该文档为准。
+
 **正式 API / Finalized API:** `https://hkbus-api.copypaste.hk/api/` · [五端编译与 HTTPS 验证 / Builds and HTTPS verification](docs/PRODUCTION-API.md)
 **任意来源跨域 / Any-origin CORS:** 默认 `CORS_ORIGINS=*`，回显 Origin 并允许凭证与任意请求头；[配置和验证 / Policy and verification](docs/CORS-OPEN.md)。
 

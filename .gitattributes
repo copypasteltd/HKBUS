@@ -4,5 +4,6 @@
 # Preserve captured console output, including progress spacing and blank lines.
 docs/evidence/*.txt -whitespace
 deploy/linux/** text eol=lf
+deploy/tdas-egress/** text eol=lf
 docs/assets/deployment/**/*.service text eol=lf
 docs/assets/deployment/**/*.log -whitespace

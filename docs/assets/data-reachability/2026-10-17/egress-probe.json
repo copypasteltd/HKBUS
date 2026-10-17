@@ -1,0 +1,183 @@
+{
+  "checkedAt": "2026-10-17T08:40:42.421311+00:00",
+  "requestOrigin": "production-server-43.160.221.28",
+  "transport": "authenticated-managed-egress",
+  "url": "https://tdas-egress.vercel.app/api/route",
+  "checks": [
+    {
+      "name": "unauthenticated",
+      "status": 401,
+      "elapsedMs": 823,
+      "region": "hkg1",
+      "upstreamStatus": null,
+      "cacheControl": "no-store",
+      "data": {
+        "error": {
+          "code": "UNAUTHENTICATED"
+        }
+      }
+    },
+    {
+      "name": "valid-official-query",
+      "status": 200,
+      "elapsedMs": 2030,
+      "region": "hkg1",
+      "upstreamStatus": "200",
+      "cacheControl": "no-store",
+      "data": {
+        "jSpeed": "41公里/小時",
+        "distM": 3953,
+        "distU": "3.95公里",
+        "eta": "00:06",
+        "cht": false,
+        "eht": false,
+        "wht": false,
+        "route": [
+          {
+            "start": {
+              "rid": 2728,
+              "intersect": [
+                22.278403,
+                114.182788
+              ]
+            },
+            "end": {
+              "rid": 2722,
+              "intersect": [
+                22.281935,
+                114.158052
+              ]
+            },
+            "segment": [
+              {
+                "dir": 3,
+                "rid": [
+                  2728
+                ]
+              },
+              {
+                "dir": 1,
+                "rid": [
+                  4251,
+                  115457
+                ]
+              },
+              {
+                "dir": 1,
+                "rid": [
+                  263083,
+                  2434,
+                  855,
+                  2606,
+                  1388,
+                  2336
+                ]
+              },
+              {
+                "dir": 2,
+                "rid": [
+                  5809,
+                  1707
+                ]
+              },
+              {
+                "dir": 2,
+                "rid": [
+                  5127,
+                  111649,
+                  111647
+                ]
+              },
+              {
+                "dir": 1,
+                "rid": [
+                  4169,
+                  4737
+                ]
+              },
+              {
+                "dir": 3,
+                "rid": [
+                  2879,
+                  4301,
+                  4950,
+                  5319,
+                  5135,
+                  2758
+                ]
+              },
+              {
+                "dir": 3,
+                "rid": [
+                  2374,
+                  2880,
+                  5245,
+                  5010,
+                  3540,
+                  4060,
+                  1828
+                ]
+              },
+              {
+                "dir": 3,
+                "rid": [
+                  612,
+                  1382,
+                  1218,
+                  4280,
+                  766,
+                  1301,
+                  4164
+                ]
+              },
+              {
+                "dir": 1,
+                "rid": [
+                  982
+                ]
+              },
+              {
+                "dir": 1,
+                "rid": [
+                  1819
+                ]
+              },
+              {
+                "dir": 3,
+                "rid": [
+                  3573,
+                  165041
+                ]
+              },
+              {
+                "dir": 1,
+                "rid": [
+                  2722
+                ],
+                "ped": [
+                  {
+                    "id": 140007,
+                    "desc": "公眾假期︰上午七時至午夜十二時"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "invalid-input",
+      "status": 422,
+      "elapsedMs": 336,
+      "region": "hkg1",
+      "upstreamStatus": null,
+      "cacheControl": "no-store",
+      "data": {
+        "error": {
+          "code": "INVALID_ROAD_INPUT"
+        }
+      }
+    }
+  ]
+}

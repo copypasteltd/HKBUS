@@ -10,7 +10,7 @@
     "dev": "tsx watch --env-file-if-exists=.env.local src/main.ts",
     "build": "node scripts/build.mjs",
     "start": "node --env-file-if-exists=.env.local dist/main.js",
-    "test": "tsx --test test/*.test.ts",
+    "test": "tsx --test test/*.test.ts && node --test deploy/tdas-egress/test/route.test.mjs",
     "bootstrap": "tsx scripts/bootstrap.ts",
     "backup": "tsx --env-file-if-exists=.env.local scripts/backup.ts",
     "typecheck": "tsc --noEmit",
