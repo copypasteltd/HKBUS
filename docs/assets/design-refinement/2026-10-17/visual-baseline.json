@@ -1,0 +1,74 @@
+{
+  "startedAt": "2026-10-17T14:33:18.859Z",
+  "pages": [
+    {
+      "screen": "home",
+      "overflow": false,
+      "characters": 332
+    },
+    {
+      "screen": "routes",
+      "overflow": false,
+      "characters": 793
+    },
+    {
+      "screen": "search",
+      "overflow": false,
+      "characters": 161
+    },
+    {
+      "screen": "nearby",
+      "overflow": false,
+      "characters": 1339
+    },
+    {
+      "screen": "route",
+      "overflow": false,
+      "characters": 1437
+    },
+    {
+      "screen": "bookmarks",
+      "overflow": false,
+      "characters": 232
+    },
+    {
+      "screen": "settings",
+      "overflow": false,
+      "characters": 473
+    },
+    {
+      "screen": "notices",
+      "overflow": false,
+      "characters": 171
+    },
+    {
+      "screen": "notice",
+      "overflow": false,
+      "characters": 74
+    },
+    {
+      "screen": "help",
+      "overflow": false,
+      "characters": 271
+    },
+    {
+      "screen": "reminders",
+      "overflow": false,
+      "characters": 218
+    },
+    {
+      "screen": "planner",
+      "overflow": false,
+      "characters": 235
+    },
+    {
+      "screen": "traffic",
+      "overflow": false,
+      "characters": 243
+    }
+  ],
+  "browserClosed": true,
+  "apiSubstituted": false,
+  "passed": true,
+  "finishedAt": "2026-10-17T14:33:40.003Z"
+}
