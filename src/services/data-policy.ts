@@ -8,7 +8,7 @@ export function isLiveData(value:unknown):boolean {
   return Object.values(row).every(isLiveData);
 }
 export function cacheMaxAge(path:string){
-  if(/^\/v1\/home(?:\?|$)|^\/v1\/stops\/[^/]+\/arrivals(?:\?|$)/.test(path))return 180000;
+  if(/^\/v1\/home(?:\?|$)|^\/v1\/(?:stops|routes)\/[^/]+\/arrivals(?:\?|$)/.test(path))return 180000;
   // Notices can be withdrawn or expire. Fetch their current publication state each time.
   if(/^\/v1\/notices(?:\/|\?|$)|^\/v1\/profile\/(?:notifications|reminders)/.test(path))return 0;
   return 86400000;

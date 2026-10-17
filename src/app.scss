@@ -1,4 +1,38 @@
 $surface:#f8faf9;$ink:#163b63;$muted:#536b7d;$teal:#0c716e;$line:#d9e2e8;
+.app-root{
+  .route-live-status{margin-top:20px;padding:15px 0 0;border-top:1px solid $line}
+  .route-live-status .result-meta{align-items:flex-start;gap:10px;flex-wrap:wrap;margin-bottom:7px}
+  .route-live-status .result-meta>view{min-width:0;flex:1 1 170px}
+  .route-live-status .freshness{margin-top:6px;font-size:12px}
+  .route-live-status .status-banner{margin-top:12px;margin-bottom:0}
+  .route-live-status .text-button{min-height:44Px}
+  .live-route-timeline{padding:0;display:flex;flex-direction:column;gap:10px}
+  .route-stop{border:1px solid $line;border-radius:16px;background:#fff;overflow:hidden}
+  .route-stop.is-expanded{border-color:#7eb4ae}
+  .route-stop .timeline-row{min-height:100px;padding:14px 12px;gap:12px;align-items:flex-start}
+  .route-stop .timeline-order{flex-shrink:0;margin-top:2px}
+  .route-stop .timeline-order::after{display:none}
+  .route-stop .timeline-row>.icon{flex-shrink:0;margin-top:9px}
+  .route-stop .timeline-copy{flex:1;min-width:0}
+  .route-stop .timeline-copy>.caption{font-size:12px;overflow-wrap:anywhere}
+  .route-eta-summary{display:block;font-size:18px;line-height:1.5;font-weight:700;color:$teal;margin-top:7px}
+  .route-eta-summary.is-stale{color:#88600f}
+  .route-stop-detail{margin:0 12px 12px;padding:12px;border-top:1px solid $line;background:#f3f8f6;border-radius:0 0 10px 10px}
+  .route-detail-title{display:block;font-size:14px;font-weight:700}
+  .route-prediction{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:13px 0;border-bottom:1px solid $line}
+  .route-prediction-label{flex:1;min-width:90px;font-size:14px;font-weight:700}
+  .route-prediction-label>.caption{display:block;font-weight:400;font-size:12px;margin-top:4px}
+  .route-prediction .arrival-number{margin-left:auto}
+  .route-prediction .eta-number{font-size:34px;letter-spacing:-1px}
+  .route-prediction .no-eta{font-size:14px}
+  .route-prediction-remark{flex-basis:100%;font-size:13px;overflow-wrap:anywhere}
+  .route-stop-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .route-stop-actions .text-button{min-height:44Px;font-size:13px}
+  &.large-text .route-eta-summary{font-size:21px}
+  &.large-text .route-prediction .eta-number{font-size:40px}
+  &.large-text .route-prediction-label{font-size:17px}
+  &.large-text .route-stop-actions .text-button{font-size:15px}
+}
 page,body{margin:0;background:$surface;color:$ink;font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;font-size:16px;line-height:1.5;}
 .app-root{
 view,text,button,input,textarea,taro-view-core,taro-text-core,taro-button-core,taro-input-core,taro-textarea-core{box-sizing:border-box}button,taro-button-core{width:auto;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:inherit;font:inherit;line-height:1.5;text-align:inherit;cursor:pointer}button::after,taro-button-core::after{border:0}button:focus-visible,input:focus-visible{outline:3px solid #168f8b;outline-offset:2px}button[disabled]{opacity:.5}
