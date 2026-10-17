@@ -2,13 +2,15 @@ import {useEffect,type PropsWithChildren} from 'react';
 import Taro,{useDidShow,useDidHide} from '@tarojs/taro';
 import {AppProvider,startNotificationPolling,stopNotificationPolling} from './state';
 import './app.scss';
+import './refinement.scss';
 export default function App({children}:PropsWithChildren){
   useEffect(()=>{
     if(process.env.TARO_ENV!=='h5')return;
     const enrich=()=>{
       document.querySelectorAll<HTMLElement>('taro-button-core').forEach(element=>{element.setAttribute('role','button');const control=element as HTMLElement & {disabled?:boolean;loading?:boolean};const disabled=control.disabled===true||control.loading===true;element.tabIndex=disabled?-1:0;element.setAttribute('aria-disabled',String(disabled));});
       document.querySelectorAll<HTMLElement>('taro-input-core[aria-label],taro-textarea-core[aria-label]').forEach(element=>element.querySelector('input,textarea')?.setAttribute('aria-label',element.getAttribute('aria-label')||''));
-      document.querySelectorAll<HTMLElement>('.preference-options .filter-chip,.preference-stop,.preference-toggle,.setting-row').forEach(element=>{const toggle=element.querySelector('.switch');if(toggle)element.setAttribute('aria-pressed',String(toggle.classList.contains('on')));else if(element.matches('.filter-chip,.preference-stop'))element.setAttribute('aria-pressed',String(element.classList.contains('selected')));});
+      document.querySelectorAll<HTMLElement>('.filter-chip,.preference-stop,.preference-toggle,.setting-row').forEach(element=>{const toggle=element.querySelector('.switch');if(toggle)element.setAttribute('aria-pressed',String(toggle.classList.contains('on')));else if(element.matches('.filter-chip,.preference-stop'))element.setAttribute('aria-pressed',String(element.classList.contains('selected')));});
+      document.querySelectorAll<HTMLElement>('.guide-toggle').forEach(element=>element.setAttribute('aria-expanded',String(element.parentElement?.classList.contains('is-open')||false)));
       document.querySelectorAll<HTMLElement>('.route-stop>.timeline-row').forEach(element=>element.setAttribute('aria-expanded',String(element.parentElement?.classList.contains('is-expanded')||false)));
       document.querySelectorAll<HTMLElement>('.brand-name,.page-heading,.section-title').forEach(element=>{element.setAttribute('role','heading');element.setAttribute('aria-level',element.classList.contains('section-title')?'2':'1');});
     };
