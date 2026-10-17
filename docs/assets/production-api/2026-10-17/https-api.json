@@ -1,0 +1,416 @@
+{
+  "startedAt": "2026-10-17T06:55:39.617113+00:00",
+  "apiBase": "https://hkbus-api.copypaste.hk/api",
+  "tlsVerification": true,
+  "userAgent": "HKBusGo/1.0",
+  "checks": [
+    {
+      "name": "namespace root is not a health endpoint",
+      "method": "GET",
+      "path": "/",
+      "status": 404,
+      "milliseconds": 809,
+      "passed": true
+    },
+    {
+      "name": "health",
+      "method": "GET",
+      "path": "/health",
+      "status": 200,
+      "milliseconds": 797,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "live configuration",
+      "method": "GET",
+      "path": "/v1/config",
+      "status": 200,
+      "milliseconds": 790,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "API documentation",
+      "method": "GET",
+      "path": "/docs/",
+      "status": 200,
+      "milliseconds": 777,
+      "passed": true
+    },
+    {
+      "name": "OpenAPI",
+      "method": "GET",
+      "path": "/openapi.json",
+      "status": 200,
+      "milliseconds": 813,
+      "passed": true
+    },
+    {
+      "name": "CORS https://hkbus-api.copypaste.hk",
+      "method": "OPTIONS",
+      "path": "/admin/auth/login",
+      "status": 204,
+      "milliseconds": 716,
+      "passed": true
+    },
+    {
+      "name": "CORS https://localhost",
+      "method": "OPTIONS",
+      "path": "/admin/auth/login",
+      "status": 204,
+      "milliseconds": 839,
+      "passed": true
+    },
+    {
+      "name": "CORS capacitor://localhost",
+      "method": "OPTIONS",
+      "path": "/admin/auth/login",
+      "status": 204,
+      "milliseconds": 898,
+      "passed": true
+    },
+    {
+      "name": "untrusted browser origin is not allowed",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "name": "route catalogue",
+      "method": "GET",
+      "path": "/v1/routes?q=112&pageSize=5",
+      "status": 200,
+      "milliseconds": 715,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "official route sequence",
+      "method": "GET",
+      "path": "/v1/routes/KMB%3A112%3AO%3A1",
+      "status": 200,
+      "milliseconds": 818,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "official stop detail",
+      "method": "GET",
+      "path": "/v1/stops/6CAA11E0FD871B20",
+      "status": 200,
+      "milliseconds": 707,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "nearby stop lookup",
+      "method": "GET",
+      "path": "/v1/stops?latitude=22.284804&longitude=114.193035&radius=500&pageSize=5",
+      "status": 200,
+      "milliseconds": 821,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "route search",
+      "method": "GET",
+      "path": "/v1/search?q=112&type=route",
+      "status": 200,
+      "milliseconds": 803,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "unlocated home has no invented next bus",
+      "method": "GET",
+      "path": "/v1/home?platform=android",
+      "status": 200,
+      "milliseconds": 779,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "live KMB ETA",
+      "method": "GET",
+      "path": "/v1/stops/6CAA11E0FD871B20/arrivals?force=true",
+      "status": 200,
+      "milliseconds": 896,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "selected home",
+      "method": "GET",
+      "path": "/v1/home?platform=android&stopId=6CAA11E0FD871B20",
+      "status": 200,
+      "milliseconds": 786,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "published notices",
+      "method": "GET",
+      "path": "/v1/notices?platform=weapp",
+      "status": 200,
+      "milliseconds": 799,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "real stop-sequence journey candidates",
+      "method": "POST",
+      "path": "/v1/journeys",
+      "status": 200,
+      "milliseconds": 1150,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "anonymous profile creation",
+      "method": "POST",
+      "path": "/v1/profile/sessions",
+      "status": 200,
+      "milliseconds": 701,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "bookmark write",
+      "method": "PUT",
+      "path": "/v1/profile/bookmarks",
+      "status": 200,
+      "milliseconds": 804,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "bookmark read",
+      "method": "GET",
+      "path": "/v1/profile/bookmarks",
+      "status": 200,
+      "milliseconds": 747,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "bookmark ordering",
+      "method": "PATCH",
+      "path": "/v1/profile/bookmarks/order",
+      "status": 200,
+      "milliseconds": 769,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "recent history write",
+      "method": "POST",
+      "path": "/v1/profile/recent",
+      "status": 200,
+      "milliseconds": 801,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "recent history read",
+      "method": "GET",
+      "path": "/v1/profile/recent",
+      "status": 200,
+      "milliseconds": 795,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "page reminder creation",
+      "method": "PUT",
+      "path": "/v1/profile/reminders",
+      "status": 200,
+      "milliseconds": 743,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "page reminder read",
+      "method": "GET",
+      "path": "/v1/profile/reminders",
+      "status": 200,
+      "milliseconds": 601,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "profile refresh rotation",
+      "method": "POST",
+      "path": "/v1/profile/sessions/refresh",
+      "status": 200,
+      "milliseconds": 845,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "old profile session revoked",
+      "method": "GET",
+      "path": "/v1/profile/bookmarks",
+      "status": 401,
+      "milliseconds": 823,
+      "passed": true
+    },
+    {
+      "name": "bookmarks retained after rotation",
+      "method": "GET",
+      "path": "/v1/profile/bookmarks",
+      "status": 200,
+      "milliseconds": 778,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "test profile and personal data removed",
+      "method": "DELETE",
+      "path": "/v1/profile",
+      "status": 200,
+      "milliseconds": 657,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "admin HTTPS login",
+      "method": "POST",
+      "path": "/admin/auth/login",
+      "status": 200,
+      "milliseconds": 841,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "admin HTTPS session",
+      "method": "GET",
+      "path": "/admin/auth/me",
+      "status": 200,
+      "milliseconds": 829,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "admin overview",
+      "method": "GET",
+      "path": "/admin/overview",
+      "status": 200,
+      "milliseconds": 742,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "admin provider status",
+      "method": "GET",
+      "path": "/admin/providers",
+      "status": 200,
+      "milliseconds": 832,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "admin logout",
+      "method": "POST",
+      "path": "/admin/auth/logout",
+      "status": 200,
+      "milliseconds": 781,
+      "passed": true,
+      "mode": "live"
+    },
+    {
+      "name": "admin session revoked",
+      "method": "GET",
+      "path": "/admin/auth/me",
+      "status": 401,
+      "milliseconds": 712,
+      "passed": true
+    }
+  ],
+  "externalLimitations": [
+    {
+      "provider": "TDAS",
+      "status": 502,
+      "code": null,
+      "message": "The production server still cannot obtain a TDAS road result. No fixture or alternate proxy is used."
+    },
+    {
+      "layer": "Cloudflare",
+      "observedEarlier": true,
+      "status": 403,
+      "code": "1010",
+      "userAgent": "Python-urllib/3.13",
+      "message": "This generic automation User-Agent was blocked at the edge. Product requests use their own native browser/platform User-Agent; browser validation is recorded separately. No edge bypass or disabled TLS was used."
+    }
+  ],
+  "tls": {
+    "version": "TLSv1.3",
+    "expiresAt": "Dec  9 23:52:39 2026 GMT",
+    "subjectAltNames": [
+      "copypaste.hk",
+      "*.copypaste.hk"
+    ]
+  },
+  "catalogue": {
+    "status": "ok",
+    "version": "1.0.0",
+    "database": "ready",
+    "catalogRoutes": 1611,
+    "catalogSyncedAt": "2026-10-16T22:13:52.439Z",
+    "source": "live"
+  },
+  "configuration": {
+    "features": {
+      "reminders": true,
+      "traffic": true,
+      "planner": true,
+      "map": true
+    },
+    "coverage": "KMB/LWB",
+    "tdasEnabled": true
+  },
+  "testEntities": {
+    "routeId": "KMB:112:O:1",
+    "stopId": "6CAA11E0FD871B20",
+    "endStopId": "C3FD63E226246052",
+    "sequenceLength": 23
+  },
+  "eta": {
+    "freshness": {
+      "state": "fresh",
+      "generatedAt": "2026-10-17T06:55:21.000Z",
+      "fetchedAt": "2026-10-17T06:55:52.575Z",
+      "cached": false,
+      "source": "live",
+      "provider": "KMB"
+    },
+    "arrivals": 10,
+    "allEntriesLive": true
+  },
+  "journeyKeys": [
+    "start",
+    "end",
+    "journeys",
+    "notice"
+  ],
+  "testProfileDeleted": true,
+  "adminCookie": {
+    "secure": true,
+    "httpOnly": true,
+    "sameSite": "Strict",
+    "path": "/api/admin",
+    "secretRecorded": false
+  },
+  "tdas": {
+    "status": 502,
+    "milliseconds": 1077,
+    "error": null,
+    "successfulRoadResult": false,
+    "publicContentType": "text/plain; charset=UTF-8",
+    "publicResponse": "error code: 502\n",
+    "originEvidence": "tdas-origin.json",
+    "originStatus": 502,
+    "originErrorCode": "UPSTREAM_HTTP"
+  },
+  "finishedAt": "2026-10-17T06:56:10.478318+00:00",
+  "passed": true
+}
