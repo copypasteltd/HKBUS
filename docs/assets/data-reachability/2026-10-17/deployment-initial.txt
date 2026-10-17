@@ -1,0 +1,6 @@
+{"createdAt":"2026-10-17T08:50:59.099Z","file":"/www/backup/database/sqlite/d6ad541c23e9d6a30c484ea7ccd36fe7/20261017_085058_hkbusgo.db","bytes":5480448,"sha256":"39ee352fb3972b73ddbaf171de0a804601264dc675dc7368ad6d5e2fe7bc97eb","integrity":"ok","foreignKeyViolations":0,"restoreReadCheck":true,"counts":{"routes":1611,"stops":6775,"route_stops":36377,"profiles":1,"admins":1},"retained":5}
+{"road": {"source": "live", "distanceMeters": 3953, "durationSeconds": 360}, "eta": {"source": "live", "arrivals": 13}, "dataStatus": "healthy"}
+DEPLOYED_RELEASE 20261017T085043Z-4eb23ecf289c
+PREVIOUS_RELEASE 20261017T074935Z-80ca4da2de2a
+DATA_TRANSPORT authenticated-egress
+PORT 39410

@@ -1,5 +1,7 @@
 # 港巴通正式 API 与五端编译交付 · 2026-10-17
 
+**后续更新 / Superseding update:** 本文保留此前阶段的验收事实。当前正式 TDAS 与 Admin 的状态、证据和限制见 [数据通达交付 / Current live-data handover](DATA-REACHABILITY.md)。
+
 [当前 CORS 行为 / Current CORS policy](https://github.com/copypasteltd/HKBUS/blob/backend/docs/CORS-OPEN.md)。The live Backend now accepts every origin and arbitrary request headers; earlier allowlist checks describe the pre-update snapshot. Client binaries are unchanged.
 
 API 已统一为 **`https://hkbus-api.copypaste.hk/api/`**。四个移动端和管理后台的构建默认值、环境变量样例与产物均指向该地址，内部去掉结尾斜杠后拼接 `/v1/…`，不会产生重复 `/api`。API 变更后需重新编译。10 号纯图形 Logo 和 Accessible Calm Minimal 继续沿用。

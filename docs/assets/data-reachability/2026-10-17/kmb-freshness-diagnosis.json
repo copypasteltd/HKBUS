@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-10-17T09:23:49.016195+00:00",
+  "stopId": "A3B9F3D6B2668DE3",
+  "freshness": {
+    "state": "fresh",
+    "generatedAt": "2026-10-17T09:23:16.000Z",
+    "fetchedAt": "2026-10-17T09:23:48.910Z",
+    "cached": false,
+    "source": "live",
+    "provider": "KMB"
+  },
+  "arrivalsCount": 12,
+  "etaPresentCount": 10,
+  "generatedTimestamps": [
+    "2026-10-17T09:23:16.000Z"
+  ],
+  "rawGeneratedTimestamp": "2026-10-17T17:23:48+08:00",
+  "rawDataTimestamps": [
+    "2026-10-17T17:23:16+08:00"
+  ],
+  "rawDataCount": 12,
+  "rawNonNullEtaCount": 10
+}

@@ -1,0 +1,21 @@
+{
+  "finishedAt": "2026-10-17T09:07:55.727281+00:00",
+  "suites": [
+    {
+      "suite": "service-business",
+      "exitCode": 0,
+      "reportCopied": true
+    },
+    {
+      "suite": "https-data",
+      "exitCode": 1,
+      "reportCopied": true
+    },
+    {
+      "suite": "https-cors",
+      "exitCode": 0,
+      "reportCopied": true
+    }
+  ],
+  "passed": false
+}

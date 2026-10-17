@@ -1,0 +1,23 @@
+{
+  "finishedAt": "2026-10-17T09:39:36.226712+00:00",
+  "suites": [
+    {
+      "suite": "service-business",
+      "exitCode": 0,
+      "reportCopied": true,
+      "retainedEvidenceFrom": "2026-10-17T09:31:45.091241+00:00"
+    },
+    {
+      "suite": "https-cors",
+      "exitCode": 0,
+      "reportCopied": true,
+      "retainedEvidenceFrom": "2026-10-17T09:31:45.091241+00:00"
+    },
+    {
+      "suite": "https-data",
+      "exitCode": 0,
+      "reportCopied": true
+    }
+  ],
+  "passed": true
+}

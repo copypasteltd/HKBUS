@@ -1,0 +1,11 @@
+{
+  "deployedAt": "2026-10-17T08:47:29.975291+00:00",
+  "id": "dpl_GKcBNdAeM78XnNTcm4teFE8jfmUe",
+  "url": "https://hkbusgo-tdas-egress-bcp3qdi06-sidcloud.vercel.app",
+  "productionUrl": "https://tdas-egress.vercel.app",
+  "readyState": "READY",
+  "target": "production",
+  "project": "hkbusgo-tdas-egress",
+  "region": "hkg1",
+  "applicationAuthentication": true
+}

@@ -1,0 +1,14 @@
+{
+  "releaseId": "20261017T091509Z-cc8058f514f2",
+  "sourceCommit": "cc8058f514f2c55f4559cb025335f4cadfc018f0",
+  "archiveSha256": "9d87cde6d99f890d3c4469d1a60d3b847544b4247653428a2c653ec90757f349",
+  "assets": {
+    "assets/index-CDaJk-j6.css": "f6caf2c36639a405807452461d5ac01b645cb906749620dd7c760f977f344391",
+    "assets/index-hyNJqHtF.js": "b203c881cc1c19b4deb5c341bb5eb874f46ea852f42c757e0b64e3c4c2b78a05",
+    "brand/app-icon-192.png": "2a01503f16ce28c40a28a0d9b608117b2ae92f789babca43ec6c3cf3d133bf57",
+    "brand/favicon.svg": "595823afda6163ebf2b2581d007730b5dd09984fb7acfd90136c30061c099524",
+    "brand/logo.svg": "595823afda6163ebf2b2581d007730b5dd09984fb7acfd90136c30061c099524",
+    "index.html": "1a8d15de31f11f18707b93e98b0aa5629fab06991c428cbec247271945225595"
+  },
+  "scope": "existing compiled real Admin, same-origin production API; no demo assets"
+}
