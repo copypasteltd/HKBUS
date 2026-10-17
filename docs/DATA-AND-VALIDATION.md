@@ -1,5 +1,6 @@
 # 数据与验证 / Data and validation
 
+**当前正式 API / Current production API:** `https://hkbus-api.copypaste.hk/api/`。下文保留既有基线；2026-10-17 本次正式 HTTPS、五端编译和 TDAS 502 限制以 [本次交付 / Current handover](PRODUCTION-API.md) 为准。
 ## 中文
 
 本项目实际服务仅接受 live。路线身份由路线号、方向和 service type 组成；KMB 目录完整校验后原子替换。主数据正常按 24 小时更新，失败保留前一版；初次缺失时不注入示例。
@@ -20,7 +21,7 @@ ETA 默认缓存 15 秒，60 秒后较旧，180 秒后不可作为可用预计�
 
 上述数量对应较早的真实接入基线；本次截图重新同步了官方目录，最新截图数量见 `screenshots.json` 的 catalogue 字段。两次上游快照的站点数量可能不同，不回填成固定值。
 
-验证严格区分：源码 / 类型检查、编译、实际 HTTP、浏览器、官方 IDE、物理设备、商店审核。既有真实数据基线为 Backend 22 项回归、Mobile 7 项回归、14 项真实 API/浏览器检查；分仓后检查见 `validation.json`。三个小程序官方 IDE、物理设备定位/分享/通知、商店上架和公网正式部署尚未验收。Android 采用 Taro H5 内嵌原生容器，并未新增独立 H5 demo。
+验证严格区分：源码 / 类型检查、编译、实际 HTTP、浏览器、官方 IDE、物理设备、商店审核。既有真实数据基线为 Backend 22 项回归、Mobile 7 项回归、14 项真实 API/浏览器检查；分仓后检查见 `validation.json`。三个小程序官方 IDE、物理设备定位/分享/通知、商店上架尚未验收；正式后端的公网/HTTPS 实测已完成，详见本次交付。Android 采用 Taro H5 内嵌原生容器，并未新增独立 H5 demo。
 
 ## English
 
@@ -42,7 +43,7 @@ The 2026-10-17 official snapshot contained 1,611 direction/service-type records,
 
 These counts describe the earlier live-integration baseline. Screenshot capture synchronised again; its newer catalogue counts are recorded in `screenshots.json`. Differences between the two upstream snapshots are preserved rather than replaced with fixed values.
 
-Verification layers are separate: source/types, compilation, real HTTP, browser, official IDE, physical device and store review. The preceding live-data baseline passed 22 Backend tests, 7 Mobile tests and 14 real API/browser checks. See `validation.json` for checks of these standalone checkouts. Mini-program IDE acceptance, physical-device location/sharing/notifications, store publication and production hosting remain outstanding. Android embeds the Taro renderer; this is not a newly deployed H5 demo.
+Verification layers are separate: source/types, compilation, real HTTP, browser, official IDE, physical device and store review. The preceding live-data baseline passed 22 Backend tests, 7 Mobile tests and 14 real API/browser checks. See `validation.json` for checks of these standalone checkouts. Mini-program IDE acceptance, physical-device location/sharing/notifications, store publication remain outstanding. Production Backend hosting and HTTPS checks are recorded in the current handover. Android embeds the Taro renderer; this is not a newly deployed H5 demo.
 
 ## 官方资料 / Official references
 

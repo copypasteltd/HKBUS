@@ -1,0 +1,13 @@
+
+> @hkbusgo/admin@1.0.0 build
+> tsc -b && vite build
+
+vite v6.4.4 building for production...
+transforming...
+✓ 1585 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.61 kB │ gzip:  0.40 kB
+dist/assets/index-CDaJk-j6.css   20.77 kB │ gzip:  5.14 kB
+dist/assets/index-hyNJqHtF.js   208.99 kB │ gzip: 64.45 kB
+✓ built in 11.19s

@@ -1,0 +1,1 @@
+{"checkedAt": "2026-10-17T06:57:52.110209+00:00", "status": 502, "contentType": "application/json; charset=utf-8", "body": {"error": {"code": "UPSTREAM_HTTP", "message": "資料供應商暫時不可用", "requestId": "db07b1c6-47fb-45d0-9c6b-72ced4750e00", "retryable": true}}}
