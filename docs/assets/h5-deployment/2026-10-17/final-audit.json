@@ -1,0 +1,76 @@
+{
+  "checkedAt": "2026-10-17T11:51:46.964763+00:00",
+  "website": {
+    "url": "https://hkbus.copypaste.hk/",
+    "root": "/www/wwwroot/hkbus.copypaste.hk",
+    "current": "/www/wwwroot/hkbus.copypaste.hk/.hkbusgo/releases/20261017T114748Z-60f6bf69909d",
+    "owner": {
+      "project": "HKBusGo H5",
+      "releaseId": "20261017T114748Z-60f6bf69909d",
+      "sourceCommit": "60f6bf69909d97eda762931db52751567acf31a1",
+      "updatedAt": "2026-10-17T11:48:08.376761+00:00"
+    },
+    "initialRootIndexUnchanged": true
+  },
+  "backendRelease": "/www/wwwroot/hkbusgo/releases/20261017T112442Z-eabd6a04f0f8",
+  "service": [
+    "ExecMainStatus=0",
+    "ActiveState=active",
+    "SubState=running",
+    "UnitFileState=enabled"
+  ],
+  "database": {
+    "integrity": "ok",
+    "foreignKeyViolations": 0,
+    "counts": {
+      "routes": 1611,
+      "stops": 6775,
+      "route_stops": 36377,
+      "profiles": 2,
+      "admins": 1
+    }
+  },
+  "publicChecks": [
+    {
+      "name": "home",
+      "path": "/",
+      "status": 200,
+      "sha256": "9bb30ae2e1b7a47a18a1bf0effd222a98b10be595943ef4932b6dbb331cd8e8f",
+      "noStore": true,
+      "noTransform": true
+    },
+    {
+      "name": "entry",
+      "path": "/index.html",
+      "status": 200,
+      "sha256": "9bb30ae2e1b7a47a18a1bf0effd222a98b10be595943ef4932b6dbb331cd8e8f",
+      "noStore": true,
+      "noTransform": true
+    },
+    {
+      "name": "hiddenRelease",
+      "path": "/.hkbusgo/deployment.json",
+      "status": 404
+    },
+    {
+      "name": "missingAsset",
+      "path": "/js/not-a-real-file.js",
+      "status": 404
+    },
+    {
+      "name": "retainedOldChunk",
+      "path": "/js/app.e31a66b4.js",
+      "status": 200
+    },
+    {
+      "url": "https://hkbus-api.copypaste.hk/api/health",
+      "status": 200
+    },
+    {
+      "url": "https://hkbus-api.copypaste.hk/admin/",
+      "status": 200
+    }
+  ],
+  "passed": true,
+  "sshClosed": true
+}
