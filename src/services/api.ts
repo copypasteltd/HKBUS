@@ -37,9 +37,10 @@ export async function ensureProfile():Promise<string>{
   }).finally(()=>{if(profilePromise===promise)profilePromise=null;});profilePromise=promise;return promise;
 }
 export const api={
-  get<T>(path:string,profile=false):Promise<T>{
-    const generation=personalGeneration,key=cacheKey(path,profile)+(profile?':generation:'+generation:'');if(pending.has(key))return pending.get(key) as Promise<T>;
-    const promise=perform<T>(path,'GET',undefined,profile).then(value=>{
+  get<T>(path:string,profile=false,force=false):Promise<T>{
+    const requestPath=force?path+(path.includes('?')?'&':'?')+'force=true':path;
+    const generation=personalGeneration,key=cacheKey(requestPath,profile)+(profile?':generation:'+generation:'');if(pending.has(key))return pending.get(key) as Promise<T>;
+    const promise=perform<T>(requestPath,'GET',undefined,profile).then(value=>{
       if(profile&&generation!==personalGeneration)throw new ApiError('PROFILE_RESET','本機個人資料已清除，請重新載入');
       if(cacheMaxAge(path)>0)storage.set(cacheKey(path,profile),{at:Date.now(),mode:'live',value});
       const entries=keys().filter(x=>x.startsWith(namespace+':cache:'));

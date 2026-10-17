@@ -1,0 +1,11 @@
+{
+  "purpose": "actual public HTTPS browser acceptance from the owned Hong Kong server network",
+  "allowedHost": "hkbus-api.copypaste.hk:443",
+  "tlsValidationDisabled": false,
+  "responsesSubstituted": false,
+  "osNetworkSettingsChanged": false,
+  "listenerClosed": true,
+  "sshClosed": true,
+  "browserExitCode": 1,
+  "passed": false
+}

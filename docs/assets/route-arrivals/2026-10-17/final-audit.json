@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-10-17T11:32:33.496673+00:00",
+  "runtimePath": "/www/wwwroot/hkbusgo/releases/20261017T112442Z-eabd6a04f0f8",
+  "service": [
+    "ExecMainStatus=0",
+    "ActiveState=active",
+    "SubState=running",
+    "UnitFileState=enabled"
+  ],
+  "configuration": {
+    "PORT": "39410",
+    "PROVIDER_MODE": "live",
+    "TDAS_ENABLED": "true",
+    "CORS_ORIGINS": "*"
+  },
+  "database": {
+    "integrity": "ok",
+    "foreignKeyViolations": 0,
+    "counts": {
+      "routes": 1611,
+      "stops": 6775,
+      "route_stops": 36377,
+      "profiles": 2,
+      "admins": 1
+    }
+  },
+  "tdasSmoke": {
+    "provider": "TDAS",
+    "source": "live",
+    "distanceMeters": 3953,
+    "durationSeconds": 360
+  },
+  "adminStatus": 200,
+  "health": {
+    "status": "ok",
+    "version": "1.0.0",
+    "database": "ready",
+    "catalogRoutes": 1611,
+    "catalogSyncedAt": "2026-10-17T09:25:04.478Z",
+    "source": "live",
+    "dataStatus": "healthy",
+    "dataServices": [
+      {
+        "provider": "KMB",
+        "enabled": true,
+        "transport": "direct",
+        "state": "available",
+        "checkedAt": "2026-10-17T11:31:12.618Z",
+        "lastCode": null
+      },
+      {
+        "provider": "TDAS",
+        "enabled": true,
+        "transport": "authenticated-egress",
+        "state": "available",
+        "checkedAt": "2026-10-17T11:32:35.995Z",
+        "lastCode": null
+      }
+    ]
+  },
+  "passed": true,
+  "sshClosed": true
+}
