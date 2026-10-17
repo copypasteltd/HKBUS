@@ -1,0 +1,953 @@
+{
+  "checks": [
+    {
+      "name": "Real 112 outbound full fare matches the official ordinary adult amount",
+      "passed": true,
+      "amountCents": 1220
+    },
+    {
+      "name": "Expanded station action updates the fare panel to its exact boarding sequence",
+      "passed": true
+    },
+    {
+      "name": "Stop-specific deep link uses the correct discounted boarding section, without inventing a discount",
+      "passed": true,
+      "boardSequence": 10,
+      "amountCents": 770
+    },
+    {
+      "name": "Both pickers request exact current stop IDs and sequences",
+      "passed": true,
+      "board": 11,
+      "alight": 22,
+      "amountCents": 770
+    },
+    {
+      "name": "Ordinary adult fare, source version, missing day condition and exclusions are visible",
+      "passed": true
+    },
+    {
+      "name": "Changing stops offline clears the old selected quote and exposes recovery",
+      "passed": true
+    },
+    {
+      "name": "Reconnect or visible retry obtains a new real quote",
+      "passed": true
+    },
+    {
+      "name": "Selecting the terminus explains the invalid segment without showing a zero fare",
+      "passed": true
+    },
+    {
+      "name": "An unmatched real service is marked unverified with no fabricated zero",
+      "passed": true,
+      "routeId": "KMB:A43:O:1",
+      "reason": "ROUTE_UNMATCHED"
+    },
+    {
+      "name": "Real transfer journey cards show exact verified sums or explicit unknown totals",
+      "passed": true,
+      "candidates": 1,
+      "states": [
+        "complete"
+      ]
+    },
+    {
+      "name": "Real unverified-service journey cards show exact verified sums or explicit unknown totals",
+      "passed": true,
+      "candidates": 4,
+      "states": [
+        "unavailable",
+        "unavailable",
+        "unavailable",
+        "unavailable"
+      ]
+    },
+    {
+      "name": "Inbound and outbound quote identities remain separate",
+      "passed": true
+    },
+    {
+      "name": "Fare selectors and conditions fit narrow and landscape English large text",
+      "passed": true
+    }
+  ],
+  "requests": [
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=1&alightSequence=23&boardStopId=BFC406EB675EF22E&alightStopId=44AF4BBD0B0BB3A0",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=10&alightSequence=23&boardStopId=153D32217234A0F0&alightStopId=44AF4BBD0B0BB3A0",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=10&alightSequence=23&boardStopId=153D32217234A0F0&alightStopId=44AF4BBD0B0BB3A0",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=11&alightSequence=23&boardStopId=893BBB901005C3E6&alightStopId=44AF4BBD0B0BB3A0",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=11&alightSequence=22&boardStopId=893BBB901005C3E6&alightStopId=F54744E6F5CDBC1A",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=12&alightSequence=22&boardStopId=BBE77B90CE43AEFA&alightStopId=F54744E6F5CDBC1A",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=12&alightSequence=22&boardStopId=BBE77B90CE43AEFA&alightStopId=F54744E6F5CDBC1A",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3AA43%3AO%3A1",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3AA43%3AO%3A1/arrivals",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3AA43%3AO%3A1/fare",
+      "query": "?boardSequence=1&alightSequence=22&boardStopId=B63202433AD89E92&alightStopId=21466046C6868AA7",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E/arrivals",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/stops/9096776C02070F8E/arrivals",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/stops",
+      "query": "?pageSize=20",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/journeys",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/stops/B63202433AD89E92/arrivals",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/stops/21466046C6868AA7/arrivals",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/stops",
+      "query": "?pageSize=20",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/journeys",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AI%3A1",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AI%3A1/arrivals",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AI%3A1/fare",
+      "query": "?boardSequence=1&alightSequence=24&boardStopId=44AF4BBD0B0BB3A0&alightStopId=BFC406EB675EF22E",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=10&alightSequence=23&boardStopId=153D32217234A0F0&alightStopId=44AF4BBD0B0BB3A0",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=10&alightSequence=23&boardStopId=153D32217234A0F0&alightStopId=44AF4BBD0B0BB3A0",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "authorization": false
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=10&alightSequence=23&boardStopId=153D32217234A0F0&alightStopId=44AF4BBD0B0BB3A0",
+      "authorization": false
+    }
+  ],
+  "quotes": [
+    {
+      "state": "available",
+      "currency": "HKD",
+      "amountCents": 1220,
+      "options": [
+        {
+          "dayCode": null,
+          "amountCents": 1220
+        }
+      ],
+      "reason": null,
+      "basis": "adult-single-undiscounted",
+      "routeId": "KMB:112:O:1",
+      "boardSequence": 1,
+      "alightSequence": 23,
+      "boardStopId": "BFC406EB675EF22E",
+      "alightStopId": "44AF4BBD0B0BB3A0",
+      "source": {
+        "provider": "TD",
+        "source": "live",
+        "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+        "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+        "dataDate": "2026-10-14",
+        "syncedAt": "2026-10-17T20:20:12.859Z",
+        "files": [
+          {
+            "name": "ROUTE_BUS.xml",
+            "bytes": 1656773,
+            "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+          },
+          {
+            "name": "STOP_BUS.xml",
+            "bytes": 702333,
+            "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "RSTOP_BUS.xml",
+            "bytes": 20693789,
+            "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "FARE_BUS.xml",
+            "bytes": 149238184,
+            "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+          }
+        ],
+        "fareRows": 452071,
+        "directions": 1503
+      },
+      "checkedAt": "2026-10-17T20:31:08.951Z",
+      "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=112&lang=zh-hk"
+    },
+    {
+      "state": "available",
+      "currency": "HKD",
+      "amountCents": 770,
+      "options": [
+        {
+          "dayCode": null,
+          "amountCents": 770
+        }
+      ],
+      "reason": null,
+      "basis": "adult-single-undiscounted",
+      "routeId": "KMB:112:O:1",
+      "boardSequence": 10,
+      "alightSequence": 23,
+      "boardStopId": "153D32217234A0F0",
+      "alightStopId": "44AF4BBD0B0BB3A0",
+      "source": {
+        "provider": "TD",
+        "source": "live",
+        "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+        "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+        "dataDate": "2026-10-14",
+        "syncedAt": "2026-10-17T20:20:12.859Z",
+        "files": [
+          {
+            "name": "ROUTE_BUS.xml",
+            "bytes": 1656773,
+            "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+          },
+          {
+            "name": "STOP_BUS.xml",
+            "bytes": 702333,
+            "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "RSTOP_BUS.xml",
+            "bytes": 20693789,
+            "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "FARE_BUS.xml",
+            "bytes": 149238184,
+            "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+          }
+        ],
+        "fareRows": 452071,
+        "directions": 1503
+      },
+      "checkedAt": "2026-10-17T20:31:08.951Z",
+      "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=112&lang=zh-hk"
+    },
+    {
+      "state": "available",
+      "currency": "HKD",
+      "amountCents": 770,
+      "options": [
+        {
+          "dayCode": null,
+          "amountCents": 770
+        }
+      ],
+      "reason": null,
+      "basis": "adult-single-undiscounted",
+      "routeId": "KMB:112:O:1",
+      "boardSequence": 10,
+      "alightSequence": 23,
+      "boardStopId": "153D32217234A0F0",
+      "alightStopId": "44AF4BBD0B0BB3A0",
+      "source": {
+        "provider": "TD",
+        "source": "live",
+        "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+        "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+        "dataDate": "2026-10-14",
+        "syncedAt": "2026-10-17T20:20:12.859Z",
+        "files": [
+          {
+            "name": "ROUTE_BUS.xml",
+            "bytes": 1656773,
+            "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+          },
+          {
+            "name": "STOP_BUS.xml",
+            "bytes": 702333,
+            "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "RSTOP_BUS.xml",
+            "bytes": 20693789,
+            "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "FARE_BUS.xml",
+            "bytes": 149238184,
+            "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+          }
+        ],
+        "fareRows": 452071,
+        "directions": 1503
+      },
+      "checkedAt": "2026-10-17T20:31:08.951Z",
+      "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=112&lang=zh-hk"
+    },
+    {
+      "state": "available",
+      "currency": "HKD",
+      "amountCents": 770,
+      "options": [
+        {
+          "dayCode": null,
+          "amountCents": 770
+        }
+      ],
+      "reason": null,
+      "basis": "adult-single-undiscounted",
+      "routeId": "KMB:112:O:1",
+      "boardSequence": 11,
+      "alightSequence": 23,
+      "boardStopId": "893BBB901005C3E6",
+      "alightStopId": "44AF4BBD0B0BB3A0",
+      "source": {
+        "provider": "TD",
+        "source": "live",
+        "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+        "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+        "dataDate": "2026-10-14",
+        "syncedAt": "2026-10-17T20:20:12.859Z",
+        "files": [
+          {
+            "name": "ROUTE_BUS.xml",
+            "bytes": 1656773,
+            "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+          },
+          {
+            "name": "STOP_BUS.xml",
+            "bytes": 702333,
+            "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "RSTOP_BUS.xml",
+            "bytes": 20693789,
+            "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "FARE_BUS.xml",
+            "bytes": 149238184,
+            "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+          }
+        ],
+        "fareRows": 452071,
+        "directions": 1503
+      },
+      "checkedAt": "2026-10-17T20:31:08.951Z",
+      "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=112&lang=zh-hk"
+    },
+    {
+      "state": "available",
+      "currency": "HKD",
+      "amountCents": 770,
+      "options": [
+        {
+          "dayCode": null,
+          "amountCents": 770
+        }
+      ],
+      "reason": null,
+      "basis": "adult-single-undiscounted",
+      "routeId": "KMB:112:O:1",
+      "boardSequence": 11,
+      "alightSequence": 22,
+      "boardStopId": "893BBB901005C3E6",
+      "alightStopId": "F54744E6F5CDBC1A",
+      "source": {
+        "provider": "TD",
+        "source": "live",
+        "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+        "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+        "dataDate": "2026-10-14",
+        "syncedAt": "2026-10-17T20:20:12.859Z",
+        "files": [
+          {
+            "name": "ROUTE_BUS.xml",
+            "bytes": 1656773,
+            "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+          },
+          {
+            "name": "STOP_BUS.xml",
+            "bytes": 702333,
+            "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "RSTOP_BUS.xml",
+            "bytes": 20693789,
+            "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "FARE_BUS.xml",
+            "bytes": 149238184,
+            "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+          }
+        ],
+        "fareRows": 452071,
+        "directions": 1503
+      },
+      "checkedAt": "2026-10-17T20:31:08.951Z",
+      "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=112&lang=zh-hk"
+    },
+    {
+      "state": "available",
+      "currency": "HKD",
+      "amountCents": 770,
+      "options": [
+        {
+          "dayCode": null,
+          "amountCents": 770
+        }
+      ],
+      "reason": null,
+      "basis": "adult-single-undiscounted",
+      "routeId": "KMB:112:O:1",
+      "boardSequence": 12,
+      "alightSequence": 22,
+      "boardStopId": "BBE77B90CE43AEFA",
+      "alightStopId": "F54744E6F5CDBC1A",
+      "source": {
+        "provider": "TD",
+        "source": "live",
+        "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+        "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+        "dataDate": "2026-10-14",
+        "syncedAt": "2026-10-17T20:20:12.859Z",
+        "files": [
+          {
+            "name": "ROUTE_BUS.xml",
+            "bytes": 1656773,
+            "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+          },
+          {
+            "name": "STOP_BUS.xml",
+            "bytes": 702333,
+            "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "RSTOP_BUS.xml",
+            "bytes": 20693789,
+            "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "FARE_BUS.xml",
+            "bytes": 149238184,
+            "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+          }
+        ],
+        "fareRows": 452071,
+        "directions": 1503
+      },
+      "checkedAt": "2026-10-17T20:31:08.951Z",
+      "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=112&lang=zh-hk"
+    },
+    {
+      "state": "available",
+      "currency": "HKD",
+      "amountCents": 1220,
+      "options": [
+        {
+          "dayCode": null,
+          "amountCents": 1220
+        }
+      ],
+      "reason": null,
+      "basis": "adult-single-undiscounted",
+      "routeId": "KMB:112:I:1",
+      "boardSequence": 1,
+      "alightSequence": 24,
+      "boardStopId": "44AF4BBD0B0BB3A0",
+      "alightStopId": "BFC406EB675EF22E",
+      "source": {
+        "provider": "TD",
+        "source": "live",
+        "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+        "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+        "dataDate": "2026-10-14",
+        "syncedAt": "2026-10-17T20:20:12.859Z",
+        "files": [
+          {
+            "name": "ROUTE_BUS.xml",
+            "bytes": 1656773,
+            "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+          },
+          {
+            "name": "STOP_BUS.xml",
+            "bytes": 702333,
+            "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "RSTOP_BUS.xml",
+            "bytes": 20693789,
+            "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "FARE_BUS.xml",
+            "bytes": 149238184,
+            "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+          }
+        ],
+        "fareRows": 452071,
+        "directions": 1503
+      },
+      "checkedAt": "2026-10-17T20:31:08.951Z",
+      "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=112&lang=zh-hk"
+    },
+    {
+      "state": "available",
+      "currency": "HKD",
+      "amountCents": 770,
+      "options": [
+        {
+          "dayCode": null,
+          "amountCents": 770
+        }
+      ],
+      "reason": null,
+      "basis": "adult-single-undiscounted",
+      "routeId": "KMB:112:O:1",
+      "boardSequence": 10,
+      "alightSequence": 23,
+      "boardStopId": "153D32217234A0F0",
+      "alightStopId": "44AF4BBD0B0BB3A0",
+      "source": {
+        "provider": "TD",
+        "source": "live",
+        "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+        "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+        "dataDate": "2026-10-14",
+        "syncedAt": "2026-10-17T20:20:12.859Z",
+        "files": [
+          {
+            "name": "ROUTE_BUS.xml",
+            "bytes": 1656773,
+            "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+          },
+          {
+            "name": "STOP_BUS.xml",
+            "bytes": 702333,
+            "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "RSTOP_BUS.xml",
+            "bytes": 20693789,
+            "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "FARE_BUS.xml",
+            "bytes": 149238184,
+            "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+          }
+        ],
+        "fareRows": 452071,
+        "directions": 1503
+      },
+      "checkedAt": "2026-10-17T20:31:08.951Z",
+      "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=112&lang=zh-hk"
+    },
+    {
+      "state": "available",
+      "currency": "HKD",
+      "amountCents": 770,
+      "options": [
+        {
+          "dayCode": null,
+          "amountCents": 770
+        }
+      ],
+      "reason": null,
+      "basis": "adult-single-undiscounted",
+      "routeId": "KMB:112:O:1",
+      "boardSequence": 10,
+      "alightSequence": 23,
+      "boardStopId": "153D32217234A0F0",
+      "alightStopId": "44AF4BBD0B0BB3A0",
+      "source": {
+        "provider": "TD",
+        "source": "live",
+        "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+        "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+        "dataDate": "2026-10-14",
+        "syncedAt": "2026-10-17T20:20:12.859Z",
+        "files": [
+          {
+            "name": "ROUTE_BUS.xml",
+            "bytes": 1656773,
+            "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+          },
+          {
+            "name": "STOP_BUS.xml",
+            "bytes": 702333,
+            "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "RSTOP_BUS.xml",
+            "bytes": 20693789,
+            "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "FARE_BUS.xml",
+            "bytes": 149238184,
+            "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+          }
+        ],
+        "fareRows": 452071,
+        "directions": 1503
+      },
+      "checkedAt": "2026-10-17T20:31:08.951Z",
+      "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=112&lang=zh-hk"
+    },
+    {
+      "state": "available",
+      "currency": "HKD",
+      "amountCents": 770,
+      "options": [
+        {
+          "dayCode": null,
+          "amountCents": 770
+        }
+      ],
+      "reason": null,
+      "basis": "adult-single-undiscounted",
+      "routeId": "KMB:112:O:1",
+      "boardSequence": 10,
+      "alightSequence": 23,
+      "boardStopId": "153D32217234A0F0",
+      "alightStopId": "44AF4BBD0B0BB3A0",
+      "source": {
+        "provider": "TD",
+        "source": "live",
+        "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_14-routes-fares-xml",
+        "specificationUrl": "https://static.data.gov.hk/td/routes-fares-xml/dataspec/ptroutefare_xml_dataspec.pdf",
+        "dataDate": "2026-10-14",
+        "syncedAt": "2026-10-17T20:20:12.859Z",
+        "files": [
+          {
+            "name": "ROUTE_BUS.xml",
+            "bytes": 1656773,
+            "sha256": "67e2c59e0ef7d8f0c6eda58829d0e82635a9817f89fd68115227ffb826053c98",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:39 GMT"
+          },
+          {
+            "name": "STOP_BUS.xml",
+            "bytes": 702333,
+            "sha256": "ef30512c2fce21805272802e4f0d8a40378a8d7a06eed1f2656743400cf3d981",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "RSTOP_BUS.xml",
+            "bytes": 20693789,
+            "sha256": "96a759f39466d34593a5a9b55bdc6f9de1015f17cb9665db9fdc20952970cd7b",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:41 GMT"
+          },
+          {
+            "name": "FARE_BUS.xml",
+            "bytes": 149238184,
+            "sha256": "397b0ae8124dc10e02794cf6e2c6a3e83d78d6b37503e982d4765fba048ea4f6",
+            "generatedDate": "2026-10-14",
+            "lastModified": "Wed, 14 Oct 2026 13:03:38 GMT"
+          }
+        ],
+        "fareRows": 452071,
+        "directions": 1503
+      },
+      "checkedAt": "2026-10-17T20:31:08.951Z",
+      "officialUrl": "https://search.kmb.hk/KMBWebSite/?action=routesearch&route=112&lang=zh-hk"
+    }
+  ],
+  "screenshots": [
+    "fare-route-full.png",
+    "fare-route-section.png",
+    "fare-source-conditions.png",
+    "fare-offline.png",
+    "fare-terminal.png",
+    "fare-unverified.png",
+    "fare-journey-transfer.png",
+    "fare-journey-unverified-service.png",
+    "fare-inbound.png",
+    "fare-320-en-large.png",
+    "fare-430-en-large.png",
+    "fare-844-en-large.png"
+  ],
+  "pageErrors": [],
+  "apiResponsesSubstituted": false,
+  "browserClosed": true,
+  "passed": true,
+  "finishedAt": "2026-10-17T20:57:24.425Z"
+}

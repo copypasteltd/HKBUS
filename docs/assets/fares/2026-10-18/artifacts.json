@@ -1,0 +1,88 @@
+{
+  "createdAt": "2026-10-17T21:01:11.152666+00:00",
+  "apiBase": "https://hkbus-api.copypaste.hk/api/",
+  "targets": {
+    "wechat": {
+      "canonicalApiEmbedded": true,
+      "routeEtaUiCompiled": true,
+      "localPreferencesCompiled": true,
+      "files": 269,
+      "pages": 14,
+      "uncompressedBytes": 869473
+    },
+    "alipay": {
+      "canonicalApiEmbedded": true,
+      "routeEtaUiCompiled": true,
+      "localPreferencesCompiled": true,
+      "files": 266,
+      "pages": 14,
+      "uncompressedBytes": 816883
+    },
+    "douyin": {
+      "canonicalApiEmbedded": true,
+      "routeEtaUiCompiled": true,
+      "localPreferencesCompiled": true,
+      "files": 266,
+      "pages": 14,
+      "uncompressedBytes": 811303
+    },
+    "h5": {
+      "canonicalApiEmbedded": true,
+      "routeEtaUiCompiled": true,
+      "localPreferencesCompiled": true,
+      "files": 245
+    },
+    "android": {
+      "rendererFilesVerified": 245,
+      "signatureVerified": true,
+      "signing": "Android Debug",
+      "packageId": "hk.hkbusgo.app",
+      "versionName": "1.0.0",
+      "minSdk": 24,
+      "targetSdk": 36,
+      "iosBuilt": false
+    },
+    "admin": {
+      "files": 6,
+      "officialFareConsoleCompiled": true,
+      "sameOriginApi": true
+    }
+  },
+  "artifacts": [
+    {
+      "name": "hkbusgo-wechat-dist.zip",
+      "bytes": 460277,
+      "sha256": "7554074c48014763792b3929f10c61aaa2b06d4ffd6794a514ad50228f4fae8a"
+    },
+    {
+      "name": "hkbusgo-alipay-dist.zip",
+      "bytes": 456928,
+      "sha256": "9f22a55f1b02c35066fc8b0177a51f389076631b401f4cb33bdf9999259be538"
+    },
+    {
+      "name": "hkbusgo-douyin-dist.zip",
+      "bytes": 455607,
+      "sha256": "022b7f7a067c2ddc4122e60a400415321940b86bba4cd1cf2218e6410d5fa7a7"
+    },
+    {
+      "name": "hkbusgo-h5-dist.zip",
+      "bytes": 925804,
+      "sha256": "8999e9484a4e3d75bfab020d8d25ab2743aef4157de36e97a4612aff27bc9ddc"
+    },
+    {
+      "name": "hkbusgo-admin-dist.zip",
+      "bytes": 89687,
+      "sha256": "eab70859a8316752570c0538008c7a2f88c4c7c2c42a901a5259635630715a7f"
+    },
+    {
+      "name": "hkbusgo-android-debug.apk",
+      "bytes": 6338780,
+      "sha256": "7a21aedd71147e586afb6b041e4b514d741a24793132a70be4b12c6e5369b24a"
+    }
+  ],
+  "passed": true,
+  "officialMiniProgramIDE": false,
+  "physicalDevice": false,
+  "storeSubmission": false,
+  "demoTouched": false
+}
