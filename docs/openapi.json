@@ -22,7 +22,7 @@
   "paths": {
     "/api/health": {
       "get": {
-        "summary": "服務健康檢查",
+        "summary": "服務健康與最近五分鐘資料來源結果",
         "tags": [
           "Transit"
         ],
@@ -99,6 +99,43 @@
           "Transit"
         ],
         "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/routes/{id}/arrivals": {
+      "get": {
+        "summary": "整條路線沿途到站、方向、服務類型與站序",
+        "tags": [
+          "Transit"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "enum": [
+                "true",
+                "false"
+              ],
+              "default": "false"
+            },
+            "in": "query",
+            "name": "force",
+            "required": false
+          },
           {
             "schema": {
               "type": "string",

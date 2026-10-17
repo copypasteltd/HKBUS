@@ -1,0 +1,74 @@
+{
+  "createdAt": "2026-10-17T11:24:15.894092+00:00",
+  "apiBase": "https://hkbus-api.copypaste.hk/api/",
+  "targets": {
+    "wechat": {
+      "canonicalApiEmbedded": true,
+      "routeEtaUiCompiled": true,
+      "files": 269,
+      "pages": 14,
+      "uncompressedBytes": 759635
+    },
+    "alipay": {
+      "canonicalApiEmbedded": true,
+      "routeEtaUiCompiled": true,
+      "files": 266,
+      "pages": 14,
+      "uncompressedBytes": 707043
+    },
+    "douyin": {
+      "canonicalApiEmbedded": true,
+      "routeEtaUiCompiled": true,
+      "files": 266,
+      "pages": 14,
+      "uncompressedBytes": 701463
+    },
+    "h5": {
+      "canonicalApiEmbedded": true,
+      "routeEtaUiCompiled": true,
+      "files": 245
+    },
+    "android": {
+      "rendererFilesVerified": 245,
+      "signatureVerified": true,
+      "signing": "Android Debug",
+      "packageId": "hk.hkbusgo.app",
+      "versionName": "1.0.0",
+      "minSdk": 24,
+      "targetSdk": 36,
+      "iosBuilt": false
+    }
+  },
+  "artifacts": [
+    {
+      "name": "hkbusgo-wechat-dist.zip",
+      "bytes": 435739,
+      "sha256": "c7639528115a2231187fa224fc4f9d7354752b8fd4b7f5ab486d3f44b2678661"
+    },
+    {
+      "name": "hkbusgo-alipay-dist.zip",
+      "bytes": 432398,
+      "sha256": "a0805d99bea4638450f315efee38d5de1fa6da9ff1fc37170dff3c1d7ebc41f5"
+    },
+    {
+      "name": "hkbusgo-douyin-dist.zip",
+      "bytes": 431074,
+      "sha256": "69b284944914032fabd1c626f4388b3b432a23d6dcfa1e154de9122b08bdbb81"
+    },
+    {
+      "name": "hkbusgo-h5-dist.zip",
+      "bytes": 781950,
+      "sha256": "4c83bde50a10a914e95fb5ff0be80768f4cb64d78545ad615db5a3af50849355"
+    },
+    {
+      "name": "hkbusgo-android-debug.apk",
+      "bytes": 6075676,
+      "sha256": "3143bd188fb17db4274b9c3d43d93f8145cbf50fc2d267e49dde95ff31a6ca14"
+    }
+  ],
+  "passed": true,
+  "officialMiniProgramIDE": false,
+  "physicalDevice": false,
+  "storeSubmission": false,
+  "demoTouched": false
+}
