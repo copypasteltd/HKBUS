@@ -1,7 +1,7 @@
 const fs=require('node:fs');const path=require('node:path');const{spawnSync}=require('node:child_process');
 const root=path.resolve(__dirname,'..');process.chdir(root);
 const release=process.argv.includes('--release');
-const base=process.env.TARO_APP_API_BASE||'http://127.0.0.1:4100/api';
+const base=(process.env.TARO_APP_API_BASE||'https://hkbus-api.copypaste.hk/api').replace(/\/+$/,'');
 if(release&&(!/^https:\/\//.test(base)||/example\.(com|invalid)|localhost|127\.0\.0\.1/.test(base)))throw new Error('Release requires a reachable HTTPS TARO_APP_API_BASE.');
 if(release&&['HKBUS_KEYSTORE','HKBUS_STORE_PASSWORD','HKBUS_KEY_ALIAS','HKBUS_KEY_PASSWORD'].some(key=>!process.env[key]))throw new Error('Release requires HKBUS_KEYSTORE, HKBUS_STORE_PASSWORD, HKBUS_KEY_ALIAS and HKBUS_KEY_PASSWORD.');
 const sdk=process.env.ANDROID_HOME||process.env.ANDROID_SDK_ROOT;

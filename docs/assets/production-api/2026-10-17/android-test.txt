@@ -1,0 +1,54 @@
+
+> @hkbusgo/android@1.0.0 test
+> node --experimental-strip-types --test test/*.test.mjs
+
+TAP version 13
+# Subtest: legacy storage is removed while reading preferences are retained
+ok 1 - legacy storage is removed while reading preferences are retained
+  ---
+  duration_ms: 82.5736
+  ...
+# Subtest: transport rejects fixture envelopes and nested sample entities without caching them
+ok 2 - transport rejects fixture envelopes and nested sample entities without caching them
+  ---
+  duration_ms: 37.8807
+  ...
+# Subtest: deleting local personal data invalidates in-flight bookmark responses and keeps a new identity separate
+ok 3 - deleting local personal data invalidates in-flight bookmark responses and keeps a new identity separate
+  ---
+  duration_ms: 26.5494
+  ...
+# Subtest: an in-flight device session cannot restore credentials after local data deletion
+ok 4 - an in-flight device session cannot restore credentials after local data deletion
+  ---
+  duration_ms: 25.9547
+  ...
+# (node:19412) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# (node:19412) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/dev/copypasted/HKBUS/implementation/android/src/services/data-policy.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to D:\\dev\\copypasted\\HKBUS\\implementation\\android\\package.json.
+# Subtest: fixture responses are rejected even when nested in an otherwise live payload
+ok 5 - fixture responses are rejected even when nested in an otherwise live payload
+  ---
+  duration_ms: 0.6078
+  ...
+# Subtest: cache isolates API hosts and rejects legacy, fixture, expired and future entries
+ok 6 - cache isolates API hosts and rejects legacy, fixture, expired and future entries
+  ---
+  duration_ms: 0.6374
+  ...
+# Subtest: withdrawable notices, reminders and notifications never use offline cache
+ok 7 - withdrawable notices, reminders and notifications never use offline cache
+  ---
+  duration_ms: 0.2834
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1238.0949

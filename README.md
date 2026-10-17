@@ -1,5 +1,6 @@
 # 港巴通 HKBusGo — Android 应用 / Android App
 
+**正式 API / Finalized API:** `https://hkbus-api.copypaste.hk/api/` · [2026-10-17 编译与交付 / Build and delivery](docs/PRODUCTION-API.md)
 ![HKBusGo Android App](docs/assets/banner-android.png)
 
 [中文说明](#中文说明) · [English](#english) · [完整图册 / Gallery](docs/GALLERY.md) · [数据与验证 / Data & validation](docs/DATA-AND-VALIDATION.md)
@@ -48,12 +49,12 @@ cd hkbusgo-android
 npm ci
 npm run typecheck
 npm test
-# 本机 Backend 可用时可先使用默认地址；网络包请设置实际 HTTPS API。
-$env:TARO_APP_API_BASE='https://你的实际后端域名/api'
+# 默认已连接正式 HTTPS API；可在构建前显式覆盖。
+$env:TARO_APP_API_BASE='https://hkbus-api.copypaste.hk/api'
 npm run build
 ```
 
-要求 Node.js 22.14+、npm 10 与原生 Windows 工具。构建产物：`android/app/build/outputs/apk/debug/app-debug.apk`。`TARO_APP_API_BASE` 在**构建前**设置，修改后重新编译；`.env.example` 是配置参考，不包含真实域名或凭证。先从 Backend 分支启动并同步 KMB 主数据。
+要求 Node.js 22.14+、npm 10 与原生 Windows 工具。构建产物：`android/app/build/outputs/apk/debug/app-debug.apk`。`TARO_APP_API_BASE` 在**构建前**设置，修改后重新编译；默认地址及 `.env.example` 均使用已定稿的正式 API，不包含凭证。当前正式后端已同步真实 KMB/LWB 主数据。
 
 ### Android 构建与签名
 
@@ -67,7 +68,7 @@ adb reverse tcp:4100 tcp:4100
 adb install -r android/app/build/outputs/apk/debug/app-debug.apk
 ```
 
-USB `adb reverse` 只供连接本机 Backend 的真机调试；正式连接应在构建前设置 HTTPS `TARO_APP_API_BASE`。Backend CORS 必须包含 Capacitor 的 `https://localhost`。原生定位、系统分享、前台提醒的本地通知、生命周期通过 Capacitor 插件实现；不保证关闭 App 后后台推送。
+本次 APK 默认连接正式 API，无需 adb reverse。本机调试须先以 `TARO_APP_API_BASE=http://127.0.0.1:4100/api` 重新编译；USB `adb reverse` 只供连接本机 Backend 的真机调试；正式连接应在构建前设置 HTTPS `TARO_APP_API_BASE`。Backend CORS 必须包含 Capacitor 的 `https://localhost`。原生定位、系统分享、前台提醒的本地通知、生命周期通过 Capacitor 插件实现；不保证关闭 App 后后台推送。
 
 发行 APK：设置 `TARO_APP_API_BASE` 和 `HKBUS_KEYSTORE`、`HKBUS_STORE_PASSWORD`、`HKBUS_KEY_ALIAS`、`HKBUS_KEY_PASSWORD` 后执行 `npm run build -- --release`。正式签名由发行者提供，不上传 keystore。`android/local.properties` 由脚本根据 SDK 路径生成并忽略。
 
@@ -95,7 +96,7 @@ USB `adb reverse` 只供连接本机 Backend 的真机调试；正式连接应�
 
 只接受 live envelope；拒绝 fixture 内容，使用按 API 和匿名身份隔离的缓存。目录 24h、首页/ETA 180s；离线标注旧结果，通告/通知/提醒不离线复用。删除时在途个人响应不能恢复旧资料。详见 [完整数据与验证规则](docs/DATA-AND-VALIDATION.md)。
 
-检查结果见 [本分支验证](docs/validation.json)。源码/类型、编译、实际 API、浏览器、官方 IDE、真机和商店审核分开记录。暂无已验收的公网后端、官方 IDE、真机或商店版本。
+检查结果见 [本分支验证](docs/validation.json)。源码/类型、编译、实际 API、浏览器、官方 IDE、真机和商店审核分开记录。正式 HTTPS API 与本次编译已实测；官方 IDE、真机和商店发行仍须独立验收。
 
 | 现象 | 排查 |
 |---|---|
@@ -131,13 +132,13 @@ The images above and the [complete gallery](docs/GALLERY.md) show the actual Tar
 
 ### Clone and build
 
-Clone only branch `android` with the PowerShell commands above, run `npm ci`, `npm run typecheck` and `npm test`, then `npm run build`. Use Node.js 22.14+, npm 10 and native Windows tooling. Before building a network-capable package, set `$env:TARO_APP_API_BASE` to your actual HTTPS Backend `/api` URL. Changing the endpoint requires rebuilding. `.env.example` is a reference, not a deployed endpoint. Start and synchronise the Backend first. Output: `android/app/build/outputs/apk/debug/app-debug.apk`.
+Clone only branch `android` with the PowerShell commands above, run `npm ci`, `npm run typecheck` and `npm test`, then `npm run build`. Use Node.js 22.14+, npm 10 and native Windows tooling. The default and `.env.example` now use the finalized `https://hkbus-api.copypaste.hk/api` endpoint. You may override `TARO_APP_API_BASE` before building; endpoint changes require rebuilding. The production Backend already holds the real official catalogue. Output: `android/app/build/outputs/apk/debug/app-debug.apk`.
 
 ### Android toolchain and release
 
 Use a native JDK 21, Android SDK/build tools 36, `JAVA_HOME` and `ANDROID_HOME`. Application ID: `hk.hkbusgo.app`; min SDK 24; target/compile SDK 36. `npm run build` rebuilds the Taro renderer, synchronises Capacitor and runs Gradle without an emulator.
 
-For a USB-connected phone, `adb reverse tcp:4100 tcp:4100` forwards the local Backend; install with `adb install -r android/app/build/outputs/apk/debug/app-debug.apk`. For a network build, set an actual HTTPS `TARO_APP_API_BASE` first. Backend CORS must permit `https://localhost` for Capacitor.
+The delivered APK uses production HTTPS and needs no adb reverse. To debug a local Backend, first rebuild with `TARO_APP_API_BASE=http://127.0.0.1:4100/api`; for a USB-connected phone, `adb reverse tcp:4100 tcp:4100` forwards that Backend; install with `adb install -r android/app/build/outputs/apk/debug/app-debug.apk`. The default network endpoint is the finalized production HTTPS API. Backend CORS must permit `https://localhost` for Capacitor.
 
 The native integration includes location, system sharing, lifecycle and local notifications for reminders received while open; it does not promise closed-app background push. Release requires `TARO_APP_API_BASE`, `HKBUS_KEYSTORE`, `HKBUS_STORE_PASSWORD`, `HKBUS_KEY_ALIAS` and `HKBUS_KEY_PASSWORD`, followed by `npm run build -- --release`. Keep signing files/passwords outside Git. The build generates ignored `android/local.properties` from the SDK path.
 
@@ -156,4 +157,4 @@ Only live envelopes are accepted; fixture entities are rejected. API endpoints a
 
 If home has no next bus, provide location or save an official stop; the app does not choose an arbitrary location. For network/401 failures, check the endpoint, running Backend, platform domain policy and session, then clear an invalid profile in Settings when needed. Null or stale ETA may reflect the actual service. No notices means no currently published verified content, not that all Hong Kong routes are unaffected. Reminders require an open page, valid subscription, matching direction/threshold and fresh ETA; Android also requires OS permission.
 
-Source/types, build, real API, browser, official IDE, physical-device and store acceptance are separate. Production hosting, native IDE/device acceptance and store publication are not claimed. Each branch contains a full shared-code snapshot, without automatic cross-branch updates. Port common API/logic changes to the other mobile branches and validate each. Local databases, `.env.local`, credentials, signing keys and `node_modules` are excluded from Git.
+Source/types, build, real API, browser, official IDE, physical-device and store acceptance are separate. The production HTTPS API and these builds were checked; native IDE/device acceptance and store publication remain separate. Each branch contains a full shared-code snapshot, without automatic cross-branch updates. Port common API/logic changes to the other mobile branches and validate each. Local databases, `.env.local`, credentials, signing keys and `node_modules` are excluded from Git.
