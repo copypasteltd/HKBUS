@@ -8,15 +8,15 @@
   "projects": [
     {
       "branch": "backend",
-      "commit": "accccc49298d031826f449865c8393c53e92d2d5",
+      "commit": "8daf0bb46bfa391cfc304043e5de035f509639d1",
       "docs": {
-        "localLinks": 177,
+        "localLinks": 197,
         "images": 39,
-        "bilingualReadmeBytes": 16004
+        "bilingualReadmeBytes": 16932
       },
       "git": {
-        "trackedFiles": 338,
-        "historyBlobsChecked": 428,
+        "trackedFiles": 362,
+        "historyBlobsChecked": 445,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -24,15 +24,15 @@
     },
     {
       "branch": "admin",
-      "commit": "a534ec2af47f1644d2527122f46de41cc540ce34",
+      "commit": "6fbf297394793fe4881a89bcf668ba34c97a361c",
       "docs": {
-        "localLinks": 150,
+        "localLinks": 170,
         "images": 39,
-        "bilingualReadmeBytes": 11951
+        "bilingualReadmeBytes": 12879
       },
       "git": {
-        "trackedFiles": 281,
-        "historyBlobsChecked": 295,
+        "trackedFiles": 305,
+        "historyBlobsChecked": 312,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -40,15 +40,15 @@
     },
     {
       "branch": "wechat",
-      "commit": "f4ce19a7b3b95977711af65f4dbff1fb9af98c77",
+      "commit": "cc79c8dc30784604cc76619c0e290c68c15c2775",
       "docs": {
-        "localLinks": 152,
+        "localLinks": 172,
         "images": 39,
-        "bilingualReadmeBytes": 14386
+        "bilingualReadmeBytes": 15623
       },
       "git": {
-        "trackedFiles": 534,
-        "historyBlobsChecked": 525,
+        "trackedFiles": 565,
+        "historyBlobsChecked": 562,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -56,15 +56,15 @@
     },
     {
       "branch": "alipay",
-      "commit": "b57511f14e6f99a4d961b715ef350dc1e086dd37",
+      "commit": "f2c17fb2958cb57c8cd0f20da2d7579ee1c1f6f2",
       "docs": {
-        "localLinks": 152,
+        "localLinks": 172,
         "images": 39,
-        "bilingualReadmeBytes": 14330
+        "bilingualReadmeBytes": 15567
       },
       "git": {
-        "trackedFiles": 533,
-        "historyBlobsChecked": 524,
+        "trackedFiles": 564,
+        "historyBlobsChecked": 561,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -72,15 +72,15 @@
     },
     {
       "branch": "douyin",
-      "commit": "3fe8770cb7b9893e4db33b6cd42a387c9ce5bc20",
+      "commit": "752e5db5b079b3227b5e5dba20b8296e4ecfc353",
       "docs": {
-        "localLinks": 152,
+        "localLinks": 172,
         "images": 39,
-        "bilingualReadmeBytes": 14284
+        "bilingualReadmeBytes": 15521
       },
       "git": {
-        "trackedFiles": 534,
-        "historyBlobsChecked": 525,
+        "trackedFiles": 565,
+        "historyBlobsChecked": 562,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -88,15 +88,15 @@
     },
     {
       "branch": "android",
-      "commit": "0f96ef0be482714e1b957f542640a0cb62de4a7d",
+      "commit": "6e03767ea8e2de20688f3d55a448f6440d03540d",
       "docs": {
-        "localLinks": 160,
+        "localLinks": 180,
         "images": 39,
-        "bilingualReadmeBytes": 16196
+        "bilingualReadmeBytes": 17433
       },
       "git": {
-        "trackedFiles": 612,
-        "historyBlobsChecked": 629,
+        "trackedFiles": 642,
+        "historyBlobsChecked": 669,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -152,8 +152,12 @@
   "routeArrivals": "docs/ROUTE-ARRIVALS.md",
   "routeArrivalRuntimeCommit": "eabd6a04f0f84dbaebe584b2220d630851747fe4",
   "actualH5Url": "https://hkbus.copypaste.hk/",
-  "actualH5Release": "20261017T114748Z-60f6bf69909d",
-  "actualH5BuildCommit": "60f6bf69909d97eda762931db52751567acf31a1",
+  "actualH5Release": "20261017T122707Z-dcef08ea29f3",
+  "actualH5BuildCommit": "dcef08ea29f3d3cf27dceba5e6c3022baeeaa1d0",
   "h5ReleaseReport": "docs/H5-SITE-LIVE.md",
-  "frontendPublicationAuthorized": true
+  "frontendPublicationAuthorized": true,
+  "personalDataStorage": "frontend-on-device",
+  "passengerAccounts": false,
+  "profileRequestsFromUpdatedClients": false,
+  "personalDataReport": "docs/LOCAL-PREFERENCES.md"
 }
