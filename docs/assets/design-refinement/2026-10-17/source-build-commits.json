@@ -1,0 +1,48 @@
+{
+  "clients": [
+    {
+      "project": "android",
+      "commit": "edeca230be17fedc8045e4616988ce8af90c5941",
+      "safety": {
+        "trackedFiles": 647,
+        "historyBlobsChecked": 694,
+        "privateMaterialExcluded": true,
+        "submodules": false,
+        "symlinks": false
+      }
+    },
+    {
+      "project": "wechat",
+      "commit": "b933820aa0a076b1961a2be23314aceb486cdaec",
+      "safety": {
+        "trackedFiles": 570,
+        "historyBlobsChecked": 587,
+        "privateMaterialExcluded": true,
+        "submodules": false,
+        "symlinks": false
+      }
+    },
+    {
+      "project": "alipay",
+      "commit": "667419f6796504212f550f856197e5ad48e96cd9",
+      "safety": {
+        "trackedFiles": 569,
+        "historyBlobsChecked": 586,
+        "privateMaterialExcluded": true,
+        "submodules": false,
+        "symlinks": false
+      }
+    },
+    {
+      "project": "douyin",
+      "commit": "e283992664c0697ee1822180066ad1366eaeef8b",
+      "safety": {
+        "trackedFiles": 570,
+        "historyBlobsChecked": 587,
+        "privateMaterialExcluded": true,
+        "submodules": false,
+        "symlinks": false
+      }
+    }
+  ]
+}
