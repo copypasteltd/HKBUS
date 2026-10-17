@@ -1,0 +1,54 @@
+
+added 105 packages in 3s
+npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn allow-scripts   esbuild@0.28.2 (postinstall: node install.js)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+
+> @hkbusgo/backend@1.0.0 typecheck
+> tsc --noEmit
+
+
+> @hkbusgo/backend@1.0.0 test
+> tsx --test test/*.test.ts
+
+✔ rotating device credentials preserve data, reject replay and revoke deleted profiles (309.66869ms)
+✔ health, config and canonical route identities are available (5.274108ms)
+✔ invalid entities, partial coordinates and identical journey endpoints fail explicitly (5.570144ms)
+✔ profile credentials, bookmark idempotency, aliases and complete ordering (6.780788ms)
+✔ profile ownership is enforced and reminder delivery is idempotent (22.189354ms)
+✔ admin cookie session, CSRF protection and role checks (131.61443ms)
+✔ notice draft/review/approval/scheduled publication, conflicts and rollback (9.697498ms)
+✔ configuration revisions, real content propagation and feature shutdown (5.416215ms)
+✔ profile deletion revokes access and cascades personal data (1.996851ms)
+✔ wildcard origins permit public and error responses with credentials and cache variation (202.415025ms)
+✔ preflights accept arbitrary client headers and every implemented request method (17.912861ms)
+✔ any-origin Admin sessions reach authentication and support marked cookie writes (112.910071ms)
+✔ an explicitly configured origin allowlist still rejects other Admin origins (30.106999ms)
+✔ native app origin may preflight actual bookmark, reminder and deletion methods (240.699105ms)
+✔ runtime refuses fixture mode instead of silently accepting it (0.604385ms)
+✔ empty live database seeds configuration only and reports its initialisation state (30.789551ms)
+✔ legacy sample database is refused and its records remain available for recovery (50.253736ms)
+✔ home requires location or a chosen stop and does not imply arbitrary stops are nearby (78.160471ms)
+✔ legacy unverified notices stay private even if marked published (34.274278ms)
+✔ legacy or poisoned ETA cache cannot replace an official-provider request (33.460688ms)
+✔ over-age upstream ETA stays unavailable and never triggers a reminder (66.717364ms)
+✔ SQLite restart and consistent backup preserve profile data and migrations (410.211619ms)
+✔ KMB fields preserve service identity, numeric strings, Chinese names and null ETA (6.064883ms)
+✔ TDAS HH:MM is duration and input constrains time, coordinates and endpoints (1.167183ms)
+✔ successful ETA cache survives an upstream failure as explicitly stale data (403.753647ms)
+✔ catalog replacement is atomic when a provider returns inconsistent foreign keys (33.900024ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5233.245534
+
+> @hkbusgo/backend@1.0.0 build
+> node scripts/build.mjs
+
+
+removed 6 packages in 742ms

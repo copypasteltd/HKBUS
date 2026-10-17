@@ -1,0 +1,154 @@
+
+> @hkbusgo/backend@1.0.0 test
+> tsx --test test/*.test.ts
+
+TAP version 13
+# (node:18452) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: rotating device credentials preserve data, reject replay and revoke deleted profiles
+ok 1 - rotating device credentials preserve data, reject replay and revoke deleted profiles
+  ---
+  duration_ms: 4454.4305
+  ...
+# Subtest: health, config and canonical route identities are available
+ok 2 - health, config and canonical route identities are available
+  ---
+  duration_ms: 4.4273
+  ...
+# Subtest: invalid entities, partial coordinates and identical journey endpoints fail explicitly
+ok 3 - invalid entities, partial coordinates and identical journey endpoints fail explicitly
+  ---
+  duration_ms: 4.4527
+  ...
+# Subtest: profile credentials, bookmark idempotency, aliases and complete ordering
+ok 4 - profile credentials, bookmark idempotency, aliases and complete ordering
+  ---
+  duration_ms: 9.0495
+  ...
+# Subtest: profile ownership is enforced and reminder delivery is idempotent
+ok 5 - profile ownership is enforced and reminder delivery is idempotent
+  ---
+  duration_ms: 22.182
+  ...
+# Subtest: admin cookie session, CSRF protection and role checks
+ok 6 - admin cookie session, CSRF protection and role checks
+  ---
+  duration_ms: 167.2514
+  ...
+# Subtest: notice draft/review/approval/scheduled publication, conflicts and rollback
+ok 7 - notice draft/review/approval/scheduled publication, conflicts and rollback
+  ---
+  duration_ms: 8.1482
+  ...
+# Subtest: configuration revisions, real content propagation and feature shutdown
+ok 8 - configuration revisions, real content propagation and feature shutdown
+  ---
+  duration_ms: 5.8032
+  ...
+# Subtest: profile deletion revokes access and cascades personal data
+ok 9 - profile deletion revokes access and cascades personal data
+  ---
+  duration_ms: 1.4295
+  ...
+# (node:27596) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: wildcard origins permit public and error responses with credentials and cache variation
+ok 10 - wildcard origins permit public and error responses with credentials and cache variation
+  ---
+  duration_ms: 4442.2936
+  ...
+# Subtest: preflights accept arbitrary client headers and every implemented request method
+ok 11 - preflights accept arbitrary client headers and every implemented request method
+  ---
+  duration_ms: 11.2543
+  ...
+# Subtest: any-origin Admin sessions reach authentication and support marked cookie writes
+ok 12 - any-origin Admin sessions reach authentication and support marked cookie writes
+  ---
+  duration_ms: 129.1121
+  ...
+# Subtest: an explicitly configured origin allowlist still rejects other Admin origins
+ok 13 - an explicitly configured origin allowlist still rejects other Admin origins
+  ---
+  duration_ms: 23.6483
+  ...
+# (node:27296) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: native app origin may preflight actual bookmark, reminder and deletion methods
+ok 14 - native app origin may preflight actual bookmark, reminder and deletion methods
+  ---
+  duration_ms: 7964.1916
+  ...
+# Subtest: runtime refuses fixture mode instead of silently accepting it
+ok 15 - runtime refuses fixture mode instead of silently accepting it
+  ---
+  duration_ms: 0.699
+  ...
+# Subtest: empty live database seeds configuration only and reports its initialisation state
+ok 16 - empty live database seeds configuration only and reports its initialisation state
+  ---
+  duration_ms: 24.268
+  ...
+# Subtest: legacy sample database is refused and its records remain available for recovery
+ok 17 - legacy sample database is refused and its records remain available for recovery
+  ---
+  duration_ms: 24.5666
+  ...
+# Subtest: home requires location or a chosen stop and does not imply arbitrary stops are nearby
+ok 18 - home requires location or a chosen stop and does not imply arbitrary stops are nearby
+  ---
+  duration_ms: 68.8224
+  ...
+# Subtest: legacy unverified notices stay private even if marked published
+ok 19 - legacy unverified notices stay private even if marked published
+  ---
+  duration_ms: 23.0024
+  ...
+# Subtest: legacy or poisoned ETA cache cannot replace an official-provider request
+ok 20 - legacy or poisoned ETA cache cannot replace an official-provider request
+  ---
+  duration_ms: 28.6147
+  ...
+# Subtest: over-age upstream ETA stays unavailable and never triggers a reminder
+ok 21 - over-age upstream ETA stays unavailable and never triggers a reminder
+  ---
+  duration_ms: 27.1346
+  ...
+# (node:2096) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: SQLite restart and consistent backup preserve profile data and migrations
+ok 22 - SQLite restart and consistent backup preserve profile data and migrations
+  ---
+  duration_ms: 8024.8056
+  ...
+# (node:6288) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: KMB fields preserve service identity, numeric strings, Chinese names and null ETA
+ok 23 - KMB fields preserve service identity, numeric strings, Chinese names and null ETA
+  ---
+  duration_ms: 6.5032
+  ...
+# Subtest: TDAS HH:MM is duration and input constrains time, coordinates and endpoints
+ok 24 - TDAS HH:MM is duration and input constrains time, coordinates and endpoints
+  ---
+  duration_ms: 1.1132
+  ...
+# Subtest: successful ETA cache survives an upstream failure as explicitly stale data
+ok 25 - successful ETA cache survives an upstream failure as explicitly stale data
+  ---
+  duration_ms: 7664.8513
+  ...
+# Subtest: catalog replacement is atomic when a provider returns inconsistent foreign keys
+ok 26 - catalog replacement is atomic when a provider returns inconsistent foreign keys
+  ---
+  duration_ms: 18.9853
+  ...
+1..26
+# tests 26
+# suites 0
+# pass 26
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 15598.5986

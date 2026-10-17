@@ -1,0 +1,130 @@
+{
+  "startedAt": "2026-10-17T07:51:42.319Z",
+  "apiBase": "https://hkbus-api.copypaste.hk/api",
+  "tlsVerification": true,
+  "staticTransport": "Only the empty /cors-check page is fulfilled locally at previously unlisted test origins. All production API requests and preflights use the real HTTPS service.",
+  "checks": [
+    {
+      "origin": "https://h5-cors-check.example",
+      "name": "credentialed public GET with arbitrary headers",
+      "status": 200,
+      "type": "cors",
+      "mode": "live",
+      "passed": true
+    },
+    {
+      "origin": "https://h5-cors-check.example",
+      "name": "real KMB catalogue",
+      "status": 200,
+      "type": "cors",
+      "mode": "live",
+      "items": 2,
+      "passed": true
+    },
+    {
+      "origin": "https://h5-cors-check.example",
+      "name": "authorization error is readable",
+      "status": 401,
+      "type": "cors",
+      "errorCode": "UNAUTHENTICATED",
+      "passed": true
+    },
+    {
+      "origin": "https://h5-cors-check.example",
+      "name": "JSON POST validation is readable",
+      "status": 422,
+      "type": "cors",
+      "errorCode": "VALIDATION_ERROR",
+      "passed": true
+    },
+    {
+      "origin": "http://localhost:49873",
+      "name": "credentialed public GET with arbitrary headers",
+      "status": 200,
+      "type": "cors",
+      "mode": "live",
+      "passed": true
+    },
+    {
+      "origin": "http://localhost:49873",
+      "name": "real KMB catalogue",
+      "status": 200,
+      "type": "cors",
+      "mode": "live",
+      "items": 2,
+      "passed": true
+    },
+    {
+      "origin": "http://localhost:49873",
+      "name": "authorization error is readable",
+      "status": 401,
+      "type": "cors",
+      "errorCode": "UNAUTHENTICATED",
+      "passed": true
+    },
+    {
+      "origin": "http://localhost:49873",
+      "name": "JSON POST validation is readable",
+      "status": 422,
+      "type": "cors",
+      "errorCode": "VALIDATION_ERROR",
+      "passed": true
+    }
+  ],
+  "responses": [
+    {
+      "origin": "https://h5-cors-check.example",
+      "path": "/api/health",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "origin": "https://h5-cors-check.example",
+      "path": "/api/v1/routes",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "origin": "https://h5-cors-check.example",
+      "path": "/api/v1/profile/bookmarks",
+      "method": "GET",
+      "status": 401
+    },
+    {
+      "origin": "https://h5-cors-check.example",
+      "path": "/api/v1/journeys",
+      "method": "POST",
+      "status": 422
+    },
+    {
+      "origin": "http://localhost:49873",
+      "path": "/api/health",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "origin": "http://localhost:49873",
+      "path": "/api/v1/routes",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "origin": "http://localhost:49873",
+      "path": "/api/v1/profile/bookmarks",
+      "method": "GET",
+      "status": 401
+    },
+    {
+      "origin": "http://localhost:49873",
+      "path": "/api/v1/journeys",
+      "method": "POST",
+      "status": 422
+    }
+  ],
+  "pageErrors": [],
+  "contextsClosed": 2,
+  "browserClosed": true,
+  "profilesCreated": 0,
+  "passed": true,
+  "finishedAt": "2026-10-17T07:52:00.315Z"
+}

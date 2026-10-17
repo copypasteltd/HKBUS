@@ -24,7 +24,7 @@ KMB/LWB 线路、站点、ETA、收藏等使用真实 API。道路参考页保�
 
 如果要部署到 `/h5/` 子目录，需在源码统一调整 Taro publicPath、图形/图标路径和 HTML 图标路径后重新构建。现有根路径包不能仅移动 index.html 获得子目录支持。
 
-H5 与 API 不同 origin 时，后端 `CORS_ORIGINS` 必须增加实际 H5 origin（协议+域名+必要端口，不带路径）。未知新域名不会自动放行。当前未指定新的 H5 域名，因此没有替用户填写或修改该配置。本次只导出文件，没有发布 H5 网站。定位和系统分享/剪贴板需要 HTTPS、浏览器支持及授权；提醒仅在页面开启时接收，不承诺关闭后的浏览器后台推送。
+**后续更新（2026-10-17）：正式后端已设为 `CORS_ORIGINS=*`，接受任意 H5 origin 和自定义请求头，无需为新 H5 网站逐个登记来源。** 包内 README 的白名单描述为导出时配置快照；当前以 [最新跨域策略](https://github.com/copypasteltd/HKBUS/blob/backend/docs/CORS-OPEN.md) 为准。本次只导出文件，没有发布 H5 网站。定位和系统分享/剪贴板需要 HTTPS、浏览器支持及授权；提醒仅在页面开启时接收，不承诺关闭后的浏览器后台推送。
 
 复现构建：Windows 原生 Node 22.14+ / npm 10，克隆 android 分支，`npm ci`，设置 `TARO_APP_API_BASE=https://hkbus-api.copypaste.hk/api`，执行 `npm run build:h5`，读取 dist/h5。未使用 Docker、WSL、虚拟机或模拟器。
 
@@ -51,4 +51,4 @@ H5 与 API 不同 origin 时，后端 `CORS_ORIGINS` 必须增加实际 H5 origi
 
 The production H5 dist is exported separately as a ZIP and an unpacked directory. It uses https://hkbus-api.copypaste.hk/api/ and contains all 14 real product pages. The 245 static files are identical to the preceding verified Taro H5 build from the android branch; compiled code was not patched. Browser mode, real KMB/ETA and bookmarks, all page loads and a 320px viewport were checked. No assets were missing and no page JavaScript errors occurred. The temporary test profile was confirmed deleted through a read-only database check, and all created browser contexts/processes were closed.
 
-Host the complete dist at an HTTPS website root. The current absolute /js, /css and /assets paths do not support dropping the package into a subdirectory without rebuilding. A different H5 origin needs an exact Backend CORS entry. This handover does not publish a website or claim physical-device acceptance. TDAS road queries remain unavailable on production with 502. The ZIP includes bilingual deployment guidance and a Nginx location snippet; hashes and full file metadata are delivered alongside it.
+Host the complete dist at an HTTPS website root. The current absolute /js, /css and /assets paths do not support dropping the package into a subdirectory without rebuilding. The Backend has subsequently been updated to CORS_ORIGINS=* and accepts any H5 origin; the packaged README captures the earlier allowlist configuration. This handover does not publish a website or claim physical-device acceptance. TDAS road queries remain unavailable on production with 502. The ZIP includes bilingual deployment guidance and a Nginx location snippet; hashes and full file metadata are delivered alongside it.

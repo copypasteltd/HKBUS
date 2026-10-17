@@ -1,0 +1,14 @@
+{
+  "stamp": "20261017T074935Z",
+  "release": "20261017T074935Z-80ca4da2de2a",
+  "sourceCommit": "80ca4da2de2a8a935ca1ce0d0cd391523d782c1b",
+  "localStage": "C:\\Users\\carzy\\AppData\\Local\\Temp\\hkbus-cors-20261017T074935Z",
+  "remoteStage": "/home/ubuntu/.cache/hkbus-cors-20261017T074935Z",
+  "archiveBytes": 3947059,
+  "updatedAt": "2026-10-17T07:50:25.817617+00:00",
+  "exitCode": 0,
+  "hostKeyVerified": true,
+  "archiveSha256": "5d9e5dd92f26162bad948356352016ccbb48b19656f34ac433f8932a3ef98f47",
+  "nativeUpdate": true,
+  "port": 39410
+}

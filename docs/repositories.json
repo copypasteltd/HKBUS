@@ -8,16 +8,16 @@
   "projects": [
     {
       "branch": "backend",
-      "commit": "304bd52976abc7c17a92d389782503e0ea705488",
+      "commit": "9009c7193932ac0e9e5fd5235d550352cd9525ce",
       "url": "https://github.com/copypasteltd/HKBUS/tree/backend",
       "docs": {
-        "localLinks": 108,
+        "localLinks": 116,
         "images": 39,
-        "bilingualReadmeBytes": 13381
+        "bilingualReadmeBytes": 13775
       },
       "git": {
-        "trackedFiles": 193,
-        "historyBlobsChecked": 208,
+        "trackedFiles": 208,
+        "historyBlobsChecked": 255,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -25,7 +25,7 @@
     },
     {
       "branch": "admin",
-      "commit": "843d7b60578a4a691011aa746a6665247106365b",
+      "commit": "cc8058f514f2c55f4559cb025335f4cadfc018f0",
       "url": "https://github.com/copypasteltd/HKBUS/tree/admin",
       "docs": {
         "localLinks": 92,
@@ -34,7 +34,7 @@
       },
       "git": {
         "trackedFiles": 165,
-        "historyBlobsChecked": 163,
+        "historyBlobsChecked": 198,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -42,7 +42,7 @@
     },
     {
       "branch": "wechat",
-      "commit": "0f1af32e7083657aa6414710b79857eb2d424c1d",
+      "commit": "3113d325c6193719738a63f2d0ad39c6ebf89b5c",
       "url": "https://github.com/copypasteltd/HKBUS/tree/wechat",
       "docs": {
         "localLinks": 94,
@@ -51,7 +51,7 @@
       },
       "git": {
         "trackedFiles": 414,
-        "historyBlobsChecked": 384,
+        "historyBlobsChecked": 415,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -59,7 +59,7 @@
     },
     {
       "branch": "alipay",
-      "commit": "aeb7db8e4a5133c0d798c0d46fdfcc9d3d755b44",
+      "commit": "541f80b5b37b91e9aab680e7cc6a8c2820430922",
       "url": "https://github.com/copypasteltd/HKBUS/tree/alipay",
       "docs": {
         "localLinks": 94,
@@ -68,7 +68,7 @@
       },
       "git": {
         "trackedFiles": 413,
-        "historyBlobsChecked": 383,
+        "historyBlobsChecked": 414,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -76,7 +76,7 @@
     },
     {
       "branch": "douyin",
-      "commit": "43db14430acd8d5d171e5c19b56df0a547317df0",
+      "commit": "dc5ba64d9e60cf44bcc6e6ba22641c2a9cb70b4e",
       "url": "https://github.com/copypasteltd/HKBUS/tree/douyin",
       "docs": {
         "localLinks": 94,
@@ -85,7 +85,7 @@
       },
       "git": {
         "trackedFiles": 414,
-        "historyBlobsChecked": 384,
+        "historyBlobsChecked": 415,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -93,7 +93,7 @@
     },
     {
       "branch": "android",
-      "commit": "2a9a295f4b00d1fdcccd32cb5b839ce65c3c90d5",
+      "commit": "6e6c0465bc1c654dd2ad6c9df33063860d763a98",
       "url": "https://github.com/copypasteltd/HKBUS/tree/android",
       "docs": {
         "localLinks": 101,
@@ -102,7 +102,7 @@
       },
       "git": {
         "trackedFiles": 489,
-        "historyBlobsChecked": 502,
+        "historyBlobsChecked": 512,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -142,5 +142,15 @@
     "compiledFiles": 245,
     "pages": 14,
     "websiteDeployed": false
+  },
+  "productionCors": {
+    "origins": "*",
+    "headers": "reflect all requested headers",
+    "credentials": true,
+    "backendRuntimeCommit": "80ca4da2de2a8a935ca1ce0d0cd391523d782c1b",
+    "release": "20261017T074935Z-80ca4da2de2a",
+    "httpsChecks": 55,
+    "browserChecks": 8,
+    "handover": "docs/CORS-OPEN.md"
   }
 }

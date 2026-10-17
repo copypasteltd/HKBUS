@@ -1,5 +1,7 @@
 # 港巴通 HKBusGo — 项目与工程导航 / Project & Repository Guide
 
+**服务端任意来源跨域 / Any-origin Backend CORS:** 正式 API 已接受任意 Origin 和请求头，55 项 HTTPS、8 项浏览器检查通过。[当前配置及证据 / Policy and evidence](docs/CORS-OPEN.md)。
+
 **H5 dist / 浏览器版本：** [正式 API 前端导出与验证 / Production H5 export](docs/H5-DIST.md) · [部署说明 / Deployment](docs/H5-DEPLOYMENT.md)
 **正式 API / Finalized API:** `https://hkbus-api.copypaste.hk/api/` · [五端编译与 HTTPS 验证 / Builds and HTTPS verification](docs/PRODUCTION-API.md)
 ![HKBusGo Project & Repository Guide](docs/assets/banner-main.png)
