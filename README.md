@@ -1,5 +1,9 @@
 # 港巴通 HKBusGo — Android 应用 / Android App
 
+**2026-10-17 本机喜好更新 / On-device preferences:** 乘客端无需账号，语言、大字、分钟/香港时刻、首页车站、提醒阈值和历史开关即改即存；收藏、历史与提醒统一前端本机保存。真实公交 API 保持使用，旧匿名服务端资料仅兼容保留。 / Passenger preferences, favourites, history and reminders now stay on the current device without creating a server profile. Transit remains live. [需求、迁移与验收 / Requirements and acceptance](docs/LOCAL-PREFERENCES.md) · [打开实际网站 / Open actual website](https://hkbus.copypaste.hk/)。
+
+<img src="docs/assets/local-preferences/2026-10-17/settings-reading-and-journeys.png" width="220" alt="On-device settings on the actual HKBusGo website" /> <img src="docs/assets/local-preferences/2026-10-17/home-saved-stop-clock.png" width="220" alt="A saved home stop with live Hong Kong arrival times" />
+
 **2026-10-17 实际网站已更新 / Actual website updated:** [打开港巴通 / Open HKBusGo](https://hkbus.copypaste.hk/) · [正式发布与验收 / Release and acceptance](docs/H5-SITE-LIVE.md)。线路详情已显示真实逐站 ETA、未来班次和香港时刻；245 个公网文件、14 页加载及 11 组线上浏览器检查通过。后续实际前端更新将按用户授权同步对应服务器路径。 / Real route arrivals are now published; future frontend updates are authorized to deploy after verification.
 
 <img src="docs/assets/h5-deployment/2026-10-17/h5-published-home.png" width="220" alt="Actual published HKBusGo home" /> <img src="docs/assets/h5-deployment/2026-10-17/h5-route-upcoming.png" width="220" alt="Actual public website with real station predictions" />
@@ -37,7 +41,7 @@ Android 打包渲染层 / Android packaged renderer；不是小程序官方 IDE 
 |---|---|
 | 发现与查询 | 首页下一班、真实路线目录、三语搜索、附近站点、方向/服务类型、完整站序、30 秒可见页面刷新 |
 | 到站状态 | 官方 ETA、暂无预计、较旧、上游失败、上次查询资料；不生成天气或固定分钟 |
-| 个人功能 | 匿名装置收藏、别名与排序、最近查看、删除本机资料、到站提醒与通知 |
+| 个人功能 | 本机偏好、收藏/别名/排序、最近查看开关、本机到站提醒、重设偏好/清除资料 |
 | 内容与帮助 | 运营核实的通告及详情、覆盖范围、隐私、数据来源；空内容如实显示 |
 | 出行参考 | 真实站序产生直达/一次同站换乘候选；TDAS 独立道路查询，不生成票价或巴士车程 |
 
@@ -108,14 +112,14 @@ adb install -r android/app/build/outputs/apk/debug/app-debug.apk
 
 ### 数据、验收与故障定位
 
-只接受 live envelope；拒绝 fixture 内容，使用按 API 和匿名身份隔离的缓存。目录 24h、首页/ETA 180s；离线标注旧结果，通告/通知/提醒不离线复用。删除时在途个人响应不能恢复旧资料。详见 [完整数据与验证规则](docs/DATA-AND-VALIDATION.md)。
+只接受 live envelope，拒绝 fixture 内容。公共缓存按 API 隔离，目录 24h、首页/ETA 180s；带精确定位的请求不持久缓存，通告需重新查询。偏好/收藏/历史/提醒使用版本化本机仓储，离线可编辑已有资料；没有新鲜 ETA 时不触发提醒。完整清除后在途旧操作不能恢复个人资料。详见 [完整数据与验证规则](docs/DATA-AND-VALIDATION.md)。
 
 检查结果见 [本分支验证](docs/validation.json)。源码/类型、编译、实际 API、浏览器、官方 IDE、真机和商店审核分开记录。正式 HTTPS API 与本次编译已实测；官方 IDE、真机和商店发行仍须独立验收。
 
 | 现象 | 排查 |
 |---|---|
 | 首页没有下一班 | 授权定位或收藏真实站点；无位置不任意预选车站 |
-| 请求失败 / 401 | 检查 API、Backend、平台域名、会话；失效身份可在设置清除 |
+| 请求失败 | 检查 API、Backend、网络和平台域名；个人设置不依赖登录会话 |
 | 无预计 / 较旧 | 对照官方 ETA 与资料时间；这可能是正常服务状态 |
 | 无通告 | 当前没有经核实且有效的已发布内容；仍应查运营商消息 |
 | 提醒未出现 | 页面是否开启、提醒有效期、方向、门槛、新鲜 ETA；Android 还需 OS 权限 |
@@ -161,14 +165,14 @@ Run `./gradlew.bat lintDebug --no-daemon --console=plain --max-workers=2` inside
 
 ### Development layout
 
-`src/pages` and `src/screens` implement page entry points and UI. `src/services` and `src/state.tsx` implement API transport, partitioned identity/cache and platform capabilities. Icons are local in `src/assets`. `config/index.ts` controls compilation. `test` contains meaningful client data-policy/transport regression cases. `docs` contains bilingual guidance, screenshots and evidence.
+`src/pages` and `src/screens` implement page entry points and UI. `src/services` and `src/state.tsx` implement public API transport, versioned on-device personal storage, endpoint-partitioned query cache and platform capabilities. Icons are local in `src/assets`. `config/index.ts` controls compilation. `test` contains meaningful client data-policy/transport regression cases. `docs` contains bilingual guidance, screenshots and evidence.
 
 `npm run dev` watches this platform, `npm run build` produces its deliverable, `npm run typecheck` checks types, `npm test` runs 7 client regression cases, and `npm run assets` regenerates icons. None of these commands deploys a demo.
 
 ### Data, validation and troubleshooting
 
-Only live envelopes are accepted; fixture entities are rejected. API endpoints and anonymous identities partition cache and credentials. Catalogue cache lasts 24h; home/ETA cache 180s. Fallback is labelled as previous data. Notices, notifications and reminders are not reused offline. Deletion invalidates in-flight personal writes. See [data rules](docs/DATA-AND-VALIDATION.md) and [this checkout's validation](docs/validation.json).
+Only live envelopes are accepted; fixture entities are rejected. Public query caches are partitioned by API endpoint: catalogue 24h and home/ETA 180s. Coordinate-bearing requests are not persisted and notices are fetched again. Personal preferences, favourites, history and reminders use versioned local storage. Existing saved items can be edited offline, but reminders require fresh ETA. Clearing personal data invalidates old asynchronous writes. See [data rules](docs/DATA-AND-VALIDATION.md) and [this checkout's validation](docs/validation.json).
 
-If home has no next bus, provide location or save an official stop; the app does not choose an arbitrary location. For network/401 failures, check the endpoint, running Backend, platform domain policy and session, then clear an invalid profile in Settings when needed. Null or stale ETA may reflect the actual service. No notices means no currently published verified content, not that all Hong Kong routes are unaffected. Reminders require an open page, valid subscription, matching direction/threshold and fresh ETA; Android also requires OS permission.
+If home has no next bus, provide location or save an official stop; the app does not choose an arbitrary location. For network failures, check the endpoint, running Backend and platform domain policy. Personal settings do not need a login session. Null or stale ETA may reflect the actual service. No notices means no currently published verified content, not that all Hong Kong routes are unaffected. Reminders require an open foreground page, matching route/direction/service/stop/sequence/threshold and fresh ETA; Android system notifications also require OS permission.
 
 Source/types, build, real API, browser, official IDE, physical-device and store acceptance are separate. The production HTTPS API and these builds were checked; native IDE/device acceptance and store publication remain separate. Each branch contains a full shared-code snapshot, without automatic cross-branch updates. Port common API/logic changes to the other mobile branches and validate each. Local databases, `.env.local`, credentials, signing keys and `node_modules` are excluded from Git.
