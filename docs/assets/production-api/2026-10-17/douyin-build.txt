@@ -1,0 +1,254 @@
+
+> @hkbusgo/douyin@1.0.0 build
+> taro build --type tt
+
+👽 Taro v4.3.0
+
+Tips:
+1. 建议开启持久化缓存功能，能有效提升二次编译速度，详情请参考: https://docs.taro.zone/docs/config-detail#cache。
+
+
+
+● Webpack █████████████████████████  (0%)
+
+
+
+● Webpack █████████████████████████ setup (2%)
+ run
+
+
+● Webpack █████████████████████████ setup (9%) compilation
+ mini-css-extract-plugin
+
+
+● Webpack █████████████████████████ setup (9%) compilation
+ CssMinimizerPlugin
+
+
+● Webpack █████████████████████████ building (10%) 0/31 entries 31/31 dependen
+cies 0/31 modules 1 active
+ babel-loader › src\app.tsx
+
+
+● Webpack █████████████████████████ building (10%)
+ import loader .\node_modules\babel-loader\lib\index.js
+
+
+● Webpack █████████████████████████ building (10%) 0/31 entries 31/31 dependen
+cies 0/31 modules 1 active
+ babel-loader › src\app.tsx
+
+
+● Webpack █████████████████████████ building (10%) 0/31 entries 31/31 dependen
+cies 0/31 modules 3 active
+ babel-loader › src\pages\home\index.tsx
+
+
+● Webpack █████████████████████████ building (10%) 0/31 entries 31/32 dependen
+cies 0/31 modules 31 active
+ ...l-loader › node_modules\@tarojs\webpack5-runner\dist\template\custom-wrapp
+er.js
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 84/91 depende
+ncies 14/59 modules 41 active
+ babel-loader › src\screens\journeys.tsx
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 88/100 depend
+encies 14/61 modules 46 active
+ babel-loader › node_modules\@tarojs\taro\index.js
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 94/100 depend
+encies 14/62 modules 48 active
+ node_modules\react\jsx-runtime.js
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 96/136 depend
+encies 14/64 modules 49 active
+ ...\implementation\douyin\node_modules\@babel\runtime\helpers\esm\slicedToArr
+ay.js
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 128/196 depen
+dencies 14/68 modules 51 active
+ ...ss
+
+
+● Webpack █████████████████████████ building (34%)
+ import loader .\node_modules\css-loader\dist\cjs.js
+
+
+● Webpack █████████████████████████ building (34%)
+ import loader .\node_modules\postcss-loader\dist\cjs.js
+
+
+● Webpack █████████████████████████ building (34%)
+ import loader .\node_modules\resolve-url-loader\index.js
+
+
+● Webpack █████████████████████████ building (34%)
+ import loader .\node_modules\sass-loader\dist\cjs.js
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 128/196 depen
+dencies 14/68 modules 51 active
+ ...ss
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 128/197 depen
+dencies 14/68 modules 52 active
+ babel-loader › node_modules\@tarojs\react\dist\react.esm.js
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 190/206 depen
+dencies 16/107 modules 73 active
+ babel-loader › node_modules\@tarojs\runtime\dist\dom\element.js
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 196/215 depen
+dencies 16/109 modules 92 active
+ ...lementation\douyin\node_modules\@babel\runtime\helpers\esm\regeneratorDefi
+ne.js
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 232/246 depen
+dencies 18/118 modules 95 active
+ ...mplementation\douyin\node_modules\@babel\runtime\helpers\esm\nonIterableRe
+st.js
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 267/300 depen
+dencies 22/122 modules 96 active
+ ...HKBUS\implementation\douyin\node_modules\@babel\runtime\helpers\esm\inheri
+ts.js
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 398/442 depen
+dencies 29/133 modules 89 active
+ ...HKBUS\implementation\douyin\node_modules\@babel\runtime\helpers\esm\inheri
+ts.js
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 441/458 depen
+dencies 35/144 modules 109 active
+ ...\implementation\douyin\node_modules\@babel\runtime\helpers\esm\toPropertyK
+ey.js
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 442/458 depen
+dencies 35/145 modules 110 active
+ ...d\HKBUS\implementation\douyin\node_modules\@babel\runtime\helpers\esm\type
+of.js
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 484/518 depen
+dencies 53/149 modules 94 active
+ ...tion\douyin\node_modules\@babel\runtime\helpers\esm\isNativeReflectConstru
+ct.js
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 508/529 depen
+dencies 57/161 modules 102 active
+ ...l-loader › node_modules\@tarojs\runtime\dist\dom-external\inner-html\scann
+er.js
+
+
+● Webpack █████████████████████████ building (34%) 14/31 entries 539/552 depen
+dencies 68/172 modules 103 active
+ ...ntation\douyin\node_modules\@babel\runtime\helpers\esm\assertThisInitializ
+ed.js
+
+
+● Webpack █████████████████████████ building (36%) 15/31 entries 568/580 depen
+dencies 80/180 modules 96 active
+ node_modules\@capacitor\core\dist\index.js
+
+
+● Webpack █████████████████████████ building (36%) 15/31 entries 585/594 depen
+dencies 127/184 modules 54 active
+ node_modules\@capacitor\geolocation\dist\esm\web.js
+
+
+● Webpack █████████████████████████ building (41%) 18/31 entries 594/601 depen
+dencies 142/188 modules 46 active
+ node_modules\react-reconciler\cjs\react-reconciler.production.min.js
+
+
+● Webpack █████████████████████████ building (41%) 18/31 entries 603/608 depen
+dencies 148/190 modules 41 active
+ babel-loader › node_modules\@tarojs\api\dist\env.js
+
+
+● Webpack █████████████████████████ building (41%) 18/31 entries 613/615 depen
+dencies 152/193 modules 41 active
+ babel-loader › node_modules\@tarojs\api\dist\interceptor\index.js
+
+
+● Webpack █████████████████████████ building (45%) 20/31 entries 615/617 depen
+dencies 159/195 modules 36 active
+ babel-loader › node_modules\@tarojs\api\dist\interceptor\chain.js
+
+
+● Webpack █████████████████████████ building (45%) 20/31 entries 623/624 depen
+dencies 165/198 modules 33 active
+ node_modules\scheduler\index.js
+
+
+● Webpack █████████████████████████ sealing (71%)
+ dependencies optimization
+
+
+● Webpack █████████████████████████ sealing (80%)
+ module ids
+
+
+● Webpack █████████████████████████ sealing (88%)
+ runtime requirements
+
+
+● Webpack █████████████████████████ sealing (92%) asset processing
+ TaroMiniPlugin
+
+
+● Webpack █████████████████████████ sealing (92%) asset processing
+ CssMinimizerPlugin
+
+
+● Webpack █████████████████████████ sealing (92%) asset processing
+ RealContentHashPlugin
+
+
+● Webpack █████████████████████████ emitting (98%)
+ after emit
+
+
+√ Webpack
+  Compiled successfully in 51.20s
+
+⚠️ Warnings:
+
+Warning: app.ttss from Css Minimizer plugin
+postcss-calc: D:\dev\copypasted\HKBUS\implementation\douyin\app.ttss:57:3: Parse error on line 1:
+env(safe-area-inset-top, 0rpx) + 19.23077rpx
+-----------------------------------^
+Expecting end of input, "RPAREN", "ADD", "SUB", "MUL", "DIV", got unexpected "UNKNOWN_DIMENSION"
+
+Warning: app.ttss from Css Minimizer plugin
+postcss-calc: D:\dev\copypasted\HKBUS\implementation\douyin\app.ttss:182:3: Parse error on line 1:
+env(safe-area-inset-bottom, 0rpx) + 9.61538rpx
+-------------------------------------^
+Expecting end of input, "RPAREN", "ADD", "SUB", "MUL", "DIV", got unexpected "UNKNOWN_DIMENSION"
+
+Warning: app.ttss from Css Minimizer plugin
+postcss-calc: D:\dev\copypasted\HKBUS\implementation\douyin\app.ttss:222:3: Parse error on line 1:
+env(safe-area-inset-top, 0rpx) + 34.61538rpx
+-----------------------------------^
+Expecting end of input, "RPAREN", "ADD", "SUB", "MUL", "DIV", got unexpected "UNKNOWN_DIMENSION"
+
+Warning: app.ttss from Css Minimizer plugin
+postcss-calc: D:\dev\copypasted\HKBUS\implementation\douyin\app.ttss:755:3: Parse error on line 1:
+env(safe-area-inset-bottom, 0rpx) + 46.15385rpx
+--------------------------------------^
+Expecting end of input, "RPAREN", "ADD", "SUB", "MUL", "DIV", got unexpected "UNKNOWN_DIMENSION"

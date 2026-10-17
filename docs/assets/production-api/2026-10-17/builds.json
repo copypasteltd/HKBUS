@@ -1,0 +1,152 @@
+{
+  "startedAt": "2026-10-17T06:51:01.936726+00:00",
+  "finishedAt": "2026-10-17T07:01:05.239432+00:00",
+  "apiBase": "https://hkbus-api.copypaste.hk/api",
+  "environment": {
+    "platform": "Windows native",
+    "node": "v22.14.0",
+    "JAVA_HOME": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.11.10-hotspot\\",
+    "ANDROID_HOME": "C:\\Users\\carzy\\AppData\\Local\\Android\\Sdk",
+    "virtualizationUsed": false,
+    "existingLockedDependenciesReused": true
+  },
+  "projects": [
+    {
+      "project": "admin",
+      "passed": true,
+      "phases": [
+        {
+          "phase": "typecheck",
+          "command": "npm run typecheck",
+          "exitCode": 0,
+          "seconds": 6.9,
+          "log": "admin-typecheck.txt"
+        },
+        {
+          "phase": "build",
+          "command": "npm run build",
+          "exitCode": 0,
+          "seconds": 16.9,
+          "log": "admin-build.txt"
+        }
+      ]
+    },
+    {
+      "project": "alipay",
+      "passed": true,
+      "phases": [
+        {
+          "phase": "typecheck",
+          "command": "npm run typecheck",
+          "exitCode": 0,
+          "seconds": 31.1,
+          "log": "alipay-typecheck.txt"
+        },
+        {
+          "phase": "test",
+          "command": "npm run test",
+          "exitCode": 0,
+          "seconds": 1.7,
+          "log": "alipay-test.txt"
+        },
+        {
+          "phase": "build",
+          "command": "npm run build",
+          "exitCode": 0,
+          "seconds": 244.3,
+          "log": "alipay-build.txt"
+        }
+      ]
+    },
+    {
+      "project": "android",
+      "passed": true,
+      "phases": [
+        {
+          "phase": "typecheck",
+          "command": "npm run typecheck",
+          "exitCode": 0,
+          "seconds": 33.6,
+          "log": "android-typecheck.txt"
+        },
+        {
+          "phase": "test",
+          "command": "npm run test",
+          "exitCode": 0,
+          "seconds": 1.7,
+          "log": "android-test.txt"
+        },
+        {
+          "phase": "build",
+          "command": "npm run build",
+          "exitCode": 0,
+          "seconds": 335.6,
+          "log": "android-build.txt"
+        }
+      ]
+    },
+    {
+      "project": "douyin",
+      "passed": true,
+      "phases": [
+        {
+          "phase": "typecheck",
+          "command": "npm run typecheck",
+          "exitCode": 0,
+          "seconds": 32.3,
+          "log": "douyin-typecheck.txt"
+        },
+        {
+          "phase": "test",
+          "command": "npm run test",
+          "exitCode": 0,
+          "seconds": 1.5,
+          "log": "douyin-test.txt"
+        },
+        {
+          "phase": "build",
+          "command": "npm run build",
+          "exitCode": 0,
+          "seconds": 198.5,
+          "log": "douyin-build.txt"
+        }
+      ]
+    },
+    {
+      "project": "wechat",
+      "passed": true,
+      "phases": [
+        {
+          "phase": "typecheck",
+          "command": "npm run typecheck",
+          "exitCode": 0,
+          "seconds": 34.4,
+          "log": "wechat-typecheck.txt"
+        },
+        {
+          "phase": "test",
+          "command": "npm run test",
+          "exitCode": 0,
+          "seconds": 1.4,
+          "log": "wechat-test.txt"
+        },
+        {
+          "phase": "build",
+          "command": "npm run build",
+          "exitCode": 0,
+          "seconds": 220.2,
+          "log": "wechat-build.txt"
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "acceptance": {
+    "compile": true,
+    "officialMiniProgramIDE": false,
+    "physicalDevice": false,
+    "storeSubmission": false,
+    "productionSigningProvided": false
+  },
+  "demoTouched": false
+}
