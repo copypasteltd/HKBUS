@@ -72,7 +72,7 @@ export function planJourney(store:Store,startId:string,endId:string){
       }
     }
   }
-  return {start,end,journeys:journeys.sort((a,b)=>a.transfers-b.transfers||a.stopCount-b.stopCount).slice(0,5),notice:'僅按官方站序查找直達或同站轉乘候選；不含步行尋路、車費或乘車時間預測'};
+  return {start,end,journeys:journeys.sort((a,b)=>a.transfers-b.transfers||a.stopCount-b.stopCount).slice(0,5),notice:'依官方站序列出直達或同站轉乘候選，車費為已核實的普通成人單程車費，未計轉乘及付款優惠；不含步行尋路或乘車時間預測'};
 }
 export function transitionNotice(current:Notice,action:'submit'|'approve'|'publish'|'withdraw',role:string):Notice['status']{
   if(action==='submit'&&['draft','withdrawn'].includes(current.status))return'review';

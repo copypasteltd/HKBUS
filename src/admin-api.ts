@@ -16,7 +16,7 @@ const contentSchema=z.object({coverage:localizedSchema,privacy:localizedSchema,h
 const userPublic='id,email,name,role,active,created_at';
 
 export function registerAdmin(ctx:Context){
-  const {app,store,providers,config}=ctx;
+  const {app,store,providers,fares,config}=ctx;
   const user=(request:Parameters<typeof requireIdentity>[2],roles?:string[])=>requireIdentity(app,store,request,'admin',roles);
   const ensureReferences=(input:{routeIds:string[];stopIds:string[]})=>{if(input.routeIds.some(id=>!store.route(id)?.active)||input.stopIds.some(id=>!store.stop(id)?.active))throw new AppError('CONTENT_REFERENCE_INVALID','關聯路線或車站不存在',422);};
   add(ctx,'POST','/api/admin/auth/login','管理員登入（HttpOnly Cookie）',async(request,reply)=>{
@@ -69,6 +69,8 @@ export function registerAdmin(ctx:Context){
     const routes=store.routes(),stops=store.stops();return payload(ctx,request,{health,quality:{routes:routes.length,stops:stops.length,relations:store.get<{n:number}>('SELECT count(*) n FROM route_stops')!.n,missingNames:stops.filter(x=>!x.name.tc||!x.name.sc||!x.name.en).length,invalidCoordinates:stops.filter(x=>!Number.isFinite(x.latitude)||!Number.isFinite(x.longitude)).length},cacheEntries:store.get<{n:number}>('SELECT count(*) n FROM cache')!.n,syncedAt:store.setting('catalogSyncedAt',null)});
   });
   add(ctx,'POST','/api/admin/jobs/sync','觸發原子主資料同步任務',async(request,reply)=>{const current=await user(request,['admin','operator']);reply.code(202);return payload(ctx,request,{jobId:providers.startSync(current.sub)});});
+  add(ctx,'GET','/api/admin/fares','官方收費版本、映射覆蓋與唯讀車費列表',async request=>{await user(request);const q=pageSchema.extend({state:z.enum(['all','matched','partial','unmatched','ambiguous','changed']).default('all')}).parse(request.query);return payload(ctx,request,{...fares.status(),routes:paginate(fares.adminItems(q.q,q.state),q.page,q.pageSize)});});
+  add(ctx,'POST','/api/admin/jobs/fares/sync','同步官方收費並重新校驗所有路線方向與站序',async(request,reply)=>{const current=await user(request,['admin','operator']);reply.code(202);return payload(ctx,request,{jobId:fares.startSync(current.sub)});});
   add(ctx,'GET','/api/admin/jobs','同步任務與失敗紀錄',async request=>{await user(request);const q=pageSchema.parse(request.query);const total=store.get<{n:number}>('SELECT count(*) n FROM jobs')!.n;return payload(ctx,request,{items:store.all('SELECT * FROM jobs ORDER BY started_at DESC LIMIT ? OFFSET ?',q.pageSize,(q.page-1)*q.pageSize),total,page:q.page,pageSize:q.pageSize});});
   add(ctx,'POST','/api/admin/cache/purge','清除到站/道路快取，不改寫官方主資料',async request=>{const current=await user(request,['admin','operator']);const result=store.run('DELETE FROM cache');store.audit(current.sub,'cache.purge','cache',{entries:Number(result.changes)});return payload(ctx,request,{purged:Number(result.changes)});});
   add(ctx,'POST','/api/admin/reminders/evaluate','手動執行真實提醒評估',async request=>{const current=await user(request,['admin','operator']);const result=await evaluateReminders(store,providers);store.audit(current.sub,'reminders.evaluate','worker',result);return payload(ctx,request,result);});

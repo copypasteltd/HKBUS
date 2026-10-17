@@ -34,6 +34,8 @@ export class Store {
       CREATE TABLE IF NOT EXISTS provider_events(id TEXT PRIMARY KEY, provider TEXT NOT NULL, operation TEXT NOT NULL, success INTEGER NOT NULL, duration_ms INTEGER NOT NULL, code TEXT, created_at TEXT NOT NULL);
       CREATE TABLE IF NOT EXISTS cache(key TEXT PRIMARY KEY, data TEXT NOT NULL, fetched_at TEXT NOT NULL, expires_at TEXT NOT NULL, stale_until TEXT NOT NULL);
       CREATE TABLE IF NOT EXISTS metrics(bucket TEXT NOT NULL, method TEXT NOT NULL, route TEXT NOT NULL, status INTEGER NOT NULL, count INTEGER NOT NULL, total_ms INTEGER NOT NULL, PRIMARY KEY(bucket,method,route,status));
+      CREATE TABLE IF NOT EXISTS fare_directions(id TEXT PRIMARY KEY, document TEXT NOT NULL);
+      CREATE TABLE IF NOT EXISTS fare_mappings(route_id TEXT PRIMARY KEY, document TEXT NOT NULL);
       PRAGMA user_version=2;
       COMMIT;
     `);

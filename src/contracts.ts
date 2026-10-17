@@ -39,6 +39,8 @@ export function contract(method:string,url:string):FastifySchema{
   if(url.endsWith('/search'))Object.assign(properties,{q:str('三語搜尋',100),type:{enum:['all','route','stop','road']},limit:{type:'integer',minimum:1,maximum:100,default:30}});
   if(url.endsWith('/home')||url==='/api/v1/stops')Object.assign(properties,{latitude:{type:'number',minimum:22,maximum:23},longitude:{type:'number',minimum:113,maximum:115},...(url.endsWith('/home')?{platform:{enum:['weapp','alipay','tt','h5','android']},stopId:str('Stop ID')}:{radius:{type:'number',minimum:100,maximum:10000},walking:{type:'number',minimum:1,maximum:120}})});
   if(url.endsWith('/arrivals'))Object.assign(properties,{force:{enum:['true','false'],default:'false'},...(url.includes('/stops/')?{routeId:str('Only arrivals matching this full route identity')}:{})});
+  if(url==='/api/v1/routes/:id/fare')Object.assign(properties,{boardSequence:{type:'integer',minimum:1,maximum:300,description:'Boarding sequence on this exact direction and service'},alightSequence:{type:'integer',minimum:1,maximum:300,description:'Later alighting sequence; never a physical stop ID'}});
+  if(url==='/api/admin/fares')Object.assign(properties,{q:str('Route search',100),page:{type:'integer',minimum:1,default:1},pageSize:{type:'integer',minimum:1,maximum:100,default:30},state:{enum:['all','matched','partial','unmatched','ambiguous','changed']}});
   if(url==='/api/v1/notices')Object.assign(properties,{platform:str('weapp/alipay/tt/h5/android'),routeId:str('Route identity'),stopId:str('Stop ID')});
   if(url==='/api/v1/notices/:id')properties.platform={enum:['weapp','alipay','tt','h5','android']};
   if(url==='/api/admin/notices')properties.status={enum:['all','draft','review','approved','published','withdrawn']};
