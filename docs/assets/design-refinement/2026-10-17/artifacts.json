@@ -1,0 +1,78 @@
+{
+  "createdAt": "2026-10-17T15:07:47.627747+00:00",
+  "apiBase": "https://hkbus-api.copypaste.hk/api/",
+  "targets": {
+    "wechat": {
+      "canonicalApiEmbedded": true,
+      "routeEtaUiCompiled": true,
+      "localPreferencesCompiled": true,
+      "files": 269,
+      "pages": 14,
+      "uncompressedBytes": 848110
+    },
+    "alipay": {
+      "canonicalApiEmbedded": true,
+      "routeEtaUiCompiled": true,
+      "localPreferencesCompiled": true,
+      "files": 266,
+      "pages": 14,
+      "uncompressedBytes": 795519
+    },
+    "douyin": {
+      "canonicalApiEmbedded": true,
+      "routeEtaUiCompiled": true,
+      "localPreferencesCompiled": true,
+      "files": 266,
+      "pages": 14,
+      "uncompressedBytes": 789939
+    },
+    "h5": {
+      "canonicalApiEmbedded": true,
+      "routeEtaUiCompiled": true,
+      "localPreferencesCompiled": true,
+      "files": 245
+    },
+    "android": {
+      "rendererFilesVerified": 245,
+      "signatureVerified": true,
+      "signing": "Android Debug",
+      "packageId": "hk.hkbusgo.app",
+      "versionName": "1.0.0",
+      "minSdk": 24,
+      "targetSdk": 36,
+      "iosBuilt": false
+    }
+  },
+  "artifacts": [
+    {
+      "name": "hkbusgo-wechat-dist.zip",
+      "bytes": 454858,
+      "sha256": "964e029abbd75e294371e73e24d0dfd8cb922637c27b998ea0e2f102ee36cdda"
+    },
+    {
+      "name": "hkbusgo-alipay-dist.zip",
+      "bytes": 451506,
+      "sha256": "99e1c9c1e5c22b01c52c99f47548a6771fe8021e19fdd472f6b8209513883d21"
+    },
+    {
+      "name": "hkbusgo-douyin-dist.zip",
+      "bytes": 450194,
+      "sha256": "ce7a3c8119316e38b6cdc6a9d07798f816ccb6e0f5781a7bbf1745bd33e4583f"
+    },
+    {
+      "name": "hkbusgo-h5-dist.zip",
+      "bytes": 898103,
+      "sha256": "290dc1f21ed41051503abdee6837bf3624fadafe3d1e05c655942e3f107d9543"
+    },
+    {
+      "name": "hkbusgo-android-debug.apk",
+      "bytes": 6272437,
+      "sha256": "351b68bd9171f64b5c2c814b5f853ee2f579ecccb245525440fa4ab75a360b26"
+    }
+  ],
+  "passed": true,
+  "officialMiniProgramIDE": false,
+  "physicalDevice": false,
+  "storeSubmission": false,
+  "demoTouched": false
+}

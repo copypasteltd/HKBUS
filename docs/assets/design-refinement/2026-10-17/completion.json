@@ -1,0 +1,107 @@
+{
+  "passed": true,
+  "completedAt": "2026-10-17T15:08:48.926791+00:00",
+  "requirements": [
+    {
+      "id": "UI-01",
+      "passed": true,
+      "evidence": [
+        "browser.json:responsive",
+        "browser.json:navigation",
+        "browser.json:minimumControlHeight"
+      ]
+    },
+    {
+      "id": "UI-02",
+      "passed": true,
+      "evidence": [
+        "browser.json:checks[0,3]",
+        "regression.json:home stop",
+        "after-home-empty.png",
+        "home-saved-stop-clock.png"
+      ]
+    },
+    {
+      "id": "UI-03",
+      "passed": true,
+      "evidence": [
+        "browser.json:real directory query",
+        "browser.json:navigation",
+        "after-routes.png"
+      ]
+    },
+    {
+      "id": "UI-04",
+      "passed": true,
+      "evidence": [
+        "browser.json:sequence and stop filters",
+        "regression.json:real fresh predictions",
+        "route-hong-kong-clock.png"
+      ]
+    },
+    {
+      "id": "UI-05",
+      "passed": true,
+      "evidence": [
+        "regression.json:offline/reload/reset/clear/migration/storage failure",
+        "after-bookmarks.png",
+        "after-settings-320-en-large.png"
+      ]
+    },
+    {
+      "id": "UI-06",
+      "passed": true,
+      "evidence": [
+        "browser.json:real journey and TDAS requests",
+        "after-planner-result.png",
+        "after-traffic.png"
+      ]
+    },
+    {
+      "id": "UI-07",
+      "passed": true,
+      "evidence": [
+        "browser.json:eight guides",
+        "browser.json:notices/notice",
+        "after-help.png",
+        "after-notices.png"
+      ]
+    },
+    {
+      "id": "UI-08",
+      "passed": true,
+      "evidence": [
+        "builds.json",
+        "build.json",
+        "deployment.json",
+        "artifacts.json"
+      ],
+      "sourceBranchesPublication": "recorded separately by published.json",
+      "handoverArchive": "recorded separately by delivery.json"
+    }
+  ],
+  "officialMiniProgramIDE": false,
+  "physicalDevice": false,
+  "storeSubmission": false,
+  "demoTouched": false,
+  "passengerAccounts": false,
+  "profileRequests": 0,
+  "authorizationHeaders": 0,
+  "backendAndDatabasePreserved": true,
+  "releaseId": "20261017T150048Z-edeca230be17",
+  "sourceCommit": "edeca230be17fedc8045e4616988ce8af90c5941",
+  "publicFiles": 245,
+  "unitTestsPerClient": {
+    "android": 26,
+    "wechat": 26,
+    "alipay": 26,
+    "douyin": 26
+  },
+  "browserGroups": 11,
+  "regressionGroups": 13,
+  "additionalGroups": 5,
+  "realPublicRequests": 210,
+  "responsiveStates": 44,
+  "initialEntryBytes": 457981,
+  "initialEntryGzipEquivalentBytes": 136600
+}
