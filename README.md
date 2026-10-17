@@ -1,5 +1,6 @@
 # 港巴通 HKBusGo — Android 应用 / Android App
 
+**H5 dist / 浏览器版本：** [正式 API 前端导出与验证 / Production H5 export](docs/H5-DIST.md) · [部署说明 / Deployment](docs/H5-DEPLOYMENT.md)
 **正式 API / Finalized API:** `https://hkbus-api.copypaste.hk/api/` · [2026-10-17 编译与交付 / Build and delivery](docs/PRODUCTION-API.md)
 ![HKBusGo Android App](docs/assets/banner-android.png)
 

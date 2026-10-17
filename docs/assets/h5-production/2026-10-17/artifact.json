@@ -1,0 +1,14 @@
+{
+  "apiBase": "https://hkbus-api.copypaste.hk/api",
+  "artifact": {
+    "file": "hkbusgo-h5-dist.zip",
+    "bytes": 766962,
+    "sha256": "d1ab8615b4dcb8c0ccfebb3e534ce3493f6d7a83bd29264d409ad42f311077e1",
+    "zipIntegrityVerified": true
+  },
+  "files": 245,
+  "pages": 14,
+  "publicPath": "/",
+  "router": "hash",
+  "passed": true
+}

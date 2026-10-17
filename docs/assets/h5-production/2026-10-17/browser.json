@@ -1,0 +1,180 @@
+{
+  "startedAt": "2026-10-17T07:37:19.609Z",
+  "apiBase": "https://hkbus-api.copypaste.hk/api",
+  "staticTransport": "Exact exported H5 files are fulfilled locally at the API origin. Every /api/ request continues to the real HTTPS server; API responses are not replaced.",
+  "pages": [
+    {
+      "page": "home",
+      "passed": true
+    },
+    {
+      "page": "routes",
+      "passed": true
+    },
+    {
+      "page": "search",
+      "passed": true
+    },
+    {
+      "page": "nearby",
+      "passed": true
+    },
+    {
+      "page": "route",
+      "passed": true
+    },
+    {
+      "page": "arrivals",
+      "passed": true
+    },
+    {
+      "page": "bookmarks",
+      "passed": true
+    },
+    {
+      "page": "settings",
+      "passed": true
+    },
+    {
+      "page": "notices",
+      "passed": true
+    },
+    {
+      "page": "notice",
+      "passed": true
+    },
+    {
+      "page": "help",
+      "passed": true
+    },
+    {
+      "page": "reminders",
+      "passed": true
+    },
+    {
+      "page": "planner",
+      "passed": true
+    },
+    {
+      "page": "traffic",
+      "passed": true
+    },
+    {
+      "page": "home",
+      "passed": true
+    }
+  ],
+  "requests": [
+    {
+      "path": "/api/v1/config",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/home",
+      "status": 200,
+      "platform": "h5"
+    },
+    {
+      "path": "/api/v1/routes",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/profile/sessions",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/profile/recent",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/search",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/stops",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/stops/6CAA11E0FD871B20/arrivals",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/profile/recent",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/notices",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/profile/notifications",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/profile/reminders",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/home",
+      "status": 200,
+      "platform": "h5"
+    },
+    {
+      "path": "/api/v1/profile/notifications",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/profile/notifications",
+      "status": 200
+    }
+  ],
+  "pageErrors": [],
+  "missingAssets": [],
+  "screenshots": [
+    "h5-home.png",
+    "h5-routes.png",
+    "h5-route.png",
+    "h5-arrivals.png",
+    "h5-bookmarks.png",
+    "h5-home-320.png"
+  ],
+  "browserClosed": true,
+  "testProfileDeleted": true,
+  "websiteDeployed": false,
+  "physicalDeviceVerified": false,
+  "nativePlatform": false,
+  "narrowLayout": {
+    "horizontalOverflow": false,
+    "accessibleControlHeight": 44
+  },
+  "finishedAt": "2026-10-17T07:38:08.209Z",
+  "passed": true,
+  "cleanupRecovery": {
+    "checkedAt": "2026-10-17T07:40:30.781848+00:00",
+    "deleteResponseTimedOut": true,
+    "subsequentProfileRequestStatus": 401,
+    "readOnlyProductionDatabaseCheck": {
+      "profiles": 0,
+      "sessions": 0,
+      "bookmarks": 0
+    },
+    "testProfileDeletionVerified": true,
+    "sensitiveLogFieldsRedacted": true
+  }
+}
