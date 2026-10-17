@@ -130,12 +130,13 @@
   "productionApiDelivery": "docs/PRODUCTION-API.md",
   "h5Export": {
     "sourceBranch": "android",
-    "buildSourceCommit": "f0075fe5fbbdc51be90726ade2af39755afbc6bb",
-    "apiBase": "https://hkbus-api.copypaste.hk/api",
-    "documentation": "docs/H5-DIST.md",
+    "buildSourceCommit": "be0ff19f497eeec69e640b28aec3b7c1662553ee",
+    "apiBase": "https://hkbus-api.copypaste.hk/api/",
+    "documentation": "docs/FARES-INTEGRATION.md",
     "compiledFiles": 245,
     "pages": 14,
-    "websiteDeployed": false
+    "websiteDeployed": true,
+    "releaseId": "20261017T205331Z-be0ff19f497e"
   },
   "productionCors": {
     "origins": "*",
@@ -150,11 +151,11 @@
   "adminUrl": "https://hkbus-api.copypaste.hk/admin/",
   "dataReachability": "docs/DATA-REACHABILITY.md",
   "routeArrivals": "docs/ROUTE-ARRIVALS.md",
-  "routeArrivalRuntimeCommit": "eabd6a04f0f84dbaebe584b2220d630851747fe4",
+  "routeArrivalRuntimeCommit": "a1ec760d8bedf7e5f921a7e5c41a228afeccfdc0",
   "actualH5Url": "https://hkbus.copypaste.hk/",
   "actualH5Release": "20261017T205331Z-be0ff19f497e",
   "actualH5BuildCommit": "be0ff19f497eeec69e640b28aec3b7c1662553ee",
-  "h5ReleaseReport": "docs/H5-SITE-LIVE.md",
+  "h5ReleaseReport": "docs/FARES-INTEGRATION.md",
   "frontendPublicationAuthorized": true,
   "personalDataStorage": "frontend-on-device",
   "passengerAccounts": false,
@@ -165,5 +166,41 @@
   "fareDataSource": "Transport Department official routes and fares XML",
   "fareBasis": "adult-single-undiscounted",
   "backendFareRelease": "20261017T202836Z-a1ec760d8bed",
-  "adminFareRelease": "20261017T205911Z-63843ad100af"
+  "adminFareRelease": "20261017T205911Z-63843ad100af",
+  "historicalH5Exports": [
+    {
+      "sourceBranch": "android",
+      "buildSourceCommit": "f0075fe5fbbdc51be90726ade2af39755afbc6bb",
+      "apiBase": "https://hkbus-api.copypaste.hk/api",
+      "documentation": "docs/H5-DIST.md",
+      "compiledFiles": 245,
+      "pages": 14,
+      "websiteDeployed": false
+    }
+  ],
+  "routeArrivalFeatureOriginalCommit": "eabd6a04f0f84dbaebe584b2220d630851747fe4",
+  "updatedAt": "2026-10-17T21:14:27.252265+00:00",
+  "currentFareIntegration": {
+    "backendRuntimeCommit": "a1ec760d8bedf7e5f921a7e5c41a228afeccfdc0",
+    "backendRelease": "20261017T202836Z-a1ec760d8bed",
+    "backendPort": 39410,
+    "adminBuildCommit": "63843ad100afe7b8291ccf73b7b0dedfbb26d37d",
+    "adminRelease": "20261017T205911Z-63843ad100af",
+    "h5BuildCommit": "be0ff19f497eeec69e640b28aec3b7c1662553ee",
+    "h5Release": "20261017T205331Z-be0ff19f497e",
+    "source": "Transport Department official routes and fares XML",
+    "dataDate": "2026-10-14",
+    "coverage": {
+      "total": 1611,
+      "matched": 1150,
+      "partial": 17,
+      "unmatched": 444,
+      "ambiguous": 0,
+      "changed": 0
+    },
+    "artifactsManifest": "docs/assets/fares/2026-10-18/artifacts.json",
+    "acceptanceReport": "docs/FARES-INTEGRATION.md",
+    "passengerAccounts": false,
+    "personalDataStorage": "frontend-on-device"
+  }
 }
