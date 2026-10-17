@@ -8,15 +8,15 @@
   "projects": [
     {
       "branch": "backend",
-      "commit": "d4ceb5ff7febbcf09e22cc73b2f09e1962b86618",
+      "commit": "304bd52976abc7c17a92d389782503e0ea705488",
       "url": "https://github.com/copypasteltd/HKBUS/tree/backend",
       "docs": {
-        "localLinks": 96,
-        "images": 38,
-        "bilingualReadmeBytes": 13220
+        "localLinks": 108,
+        "images": 39,
+        "bilingualReadmeBytes": 13381
       },
       "git": {
-        "trackedFiles": 166,
+        "trackedFiles": 193,
         "historyBlobsChecked": 208,
         "privateMaterialExcluded": true,
         "submodules": false,
@@ -25,16 +25,16 @@
     },
     {
       "branch": "admin",
-      "commit": "c8d457e55ceefdf566cc1b43c7e31896341aa80d",
+      "commit": "843d7b60578a4a691011aa746a6665247106365b",
       "url": "https://github.com/copypasteltd/HKBUS/tree/admin",
       "docs": {
-        "localLinks": 79,
+        "localLinks": 92,
         "images": 39,
-        "bilingualReadmeBytes": 9125
+        "bilingualReadmeBytes": 9817
       },
       "git": {
-        "trackedFiles": 136,
-        "historyBlobsChecked": 71,
+        "trackedFiles": 165,
+        "historyBlobsChecked": 163,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -42,16 +42,16 @@
     },
     {
       "branch": "wechat",
-      "commit": "b25847fbf2b79b72ca33978b027eddef96c209db",
+      "commit": "0f1af32e7083657aa6414710b79857eb2d424c1d",
       "url": "https://github.com/copypasteltd/HKBUS/tree/wechat",
       "docs": {
-        "localLinks": 81,
+        "localLinks": 94,
         "images": 39,
-        "bilingualReadmeBytes": 12189
+        "bilingualReadmeBytes": 12304
       },
       "git": {
-        "trackedFiles": 388,
-        "historyBlobsChecked": 288,
+        "trackedFiles": 414,
+        "historyBlobsChecked": 384,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -59,16 +59,16 @@
     },
     {
       "branch": "alipay",
-      "commit": "a85158b5be3da4d9ddfc70ea21707d42d7f25592",
+      "commit": "aeb7db8e4a5133c0d798c0d46fdfcc9d3d755b44",
       "url": "https://github.com/copypasteltd/HKBUS/tree/alipay",
       "docs": {
-        "localLinks": 81,
+        "localLinks": 94,
         "images": 39,
-        "bilingualReadmeBytes": 12133
+        "bilingualReadmeBytes": 12248
       },
       "git": {
-        "trackedFiles": 387,
-        "historyBlobsChecked": 287,
+        "trackedFiles": 413,
+        "historyBlobsChecked": 383,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -76,16 +76,16 @@
     },
     {
       "branch": "douyin",
-      "commit": "06c8f5c5d37a69b7c7093ba1ccfa96263f76bc46",
+      "commit": "43db14430acd8d5d171e5c19b56df0a547317df0",
       "url": "https://github.com/copypasteltd/HKBUS/tree/douyin",
       "docs": {
-        "localLinks": 81,
+        "localLinks": 94,
         "images": 39,
-        "bilingualReadmeBytes": 12087
+        "bilingualReadmeBytes": 12202
       },
       "git": {
-        "trackedFiles": 388,
-        "historyBlobsChecked": 288,
+        "trackedFiles": 414,
+        "historyBlobsChecked": 384,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -93,16 +93,16 @@
     },
     {
       "branch": "android",
-      "commit": "3aaf54fa080edae8850c77b60d9c7a8f331c9e7b",
+      "commit": "f0075fe5fbbdc51be90726ade2af39755afbc6bb",
       "url": "https://github.com/copypasteltd/HKBUS/tree/android",
       "docs": {
-        "localLinks": 81,
+        "localLinks": 94,
         "images": 39,
-        "bilingualReadmeBytes": 13458
+        "bilingualReadmeBytes": 13960
       },
       "git": {
-        "trackedFiles": 451,
-        "historyBlobsChecked": 339,
+        "trackedFiles": 477,
+        "historyBlobsChecked": 470,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -131,5 +131,7 @@
       "IDE/device/store acceptance"
     ],
     "handover": "DEPLOYMENT.md"
-  }
+  },
+  "apiBase": "https://hkbus-api.copypaste.hk/api",
+  "productionApiDelivery": "docs/PRODUCTION-API.md"
 }

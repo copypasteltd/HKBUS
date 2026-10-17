@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-10-17T06:51:54.259253+00:00",
+  "apiBase": "https://hkbus-api.copypaste.hk/api",
+  "port": 39410,
+  "allowedOrigins": [
+    "https://hkbus-api.copypaste.hk",
+    "http://43.160.221.28:39410",
+    "https://localhost",
+    "capacitor://localhost"
+  ],
+  "credentialsPreserved": true,
+  "databasePreserved": true,
+  "preflightVerified": true,
+  "health": {
+    "status": "ok",
+    "version": "1.0.0",
+    "database": "ready",
+    "catalogRoutes": 1611,
+    "catalogSyncedAt": "2026-10-16T22:13:52.439Z",
+    "source": "live"
+  }
+}

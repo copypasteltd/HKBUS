@@ -182,3 +182,9 @@ On-server installation, type checking, compilation and **22 regression tests pas
 **TDAS road routing is currently unavailable from this server:** the official AWS load balancer returns 403, whereas the same request from Windows returns 200. Matching DNS results and different ordinary User-Agents do not resolve the rejection. Its exact upstream access policy requires confirmation. The Backend returns an explicit upstream error and never fabricates a route. Obtain approved upstream access or an authorized stable production egress, then rerun the server-side TDAS acceptance. No temporary desktop relay or public proxy was installed.
 
 Configure the actual HTTPS domain in BaoTa later, update exact CORS origins and the real sharing URL, keep only trusted local proxies, then restart and retest. Production administrator cookies remain Secure/HttpOnly/SameSite=Strict; administrator credentials were verified over SSH loopback and are supplied only in a private handoff file. Current delivery is the Backend/database, without publishing Admin UI, mobile applications or an HTTPS domain.
+
+## 正式域名补充 / Finalized HTTPS API
+
+2026-10-17：API 已定稿为 `https://hkbus-api.copypaste.hk/api/`。健康接口 200，正式 origin 已加入 CORS，安全 Cookie 登录/退出及原生 origin 预检通过；监听端口仍为 39410。原账号、宝塔业务库及备份继续使用。TDAS 目前仍返回 502。五端构建和具体边界见 [本次交付](./PRODUCTION-API.md)。
+
+The finalized HTTPS API is live; health, production-origin CORS and secure Admin sessions were verified. Port 39410, credentials, BaoTa SQLite and backups remain in place. TDAS still returns 502. See the current build handover for evidence and limitations.

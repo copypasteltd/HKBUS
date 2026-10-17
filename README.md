@@ -1,5 +1,6 @@
 # 港巴通 HKBusGo — 项目与工程导航 / Project & Repository Guide
 
+**正式 API / Finalized API:** `https://hkbus-api.copypaste.hk/api/` · [五端编译与 HTTPS 验证 / Builds and HTTPS verification](docs/PRODUCTION-API.md)
 ![HKBusGo Project & Repository Guide](docs/assets/banner-main.png)
 
 [中文说明](#中文说明) · [English](#english) · [完整图册 / Gallery](docs/GALLERY.md) · [数据与验证 / Data & validation](docs/DATA-AND-VALIDATION.md)

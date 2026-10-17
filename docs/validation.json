@@ -310,5 +310,19 @@
     "storePublication": false,
     "productionDeployment": false,
     "prototypeTouched": false
+  },
+  "productionApiDelivery": {
+    "date": "2026-10-17",
+    "apiBase": "https://hkbus-api.copypaste.hk/api",
+    "buildsPassed": true,
+    "publicHttpsChecks": 37,
+    "realBrowserIntegrationPassed": true,
+    "artifactContentsVerified": true,
+    "tdasRoadResultAvailable": false,
+    "officialMiniProgramIDE": false,
+    "physicalDevice": false,
+    "storeSubmission": false,
+    "report": "PRODUCTION-API.md",
+    "evidenceDirectory": "assets/production-api/2026-10-17"
   }
 }
