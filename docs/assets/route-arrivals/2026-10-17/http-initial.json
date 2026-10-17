@@ -1,0 +1,17 @@
+{
+  "startedAt": "2026-10-17T11:21:10.867738+00:00",
+  "apiBase": "https://hkbus-api.copypaste.hk/api",
+  "officialBase": "https://data.etabus.gov.hk/v1/transport/kmb",
+  "apiResponsesSubstituted": false,
+  "tlsValidationDisabled": false,
+  "checks": [],
+  "samples": [],
+  "passed": false,
+  "finishedAt": "2026-10-17T11:21:10.928172+00:00",
+  "summary": {
+    "passed": 0,
+    "failed": 0
+  },
+  "sshClosed": true,
+  "network": "Owned Hong Kong host to actual public HTTPS API and official KMB; validated TLS; no substitution"
+}
