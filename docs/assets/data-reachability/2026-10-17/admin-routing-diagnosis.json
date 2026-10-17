@@ -1,0 +1,43 @@
+{
+  "proxyConfig": {
+    "431387eb7262e1cfc79b125eb8a67c60_hkbus-api.copypaste.hk.conf": [
+      "location ^~ /",
+      "proxy_pass http://127.0.0.1:39410;",
+      "add_header X-Cache $upstream_cache_status;"
+    ]
+  },
+  "checks": [
+    {
+      "name": "local-nginx",
+      "status": 404,
+      "headers": {
+        "Server": "nginx",
+        "Content-Type": "application/json; charset=utf-8",
+        "CF-Cache-Status": null,
+        "Cache-Control": "no-store",
+        "X-Cache": null,
+        "Age": null
+      },
+      "body": "{\"error\":{\"code\":\"NOT_FOUND\",\"message\":\"\u627e\u4e0d\u5230\u6b64\u8cc7\u6e90\",\"requestId\":\"3523dd6b-5e5c-41f4-9224-5e74f85bbd4b\",\"retryable\":false}}"
+    },
+    {
+      "name": "public",
+      "status": 404,
+      "headers": {
+        "Server": "cloudflare",
+        "Content-Type": "application/json; charset=utf-8",
+        "CF-Cache-Status": "DYNAMIC",
+        "Cache-Control": "no-store",
+        "X-Cache": null,
+        "Age": null
+      },
+      "body": "{\"error\":{\"code\":\"NOT_FOUND\",\"message\":\"\u627e\u4e0d\u5230\u6b64\u8cc7\u6e90\",\"requestId\":\"02e82ea2-fa84-413d-af01-685b42ff3627\",\"retryable\":false}}"
+    }
+  ],
+  "matchingNginxAccessLogRows": [
+    "127.0.0.1 - - [17/Oct/2026:17:17:26 +0800] \"GET /admin/?hkbusadminprobe1792228646278455803 HTTP/1.1\" 404 130 \"-\" \"HKBusGo/1.0\"",
+    "172.69.165.10 - - [17/Oct/2026:17:17:26 +0800] \"GET /admin/?hkbusadminprobe1792228646278455803 HTTP/1.1\" 404 130 \"-\" \"HKBusGo/1.0\""
+  ],
+  "staticDirectoryExists": true,
+  "currentLinkPresent": false
+}

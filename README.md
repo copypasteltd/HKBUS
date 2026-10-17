@@ -1,5 +1,7 @@
 # 港巴通 HKBusGo — Android 应用 / Android App
 
+**最新数据通达 / Current data status · 2026-10-17:** [真实 TDAS 修复、正式 Admin 和完整验收 / Live-data and Admin handover](docs/DATA-REACHABILITY.md)。正式 API 与 Admin 已通过实际 HTTPS 和浏览器检查；旧部署记录保留作历史快照。Production TDAS and the published Admin passed live acceptance; earlier reports are historical snapshots.
+
 **H5 dist / 浏览器版本：** [正式 API 前端导出与验证 / Production H5 export](docs/H5-DIST.md) · [部署说明 / Deployment](docs/H5-DEPLOYMENT.md)
 **正式 API / Finalized API:** `https://hkbus-api.copypaste.hk/api/` · [2026-10-17 编译与交付 / Build and delivery](docs/PRODUCTION-API.md)
 ![HKBusGo Android App](docs/assets/banner-android.png)
