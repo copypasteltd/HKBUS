@@ -1,0 +1,83 @@
+{
+  "checkedAt": "2026-10-17T08:29:01.088331+00:00",
+  "dns": [
+    "18.163.70.63",
+    "16.162.83.120",
+    "43.198.211.116"
+  ],
+  "proxyVariableNames": [],
+  "checks": [
+    {
+      "name": "default-compact",
+      "ip": null,
+      "curlExitCode": 0,
+      "milliseconds": 185,
+      "status": 403,
+      "headers": {
+        "server": "awselb/2.0",
+        "content-type": "text/html"
+      },
+      "body": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n"
+    },
+    {
+      "name": "http1-compact",
+      "ip": null,
+      "curlExitCode": 0,
+      "milliseconds": 4984,
+      "status": 403,
+      "headers": {
+        "server": "awselb/2.0",
+        "content-type": "text/html"
+      },
+      "body": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n"
+    },
+    {
+      "name": "consumer-origin",
+      "ip": null,
+      "curlExitCode": 0,
+      "milliseconds": 3855,
+      "status": 403,
+      "headers": {
+        "server": "awselb/2.0",
+        "content-type": "text/html"
+      },
+      "body": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n"
+    },
+    {
+      "name": "dns-member-18.163.70.63",
+      "ip": "18.163.70.63",
+      "curlExitCode": 0,
+      "milliseconds": 550,
+      "status": 403,
+      "headers": {
+        "server": "awselb/2.0",
+        "content-type": "text/html"
+      },
+      "body": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n"
+    },
+    {
+      "name": "dns-member-16.162.83.120",
+      "ip": "16.162.83.120",
+      "curlExitCode": 0,
+      "milliseconds": 3945,
+      "status": 403,
+      "headers": {
+        "server": "awselb/2.0",
+        "content-type": "text/html"
+      },
+      "body": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n"
+    },
+    {
+      "name": "dns-member-43.198.211.116",
+      "ip": "43.198.211.116",
+      "curlExitCode": 0,
+      "milliseconds": 180,
+      "status": 403,
+      "headers": {
+        "server": "awselb/2.0",
+        "content-type": "text/html"
+      },
+      "body": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n"
+    }
+  ]
+}

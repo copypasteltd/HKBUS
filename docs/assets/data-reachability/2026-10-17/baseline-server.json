@@ -1,0 +1,174 @@
+{
+  "checkedAt": "2026-10-17T08:27:35.169714+00:00",
+  "release": "20261017T074935Z-80ca4da2de2a",
+  "runtime": "v24.19.0",
+  "providerMode": "live",
+  "tdasEnabled": "true",
+  "tdasBaseUrl": "default official",
+  "cors": "*",
+  "dns": [
+    "43.198.211.116",
+    "16.162.83.120",
+    "18.163.70.63"
+  ],
+  "checks": [
+    {
+      "name": "bff-health",
+      "status": 200,
+      "milliseconds": 25,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "bytes": 258,
+      "body": {
+        "data": {
+          "status": "ok",
+          "version": "1.0.0",
+          "database": "ready",
+          "catalogRoutes": 1611,
+          "catalogSyncedAt": "2026-10-16T22:13:52.439Z",
+          "source": "live"
+        },
+        "meta": {
+          "requestId": "9a310aa2-381d-48eb-9195-27efbcefd4d1",
+          "mode": "live",
+          "generatedAt": "2026-10-17T08:27:35.292Z"
+        }
+      }
+    },
+    {
+      "name": "bff-config",
+      "status": 200,
+      "milliseconds": 5,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "bytes": 1985,
+      "body": {
+        "data": {
+          "product": {
+            "name": "港巴通",
+            "version": "1.0.0",
+            "coverage": "KMB/LWB"
+          },
+          "features": {
+            "reminders": true,
+            "traffic": true,
+            "planner": true,
+            "map": true
+          },
+          "content": {
+            "coverage": {
+              "tc": "目前提供九巴 / 龍運到站查詢",
+              "sc": "目前提供九巴 / 龙运到站查询",
+              "en": "KMB / LWB arrivals"
+            },
+            "privacy": {
+              "tc": "位置只用於尋找附近車站，不寫入查詢日誌。收藏和提醒屬於你的匿名裝置檔案，可在設定刪除。",
+              "sc": "位置只用于寻找附近车站，不写入查询日志。收藏和提醒属于你的匿名设备档案，可在设置删除。",
+              "en": "Location is used only to find nearby stops and is not logged. Your anonymous device profile can be deleted in Settings."
+            },
+            "help": {
+              "tc": "到站預計來自 KMB / LWB 官方 API；道路行駛參考來自 TDAS。距離為直線距離，步行分鐘屬估算。服務通告由營運人員核實及發布，並非官方通告的完整清單。",
+              "sc": "到站预计来自 KMB / LWB 官方 API；道路行驶参考来自 TDAS。距离为直线距离，步行分钟属于估算。服务通告由运营人员核实及发布，并非官方通告的完整清单。",
+              "en": "Arrivals come from the KMB / LWB API; road references come from TDAS. Distances are straight-line estimates. Notices are verified and published by our operators, not a complete official feed."
+            },
+            "sourceUrl": "https://data.gov.hk/tc-data/dataset/hk-td-tis_21-etakmb",
+            "privacyUrl": "",
+            "supportEmail": "",
+            "maintenance": false
+          },
+          "mode": "live",
+          "dataPolicy": {
+            "liveOnly": true,
+            "cacheVersion": 2,
+            "notices": "operator-managed"
+          },
+          "shareBaseUrl": "http://43.160.221.28:39410",
+          "tdasEnabled": true,
+          "catalogSyncedAt": "2026-10-16T22:13:52.439Z",
+          "sources": [
+            {
+              "name": "KMB ETA",
+              "url": "https://data.gov.hk/tc-data/dataset/hk-td-tis_21-etakmb"
+            },
+            {
+              "name": "TDAS",
+              "url": "https://tdas-api.hkemobility.gov.hk/tdas/specification/TD_TDAS_API_Specifications.pdf"
+            }
+          ]
+        },
+        "meta": {
+          "requestId": "d443f73b-91d6-43b5-b845-60925cd7e148",
+          "mode": "live",
+          "generatedAt": "2026-10-17T08:27:35.298Z"
+        }
+      }
+    },
+    {
+      "name": "tdas-pdf",
+      "status": 200,
+      "milliseconds": 3321,
+      "headers": {
+        "content-type": "application/pdf"
+      },
+      "bytes": 488033,
+      "pdfSignature": "%PDF-"
+    },
+    {
+      "name": "tdas-official",
+      "status": 403,
+      "milliseconds": 130,
+      "headers": {
+        "server": "awselb/2.0",
+        "content-type": "text/html"
+      },
+      "bytes": 118,
+      "body": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n"
+    },
+    {
+      "name": "bff-tdas",
+      "status": 502,
+      "milliseconds": 390,
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      },
+      "bytes": 145,
+      "body": {
+        "error": {
+          "code": "UPSTREAM_HTTP",
+          "message": "資料供應商暫時不可用",
+          "requestId": "7a9d3629-7d7f-4b14-b1f9-4ec960691dff",
+          "retryable": true
+        }
+      }
+    },
+    {
+      "name": "public-tdas",
+      "status": 503,
+      "milliseconds": 768,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "bytes": 168,
+      "body": {
+        "error": {
+          "code": "UPSTREAM_CIRCUIT_OPEN",
+          "message": "資料服務暫時不可用，請稍後重試",
+          "requestId": "df024013-aa02-4caf-ad44-fc27d167f98d",
+          "retryable": true
+        }
+      }
+    }
+  ],
+  "providerEventsSchema": [
+    "id",
+    "provider",
+    "operation",
+    "success",
+    "duration_ms",
+    "code",
+    "created_at"
+  ]
+}
