@@ -1,0 +1,148 @@
+{
+  "startedAt": "2026-10-17T11:25:35.241Z",
+  "staticTransport": "Exact newly compiled H5/Android files served locally at their HTTPS origins. Every API request continues to the real public API with TLS validation. No API response is substituted.",
+  "checks": [
+    {
+      "name": "h5 route ETA values match real response",
+      "passed": true,
+      "routeId": "KMB:112:O:1",
+      "stops": 23,
+      "numericStationsVerified": 23
+    },
+    {
+      "name": "h5 one route request instead of per-stop ETA fanout",
+      "passed": true
+    },
+    {
+      "name": "h5 station expansion, next 3, Hong Kong times and official remarks",
+      "passed": true,
+      "stopSequence": 3,
+      "stopId": "7FBF4EAFB18821CA",
+      "predictions": 2
+    },
+    {
+      "name": "h5 restored connectivity route ETA values match real response",
+      "passed": true,
+      "routeId": "KMB:112:O:1",
+      "stops": 23,
+      "numericStationsVerified": 23
+    },
+    {
+      "name": "simulated offline refresh uses marked real cache, hides minutes and recovers online",
+      "passed": true,
+      "apiPayloadSubstituted": false
+    },
+    {
+      "name": "visible route automatically refreshes within 30s",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "h5-route-overview.png",
+    "h5-route-upcoming.png",
+    "h5-route-offline.png"
+  ],
+  "requests": [
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:25:36.216Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:25:36.222Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:25:36.243Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "status": 200,
+      "at": "2026-10-17T11:25:36.565Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "status": 200,
+      "at": "2026-10-17T11:25:37.210Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:26:06.368Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/sessions",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:26:06.548Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops/7FBF4EAFB18821CA/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:26:06.840Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/recent",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:26:06.957Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:26:07.427Z"
+    }
+  ],
+  "pageErrors": [],
+  "missingAssets": [],
+  "profilesDeleted": [
+    {
+      "surface": "h5",
+      "deleted": true
+    }
+  ],
+  "browserClosed": true,
+  "physicalDevice": false,
+  "officialMiniProgramIDE": false,
+  "websiteDeployed": false,
+  "sourceObservations": [
+    {
+      "surface": "h5",
+      "routeId": "KMB:112:O:1",
+      "freshness": {
+        "state": "fresh",
+        "generatedAt": "2026-10-17T11:25:24.000Z",
+        "fetchedAt": "2026-10-17T11:25:36.779Z",
+        "cached": false,
+        "source": "live",
+        "provider": "KMB"
+      },
+      "usablePredictions": true,
+      "at": "2026-10-17T11:25:36.655Z"
+    }
+  ],
+  "error": "locator.innerText: Error: strict mode violation: locator('.entity-header') resolved to 2 elements:\n    1) <taro-view-core class=\"entity-header\">…</taro-view-core> aka getByText('112往 長沙灣(蘇屋邨)KMB/LWB · 服務類型 1', { exact: true })\n    2) <taro-view-core class=\"entity-header\">…</taro-view-core> aka locator('taro-view-core').filter({ hasText: 'KMB / LWB新都城大廈METROPOLE' }).nth(3)\n\nCall log:\n\u001b[2m  - waiting for locator('.entity-header')\u001b[22m\n",
+  "passed": false,
+  "finishedAt": "2026-10-17T11:26:07.749Z"
+}

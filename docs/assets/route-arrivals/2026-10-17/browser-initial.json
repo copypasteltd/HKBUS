@@ -1,0 +1,46 @@
+{
+  "startedAt": "2026-10-17T11:21:09.381Z",
+  "staticTransport": "Exact newly compiled H5/Android files served locally at their HTTPS origins. Every API request continues to the real public API with TLS validation. No API response is substituted.",
+  "checks": [],
+  "screenshots": [],
+  "requests": [
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:21:10.813Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:21:10.907Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:21:11.022Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "status": 200,
+      "at": "2026-10-17T11:21:11.234Z"
+    }
+  ],
+  "pageErrors": [],
+  "missingAssets": [],
+  "profilesDeleted": [],
+  "browserClosed": true,
+  "physicalDevice": false,
+  "officialMiniProgramIDE": false,
+  "websiteDeployed": false,
+  "error": "At least one fresh real ETA must be visible",
+  "passed": false,
+  "finishedAt": "2026-10-17T11:21:11.479Z"
+}

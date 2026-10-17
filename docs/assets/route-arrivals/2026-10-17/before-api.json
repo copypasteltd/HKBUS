@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-10-17T11:19:36Z",
+  "network": "Owned production server curl to actual public HTTPS API; TLS validation enabled",
+  "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+  "status": 404,
+  "errorCode": "NOT_FOUND",
+  "requestId": "fda95e35-4aaa-4294-b25d-d041883e1a33",
+  "observation": "Route-wide ETA endpoint did not exist in the previously deployed service."
+}

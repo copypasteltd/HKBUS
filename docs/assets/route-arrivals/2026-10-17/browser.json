@@ -1,0 +1,548 @@
+{
+  "startedAt": "2026-10-17T11:29:54.931Z",
+  "staticTransport": "Exact newly compiled H5/Android files served locally at their HTTPS origins. Every API request continues to the real public API with TLS validation. No API response is substituted.",
+  "checks": [
+    {
+      "name": "h5 route ETA values match real response",
+      "passed": true,
+      "routeId": "KMB:112:O:1",
+      "stops": 23,
+      "numericStationsVerified": 23
+    },
+    {
+      "name": "h5 one route request instead of per-stop ETA fanout",
+      "passed": true
+    },
+    {
+      "name": "h5 station expansion, next 3, Hong Kong times and official remarks",
+      "passed": true,
+      "stopSequence": 3,
+      "stopId": "7FBF4EAFB18821CA",
+      "predictions": 2
+    },
+    {
+      "name": "h5 restored connectivity route ETA values match real response",
+      "passed": true,
+      "routeId": "KMB:112:O:1",
+      "stops": 23,
+      "numericStationsVerified": 23
+    },
+    {
+      "name": "simulated offline refresh uses marked real cache, hides minutes and recovers online",
+      "passed": true,
+      "apiPayloadSubstituted": false
+    },
+    {
+      "name": "visible route automatically refreshes within 30s",
+      "passed": true
+    },
+    {
+      "name": "hidden route stops polling while stop arrivals continue",
+      "passed": true,
+      "observedSeconds": 35
+    },
+    {
+      "name": "h5 direction switch replaces route and ETA identity",
+      "passed": true
+    },
+    {
+      "name": "h5 320px large text in simplified Chinese and English",
+      "passed": true
+    },
+    {
+      "name": "android-renderer route ETA values match real response",
+      "passed": true,
+      "routeId": "KMB:112:O:1",
+      "stops": 23,
+      "numericStationsVerified": 23
+    },
+    {
+      "name": "android-renderer one route request instead of per-stop ETA fanout",
+      "passed": true
+    },
+    {
+      "name": "android-renderer station expansion, next 3, Hong Kong times and official remarks",
+      "passed": true,
+      "stopSequence": 3,
+      "stopId": "7FBF4EAFB18821CA",
+      "predictions": 1
+    },
+    {
+      "name": "android-renderer direction switch replaces route and ETA identity",
+      "passed": true
+    },
+    {
+      "name": "android-renderer 320px large text in simplified Chinese and English",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "h5-route-overview.png",
+    "h5-route-upcoming.png",
+    "h5-route-offline.png",
+    "h5-stop-arrivals.png",
+    "h5-route-320-sc.png",
+    "h5-route-320-en.png",
+    "android-renderer-route-overview.png",
+    "android-renderer-route-upcoming.png",
+    "android-renderer-stop-arrivals.png",
+    "android-renderer-route-320-sc.png",
+    "android-renderer-route-320-en.png"
+  ],
+  "requests": [
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:29:55.718Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:29:55.761Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:29:56.290Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "status": 200,
+      "at": "2026-10-17T11:29:56.508Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "status": 200,
+      "at": "2026-10-17T11:29:58.276Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:30:26.024Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/sessions",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:30:26.723Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops/7FBF4EAFB18821CA/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:30:26.758Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/recent",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:30:27.233Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:30:41.034Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:30:55.614Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops/7FBF4EAFB18821CA/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:30:56.290Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:02.287Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:03.044Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:03.045Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:03.045Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:03.045Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AI%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:03.566Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AI%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:03.795Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:04.271Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:04.453Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:04.454Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:04.455Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:04.455Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "status": 200,
+      "at": "2026-10-17T11:31:05.087Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:05.416Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:05.520Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:05.542Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:05.708Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:05.708Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "status": 200,
+      "at": "2026-10-17T11:31:05.939Z"
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:07.161Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:07.937Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:07.940Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:08.049Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "status": 200,
+      "at": "2026-10-17T11:31:08.248Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/profile/sessions",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:08.845Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/stops/7FBF4EAFB18821CA/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:08.856Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:09.581Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:09.581Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:09.582Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:09.587Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:09.656Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/routes/KMB%3A112%3AI%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:09.873Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/routes/KMB%3A112%3AI%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:10.240Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:10.449Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:10.944Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:11.021Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:11.022Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:11.023Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "status": 200,
+      "at": "2026-10-17T11:31:11.200Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/config",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:11.845Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/profile/bookmarks",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:12.072Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/profile/notifications",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:12.074Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:12.075Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:12.229Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "status": 200,
+      "at": "2026-10-17T11:31:12.770Z"
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/profile",
+      "query": "",
+      "status": 200,
+      "at": "2026-10-17T11:31:12.929Z"
+    }
+  ],
+  "pageErrors": [],
+  "missingAssets": [],
+  "profilesDeleted": [
+    {
+      "surface": "h5",
+      "deleted": true
+    },
+    {
+      "surface": "android-renderer",
+      "deleted": true
+    }
+  ],
+  "browserClosed": true,
+  "physicalDevice": false,
+  "officialMiniProgramIDE": false,
+  "websiteDeployed": false,
+  "sourceObservations": [
+    {
+      "surface": "h5",
+      "routeId": "KMB:112:O:1",
+      "freshness": {
+        "state": "fresh",
+        "generatedAt": "2026-10-17T11:29:28.000Z",
+        "fetchedAt": "2026-10-17T11:29:56.731Z",
+        "cached": false,
+        "source": "live",
+        "provider": "KMB"
+      },
+      "usablePredictions": true,
+      "at": "2026-10-17T11:29:57.818Z"
+    },
+    {
+      "surface": "android-renderer",
+      "routeId": "KMB:112:O:1",
+      "freshness": {
+        "state": "fresh",
+        "generatedAt": "2026-10-17T11:30:26.000Z",
+        "fetchedAt": "2026-10-17T11:31:08.470Z",
+        "cached": false,
+        "source": "live",
+        "provider": "KMB"
+      },
+      "usablePredictions": true,
+      "at": "2026-10-17T11:31:08.342Z"
+    }
+  ],
+  "passed": true,
+  "finishedAt": "2026-10-17T11:31:13.115Z"
+}
