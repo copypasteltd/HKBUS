@@ -1,5 +1,7 @@
 # 港巴通 HKBusGo — 运营管理后台 / Operations Admin
 
+**最新数据通达 / Current data status · 2026-10-17:** [真实 TDAS 修复、正式 Admin 和完整验收 / Live-data and Admin handover](docs/DATA-REACHABILITY.md)。正式 API 与 Admin 已通过实际 HTTPS 和浏览器检查；旧部署记录保留作历史快照。Production TDAS and the published Admin passed live acceptance; earlier reports are historical snapshots.
+
 **正式 API / Finalized API:** `https://hkbus-api.copypaste.hk/api/` · [2026-10-17 编译与交付 / Build and delivery](docs/PRODUCTION-API.md)
 ![HKBusGo Operations Admin](docs/assets/banner-admin.png)
 
@@ -68,7 +70,7 @@ UI 与 Backend 双重限制。Admin 使用 HttpOnly Cookie、允许的 Origin �
 
 `src/App.tsx` 管理会话和导航；`src/api.tsx` 统一真实请求、错误与资源状态；`src/pages` 包含各业务板块；`src/ui.tsx` 提供角色、表单、弹窗和反馈组件；`src/styles.css` 实现设计系统；`docs` 为素材与验证。
 
-生产部署 `dist`，建议放到 `https://hkbus-api.copypaste.hk/admin/`，保留 `/api/admin` Cookie 路径。该静态站点本次仅交付 dist，未发布。Backend CORS 需包含实际 Admin origin；如跨源还需正确 Cookie/凭证策略，建议同源配置。不上传 `.env.local`、密码或服务器数据库。没有新增 demo 或 Vercel 部署。
+实际 Admin 已发布到 `https://hkbus-api.copypaste.hk/admin/`，保留 `/api/admin` Cookie 路径；六个编译资源、真实登录/退出与十个功能页已检查。同源 HTTPS 直接连接定稿 API，Backend CORS 接受任意来源。不上传 `.env.local`、密码或服务器数据库。没有新增 demo 或 Vercel 部署。
 
 | 问题 | 处理 |
 |---|---|
@@ -78,7 +80,7 @@ UI 与 Backend 双重限制。Admin 使用 HttpOnly Cookie、允许的 Origin �
 | 指标为空 | 尚无真实请求或发布内容，不填充假增长 |
 | 同步失败 | 查看实际任务与上游状态；旧完整目录继续可用 |
 
-类型/编译与真实浏览器登录/目录/数据源已检查；不等于生产部署或四端真机通过。[验证记录](docs/validation.json)、[数据边界](docs/DATA-AND-VALIDATION.md)、[素材来源](docs/ASSETS.md)。
+类型/编译与真实浏览器登录/目录/数据源已检查；实际生产站点另有本次验收记录，四端真机仍需独立验证。[验证记录](docs/validation.json)、[数据边界](docs/DATA-AND-VALIDATION.md)、[素材来源](docs/ASSETS.md)。
 
 ## English
 
@@ -104,6 +106,6 @@ Viewer is read-only; editor edits/submits content; operator reviews/publishes an
 
 `src/App.tsx` handles navigation/session; `src/api.tsx` implements transport/errors/resources; `src/pages` contains business areas; `src/ui.tsx` handles role-aware shared controls/forms/dialogs; `src/styles.css` contains the design system; `docs` holds images/evidence.
 
-For production, serve `dist` at `https://hkbus-api.copypaste.hk/admin/`, preserving the `/api/admin` cookie path. This delivery contains the static dist and does not publish an Admin site. Add the actual origin to Backend CORS. Cross-origin cookies require additional correct credential policy; same-origin hosting is the documented default. Keep local environment files, passwords and server databases outside Git. No demo or Vercel deployment is part of this work.
+For production, serve `dist` at `https://hkbus-api.copypaste.hk/admin/`, preserving the `/api/admin` cookie path. The actual Admin site is now published there; all six static resources, real login/logout and ten sections passed acceptance. Backend CORS permits any origin. Cross-origin cookies require additional correct credential policy; same-origin hosting is the documented default. Keep local environment files, passwords and server databases outside Git. No demo or Vercel deployment is part of this work.
 
 For connection failure, check the finalized API, CORS, HTTPS and cookie policy; local development additionally uses Backend 4100 and its proxy. For 401/403, inspect session, role, Origin and mutation header, then re-authenticate. For 409, reload/review rather than force overwrite. Empty metrics mean no actual traffic/content; sync failures retain the last complete catalogue. Types/build and real browser login/catalogue/provider checks are recorded separately from production and physical-device acceptance. See [checkout validation](docs/validation.json), [data rules](docs/DATA-AND-VALIDATION.md) and [provenance](docs/ASSETS.md).

@@ -1,0 +1,345 @@
+{
+  "startedAt": "2026-10-17T08:56:16.312Z",
+  "apiBase": "https://hkbus-api.copypaste.hk/api",
+  "staticTransport": "Exact existing dist files fulfilled locally; every /api/ request continues to the real public HTTPS server. No API responses are intercepted or substituted.",
+  "physicalDevice": false,
+  "officialMiniProgramIDE": false,
+  "websiteDeployment": false,
+  "pages": [
+    {
+      "surface": "https://hkbus-api.copypaste.hk",
+      "page": "home"
+    },
+    {
+      "surface": "https://hkbus-api.copypaste.hk",
+      "page": "routes"
+    },
+    {
+      "surface": "https://hkbus-api.copypaste.hk",
+      "page": "search"
+    },
+    {
+      "surface": "https://hkbus-api.copypaste.hk",
+      "page": "nearby"
+    },
+    {
+      "surface": "https://hkbus-api.copypaste.hk",
+      "page": "route"
+    },
+    {
+      "surface": "https://hkbus-api.copypaste.hk",
+      "page": "arrivals"
+    },
+    {
+      "surface": "https://hkbus-api.copypaste.hk",
+      "page": "bookmarks"
+    },
+    {
+      "surface": "https://hkbus-api.copypaste.hk",
+      "page": "settings"
+    },
+    {
+      "surface": "https://hkbus-api.copypaste.hk",
+      "page": "notices"
+    },
+    {
+      "surface": "https://hkbus-api.copypaste.hk",
+      "page": "notice"
+    },
+    {
+      "surface": "https://hkbus-api.copypaste.hk",
+      "page": "help"
+    },
+    {
+      "surface": "https://hkbus-api.copypaste.hk",
+      "page": "reminders"
+    },
+    {
+      "surface": "https://hkbus-api.copypaste.hk",
+      "page": "planner"
+    },
+    {
+      "surface": "https://hkbus-api.copypaste.hk",
+      "page": "traffic"
+    },
+    {
+      "surface": "https://localhost",
+      "page": "home"
+    },
+    {
+      "surface": "https://localhost",
+      "page": "traffic"
+    }
+  ],
+  "checks": [
+    {
+      "name": "h5 actual TDAS ST",
+      "passed": true,
+      "status": 200,
+      "source": "live",
+      "distanceMeters": 12965,
+      "durationSeconds": 900
+    },
+    {
+      "name": "h5 actual TDAS SD",
+      "passed": true,
+      "status": 200,
+      "source": "live",
+      "distanceMeters": 9649,
+      "durationSeconds": 1140
+    },
+    {
+      "name": "Exported H5 all 14 pages, real KMB/TDAS/planner/bookmarks and 320px traffic layout",
+      "passed": true
+    },
+    {
+      "name": "android-renderer actual TDAS ST",
+      "passed": true,
+      "status": 200,
+      "source": "live",
+      "distanceMeters": 12965,
+      "durationSeconds": 900
+    },
+    {
+      "name": "android-renderer actual TDAS SD",
+      "passed": true,
+      "status": 200,
+      "source": "live",
+      "distanceMeters": 9649,
+      "durationSeconds": 1140
+    },
+    {
+      "name": "Exact Android renderer uses real cross-origin HTTPS TDAS including browser CORS",
+      "passed": true
+    }
+  ],
+  "requests": [
+    {
+      "surface": "h5",
+      "path": "/api/v1/home",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/config",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/sessions",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/recent",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/search",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops/A3B9F3D6B2668DE3/arrivals",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/recent",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/notices",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/reminders",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/journeys",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/stops",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/traffic/route",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/traffic/route",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/config",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/home",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/stops",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/stops",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/stops",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/stops",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/traffic/route",
+      "status": 200
+    },
+    {
+      "surface": "android-renderer",
+      "path": "/api/v1/traffic/route",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile/notifications",
+      "status": 200
+    },
+    {
+      "surface": "h5",
+      "path": "/api/v1/profile",
+      "status": 200
+    }
+  ],
+  "screenshots": [
+    "h5-kmb-live.png",
+    "h5-journey-live.png",
+    "h5-tdas-live.png",
+    "h5-tdas-320.png",
+    "android-renderer-tdas-live.png",
+    "android-renderer-tdas-320.png"
+  ],
+  "pageErrors": [],
+  "missingAssets": [],
+  "profilesDeleted": [
+    {
+      "surface": "h5",
+      "profileId": null,
+      "deleted": true
+    }
+  ],
+  "browserClosed": true,
+  "failure": "locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('電郵', { exact: true })\u001b[22m\n",
+  "cleanupErrors": [
+    {
+      "surface": "android-renderer",
+      "reason": "No owned browser profile token available for cleanup"
+    }
+  ],
+  "finishedAt": "2026-10-17T08:57:34.225Z",
+  "passed": false
+}

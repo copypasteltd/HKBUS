@@ -1,0 +1,222 @@
+{
+  "checkedAt": "2026-10-17T09:48:59.169802+00:00",
+  "runtimeRelease": "/www/wwwroot/hkbusgo/releases/20261017T091351Z-c04a08dbe501",
+  "port": 39410,
+  "service": {
+    "active": "active",
+    "enabled": "enabled",
+    "identity": "MainPID=1384726\nMemoryMax=402653184\nUser=hkbusgo\nGroup=hkbusgo"
+  },
+  "privateConfiguration": {
+    "liveOnly": true,
+    "tdasEnabled": true,
+    "egressCredentialsPresent": true,
+    "credentialsRecorded": false,
+    "corsOrigins": "*",
+    "environmentMode": "0640",
+    "tdasMinIntervalMs": 20000
+  },
+  "database": {
+    "path": "/www/wwwroot/hkbusgo/shared/data/hkbusgo.db",
+    "integrity": "ok",
+    "foreignKeyViolations": 0,
+    "counts": {
+      "routes": 1611,
+      "stops": 6775,
+      "route_stops": 36377,
+      "profiles": 2,
+      "admins": 1
+    },
+    "nonLiveRows": {
+      "routes": 0,
+      "stops": 0
+    },
+    "journalMode": "wal"
+  },
+  "baoTa": {
+    "databaseRegistered": true,
+    "task": {
+      "id": 2,
+      "name": "HKBusGo SQLite Daily Consistent Backup",
+      "status": 1,
+      "where_hour": 4,
+      "where_minute": 20
+    }
+  },
+  "backupTrigger": {
+    "taskId": 2,
+    "triggerAccepted": true
+  },
+  "latestBackup": {
+    "createdAt": "2026-10-17T09:48:58.089Z",
+    "file": "/www/backup/database/sqlite/d6ad541c23e9d6a30c484ea7ccd36fe7/20261017_094857_hkbusgo.db",
+    "bytes": 5562368,
+    "sha256": "90556bb11d4358685b52d46d10864a2363cf42fc778b57713c23199523a42c9a",
+    "integrity": "ok",
+    "foreignKeyViolations": 0,
+    "restoreReadCheck": true,
+    "counts": {
+      "routes": 1611,
+      "stops": 6775,
+      "route_stops": 36377,
+      "profiles": 2,
+      "admins": 1
+    },
+    "retained": 8
+  },
+  "admin": {
+    "url": "https://hkbus-api.copypaste.hk/admin/",
+    "releaseId": "20261017T092321Z-cc8058f514f2",
+    "assetsVerified": 6
+  },
+  "recentTdasEvents": [
+    {
+      "success": 1,
+      "durationMs": 1482,
+      "code": null,
+      "createdAt": "2026-10-17T09:47:46.291Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1803,
+      "code": null,
+      "createdAt": "2026-10-17T09:47:26.611Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1345,
+      "code": null,
+      "createdAt": "2026-10-17T09:43:44.044Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1310,
+      "code": null,
+      "createdAt": "2026-10-17T09:40:22.997Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1225,
+      "code": null,
+      "createdAt": "2026-10-17T09:40:02.911Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1666,
+      "code": null,
+      "createdAt": "2026-10-17T09:39:33.919Z"
+    },
+    {
+      "success": 0,
+      "durationMs": 421,
+      "code": "ROAD_MATCH_FAILED",
+      "createdAt": "2026-10-17T09:39:12.659Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1528,
+      "code": null,
+      "createdAt": "2026-10-17T09:38:53.746Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1498,
+      "code": null,
+      "createdAt": "2026-10-17T09:38:30.404Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 928,
+      "code": null,
+      "createdAt": "2026-10-17T09:38:06.808Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1301,
+      "code": null,
+      "createdAt": "2026-10-17T09:37:46.169Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1706,
+      "code": null,
+      "createdAt": "2026-10-17T09:37:26.535Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1715,
+      "code": null,
+      "createdAt": "2026-10-17T09:37:06.544Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1557,
+      "code": null,
+      "createdAt": "2026-10-17T09:36:46.396Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1723,
+      "code": null,
+      "createdAt": "2026-10-17T09:36:26.556Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1665,
+      "code": null,
+      "createdAt": "2026-10-17T09:36:06.491Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1564,
+      "code": null,
+      "createdAt": "2026-10-17T09:35:46.438Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1985,
+      "code": null,
+      "createdAt": "2026-10-17T09:35:26.827Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1491,
+      "code": null,
+      "createdAt": "2026-10-17T09:35:06.316Z"
+    },
+    {
+      "success": 1,
+      "durationMs": 1434,
+      "code": null,
+      "createdAt": "2026-10-17T09:34:46.263Z"
+    }
+  ],
+  "health": {
+    "status": "ok",
+    "version": "1.0.0",
+    "database": "ready",
+    "catalogRoutes": 1611,
+    "catalogSyncedAt": "2026-10-17T09:25:04.478Z",
+    "source": "live",
+    "dataStatus": "healthy",
+    "dataServices": [
+      {
+        "provider": "KMB",
+        "enabled": true,
+        "transport": "direct",
+        "state": "available",
+        "checkedAt": "2026-10-17T09:47:17.571Z",
+        "lastCode": null
+      },
+      {
+        "provider": "TDAS",
+        "enabled": true,
+        "transport": "authenticated-egress",
+        "state": "available",
+        "checkedAt": "2026-10-17T09:47:46.291Z",
+        "lastCode": null
+      }
+    ]
+  },
+  "passed": true
+}

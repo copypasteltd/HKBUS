@@ -1,0 +1,74 @@
+
+added 105 packages in 2s
+npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn allow-scripts   esbuild@0.28.2 (postinstall: node install.js)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+
+> @hkbusgo/backend@1.0.0 typecheck
+> tsc --noEmit
+
+
+> @hkbusgo/backend@1.0.0 test
+> tsx --test test/*.test.ts && node --test deploy/tdas-egress/test/route.test.mjs
+
+✔ rotating device credentials preserve data, reject replay and revoke deleted profiles (418.603394ms)
+✔ health, config and canonical route identities are available (6.491161ms)
+✔ invalid entities, partial coordinates and identical journey endpoints fail explicitly (7.879158ms)
+✔ profile credentials, bookmark idempotency, aliases and complete ordering (9.844412ms)
+✔ profile ownership is enforced and reminder delivery is idempotent (21.575831ms)
+✔ admin cookie session, CSRF protection and role checks (131.97335ms)
+✔ notice draft/review/approval/scheduled publication, conflicts and rollback (11.534498ms)
+✔ configuration revisions, real content propagation and feature shutdown (6.649057ms)
+✔ profile deletion revokes access and cascades personal data (2.161282ms)
+✔ wildcard origins permit public and error responses with credentials and cache variation (199.944671ms)
+✔ preflights accept arbitrary client headers and every implemented request method (15.481788ms)
+✔ any-origin Admin sessions reach authentication and support marked cookie writes (122.102358ms)
+✔ an explicitly configured origin allowlist still rejects other Admin origins (30.648102ms)
+✔ native app origin may preflight actual bookmark, reminder and deletion methods (232.865414ms)
+✔ runtime refuses fixture mode instead of silently accepting it (0.611949ms)
+✔ empty live database seeds configuration only and reports its initialisation state (29.552314ms)
+✔ legacy sample database is refused and its records remain available for recovery (38.496293ms)
+✔ home requires location or a chosen stop and does not imply arbitrary stops are nearby (73.539575ms)
+✔ legacy unverified notices stay private even if marked published (31.048866ms)
+✔ legacy or poisoned ETA cache cannot replace an official-provider request (34.695108ms)
+✔ over-age upstream ETA stays unavailable and never triggers a reminder (53.514319ms)
+✔ SQLite restart and consistent backup preserve profile data and migrations (413.051098ms)
+✔ KMB fields preserve service identity, numeric strings, Chinese names and null ETA (4.684444ms)
+✔ TDAS HH:MM is duration and input constrains time, coordinates and endpoints (1.233358ms)
+✔ successful ETA cache survives an upstream failure as explicitly stale data (402.063088ms)
+✔ catalog replacement is atomic when a provider returns inconsistent foreign keys (35.961229ms)
+✔ TDAS egress authenticates privately, preserves official data, coalesces queries and caches for clients (310.301022ms)
+✔ direct TDAS stays available on hosts with official access and never receives the private egress key (40.764345ms)
+✔ road matching failures do not trip a provider outage and authentication or official denial is not retried (29.429541ms)
+✔ transient TDAS failures retry and malformed results remain failed, uncached provider events (324.817236ms)
+✔ TDAS outage circuit is scoped to the failed transport and timeout errors stay explicit (480.575829ms)
+✔ partial or unsafe egress configuration fails startup without echoing credentials (0.761271ms)
+✔ different TDAS queries respect the configured upstream interval (70.124418ms)
+✔ local TDAS backpressure is bounded, explicit and does not fabricate a provider failure (13.744743ms)
+✔ a retry never waits beyond the overall TDAS deadline (162.891759ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7131.79408
+✔ egress authenticates and validates requests before contacting TDAS (1.434527ms)
+✔ egress forwards only validated parameters to the fixed official endpoint (29.243753ms)
+✔ egress preserves meaningful upstream failures and rejects invalid success bodies (2.8677ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 110.968883
+
+> @hkbusgo/backend@1.0.0 build
+> node scripts/build.mjs
+
+
+removed 6 packages in 571ms
