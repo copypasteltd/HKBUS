@@ -1,5 +1,7 @@
 # 数据与验证 / Data and validation
 
+**2026-10-17 当前乘客端规则 / Current passenger rule:** 喜好、收藏、历史与提醒改为前端本机保存，公共请求不创建匿名档案或发送用户凭据；详细迁移、事务及证据见 [本机喜好](LOCAL-PREFERENCES.md)。下文关于服务端匿名身份的阶段记录保留为历史事实。 / Updated clients keep personal data on-device; older anonymous-profile descriptions below are historical.
+
 **后续更新 / Superseding update:** 本文保留此前阶段的验收事实。当前正式 TDAS 与 Admin 的状态、证据和限制见 [数据通达交付 / Current live-data handover](DATA-REACHABILITY.md)。
 
 **当前正式 API / Current production API:** `https://hkbus-api.copypaste.hk/api/`。下文保留既有基线；2026-10-17 本次正式 HTTPS、五端编译和 TDAS 502 限制以 [本次交付 / Current handover](PRODUCTION-API.md) 为准。

@@ -1,0 +1,592 @@
+{
+  "startedAt": "2026-10-17T12:30:33.554Z",
+  "website": "https://hkbus.copypaste.hk/",
+  "checks": [
+    {
+      "name": "First visit, six preferences, immediate persistence, reload, three languages and 320px large text",
+      "passed": true,
+      "minimumOptionHeight": 44
+    },
+    {
+      "name": "Real route and stop favourites, alias and ordering save offline and survive reload",
+      "passed": true
+    },
+    {
+      "name": "Saved home stop drives the actual live home API and dismissed invitation stays hidden",
+      "passed": true,
+      "stopId": "6CAA11E0FD871B20"
+    },
+    {
+      "name": "Clock preference displays fresh real operator predictions as Hong Kong times",
+      "passed": true,
+      "stationsVerified": 15,
+      "routeId": "KMB:112:O:1"
+    },
+    {
+      "name": "Default threshold, explicit route sequence and local reminder create/pause/enable persist without a profile",
+      "passed": true
+    },
+    {
+      "name": "Recent-history opt-out clears and stops recording; opt-in deduplicates; manual clear persists",
+      "passed": true
+    },
+    {
+      "name": "Two tabs receive local-storage updates; a separate browser context keeps independent settings",
+      "passed": true
+    },
+    {
+      "name": "Simulated local-storage failure is visible and does not report a saved preference; later writes recover",
+      "passed": true
+    },
+    {
+      "name": "Reset preferences restores defaults and preserves favourites and reminders",
+      "passed": true
+    },
+    {
+      "name": "Clear all local data resets every personal collection and returns to first-visit home",
+      "passed": true
+    },
+    {
+      "name": "Previously cached real favourites/history and language migrate locally; retired session credentials are removed without requests",
+      "passed": true
+    },
+    {
+      "name": "All 14 actual pages load and fit the mobile viewport",
+      "passed": true,
+      "pages": 14
+    },
+    {
+      "name": "All personal actions send zero profile requests and zero Authorization headers; transit remains live",
+      "passed": true,
+      "publicRequests": 62
+    }
+  ],
+  "screenshots": [
+    "home-preference-invitation.png",
+    "settings-320-en-large.png",
+    "settings-320-sc-large.png",
+    "settings-reading-and-journeys.png",
+    "favourites-local-offline.png",
+    "home-saved-stop-clock.png",
+    "route-hong-kong-clock.png",
+    "local-arrival-reminder.png",
+    "storage-write-failure-feedback.png",
+    "local-storage-privacy.png"
+  ],
+  "requests": [
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/home",
+      "query": "?platform=h5",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops/F8365ACAC0B85C65/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops/6CAA11E0FD871B20/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/home",
+      "query": "?stopId=6CAA11E0FD871B20&platform=h5",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "same-browser-tab",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "isolated-browser",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/home",
+      "query": "?platform=h5",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "legacy-local-cache",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "legacy-local-cache",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/home",
+      "query": "?platform=h5",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes",
+      "query": "?page=1&pageSize=20",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops",
+      "query": "?radius=3000&pageSize=20",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops/F8365ACAC0B85C65/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/notices",
+      "query": "?platform=h5",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    }
+  ],
+  "navigation": [
+    {
+      "screen": "home",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "routes",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "search",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "nearby",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "arrivals",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "route",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "bookmarks",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "settings",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "notices",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "notice",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "help",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "reminders",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "planner",
+      "loaded": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "traffic",
+      "loaded": true,
+      "horizontalOverflow": false
+    }
+  ],
+  "pageErrors": [],
+  "missingAssets": [],
+  "apiResponsesSubstituted": false,
+  "officialMiniProgramIDE": false,
+  "physicalDevice": false,
+  "browserClosed": true,
+  "passed": true,
+  "finishedAt": "2026-10-17T12:31:44.088Z"
+}
