@@ -1,0 +1,335 @@
+{
+  "startedAt": "2026-10-17T12:28:24.061Z",
+  "website": "https://hkbus.copypaste.hk/",
+  "checks": [
+    {
+      "name": "First visit, six preferences, immediate persistence, reload, three languages and 320px large text",
+      "passed": true,
+      "minimumOptionHeight": 44
+    },
+    {
+      "name": "Real route and stop favourites, alias and ordering save offline and survive reload",
+      "passed": true
+    },
+    {
+      "name": "Saved home stop drives the actual live home API and dismissed invitation stays hidden",
+      "passed": true,
+      "stopId": "6CAA11E0FD871B20"
+    },
+    {
+      "name": "Clock preference displays fresh real operator predictions as Hong Kong times",
+      "passed": true,
+      "stationsVerified": 16,
+      "routeId": "KMB:112:O:1"
+    },
+    {
+      "name": "Default threshold, explicit route sequence and local reminder create/pause/enable persist without a profile",
+      "passed": true
+    },
+    {
+      "name": "Recent-history opt-out clears and stops recording; opt-in deduplicates; manual clear persists",
+      "passed": true
+    },
+    {
+      "name": "Two tabs receive local-storage updates; a separate browser context keeps independent settings",
+      "passed": true
+    },
+    {
+      "name": "Simulated local-storage failure is visible and does not report a saved preference; later writes recover",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "home-preference-invitation.png",
+    "settings-320-en-large.png",
+    "settings-320-sc-large.png",
+    "settings-reading-and-journeys.png",
+    "favourites-local-offline.png",
+    "home-saved-stop-clock.png",
+    "route-hong-kong-clock.png",
+    "local-arrival-reminder.png",
+    "storage-write-failure-feedback.png",
+    "local-storage-privacy.png",
+    "failure-state.png"
+  ],
+  "requests": [
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/home",
+      "query": "?platform=h5",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops/F8365ACAC0B85C65/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/stops/6CAA11E0FD871B20/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/home",
+      "query": "?stopId=6CAA11E0FD871B20&platform=h5",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "main",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "same-browser-tab",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    },
+    {
+      "label": "isolated-browser",
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false
+    }
+  ],
+  "navigation": [],
+  "pageErrors": [],
+  "missingAssets": [],
+  "apiResponsesSubstituted": false,
+  "officialMiniProgramIDE": false,
+  "physicalDevice": false,
+  "browserClosed": true,
+  "passed": false,
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.taro-modal__btn').filter({ hasText: /^(確定|确定|OK)$/ })\u001b[22m\n\n    at confirm (D:\\dev\\copypasted\\HKBUS\\implementation\\verify\\local-preferences-browser.cjs:20:101)\n    at main (D:\\dev\\copypasted\\HKBUS\\implementation\\verify\\local-preferences-browser.cjs:61:81)",
+  "failureUrl": "https://hkbus.copypaste.hk/?localqa=1792240120920#/pages/settings/index",
+  "failureBody": "設定\nMake it yours\n舒服地看，安心地行。\n調整喜好，自動保存在目前裝置。\n免登入，記在本機。\n變更會自動儲存，不會跨裝置同步。\n閱讀與語言\n大字模式\n放大主要文字，保留完整操作\n介面語言\n繁體中文\n简体中文\nEnglish\n到站顯示方式\n倒數分鐘\n香港時刻\n只調整顯示，不改變官方到站預計。\n常用出行偏好\n首頁預設車站\n清風街\n預設提前提醒\n5 分鐘\n10 分鐘\n15 分鐘\n新建提醒時使用；不更改已建立的提醒。\n記住最近查看\n最多 20 項；關閉後清除並停止記錄\n位置與提醒\n本次查詢位置\n點按授權，或繼續手動搜尋\n到站提醒\n本機保存，開啟頁面時檢查\n資料與支援\n資料來源與覆蓋\n本機儲存與私隱\n使用說明\n服務通知\n關於港巴通\n本機資料\n3 收藏 · 0 最近查看 · 1 提醒\n重設喜好\n恢復預設偏好，保留收藏、記錄和提醒\n清除全部本機資料\n包括偏好、收藏、最近查看和提醒\nKMB / LWB 開放資料 · 預計時間可能改變\n首頁\nHome\n路線\nRoutes\n收藏\nFavourites\n設定\nSettings\n重設喜好？\n取消\n确定",
+  "finishedAt": "2026-10-17T12:29:20.107Z"
+}
