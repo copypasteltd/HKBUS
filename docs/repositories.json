@@ -8,16 +8,16 @@
   "projects": [
     {
       "branch": "backend",
-      "commit": "6c283f1844dcc5a7d8813fa54c6a304d76fdc3ac",
+      "commit": "4a28aca0892d7b47f99c714a3482ec592e11f13d",
       "url": "https://github.com/copypasteltd/HKBUS/tree/backend",
       "docs": {
-        "localLinks": 144,
+        "localLinks": 160,
         "images": 39,
-        "bilingualReadmeBytes": 14306
+        "bilingualReadmeBytes": 15206
       },
       "git": {
-        "trackedFiles": 290,
-        "historyBlobsChecked": 347,
+        "trackedFiles": 321,
+        "historyBlobsChecked": 401,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -25,16 +25,16 @@
     },
     {
       "branch": "admin",
-      "commit": "a4816ec604153abd8f8ec8972fe80bf1013f9e63",
+      "commit": "7ad7022df85a129932d7468c63e411a2754e1ad7",
       "url": "https://github.com/copypasteltd/HKBUS/tree/admin",
       "docs": {
-        "localLinks": 117,
+        "localLinks": 133,
         "images": 39,
-        "bilingualReadmeBytes": 10253
+        "bilingualReadmeBytes": 11153
       },
       "git": {
-        "trackedFiles": 236,
-        "historyBlobsChecked": 199,
+        "trackedFiles": 264,
+        "historyBlobsChecked": 269,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -42,16 +42,16 @@
     },
     {
       "branch": "wechat",
-      "commit": "964697690c01e84d9df3676123b3ca9575b9d53c",
+      "commit": "5fc95cbcb68e49fccd1ca0c885cc41d781d920d7",
       "url": "https://github.com/copypasteltd/HKBUS/tree/wechat",
       "docs": {
-        "localLinks": 119,
+        "localLinks": 135,
         "images": 39,
-        "bilingualReadmeBytes": 12688
+        "bilingualReadmeBytes": 13588
       },
       "git": {
-        "trackedFiles": 485,
-        "historyBlobsChecked": 416,
+        "trackedFiles": 517,
+        "historyBlobsChecked": 486,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -59,16 +59,16 @@
     },
     {
       "branch": "alipay",
-      "commit": "22be105ba4c7828f3ef2710ade0ab172b37b69ee",
+      "commit": "dc577b4ca0b755262f7868d13eed2f85c43814db",
       "url": "https://github.com/copypasteltd/HKBUS/tree/alipay",
       "docs": {
-        "localLinks": 119,
+        "localLinks": 135,
         "images": 39,
-        "bilingualReadmeBytes": 12632
+        "bilingualReadmeBytes": 13532
       },
       "git": {
-        "trackedFiles": 484,
-        "historyBlobsChecked": 415,
+        "trackedFiles": 516,
+        "historyBlobsChecked": 485,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -76,16 +76,16 @@
     },
     {
       "branch": "douyin",
-      "commit": "2a6cdb2edc03f6a9f806d810e7f5c6b6f6f10d33",
+      "commit": "e2c8457d05fcaba0eca211335da7988857b91fab",
       "url": "https://github.com/copypasteltd/HKBUS/tree/douyin",
       "docs": {
-        "localLinks": 119,
+        "localLinks": 135,
         "images": 39,
-        "bilingualReadmeBytes": 12586
+        "bilingualReadmeBytes": 13486
       },
       "git": {
-        "trackedFiles": 485,
-        "historyBlobsChecked": 416,
+        "trackedFiles": 517,
+        "historyBlobsChecked": 486,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -93,16 +93,16 @@
     },
     {
       "branch": "android",
-      "commit": "44151dc362f39e07c69d4081fbbd47524ca9e67b",
+      "commit": "de0b5f61db439bb4e48e71279fd29abb3bd99522",
       "url": "https://github.com/copypasteltd/HKBUS/tree/android",
       "docs": {
-        "localLinks": 126,
+        "localLinks": 142,
         "images": 39,
-        "bilingualReadmeBytes": 14507
+        "bilingualReadmeBytes": 15398
       },
       "git": {
-        "trackedFiles": 560,
-        "historyBlobsChecked": 515,
+        "trackedFiles": 592,
+        "historyBlobsChecked": 585,
         "privateMaterialExcluded": true,
         "submodules": false,
         "symlinks": false
@@ -154,5 +154,7 @@
     "handover": "docs/CORS-OPEN.md"
   },
   "adminUrl": "https://hkbus-api.copypaste.hk/admin/",
-  "dataReachability": "docs/DATA-REACHABILITY.md"
+  "dataReachability": "docs/DATA-REACHABILITY.md",
+  "routeArrivals": "docs/ROUTE-ARRIVALS.md",
+  "routeArrivalRuntimeCommit": "eabd6a04f0f84dbaebe584b2220d630851747fe4"
 }

@@ -1,0 +1,14 @@
+{
+  "startedAt": "2026-10-17T11:24:43.546241+00:00",
+  "runtimeCommit": "eabd6a04f0f84dbaebe584b2220d630851747fe4",
+  "archiveSha256": "780aeb808a3a8c20f81c20adad474391ec38aef58c2c4e70a9dd35259e658f38",
+  "releaseId": "20261017T112442Z-eabd6a04f0f8",
+  "port": 39410,
+  "envChanged": false,
+  "databaseReplaced": false,
+  "demoTouched": false,
+  "passed": true,
+  "exitCode": 0,
+  "finishedAt": "2026-10-17T11:25:21.254415+00:00",
+  "sshClosed": true
+}
