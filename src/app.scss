@@ -62,3 +62,17 @@ view,text,button,input,textarea,taro-view-core,taro-text-core,taro-button-core,t
 }
 
 .app-root .bookmark-controls{flex-wrap:wrap}.app-root .bookmark-controls>.text-button{min-height:44Px}
+
+/* Official fares share the approved calm surfaces; monetary conditions remain next to the amount. */
+.app-root{
+ .fare-panel{margin-top:18px;scroll-margin-top:16px}.fare-heading{display:flex;align-items:center;gap:12px;margin-bottom:6px}.fare-heading>view{flex:1;min-width:0}
+ .fare-fields .field-control{min-height:48Px;white-space:normal;overflow-wrap:anywhere}.fare-fields .field-control>text{min-width:0;flex:1}
+ .fare-result{margin-top:18px;padding:16px;border-radius:12px;background:#edf7f5}.fare-amount{display:block;color:$teal;font-size:30px;line-height:1.3;font-weight:700;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+ .fare-value>.caption{margin-top:6px}.fare-stale .fare-amount{color:#88600f}.fare-full,.fare-source{display:block;margin-top:12px;overflow-wrap:anywhere}
+ .fare-disclosure{justify-content:flex-start;margin-top:8px;white-space:normal;text-align:left}.fare-conditions{padding-top:8px;border-top:1px solid $line}.fare-conditions .description{margin-top:0;margin-bottom:10px}
+ .fare-option{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;margin-top:12px}.fare-option>text:first-child{flex:1;min-width:0}
+ .journey-fare{margin-top:18px;padding-top:16px;border-top:1px solid $line}.journey-fare>.fare-amount{margin:8px 0}.journey-leg-fare{margin-top:10px}.journey-leg-fare .fare-amount{font-size:20px;margin-top:4px}.journey-leg{align-items:flex-start}
+ .route-boarding-fare{margin-top:14px;padding-top:12px;border-top:1px solid $line}.route-boarding-fare .row-title{margin-top:5px}.route-boarding-fare>.text-button{justify-content:flex-start;text-align:left;white-space:normal}
+ .stop-arrival-actions{display:flex;flex-direction:column;flex-shrink:0}.stop-arrival-actions .text-button{white-space:normal;text-align:center;min-height:44Px}
+ &.large-text .fare-amount{font-size:34px}&.large-text .journey-leg-fare .fare-amount{font-size:24px}&.large-text .fare-conditions .description{font-size:16px}&.large-text .fare-fields .field-control{font-size:17px}&.large-text .fare-option{font-size:15px}
+}
