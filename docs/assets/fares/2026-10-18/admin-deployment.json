@@ -1,0 +1,60 @@
+{
+  "releaseId": "20261017T205911Z-63843ad100af",
+  "sourceCommit": "63843ad100afe7b8291ccf73b7b0dedfbb26d37d",
+  "archiveSha256": "b95ace04e77f9a35325d3ae0c40c3310c4cdab5eeb0714bde4a290e068bec187",
+  "assets": {
+    "assets/index-BUxQlujS.css": "7b7a02f7c43c903b252b00fb19594a3b6b21a9785d3520f079fa9158f761f35e",
+    "assets/index-DsH2pOn3.js": "814599151b03adee4bb8727c234e8955c7e4071d791f35c8f4ca48eca516b97f",
+    "brand/app-icon-192.png": "2a01503f16ce28c40a28a0d9b608117b2ae92f789babca43ec6c3cf3d133bf57",
+    "brand/favicon.svg": "595823afda6163ebf2b2581d007730b5dd09984fb7acfd90136c30061c099524",
+    "brand/logo.svg": "595823afda6163ebf2b2581d007730b5dd09984fb7acfd90136c30061c099524",
+    "index.html": "6be02e9e946a5df78d67367ed32329e570e177b8e495f4506064a43a3688bb9b"
+  },
+  "scope": "existing compiled real Admin, same-origin production API; no demo assets",
+  "publicUrl": "https://hkbus-api.copypaste.hk/admin/",
+  "nginxExtension": "/www/server/panel/vhost/nginx/extension/hkbus-api.copypaste.hk/hkbusgo-admin.conf",
+  "staticBase": "/www/wwwroot/hkbusgo-admin",
+  "checks": [
+    {
+      "path": "/admin/assets/index-BUxQlujS.css",
+      "status": 200,
+      "sha256": "7b7a02f7c43c903b252b00fb19594a3b6b21a9785d3520f079fa9158f761f35e",
+      "cacheControl": "private, no-store, no-transform"
+    },
+    {
+      "path": "/admin/assets/index-DsH2pOn3.js",
+      "status": 200,
+      "sha256": "814599151b03adee4bb8727c234e8955c7e4071d791f35c8f4ca48eca516b97f",
+      "cacheControl": "private, no-store, no-transform"
+    },
+    {
+      "path": "/admin/brand/app-icon-192.png",
+      "status": 200,
+      "sha256": "2a01503f16ce28c40a28a0d9b608117b2ae92f789babca43ec6c3cf3d133bf57",
+      "cacheControl": "private, no-store, no-transform"
+    },
+    {
+      "path": "/admin/brand/favicon.svg",
+      "status": 200,
+      "sha256": "595823afda6163ebf2b2581d007730b5dd09984fb7acfd90136c30061c099524",
+      "cacheControl": "private, no-store, no-transform"
+    },
+    {
+      "path": "/admin/brand/logo.svg",
+      "status": 200,
+      "sha256": "595823afda6163ebf2b2581d007730b5dd09984fb7acfd90136c30061c099524",
+      "cacheControl": "private, no-store, no-transform"
+    },
+    {
+      "path": "/admin/index.html",
+      "status": 200,
+      "sha256": "6be02e9e946a5df78d67367ed32329e570e177b8e495f4506064a43a3688bb9b",
+      "cacheControl": "private, no-store, no-transform"
+    }
+  ],
+  "apiStillReady": true,
+  "backendRelease": "/www/wwwroot/hkbusgo/releases/20261017T202836Z-a1ec760d8bed",
+  "backendPort": 39410,
+  "passed": true,
+  "rollbackPreviousRelease": "/www/wwwroot/hkbusgo-admin/releases/20261017T202940Z-eedc2b47afa8"
+}
