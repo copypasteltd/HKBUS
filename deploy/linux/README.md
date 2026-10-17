@@ -11,6 +11,7 @@
 | `backup.sh` / `backup.mjs` | flock + SQLite 一致性快照、源/备份校验、14 份保留；只管理本任务命名的文件 |
 | `start-panel-backup.py` | 经宝塔官方本地任务模块触发已登记的本项目备份 |
 | `verify-deployment.py` | 实际 HTTP、认证/数据事务/同步与重启验收；临时个人档案在 finally 清理，报告不保存 token |
+| `verify-cors.py` | 通过正式 HTTPS 校验任意来源、任意请求头、七种方法预检及管理登录/退出；不建立匿名档案，报告不记录 Cookie 或密码 |
 
 首次安装需事先把源码包 `backend-source.tar.gz`、`release-id.txt` 和上述脚本上传到 `/home/ubuntu/.cache/hkbus-deploy-20261017/`。版本号格式为 UTC `YYYYMMDDTHHMMSSZ-<12位提交>`。安装不会建立域名、HTTPS 或前端站点。当前主机已经完成首次安装，后续请按手册更新，勿重新执行 setup。
 
@@ -23,3 +24,5 @@ These scripts describe the native Ubuntu/BaoTa installation at `43.160.221.28:39
 `setup.sh` performs a first installation only and refuses an existing deployment. It expects an uploaded source archive, release ID and operation files; it does not configure a domain, TLS or frontend. `register-panel.py` preserves existing panel entries and requires the native `acl` package. The backup task uses consistent SQLite snapshots rather than copying a live database file, verifies integrity and retains the latest 14 matching files.
 
 The verification script requires root, creates/removes temporary anonymous profiles, triggers live synchronization and **restarts this service**. Use an appropriate maintenance window. Its report excludes credentials. A TDAS upstream 403 is marked blocked, so exit status 0 does not mean every upstream dependency passed. Ordinary health checks should use `GET /api/health` and inspect `data.status`.
+
+`verify-cors.py --output /path/to/report.json` verifies the actual public HTTPS endpoint with 55 CORS/authentication checks, including one temporary Admin session that is logged out. It reads the initial Admin credential file privately (override with `--credentials` if necessary), creates no anonymous profiles and does not restart the service. `update-cors.sh` expects a versioned staging directory and performs a backup, isolated release build, atomic switch and readiness rollback. See [the current CORS handover](../../docs/CORS-OPEN.md).

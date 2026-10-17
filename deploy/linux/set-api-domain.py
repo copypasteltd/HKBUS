@@ -7,7 +7,8 @@ origin='https://hkbus-api.copypaste.hk'
 previous=path.read_bytes();lines=previous.decode().splitlines()
 settings=dict(line.split('=',1) for line in lines if '=' in line and not line.lstrip().startswith('#'))
 assert settings['PORT']=='39410' and settings['PROVIDER_MODE']=='live'
-origins=list(dict.fromkeys([origin]+settings.get('CORS_ORIGINS','').split(',')))
+configured=settings.get('CORS_ORIGINS','').split(',')
+origins=['*'] if '*' in configured else list(dict.fromkeys([origin]+configured))
 value=','.join(item for item in origins if item)
 new='\n'.join('CORS_ORIGINS='+value if line.startswith('CORS_ORIGINS=') else line for line in lines)+'\n'
 backup=base/'shared/backend.before-https-20261017.env'

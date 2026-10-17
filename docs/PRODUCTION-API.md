@@ -1,5 +1,7 @@
 # 港巴通正式 API 与五端编译交付 · 2026-10-17
 
+[当前 CORS 行为 / Current CORS policy](https://github.com/copypasteltd/HKBUS/blob/backend/docs/CORS-OPEN.md)。The live Backend now accepts every origin and arbitrary request headers; earlier allowlist checks describe the pre-update snapshot. Client binaries are unchanged.
+
 API 已统一为 **`https://hkbus-api.copypaste.hk/api/`**。四个移动端和管理后台的构建默认值、环境变量样例与产物均指向该地址，内部去掉结尾斜杠后拼接 `/v1/…`，不会产生重复 `/api`。API 变更后需重新编译。10 号纯图形 Logo 和 Accessible Calm Minimal 继续沿用。
 
 ## 交付文件
@@ -22,7 +24,7 @@ API 已统一为 **`https://hkbus-api.copypaste.hk/api/`**。四个移动端和�
 
 已通过 **37 项** HTTPS 检查：官方线路/站点/附近搜索、完整站序、KMB 实时 ETA、无定位及指定站点首页、行程候选、通告读取、匿名档案建立、收藏新增/读取/排序、最近查看、页内提醒、凭证轮换及旧会话撤销、档案和个人资料删除、后台 Cookie 登录/身份/总览/数据源/登出。主数据当前 1,611 个线路方向与 6,775 个站点。ETA 检查取得 10 条真实记录，来源 KMB、状态 fresh；这只是检查时快照。
 
-已将正式 API origin 加入后端允许列表，保留 `https://localhost` 与 `capacitor://localhost`。通过 OPTIONS 预检及拒绝不可信浏览器 origin 检查。管理员 Cookie 的 Secure、HttpOnly、SameSite=Strict 及退出撤销已实测。服务器继续监听 **39410**，原有宝塔 SQLite、账号、数据、备份和 systemd 保留。域名配置脚本位于 Backend 的 `deploy/linux/set-api-domain.py`，服务器副本 `/www/wwwroot/hkbusgo/ops/set-api-domain.py`；私密环境备份不进入仓库。
+构建交付时已将正式 API origin 加入后端允许列表，并验证当时的来源限制。**后续 CORS 更新（2026-10-17）已将线上 `CORS_ORIGINS=*`，接受任意来源与自定义请求头，55 项 HTTPS 和 8 项真实浏览器跨域检查通过；此前拒绝未知 Origin 的证据仅代表更新前快照。**管理员 Cookie 的 Secure、HttpOnly、SameSite=Strict 及退出撤销已实测。服务器继续监听 **39410**，原有宝塔 SQLite、账号、数据、备份和 systemd 保留。域名配置脚本位于 Backend 的 `deploy/linux/set-api-domain.py`，服务器副本 `/www/wwwroot/hkbusgo/ops/set-api-domain.py`；私密环境备份不进入仓库。
 
 证据：[HTTPS API 检查](./assets/production-api/2026-10-17/https-api.json)、[服务端域名配置](./assets/production-api/2026-10-17/server-domain.json)、[TDAS 源站检查](./assets/production-api/2026-10-17/tdas-origin.json)。本次测试仅新建自己的匿名档案并最终删除，管理员会话已退出，正常审计/请求指标保留。
 
@@ -32,7 +34,7 @@ API 已统一为 **`https://hkbus-api.copypaste.hk/api/`**。四个移动端和�
 - **Cloudflare 工具 UA 限制**：早先 Python-urllib/3.13 请求收到 403/1010；本次 HTTP 验证采用产品 UA HKBusGo/1.0，真实 Chrome 页面请求也通过。没有关闭 TLS 或绕过挑战；官方小程序 IDE 和各平台真机 UA/网络尚待验收。
 - **发行身份**：微信仍是 touristappid、抖音 AppID 空值，支付宝须在 IDE 关联应用。请登记 `https://hkbus-api.copypaste.hk` 为 request 合法域名并填写真实 AppID、定位/隐私申明。编译包不等于可直接提审的发行身份。
 - **Android 签名**：本次为 Debug 证书签名、v2 验签通过，可安装测试；正式商店签名和发布另行处理。[签名证据](./assets/production-api/2026-10-17/apk-signature.txt)、[APK 元数据](./assets/production-api/2026-10-17/apk-badging.txt)。
-- **后台静态站点**：本次交付 dist，未部署 Admin 网站。建议同源放在 `https://hkbus-api.copypaste.hk/admin/`；该地址仅是推荐位置。相对资源和 Logo 已支持子目录。其他 Admin origin 须配置精确 CORS，SameSite=Strict 仍限制跨站 Cookie。不可双击 file:// 登录。
+- **后台静态站点**：本次交付 dist，未部署 Admin 网站。建议同源放在 `https://hkbus-api.copypaste.hk/admin/`；该地址仅是推荐位置。相对资源和 Logo 已支持子目录。其他 Admin origin 现已由任意来源 CORS 放行，SameSite=Strict 仍独立限制跨站 Cookie。不可双击 file:// 登录。
 - **分享落地页**：本次定稿的是 API 地址；产品分享落地域名没有据此改为 API，已有 shareBaseUrl 仍须后续明确。
 
 ## 构建与验证边界

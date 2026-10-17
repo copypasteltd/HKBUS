@@ -1,0 +1,44 @@
+{
+  "release": "20261017T074935Z-80ca4da2de2a",
+  "service": "active",
+  "bootEnabled": "enabled",
+  "corsOrigins": "*",
+  "port": 39410,
+  "otherEnvironmentUnchanged": true,
+  "health": {
+    "status": "ok",
+    "version": "1.0.0",
+    "database": "ready",
+    "catalogRoutes": 1611,
+    "catalogSyncedAt": "2026-10-16T22:13:52.439Z",
+    "source": "live"
+  },
+  "integrity": "ok",
+  "foreignKeyViolations": 0,
+  "counts": {
+    "routes": 1611,
+    "stops": 6775,
+    "route_stops": 36377,
+    "profiles": 0,
+    "admins": 1
+  },
+  "environmentMode": "0o640",
+  "backup": {
+    "createdAt": "2026-10-17T07:50:06.258Z",
+    "file": "/www/backup/database/sqlite/d6ad541c23e9d6a30c484ea7ccd36fe7/20261017_075005_hkbusgo.db",
+    "bytes": 5472256,
+    "sha256": "554ab32670ffb06aceceb569e4f15d6f5e1b2a8a555c6ffbc1f5043655f51e4c",
+    "integrity": "ok",
+    "foreignKeyViolations": 0,
+    "restoreReadCheck": true,
+    "counts": {
+      "routes": 1611,
+      "stops": 6775,
+      "route_stops": 36377,
+      "profiles": 0,
+      "admins": 1
+    },
+    "retained": 4
+  },
+  "memoryBytes": 45428736
+}

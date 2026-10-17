@@ -1,0 +1,44 @@
+{
+  "files": [
+    {
+      "path": "/www/wwwroot/hkbusgo/ops/set-api-domain.py",
+      "previousSha256": "6b05e82a2f3b7740b6af5d8db159c7b03dbcaa32289bd9be3afd71d4381a53b7",
+      "sha256": "ad00319e3d4be3dfe81bacc88fe3496e29733072cbb681f9dfa21dd33e833f4d",
+      "syntaxChecked": true
+    },
+    {
+      "path": "/www/wwwroot/hkbusgo/ops/verify-deployment.py",
+      "previousSha256": "fabaae4df11538dee58b25290ec6075d090347c1d1f011e9a23ac7dde0af09fb",
+      "sha256": "63699a1cdf64c5d9c991d8e721d370d5fe35c4bd61b55c5534ece88dceabe55a",
+      "syntaxChecked": true
+    },
+    {
+      "path": "/www/wwwroot/hkbusgo/ops/verify-cors.py",
+      "previousSha256": null,
+      "sha256": "55d8c998084b9a0a889edb64980c03e47cb1170c91e714605bb381ab221db7e0",
+      "syntaxChecked": true
+    },
+    {
+      "path": "/www/wwwroot/hkbusgo/ops/update-cors.sh",
+      "previousSha256": null,
+      "sha256": "5c77a9e36cfcbbf40e7aeeb5a1546bf33fa2d3d7dac983cf86f8a8107dbff874",
+      "syntaxChecked": true
+    },
+    {
+      "path": "/www/wwwroot/hkbusgo/docs/CORS-OPEN.md",
+      "previousSha256": null,
+      "sha256": "6eea4a42abf4b153b8f3772899822b9c13c4c32632402b43172ecf4ee68e5d1c",
+      "syntaxChecked": false
+    },
+    {
+      "path": "/www/wwwroot/hkbusgo/docs/DEPLOYMENT.md",
+      "previousSha256": "ad0888269db62d1a158a59192182c8d212aa75d2384b88e0c7ff0f3df4bd437f",
+      "sha256": "ffdca0c5cbbf2f1df99641ef2de9e40f73b0309b3a59a38ed474cf67969aff21",
+      "syntaxChecked": false
+    }
+  ],
+  "service": "active",
+  "release": "20261017T074935Z-80ca4da2de2a",
+  "health": 200,
+  "arbitraryOriginVerified": true
+}

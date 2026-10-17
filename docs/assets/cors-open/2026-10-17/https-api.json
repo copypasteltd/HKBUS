@@ -1,0 +1,888 @@
+{
+  "startedAt": "2026-10-17T07:55:33.087121+00:00",
+  "apiBase": "https://hkbus-api.copypaste.hk/api",
+  "transport": "Ubuntu Python urllib over public HTTPS",
+  "tlsVerification": true,
+  "userAgent": "HKBusGo/1.0",
+  "checks": [
+    {
+      "name": "health https://new-h5.example",
+      "path": "/health",
+      "method": "GET",
+      "origin": "https://new-h5.example",
+      "status": 200,
+      "milliseconds": 315,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "https://new-h5.example",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true
+    },
+    {
+      "name": "unauthenticated response https://new-h5.example",
+      "path": "/admin/auth/me",
+      "method": "GET",
+      "origin": "https://new-h5.example",
+      "status": 401,
+      "milliseconds": 60,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "https://new-h5.example",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true,
+      "errorCode": "UNAUTHENTICATED"
+    },
+    {
+      "name": "preflight GET https://new-h5.example",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "https://new-h5.example",
+      "status": 204,
+      "milliseconds": 219,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "https://new-h5.example",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight HEAD https://new-h5.example",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "https://new-h5.example",
+      "status": 204,
+      "milliseconds": 250,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "https://new-h5.example",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight POST https://new-h5.example",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "https://new-h5.example",
+      "status": 204,
+      "milliseconds": 87,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "https://new-h5.example",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight PUT https://new-h5.example",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "https://new-h5.example",
+      "status": 204,
+      "milliseconds": 217,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "https://new-h5.example",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight PATCH https://new-h5.example",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "https://new-h5.example",
+      "status": 204,
+      "milliseconds": 222,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "https://new-h5.example",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight DELETE https://new-h5.example",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "https://new-h5.example",
+      "status": 204,
+      "milliseconds": 219,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "https://new-h5.example",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight OPTIONS https://new-h5.example",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "https://new-h5.example",
+      "status": 204,
+      "milliseconds": 319,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "https://new-h5.example",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "health http://localhost:9876",
+      "path": "/health",
+      "method": "GET",
+      "origin": "http://localhost:9876",
+      "status": 200,
+      "milliseconds": 72,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "http://localhost:9876",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true
+    },
+    {
+      "name": "unauthenticated response http://localhost:9876",
+      "path": "/admin/auth/me",
+      "method": "GET",
+      "origin": "http://localhost:9876",
+      "status": 401,
+      "milliseconds": 69,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "http://localhost:9876",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true,
+      "errorCode": "UNAUTHENTICATED"
+    },
+    {
+      "name": "preflight GET http://localhost:9876",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "http://localhost:9876",
+      "status": 204,
+      "milliseconds": 238,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "http://localhost:9876",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight HEAD http://localhost:9876",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "http://localhost:9876",
+      "status": 204,
+      "milliseconds": 52,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "http://localhost:9876",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight POST http://localhost:9876",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "http://localhost:9876",
+      "status": 204,
+      "milliseconds": 41,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "http://localhost:9876",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight PUT http://localhost:9876",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "http://localhost:9876",
+      "status": 204,
+      "milliseconds": 46,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "http://localhost:9876",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight PATCH http://localhost:9876",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "http://localhost:9876",
+      "status": 204,
+      "milliseconds": 75,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "http://localhost:9876",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight DELETE http://localhost:9876",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "http://localhost:9876",
+      "status": 204,
+      "milliseconds": 45,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "http://localhost:9876",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight OPTIONS http://localhost:9876",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "http://localhost:9876",
+      "status": 204,
+      "milliseconds": 213,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "http://localhost:9876",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "health https://preview.example:8443",
+      "path": "/health",
+      "method": "GET",
+      "origin": "https://preview.example:8443",
+      "status": 200,
+      "milliseconds": 109,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "https://preview.example:8443",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true
+    },
+    {
+      "name": "unauthenticated response https://preview.example:8443",
+      "path": "/admin/auth/me",
+      "method": "GET",
+      "origin": "https://preview.example:8443",
+      "status": 401,
+      "milliseconds": 221,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "https://preview.example:8443",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true,
+      "errorCode": "UNAUTHENTICATED"
+    },
+    {
+      "name": "preflight GET https://preview.example:8443",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "https://preview.example:8443",
+      "status": 204,
+      "milliseconds": 180,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "https://preview.example:8443",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight HEAD https://preview.example:8443",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "https://preview.example:8443",
+      "status": 204,
+      "milliseconds": 43,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "https://preview.example:8443",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight POST https://preview.example:8443",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "https://preview.example:8443",
+      "status": 204,
+      "milliseconds": 62,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "https://preview.example:8443",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight PUT https://preview.example:8443",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "https://preview.example:8443",
+      "status": 204,
+      "milliseconds": 197,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "https://preview.example:8443",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight PATCH https://preview.example:8443",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "https://preview.example:8443",
+      "status": 204,
+      "milliseconds": 188,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "https://preview.example:8443",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight DELETE https://preview.example:8443",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "https://preview.example:8443",
+      "status": 204,
+      "milliseconds": 53,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "https://preview.example:8443",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight OPTIONS https://preview.example:8443",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "https://preview.example:8443",
+      "status": 204,
+      "milliseconds": 199,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "https://preview.example:8443",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "health capacitor://localhost",
+      "path": "/health",
+      "method": "GET",
+      "origin": "capacitor://localhost",
+      "status": 200,
+      "milliseconds": 105,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "capacitor://localhost",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true
+    },
+    {
+      "name": "unauthenticated response capacitor://localhost",
+      "path": "/admin/auth/me",
+      "method": "GET",
+      "origin": "capacitor://localhost",
+      "status": 401,
+      "milliseconds": 214,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "capacitor://localhost",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true,
+      "errorCode": "UNAUTHENTICATED"
+    },
+    {
+      "name": "preflight GET capacitor://localhost",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "capacitor://localhost",
+      "status": 204,
+      "milliseconds": 52,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "capacitor://localhost",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight HEAD capacitor://localhost",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "capacitor://localhost",
+      "status": 204,
+      "milliseconds": 41,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "capacitor://localhost",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight POST capacitor://localhost",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "capacitor://localhost",
+      "status": 204,
+      "milliseconds": 37,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "capacitor://localhost",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight PUT capacitor://localhost",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "capacitor://localhost",
+      "status": 204,
+      "milliseconds": 58,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "capacitor://localhost",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight PATCH capacitor://localhost",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "capacitor://localhost",
+      "status": 204,
+      "milliseconds": 579,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "capacitor://localhost",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight DELETE capacitor://localhost",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "capacitor://localhost",
+      "status": 204,
+      "milliseconds": 183,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "capacitor://localhost",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight OPTIONS capacitor://localhost",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "capacitor://localhost",
+      "status": 204,
+      "milliseconds": 57,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "capacitor://localhost",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "health null",
+      "path": "/health",
+      "method": "GET",
+      "origin": "null",
+      "status": 200,
+      "milliseconds": 94,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "null",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true
+    },
+    {
+      "name": "unauthenticated response null",
+      "path": "/admin/auth/me",
+      "method": "GET",
+      "origin": "null",
+      "status": 401,
+      "milliseconds": 73,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "null",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true,
+      "errorCode": "UNAUTHENTICATED"
+    },
+    {
+      "name": "preflight GET null",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "null",
+      "status": 204,
+      "milliseconds": 89,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "null",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight HEAD null",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "null",
+      "status": 204,
+      "milliseconds": 188,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "null",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight POST null",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "null",
+      "status": 204,
+      "milliseconds": 228,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "null",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight PUT null",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "null",
+      "status": 204,
+      "milliseconds": 190,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "null",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight PATCH null",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "null",
+      "status": 204,
+      "milliseconds": 68,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "null",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight DELETE null",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "null",
+      "status": 204,
+      "milliseconds": 66,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "null",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "preflight OPTIONS null",
+      "path": "/admin/auth/login",
+      "method": "OPTIONS",
+      "origin": "null",
+      "status": 204,
+      "milliseconds": 47,
+      "headers": {
+        "vary": "Origin, Access-Control-Request-Headers",
+        "access-control-allow-origin": "null",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "authorization,content-type,x-hkbus-admin,x-client-version,x-custom-integration"
+      },
+      "passed": true
+    },
+    {
+      "name": "native/server request without Origin",
+      "path": "/health",
+      "method": "GET",
+      "origin": null,
+      "status": 200,
+      "milliseconds": 104,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true
+    },
+    {
+      "name": "real KMB catalogue with custom headers",
+      "path": "/v1/routes?q=112&pageSize=5",
+      "method": "GET",
+      "origin": "https://new-h5.example",
+      "status": 200,
+      "milliseconds": 210,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "https://new-h5.example",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true
+    },
+    {
+      "name": "real public mutation reaches validation",
+      "path": "/v1/journeys",
+      "method": "POST",
+      "origin": "https://new-h5.example",
+      "status": 422,
+      "milliseconds": 41,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "https://new-h5.example",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true,
+      "errorCode": "VALIDATION_ERROR"
+    },
+    {
+      "name": "unknown resource still readable cross-origin",
+      "path": "/v1/not-a-real-resource",
+      "method": "GET",
+      "origin": "https://new-h5.example",
+      "status": 404,
+      "milliseconds": 46,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "https://new-h5.example",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true,
+      "errorCode": "NOT_FOUND"
+    },
+    {
+      "name": "arbitrary Admin origin reaches credential validation",
+      "path": "/admin/auth/login",
+      "method": "POST",
+      "origin": "https://admin-new.example",
+      "status": 401,
+      "milliseconds": 114,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "https://admin-new.example",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true,
+      "errorCode": "INVALID_CREDENTIALS"
+    },
+    {
+      "name": "Admin login with arbitrary Origin",
+      "path": "/admin/auth/login",
+      "method": "POST",
+      "origin": "https://admin-new.example",
+      "status": 200,
+      "milliseconds": 124,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "https://admin-new.example",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true
+    },
+    {
+      "name": "authenticated Admin response with arbitrary Origin",
+      "path": "/admin/auth/me",
+      "method": "GET",
+      "origin": "https://admin-new.example",
+      "status": 200,
+      "milliseconds": 45,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "https://admin-new.example",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true
+    },
+    {
+      "name": "Admin marker remains required",
+      "path": "/admin/auth/logout",
+      "method": "POST",
+      "origin": "https://admin-new.example",
+      "status": 403,
+      "milliseconds": 41,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "https://admin-new.example",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true,
+      "errorCode": "CSRF_REJECTED"
+    },
+    {
+      "name": "Admin logout with arbitrary Origin",
+      "path": "/admin/auth/logout",
+      "method": "POST",
+      "origin": "https://admin-new.example",
+      "status": 200,
+      "milliseconds": 225,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "https://admin-new.example",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true
+    },
+    {
+      "name": "logged-out Admin access is revoked",
+      "path": "/admin/auth/me",
+      "method": "GET",
+      "origin": "https://admin-new.example",
+      "status": 401,
+      "milliseconds": 174,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Origin",
+        "access-control-allow-origin": "https://admin-new.example",
+        "access-control-allow-credentials": "true"
+      },
+      "passed": true,
+      "errorCode": "UNAUTHENTICATED"
+    }
+  ],
+  "adminSessionRevoked": true,
+  "profilesCreated": 0,
+  "adminCookiePolicy": {
+    "secure": true,
+    "httpOnly": true,
+    "sameSite": "Strict"
+  },
+  "passed": true,
+  "finishedAt": "2026-10-17T07:55:40.597335+00:00",
+  "checkCount": 55
+}

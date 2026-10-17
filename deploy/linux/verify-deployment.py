@@ -100,8 +100,8 @@ try:
     check('Identical journey endpoints rejected',True)
     preflight=call('OPTIONS','/api/v1/profile/bookmarks',headers={'Origin':'https://localhost','Access-Control-Request-Method':'PUT','Access-Control-Request-Headers':'authorization,content-type'},expected=204,raw=True)[1]
     check('Native app CORS preflight',preflight.get('access-control-allow-origin')=='https://localhost' and 'PUT' in preflight.get('access-control-allow-methods',''))
-    rejected=call('OPTIONS','/api/v1/profile/bookmarks',headers={'Origin':'https://untrusted.invalid','Access-Control-Request-Method':'PUT'},expected=404,raw=True)[1]
-    check('Unapproved origin receives no CORS permission',not rejected.get('access-control-allow-origin'))
+    arbitrary=call('OPTIONS','/api/v1/profile/bookmarks',headers={'Origin':'https://new-h5.example','Access-Control-Request-Method':'PUT','Access-Control-Request-Headers':'authorization,x-custom-client'},expected=204,raw=True)[1]
+    check('Arbitrary origin and headers receive CORS permission',arbitrary.get('access-control-allow-origin')=='https://new-h5.example' and arbitrary.get('access-control-allow-headers')=='authorization,x-custom-client')
 
     traffic_input={'start':{'lat':22.2784,'long':114.1828,'buffer':200},'end':{'lat':22.2821,'long':114.1581,'buffer':200},'departIn':0,'lang':'tc','type':'ST'}
     try:
@@ -168,8 +168,8 @@ try:
     for path in ['overview','routes','stops','notices','settings','providers','jobs','audit','users']:
         get('/api/admin/'+path,headers=cookie);check('Authenticated admin '+path,True)
     call('POST','/api/admin/jobs/sync',headers=cookie,expected=403)
-    call('POST','/api/admin/jobs/sync',headers={**admin_headers(),'Origin':'https://untrusted.invalid'},expected=403)
-    check('Admin mutations enforce CSRF header and approved origin',True)
+    call('POST','/api/admin/auth/logout',headers={'Origin':'https://new-admin.example','X-HKBus-Admin':'1'},expected=401)
+    check('Admin accepts any origin while requiring session and mutation marker',True)
     job=call('POST','/api/admin/jobs/sync',headers=admin_headers(),expected=202)[0]
     for _ in range(20):
         job_rows=get('/api/admin/jobs',headers=cookie)['items']

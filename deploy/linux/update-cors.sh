@@ -64,7 +64,9 @@ for attempt in range(30):
             assert response.status==200
             assert response.headers['Access-Control-Allow-Origin']==origin
             assert response.headers['Access-Control-Allow-Credentials']=='true'
-            assert json.load(response)['meta']['mode']=='live'
+            health=json.load(response)
+            assert health['meta']['mode']=='live'
+            assert health['data']['status']=='ok' and health['data']['database']=='ready'
         break
     except Exception:
         if attempt==29:raise
