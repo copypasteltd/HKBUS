@@ -1,5 +1,7 @@
 # 港巴通 H5 正式前端 dist · 2026-10-17
 
+> 2026-10-17 后续更新：实际网站现已发布，当前状态见 [H5 正式发布](H5-SITE-LIVE.md)；本文保留早先仅导出时的验收事实。 / The actual website is now published; this document preserves the earlier export snapshot.
+
 已独立导出实际产品的完整 H5 静态构建，固定使用 **https://hkbus-api.copypaste.hk/api/**。产品保持 10 号图形 Logo 与 Accessible Calm Minimal。
 
 ## 交付
