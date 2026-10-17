@@ -26,7 +26,7 @@ def call(path,method='GET',body=None,expected=200,private=False):
     headers={'User-Agent':'HKBusGo/1.0','Accept':'application/json','Origin':origin,'X-HKBus-Admin':'1'}
     if body is not None:headers['Content-Type']='application/json'
     if private:
-        time.sleep(4)  # Reference probes bypass the BFF scheduler; keep them deliberately sparse.
+        time.sleep(20)  # Reference probes bypass the BFF scheduler; keep them deliberately sparse.
         headers['Authorization']='Bearer '+env['TDAS_EGRESS_SECRET']
     req=urllib.request.Request(url,data=None if body is None else json.dumps(body,separators=(',',':')).encode(),headers=headers,method=method)
     started=time.monotonic()
@@ -133,6 +133,11 @@ try:
         return {'httpStatus':422,'code':error['code'],'retryable':error['retryable']}
     check('Official no-road result is a location error, not an outage',no_match)
     check('TDAS valid query still works after no-road result',lambda:road_case(road_input(departIn=75,lang='en',type='SD')))
+    def final_eta():
+        latest=call('/api/v1/stops/'+stop['id']+'/arrivals?force=true')
+        require(latest['freshness']['source']=='live' and latest['freshness']['state']=='fresh' and not latest['freshness']['cached'],'Final real KMB query failed')
+        return {'freshness':latest['freshness'],'arrivals':len(latest['arrivals'])}
+    check('Final KMB refresh after sustained TDAS queries',final_eta)
     def health():
         data=call('/api/health')
         require(data['status']=='ok' and data['dataStatus']=='healthy' and all(x['state']=='available' for x in data['dataServices']),'Process readiness differs from working data sources')
@@ -144,7 +149,7 @@ finally:
     if logged_in:
         check('Temporary Admin session logged out',lambda:(require(call('/api/admin/auth/logout','POST',{})['loggedOut'],'Logout failed') or {'loggedOut':True}))
     report['summary']={status:sum(item['status']==status for item in report['checks']) for status in ['passed','failed']}
-    report['passed']=report['summary']['failed']==0 and report['summary']['passed']>=29
+    report['passed']=report['summary']['failed']==0 and report['summary']['passed']>=31
     report['finishedAt']=datetime.datetime.now(datetime.timezone.utc).isoformat()
     Path(args.output).write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({'report':args.output,'summary':report['summary'],'passed':report['passed']}),flush=True)

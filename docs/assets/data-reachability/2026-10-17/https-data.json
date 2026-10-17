@@ -1,5 +1,5 @@
 {
-  "startedAt": "2026-10-17T08:53:53.543733+00:00",
+  "startedAt": "2026-10-17T09:06:27.527637+00:00",
   "target": "https://hkbus-api.copypaste.hk",
   "scope": "actual production HTTPS, official TDAS through owned authenticated egress, KMB catalogue/ETA and data health",
   "checks": [
@@ -26,8 +26,8 @@
       "arrivals": 14,
       "freshness": {
         "state": "fresh",
-        "generatedAt": "2026-10-17T08:53:28.000Z",
-        "fetchedAt": "2026-10-17T08:53:54.680Z",
+        "generatedAt": "2026-10-17T09:06:17.000Z",
+        "fetchedAt": "2026-10-17T09:06:28.425Z",
         "cached": false,
         "source": "live",
         "provider": "KMB"
@@ -43,7 +43,7 @@
         "missingNames": 0,
         "invalidCoordinates": 0
       },
-      "syncedAt": "2026-10-17T08:53:51.679Z"
+      "syncedAt": "2026-10-17T09:06:26.105Z"
     },
     {
       "name": "TDAS language tc",
@@ -75,7 +75,7 @@
         "wht": false
       },
       "cached": false,
-      "generatedAt": "2026-10-17T08:53:56.520Z"
+      "generatedAt": "2026-10-17T09:06:30.108Z"
     },
     {
       "name": "TDAS language sc",
@@ -107,7 +107,7 @@
         "wht": false
       },
       "cached": false,
-      "generatedAt": "2026-10-17T08:53:58.065Z"
+      "generatedAt": "2026-10-17T09:06:34.085Z"
     },
     {
       "name": "TDAS language en",
@@ -139,7 +139,7 @@
         "wht": false
       },
       "cached": false,
-      "generatedAt": "2026-10-17T08:53:59.642Z"
+      "generatedAt": "2026-10-17T09:06:38.063Z"
     },
     {
       "name": "TDAS shortest-distance route",
@@ -171,7 +171,7 @@
         "wht": false
       },
       "cached": false,
-      "generatedAt": "2026-10-17T08:54:01.211Z"
+      "generatedAt": "2026-10-17T09:06:42.075Z"
     },
     {
       "name": "TDAS departure +15 minutes",
@@ -203,7 +203,7 @@
         "wht": false
       },
       "cached": false,
-      "generatedAt": "2026-10-17T08:54:03.145Z"
+      "generatedAt": "2026-10-17T09:06:46.180Z"
     },
     {
       "name": "TDAS departure +30 minutes",
@@ -235,7 +235,7 @@
         "wht": false
       },
       "cached": false,
-      "generatedAt": "2026-10-17T08:54:04.719Z"
+      "generatedAt": "2026-10-17T09:06:50.237Z"
     },
     {
       "name": "TDAS departure +45 minutes",
@@ -267,7 +267,7 @@
         "wht": false
       },
       "cached": false,
-      "generatedAt": "2026-10-17T08:54:06.308Z"
+      "generatedAt": "2026-10-17T09:06:54.235Z"
     },
     {
       "name": "TDAS departure +60 minutes",
@@ -299,7 +299,7 @@
         "wht": false
       },
       "cached": false,
-      "generatedAt": "2026-10-17T08:54:07.921Z"
+      "generatedAt": "2026-10-17T09:06:58.132Z"
     },
     {
       "name": "TDAS departure +75 minutes",
@@ -331,7 +331,7 @@
         "wht": false
       },
       "cached": false,
-      "generatedAt": "2026-10-17T08:54:09.449Z"
+      "generatedAt": "2026-10-17T09:07:02.335Z"
     },
     {
       "name": "TDAS departure +90 minutes",
@@ -363,7 +363,7 @@
         "wht": false
       },
       "cached": false,
-      "generatedAt": "2026-10-17T08:54:10.927Z"
+      "generatedAt": "2026-10-17T09:07:06.465Z"
     },
     {
       "name": "TDAS cross-harbour default",
@@ -384,7 +384,7 @@
         "type": "ST"
       },
       "source": "live",
-      "distanceMeters": 6256,
+      "distanceMeters": 6274,
       "durationSeconds": 720,
       "averageSpeedKmh": 31,
       "sections": 1,
@@ -395,7 +395,7 @@
         "wht": false
       },
       "cached": false,
-      "generatedAt": "2026-10-17T08:54:13.112Z"
+      "generatedAt": "2026-10-17T09:07:10.095Z"
     },
     {
       "name": "TDAS harbour tunnel cht",
@@ -417,7 +417,7 @@
         "tunnel": "cht"
       },
       "source": "live",
-      "distanceMeters": 6256,
+      "distanceMeters": 6274,
       "durationSeconds": 720,
       "averageSpeedKmh": 31,
       "sections": 1,
@@ -428,7 +428,7 @@
         "wht": false
       },
       "cached": false,
-      "generatedAt": "2026-10-17T08:54:14.638Z"
+      "generatedAt": "2026-10-17T09:07:14.237Z"
     },
     {
       "name": "TDAS harbour tunnel eht",
@@ -461,7 +461,7 @@
         "wht": false
       },
       "cached": false,
-      "generatedAt": "2026-10-17T08:54:16.285Z"
+      "generatedAt": "2026-10-17T09:07:18.222Z"
     },
     {
       "name": "TDAS harbour tunnel wht",
@@ -494,89 +494,31 @@
         "wht": true
       },
       "cached": false,
-      "generatedAt": "2026-10-17T08:54:17.827Z"
+      "generatedAt": "2026-10-17T09:07:22.542Z"
     },
     {
       "name": "TDAS using actual KMB-selected stops",
-      "status": "passed",
-      "input": {
-        "start": {
-          "lat": 22.288786,
-          "long": 114.194187,
-          "buffer": 200
-        },
-        "end": {
-          "lat": 22.335413,
-          "long": 114.157855,
-          "buffer": 200
-        },
-        "departIn": 0,
-        "lang": "tc",
-        "type": "ST"
-      },
-      "source": "live",
-      "distanceMeters": 12965,
-      "durationSeconds": 900,
-      "averageSpeedKmh": 54,
-      "sections": 1,
-      "alternatives": 2,
-      "tunnels": {
-        "cht": false,
-        "eht": false,
-        "wht": true
-      },
-      "cached": false,
-      "generatedAt": "2026-10-17T08:54:19.085Z"
+      "status": "failed",
+      "errorType": "AssertionError",
+      "reason": "POST /api/v1/traffic/route returned 502 instead of 200"
     },
     {
       "name": "TDAS New Territories actual KMB stops",
-      "status": "passed",
-      "input": {
-        "start": {
-          "lat": 22.382045,
-          "long": 114.188338,
-          "buffer": 200
-        },
-        "end": {
-          "lat": 22.375396,
-          "long": 114.108571,
-          "buffer": 200
-        },
-        "departIn": 0,
-        "lang": "en",
-        "type": "ST"
-      },
-      "source": "live",
-      "distanceMeters": 10927,
-      "durationSeconds": 840,
-      "averageSpeedKmh": 47,
-      "sections": 1,
-      "alternatives": 0,
-      "tunnels": {
-        "cht": false,
-        "eht": false,
-        "wht": false
-      },
-      "cached": false,
-      "generatedAt": "2026-10-17T08:54:20.352Z"
+      "status": "failed",
+      "errorType": "AssertionError",
+      "reason": "POST /api/v1/traffic/route returned 502 instead of 200"
     },
     {
       "name": "BFF output matches official TDAS data and HH:MM semantics",
-      "status": "passed",
-      "rawDistanceMeters": 3389,
-      "rawDuration": "00:10",
-      "distanceMeters": 3389,
-      "durationSeconds": 600,
-      "officialSegmentsPreserved": true,
-      "officialAlternativesPreserved": true,
-      "cached": false
+      "status": "failed",
+      "errorType": "AssertionError",
+      "reason": "POST /api/route returned 502 instead of 200"
     },
     {
       "name": "TDAS cold query and real 60-second cache",
-      "status": "passed",
-      "firstCached": false,
-      "secondCached": true,
-      "sameGeneratedAt": true
+      "status": "failed",
+      "errorType": "AssertionError",
+      "reason": "POST /api/v1/traffic/route returned 502 instead of 200"
     },
     {
       "name": "TDAS input rejection: identical endpoints",
@@ -622,273 +564,249 @@
       "method": "POST",
       "path": "/api/admin/auth/login",
       "status": 200,
-      "elapsedMs": 179,
-      "requestId": "a5adb69e-2a60-4970-b6b3-f7a783d36aaf"
+      "elapsedMs": 338,
+      "requestId": "b91725ab-cd96-44e7-b2eb-d374eb503d99"
     },
     {
       "method": "GET",
       "path": "/api/admin/auth/me",
       "status": 200,
-      "elapsedMs": 227,
-      "requestId": "dc7dd76f-18d8-4677-b476-5b9e27dbe9df"
+      "elapsedMs": 44,
+      "requestId": "5891a14a-1ff6-47a5-9a9a-0b4a4151ce09"
     },
     {
       "method": "POST",
       "path": "/api/admin/cache/purge",
       "status": 200,
-      "elapsedMs": 76,
-      "requestId": "015cdc26-cfb3-4d5f-befe-d7e5fd9a5e73"
+      "elapsedMs": 63,
+      "requestId": "7ccc70a4-da55-44a7-9ca7-a64aff676007"
     },
     {
       "method": "GET",
       "path": "/api/v1/config",
       "status": 200,
-      "elapsedMs": 235,
-      "requestId": "fb07a361-2abd-41ef-8443-4f38c8e23795"
+      "elapsedMs": 82,
+      "requestId": "522bbe8e-3db1-481e-83f3-3fbbf9c6c3eb"
     },
     {
       "method": "GET",
       "path": "/api/v1/routes",
       "status": 200,
-      "elapsedMs": 257,
-      "requestId": "ff373ac4-9316-496f-b8cd-b1a1f0febff5"
+      "elapsedMs": 70,
+      "requestId": "3569f12b-82d3-43fa-b120-2bcc3da6d928"
     },
     {
       "method": "GET",
       "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
       "status": 200,
-      "elapsedMs": 81,
-      "requestId": "b87a0ce0-8d1a-45ec-aea1-29174aafba35"
+      "elapsedMs": 44,
+      "requestId": "c59e2bd2-5cd8-4ad5-8095-d059f51a39c9"
     },
     {
       "method": "GET",
       "path": "/api/v1/stops/A3B9F3D6B2668DE3/arrivals",
       "status": 200,
-      "elapsedMs": 96,
-      "requestId": "de231f2f-98a7-4a6b-ad3e-1409e269ae53"
+      "elapsedMs": 304,
+      "requestId": "71339a68-c545-4a31-a4c2-66f0e5ee3f43"
     },
     {
       "method": "GET",
       "path": "/api/admin/providers",
       "status": 200,
-      "elapsedMs": 113,
-      "requestId": "cc46ab65-f323-43ad-a797-435d71f016ea"
+      "elapsedMs": 136,
+      "requestId": "b52b39a6-0d86-4444-8704-03c530631707"
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 200,
-      "elapsedMs": 1722,
-      "requestId": "84aa5630-1441-4f17-9a00-0c166bce52c0"
+      "elapsedMs": 1514,
+      "requestId": "36dd9deb-c17c-4f87-844b-e12c68bda643"
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 200,
-      "elapsedMs": 1579,
-      "requestId": "11c93634-5051-437b-a472-3d946a80e0e5"
+      "elapsedMs": 4007,
+      "requestId": "a99a4421-febe-481e-adc9-f8bbade83f6d"
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 200,
-      "elapsedMs": 1571,
-      "requestId": "a1ea5f86-98cc-4a25-837a-c56a96e65ffb"
+      "elapsedMs": 3973,
+      "requestId": "09fc8ef7-5eda-43a4-b0f2-ee02b39ed622"
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 200,
-      "elapsedMs": 1565,
-      "requestId": "58e5db66-77b5-44df-908f-99a2ffec2a97"
+      "elapsedMs": 3981,
+      "requestId": "f2a2a23d-32a2-4208-81f9-03db8515de5a"
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 200,
-      "elapsedMs": 1943,
-      "requestId": "e4e53338-3e3e-413b-84d8-4f213173fe94"
+      "elapsedMs": 4138,
+      "requestId": "15cbcf08-16c8-4cfe-81fa-7ff9b69d68f4"
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 200,
-      "elapsedMs": 1535,
-      "requestId": "e0cd3d79-383d-41df-84d4-ba25912c9986"
+      "elapsedMs": 4057,
+      "requestId": "dd022b42-a18c-4222-90a0-9c0b3b70d8ac"
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 200,
-      "elapsedMs": 1623,
-      "requestId": "c4f7d213-8c21-4545-a31a-475d8624f951"
+      "elapsedMs": 3962,
+      "requestId": "0b912104-d161-4a0e-b572-40b5b58e9ca8"
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 200,
-      "elapsedMs": 1608,
-      "requestId": "aec84d49-972a-468a-9d91-2ad119ba546c"
+      "elapsedMs": 4720,
+      "requestId": "5944f21a-24f2-4982-9d0d-fbaa8643ae00"
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 200,
-      "elapsedMs": 1497,
-      "requestId": "b90e5a5f-8360-4e09-9558-2d98e7500da6"
+      "elapsedMs": 3378,
+      "requestId": "63fe5d52-949e-4b0e-9d8e-2ce6cde8f3ba"
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 200,
-      "elapsedMs": 1480,
-      "requestId": "d20aeaf0-3e8d-46ec-a83c-679cf4113885"
+      "elapsedMs": 5014,
+      "requestId": "bb549dd5-c57f-4dfc-a02b-1a6bdd05ed22"
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 200,
-      "elapsedMs": 2223,
-      "requestId": "34321d55-4097-4f47-9b36-c5d59f5485f0"
+      "elapsedMs": 2745,
+      "requestId": "2b3e4f87-9e51-497f-85c8-b40c4b6f76dc"
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 200,
-      "elapsedMs": 1488,
-      "requestId": "5f2bfa7b-5a06-4ee5-a9fc-7f618e92141f"
+      "elapsedMs": 4178,
+      "requestId": "cf637fa5-6d51-408f-9407-72c1c46820cf"
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 200,
-      "elapsedMs": 1646,
-      "requestId": "9b0bb6b8-a723-4169-b704-a5e1a106643c"
+      "elapsedMs": 3948,
+      "requestId": "7963a388-53f1-44ad-afa2-a064bac36afc"
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 200,
-      "elapsedMs": 1541,
-      "requestId": "0c6bdeb0-4fd1-4f72-ab0c-7cd7a5e55133"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/traffic/route",
-      "status": 200,
-      "elapsedMs": 1255,
-      "requestId": "18c7df21-cdd8-4043-8f70-d09fb9f5a970"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/routes/KMB%3A48X%3AO%3A1",
-      "status": 200,
-      "elapsedMs": 216,
-      "requestId": "fd391ae2-9a18-4db8-a9ae-b2afe5d9b3b2"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/traffic/route",
-      "status": 200,
-      "elapsedMs": 1088,
-      "requestId": "f577906f-1408-4513-a26e-fe761d260381"
-    },
-    {
-      "method": "POST",
-      "path": "/api/route",
-      "status": 200,
-      "elapsedMs": 1337,
-      "requestId": null,
-      "provider": "TDAS",
-      "region": "hkg1",
-      "upstreamStatus": "200"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/traffic/route",
-      "status": 200,
-      "elapsedMs": 1339,
-      "requestId": "b5b01f62-fddd-438b-ae62-1a66935f9c69"
-    },
-    {
-      "method": "POST",
-      "path": "/api/route",
-      "status": 200,
-      "elapsedMs": 1474,
-      "requestId": null,
-      "provider": "TDAS",
-      "region": "hkg1",
-      "upstreamStatus": "200"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/traffic/route",
-      "status": 200,
-      "elapsedMs": 1408,
-      "requestId": "5360cb86-5acc-4b1f-aaa0-0cd4e690cc2f"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/traffic/route",
-      "status": 200,
-      "elapsedMs": 52,
-      "requestId": "78bd14d3-6677-4b44-911b-bc9019da8cbe"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/traffic/route",
-      "status": 422,
-      "elapsedMs": 71,
-      "requestId": "1626c694-e6e9-45af-80b3-6c294a79349b"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/traffic/route",
-      "status": 422,
-      "elapsedMs": 240,
-      "requestId": "30178507-93b8-416b-a641-d99e039affd2"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/traffic/route",
-      "status": 422,
-      "elapsedMs": 201,
-      "requestId": "ad14a521-ec75-4ee7-8770-0836cfc68be8"
+      "elapsedMs": 4317,
+      "requestId": "a12ced9d-e059-4c1d-8c5e-85cd86f90963"
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 502,
-      "elapsedMs": 241,
+      "elapsedMs": 2240,
+      "requestId": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/routes/KMB%3A48X%3AO%3A1",
+      "status": 200,
+      "elapsedMs": 217,
+      "requestId": "f53459fe-cd44-4038-b22c-54ec750a17cf"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/traffic/route",
+      "status": 502,
+      "elapsedMs": 3776,
+      "requestId": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/route",
+      "status": 502,
+      "elapsedMs": 105,
+      "requestId": null,
+      "provider": "TDAS",
+      "region": "hkg1",
+      "upstreamStatus": "403"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/traffic/route",
+      "status": 502,
+      "elapsedMs": 830,
+      "requestId": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/traffic/route",
+      "status": 422,
+      "elapsedMs": 188,
+      "requestId": "1dcb98d5-d127-452a-9292-e2793f0d67df"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/traffic/route",
+      "status": 422,
+      "elapsedMs": 46,
+      "requestId": "b8c94146-fbc6-4bb8-89b2-d4ae3bb41bb8"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/traffic/route",
+      "status": 422,
+      "elapsedMs": 70,
+      "requestId": "898fdac4-1ef7-4a97-87c3-2617b04812eb"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/traffic/route",
+      "status": 502,
+      "elapsedMs": 3017,
       "requestId": null
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 502,
-      "elapsedMs": 268,
+      "elapsedMs": 3962,
       "requestId": null
     },
     {
       "method": "GET",
       "path": "/api/health",
       "status": 200,
-      "elapsedMs": 98,
-      "requestId": "c692b440-e59a-45f8-b85f-eb346fd5b4f6"
+      "elapsedMs": 71,
+      "requestId": "4f2c7a34-5bb2-4122-8165-a8be333cf21e"
     },
     {
       "method": "POST",
       "path": "/api/admin/auth/logout",
       "status": 200,
-      "elapsedMs": 59,
-      "requestId": "cd59e659-51aa-406a-96b7-b8f783d9aa15"
+      "elapsedMs": 51,
+      "requestId": "87e04ef0-cc13-4f6f-b947-f829bd2cdf50"
     }
   ],
   "credentialsRecorded": false,
   "summary": {
-    "passed": 27,
-    "failed": 3
+    "passed": 23,
+    "failed": 7
   },
   "passed": false,
-  "finishedAt": "2026-10-17T08:54:27.183829+00:00"
+  "finishedAt": "2026-10-17T09:07:41.123790+00:00"
 }

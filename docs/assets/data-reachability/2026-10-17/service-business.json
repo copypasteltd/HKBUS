@@ -1,5 +1,5 @@
 {
-  "startedAt": "2026-10-17T08:53:45.888626+00:00",
+  "startedAt": "2026-10-17T09:06:20.403622+00:00",
   "target": "http://127.0.0.1:39410",
   "checks": [
     {
@@ -10,7 +10,7 @@
         "version": "1.0.0",
         "database": "ready",
         "catalogRoutes": 1611,
-        "catalogSyncedAt": "2026-10-16T22:13:52.439Z",
+        "catalogSyncedAt": "2026-10-17T08:53:51.679Z",
         "source": "live",
         "dataStatus": "healthy",
         "dataServices": [
@@ -19,7 +19,7 @@
             "enabled": true,
             "transport": "direct",
             "state": "available",
-            "checkedAt": "2026-10-17T08:51:21.786Z",
+            "checkedAt": "2026-10-17T09:05:11.875Z",
             "lastCode": null
           },
           {
@@ -27,7 +27,7 @@
             "enabled": true,
             "transport": "authenticated-egress",
             "state": "available",
-            "checkedAt": "2026-10-17T08:51:21.674Z",
+            "checkedAt": "2026-10-17T09:05:11.762Z",
             "lastCode": null
           }
         ]
@@ -84,8 +84,8 @@
       "stopId": "A3B9F3D6B2668DE3",
       "freshness": {
         "state": "fresh",
-        "generatedAt": "2026-10-17T08:53:28.000Z",
-        "fetchedAt": "2026-10-17T08:53:46.227Z",
+        "generatedAt": "2026-10-17T09:06:17.000Z",
+        "fetchedAt": "2026-10-17T09:06:20.868Z",
         "cached": false,
         "source": "live",
         "provider": "KMB"
@@ -162,7 +162,7 @@
           "enabled": true,
           "transport": "direct",
           "state": "available",
-          "checkedAt": "2026-10-17T08:53:46.222Z",
+          "checkedAt": "2026-10-17T09:06:20.860Z",
           "lastCode": null
         },
         {
@@ -170,7 +170,7 @@
           "enabled": true,
           "transport": "authenticated-egress",
           "state": "available",
-          "checkedAt": "2026-10-17T08:53:48.194Z",
+          "checkedAt": "2026-10-17T09:06:22.660Z",
           "lastCode": null
         }
       ]
@@ -214,8 +214,8 @@
     {
       "name": "Actual systemd restart preserves SQLite sessions and bookmarks",
       "status": "passed",
-      "previousPid": 1373152,
-      "newPid": 1373990
+      "previousPid": 1377881,
+      "newPid": 1378382
     },
     {
       "name": "Refresh rotation revokes old access and prevents replay",
@@ -334,589 +334,589 @@
       "method": "GET",
       "path": "/api/health",
       "status": 200,
-      "elapsedMs": 20,
-      "requestId": "4ee81d79-fab5-44b1-b82f-a60a1d804ac5"
+      "elapsedMs": 19,
+      "requestId": "5494aacd-0fa8-415a-b163-b44e85285b16"
     },
     {
       "method": "GET",
       "path": "/api/v1/config",
       "status": 200,
-      "elapsedMs": 5,
-      "requestId": "01421f64-a153-4e27-a40b-147bacb1d41a"
+      "elapsedMs": 6,
+      "requestId": "c4e0b482-b40f-4258-bd74-65577968a188"
     },
     {
       "method": "GET",
       "path": "/api/openapi.json",
       "status": 200,
-      "elapsedMs": 15,
-      "requestId": "f5d13829-9de2-4cda-a07d-1e780446794a"
+      "elapsedMs": 14,
+      "requestId": "eac53446-ec41-4e1b-99c0-ddf1d0f5a13f"
     },
     {
       "method": "GET",
       "path": "/api/docs/",
       "status": 200,
       "elapsedMs": 4,
-      "requestId": "9453a1f5-8756-4671-9a17-f207bd143bca"
+      "requestId": "a64dba1d-739a-457b-b5af-4f96a2ca8b9f"
     },
     {
       "method": "GET",
       "path": "/api/docs/static/theme/hkbus-favicon.png",
       "status": 200,
       "elapsedMs": 5,
-      "requestId": "ade0767b-8970-43b4-b462-134909241e28"
+      "requestId": "0cf9a25e-420c-4d8f-8d43-d40e26e86d17"
     },
     {
       "method": "GET",
       "path": "/api/v1/routes?q=112&pageSize=100",
       "status": 200,
-      "elapsedMs": 18,
-      "requestId": "44dab619-62e6-46cf-be71-f4e591df60eb"
+      "elapsedMs": 16,
+      "requestId": "cdd3910f-97e1-420d-8f8a-cb5bcb972702"
     },
     {
       "method": "GET",
       "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
       "status": 200,
       "elapsedMs": 12,
-      "requestId": "cedb6d95-6d72-42a6-8358-1c67bef466f8"
+      "requestId": "88667a62-037c-4994-8fb5-07f6ca52cdf0"
     },
     {
       "method": "GET",
       "path": "/api/v1/stops/A3B9F3D6B2668DE3",
       "status": 200,
-      "elapsedMs": 4,
-      "requestId": "fbf48b49-ce4c-46d5-a107-51b56172f40f"
+      "elapsedMs": 5,
+      "requestId": "25f7fd24-4110-4b93-9b33-a2bc4191ce57"
     },
     {
       "method": "GET",
       "path": "/api/v1/stops?latitude=22.288786&longitude=114.194187&radius=1000&pageSize=10",
       "status": 200,
       "elapsedMs": 51,
-      "requestId": "fcdbf8f1-56ee-46e7-a0cd-4327fa83ffa0"
+      "requestId": "a5632540-2b48-4bcf-93dd-f894b04ac285"
     },
     {
       "method": "GET",
       "path": "/api/v1/search?q=%E7%82%AE%E5%8F%B0%E5%B1%B1%E7%AB%99",
       "status": 200,
-      "elapsedMs": 72,
-      "requestId": "e6ce0ff5-6ecd-44f3-8578-7f9cbc4fdd21"
+      "elapsedMs": 74,
+      "requestId": "59cdc122-6727-4427-92d8-09f411229ca6"
     },
     {
       "method": "GET",
       "path": "/api/v1/home",
       "status": 200,
-      "elapsedMs": 31,
-      "requestId": "91b00d82-cde2-42c3-9bbe-0747d55126c1"
+      "elapsedMs": 22,
+      "requestId": "40297157-6065-4fa6-ad79-db6d88d8f63c"
     },
     {
       "method": "GET",
       "path": "/api/v1/home?stopId=A3B9F3D6B2668DE3",
       "status": 200,
-      "elapsedMs": 82,
-      "requestId": "8e598683-d5d8-4348-8db8-90efed293814"
+      "elapsedMs": 203,
+      "requestId": "0fa048f5-27aa-4070-8049-c1bac42e722d"
     },
     {
       "method": "GET",
       "path": "/api/v1/stops/A3B9F3D6B2668DE3/arrivals?force=true",
       "status": 200,
-      "elapsedMs": 19,
-      "requestId": "db39def1-7841-4518-992c-dd5477e25aea"
+      "elapsedMs": 35,
+      "requestId": "7f10e4df-5aff-48cb-a0c5-525989fa04f5"
     },
     {
       "method": "GET",
       "path": "/api/v1/stops/A3B9F3D6B2668DE3/arrivals",
       "status": 200,
       "elapsedMs": 5,
-      "requestId": "e58e2a3b-309f-4a98-9602-ac6d8a959300"
+      "requestId": "fb87ce15-4d3b-4bdd-8419-2ce16797f8d2"
     },
     {
       "method": "GET",
       "path": "/api/v1/stops/A3B9F3D6B2668DE3/arrivals?routeId=KMB%3A112%3AO%3A1",
       "status": 200,
-      "elapsedMs": 4,
-      "requestId": "388b9f60-035b-4881-92a8-c6d137333456"
+      "elapsedMs": 8,
+      "requestId": "8721c81b-8b20-436b-8a55-0e42baaf8b91"
     },
     {
       "method": "POST",
       "path": "/api/v1/journeys",
       "status": 200,
-      "elapsedMs": 185,
-      "requestId": "afd5a45d-3410-44b7-afae-5a771e093e4e"
+      "elapsedMs": 196,
+      "requestId": "3dbfdeef-7870-42a6-933c-9f7262d75b13"
     },
     {
       "method": "GET",
       "path": "/api/v1/notices",
       "status": 200,
-      "elapsedMs": 5,
-      "requestId": "29547c6a-9973-425f-9bd7-385684a2fd0e"
+      "elapsedMs": 4,
+      "requestId": "2aa6e2db-365a-4c30-b37b-faff1761ffbd"
     },
     {
       "method": "GET",
       "path": "/api/v1/routes/missing",
       "status": 404,
-      "elapsedMs": 5,
-      "requestId": "70a5dd6a-33d6-4273-ae9b-4cd0ebe3cd8d"
+      "elapsedMs": 4,
+      "requestId": "674d8968-920d-40a7-b2e4-b1da2ad50d0f"
     },
     {
       "method": "GET",
       "path": "/api/v1/stops/missing/arrivals",
       "status": 404,
-      "elapsedMs": 5,
-      "requestId": "129de21f-693d-4c20-983a-0f22791eb6a4"
+      "elapsedMs": 4,
+      "requestId": "7d415cc0-33e4-4b81-a17f-a3d779e0f8f4"
     },
     {
       "method": "GET",
       "path": "/api/v1/notices/missing",
       "status": 404,
       "elapsedMs": 4,
-      "requestId": "8e9e6b35-c8ec-47e7-8f91-0b4eb3a2950d"
+      "requestId": "9e7cd2ac-12f4-4742-8cf5-964793d12fd1"
     },
     {
       "method": "GET",
       "path": "/api/v1/stops?latitude=22.28",
       "status": 422,
-      "elapsedMs": 9,
-      "requestId": "97bfe862-2b95-49ec-a971-e097d1cd08cf"
+      "elapsedMs": 3,
+      "requestId": "fd5a77cf-700d-4a12-95d4-70761e253038"
     },
     {
       "method": "GET",
       "path": "/api/v1/profile/bookmarks",
       "status": 401,
-      "elapsedMs": 5,
-      "requestId": "026af157-01f6-4953-ab44-cb91dce1372a"
+      "elapsedMs": 3,
+      "requestId": "da5b802d-6d8c-4710-855e-dad15ed3a0c3"
     },
     {
       "method": "GET",
       "path": "/api/admin/overview",
       "status": 401,
-      "elapsedMs": 3,
-      "requestId": "0512a841-7692-460b-b8e3-830c8b1c9d53"
+      "elapsedMs": 7,
+      "requestId": "83985da0-a44b-42aa-8a2d-15ded3a28a71"
     },
     {
       "method": "POST",
       "path": "/api/v1/journeys",
       "status": 422,
-      "elapsedMs": 5,
-      "requestId": "83732e90-c224-45a1-aa46-56acf7aab20a"
+      "elapsedMs": 3,
+      "requestId": "41a826c9-8f5e-4424-87f1-c8713e0c15df"
     },
     {
       "method": "OPTIONS",
       "path": "/api/v1/profile/bookmarks",
       "status": 204,
-      "elapsedMs": 5,
+      "elapsedMs": 3,
       "requestId": null
     },
     {
       "method": "OPTIONS",
       "path": "/api/v1/profile/bookmarks",
       "status": 204,
-      "elapsedMs": 3,
+      "elapsedMs": 8,
       "requestId": null
     },
     {
       "method": "POST",
       "path": "/api/v1/traffic/route",
       "status": 200,
-      "elapsedMs": 1730,
-      "requestId": "e0c11916-e799-4d1d-add4-372d49e79dc1"
+      "elapsedMs": 1540,
+      "requestId": "a8b1fc50-49a5-4701-a4ce-659380660bd9"
+    },
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "status": 200,
+      "elapsedMs": 24,
+      "requestId": "d5ed827c-4f7b-4810-b1ec-54dc3c981773"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/profile/sessions",
+      "status": 200,
+      "elapsedMs": 20,
+      "requestId": "cb37460e-494c-4cb7-ba00-7a7ddfc442ea"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/profile/sessions",
+      "status": 200,
+      "elapsedMs": 8,
+      "requestId": "1de6d249-7734-404d-bcc8-f3b63fa2e066"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200,
+      "elapsedMs": 9,
+      "requestId": "dd7d8522-8b04-4e1c-bffb-53b38a1be30c"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200,
+      "elapsedMs": 4,
+      "requestId": "8aed1c58-d94a-4670-9a8a-77a17551c3c7"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200,
+      "elapsedMs": 3,
+      "requestId": "c7c9520d-56b1-4f46-a814-9157c7280753"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200,
+      "elapsedMs": 8,
+      "requestId": "9b83a05a-90ab-4745-a917-d82386d955cd"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/bookmarks/order",
+      "status": 200,
+      "elapsedMs": 7,
+      "requestId": "e39dd2ea-734c-4629-884c-5e30ba795ae0"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/bookmarks/order",
+      "status": 422,
+      "elapsedMs": 4,
+      "requestId": "ef511bea-e0c8-4a52-a564-36c4f692a17a"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/profile/recent",
+      "status": 200,
+      "elapsedMs": 12,
+      "requestId": "f8c322dd-7145-44d7-9f75-7736b8ad0c92"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/recent",
+      "status": 200,
+      "elapsedMs": 5,
+      "requestId": "a7cb8ad0-c773-42ec-8b59-f29a88a7ed26"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/reminders",
+      "status": 200,
+      "elapsedMs": 9,
+      "requestId": "e05e65b7-be61-4a46-960d-bf8f3959ce3b"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/reminders",
+      "status": 200,
+      "elapsedMs": 6,
+      "requestId": "a08fb85d-0f19-4f0c-95de-9ae39713f1ab"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/reminders/afdc6d11-727f-45e3-9b19-05cc84895dcd",
+      "status": 404,
+      "elapsedMs": 4,
+      "requestId": "ecee6a3c-5997-45b9-958a-6078a07293f8"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 200,
+      "elapsedMs": 4,
+      "requestId": "a388a8d9-2710-4870-b0ac-386f353d3592"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/reminders/afdc6d11-727f-45e3-9b19-05cc84895dcd",
+      "status": 200,
+      "elapsedMs": 7,
+      "requestId": "2016a91e-3722-4f96-9e75-6ae502e772ff"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/reminders",
+      "status": 200,
+      "elapsedMs": 7,
+      "requestId": "cf264b65-04ca-4dc3-979d-3293279b4a22"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/reminders/afdc6d11-727f-45e3-9b19-05cc84895dcd",
+      "status": 200,
+      "elapsedMs": 6,
+      "requestId": "fa30e1cc-9437-4027-a700-258a202e2d15"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/reminders/afdc6d11-727f-45e3-9b19-05cc84895dcd",
+      "status": 200,
+      "elapsedMs": 10,
+      "requestId": "80750fe5-1f80-4ffc-aa13-edacd31602c7"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/notifications",
+      "status": 200,
+      "elapsedMs": 6,
+      "requestId": "9d891fac-895d-45e5-8c91-2e0ca45feb44"
     },
     {
       "method": "GET",
       "path": "/api/health",
       "status": 200,
       "elapsedMs": 26,
-      "requestId": "126b685b-9622-403b-b21e-ce694ef03d2f"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/profile/sessions",
-      "status": 200,
-      "elapsedMs": 20,
-      "requestId": "6d24ba31-eb4d-4bb7-9106-3bf4c9d4d205"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/profile/sessions",
-      "status": 200,
-      "elapsedMs": 11,
-      "requestId": "2a11cbe9-4efc-4ae4-8348-25ea20227ae0"
-    },
-    {
-      "method": "PUT",
-      "path": "/api/v1/profile/bookmarks",
-      "status": 200,
-      "elapsedMs": 8,
-      "requestId": "75b37e42-cc7e-4541-8863-e8a713393e60"
-    },
-    {
-      "method": "PUT",
-      "path": "/api/v1/profile/bookmarks",
-      "status": 200,
-      "elapsedMs": 11,
-      "requestId": "a8c675b4-12d1-4e6b-abe1-e73ac8eb337f"
+      "requestId": "211e163b-eb7e-4f7d-8817-bc546551cb9f"
     },
     {
       "method": "GET",
       "path": "/api/v1/profile/bookmarks",
       "status": 200,
-      "elapsedMs": 4,
-      "requestId": "0fcb8268-56e3-4a62-961b-e66f7e938e6f"
+      "elapsedMs": 9,
+      "requestId": "3aa2f0fb-bf00-4f1b-8777-9af09e542631"
     },
     {
-      "method": "PUT",
-      "path": "/api/v1/profile/bookmarks",
+      "method": "POST",
+      "path": "/api/v1/profile/sessions/refresh",
       "status": 200,
+      "elapsedMs": 23,
+      "requestId": "e24fb44d-4ac2-4889-ad1e-5b1cbc0deab7"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 401,
       "elapsedMs": 6,
-      "requestId": "595f5752-49ca-4e26-9ffe-c67934622afb"
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/profile/bookmarks/order",
-      "status": 200,
-      "elapsedMs": 7,
-      "requestId": "ea2363a0-ebbe-4901-9d78-224794e21bd6"
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/profile/bookmarks/order",
-      "status": 422,
-      "elapsedMs": 5,
-      "requestId": "1c541676-1222-4931-90b2-331d29981c19"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/profile/recent",
-      "status": 200,
-      "elapsedMs": 7,
-      "requestId": "b587adb8-6c95-4560-9e07-239b271e8524"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/profile/recent",
-      "status": 200,
-      "elapsedMs": 7,
-      "requestId": "0016dec5-254c-4941-a428-04cd9129365a"
-    },
-    {
-      "method": "PUT",
-      "path": "/api/v1/profile/reminders",
-      "status": 200,
-      "elapsedMs": 11,
-      "requestId": "25a1303f-a2dd-4e36-9654-7b595ec52136"
-    },
-    {
-      "method": "PUT",
-      "path": "/api/v1/profile/reminders",
-      "status": 200,
-      "elapsedMs": 8,
-      "requestId": "06ef70f2-851f-4237-8988-85cb78c0036a"
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/profile/reminders/bbfa8c51-8767-4819-9543-f6d2fdcf7f91",
-      "status": 404,
-      "elapsedMs": 7,
-      "requestId": "3cb51438-ac25-47f5-abc1-a4b6a02f8a52"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/profile/bookmarks",
-      "status": 200,
-      "elapsedMs": 4,
-      "requestId": "b4f14e21-777d-4054-85e1-fdb0ddb2f213"
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/profile/reminders/bbfa8c51-8767-4819-9543-f6d2fdcf7f91",
-      "status": 200,
-      "elapsedMs": 8,
-      "requestId": "11d74203-3aa9-4add-a257-f7ee8471aa3c"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/profile/reminders",
-      "status": 200,
-      "elapsedMs": 4,
-      "requestId": "ba8333e8-9946-4314-8bd5-8f817dc8543b"
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/profile/reminders/bbfa8c51-8767-4819-9543-f6d2fdcf7f91",
-      "status": 200,
-      "elapsedMs": 7,
-      "requestId": "67c2b5af-03d1-44b0-8f5e-975b4a9faea2"
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/profile/reminders/bbfa8c51-8767-4819-9543-f6d2fdcf7f91",
-      "status": 200,
-      "elapsedMs": 10,
-      "requestId": "073ee15e-e224-4c25-8fdd-8ebb45cfca0b"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/profile/notifications",
-      "status": 200,
-      "elapsedMs": 9,
-      "requestId": "207799ca-7b9d-46ee-bf0d-06d75cb86af4"
-    },
-    {
-      "method": "GET",
-      "path": "/api/health",
-      "status": 200,
-      "elapsedMs": 28,
-      "requestId": "4bde83f5-be3d-4bfe-b7e5-4c66c1d95d10"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/profile/bookmarks",
-      "status": 200,
-      "elapsedMs": 9,
-      "requestId": "f9817648-9100-47c8-9bfd-9c068135033b"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/profile/sessions/refresh",
-      "status": 200,
-      "elapsedMs": 19,
-      "requestId": "85e12f87-5577-439d-bf38-2234407e386d"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/profile/bookmarks",
-      "status": 401,
-      "elapsedMs": 7,
-      "requestId": "a8d31deb-9d7b-482a-aba4-2c455623a321"
+      "requestId": "a0e5509e-ee69-40d1-ba2a-95f3d19fc38f"
     },
     {
       "method": "POST",
       "path": "/api/v1/profile/sessions/refresh",
       "status": 401,
-      "elapsedMs": 5,
-      "requestId": "1bdcf38b-5cf7-448d-a537-1e6db50fc549"
+      "elapsedMs": 6,
+      "requestId": "ebf06b46-531b-49c8-a714-3182516a1601"
     },
     {
       "method": "GET",
       "path": "/api/v1/profile/bookmarks",
       "status": 200,
-      "elapsedMs": 18,
-      "requestId": "36044915-8164-4799-9787-0166048f2f8a"
+      "elapsedMs": 5,
+      "requestId": "3b3560aa-7642-41a2-99c1-a4b42c26294c"
     },
     {
       "method": "DELETE",
       "path": "/api/v1/profile/bookmarks/route/KMB%3A112%3AO%3A1",
       "status": 200,
-      "elapsedMs": 9,
-      "requestId": "965d5bee-4839-4c22-af04-90f396fcd3d5"
+      "elapsedMs": 10,
+      "requestId": "c358d3d6-c019-47fd-b9d2-a6b8e1519204"
     },
     {
       "method": "GET",
       "path": "/api/v1/profile/bookmarks",
       "status": 200,
-      "elapsedMs": 5,
-      "requestId": "65401503-da67-4fcd-a4e5-51c6a58597f3"
+      "elapsedMs": 8,
+      "requestId": "65b9bfa8-c358-40e6-8559-cf29511fd28d"
     },
     {
       "method": "DELETE",
       "path": "/api/v1/profile/recent",
       "status": 200,
-      "elapsedMs": 8,
-      "requestId": "714ec3a1-c0d9-4345-bb9c-13b969f94cbb"
+      "elapsedMs": 16,
+      "requestId": "df864264-3980-4ab7-b96b-ef037a020c60"
     },
     {
       "method": "DELETE",
-      "path": "/api/v1/profile/reminders/bbfa8c51-8767-4819-9543-f6d2fdcf7f91",
+      "path": "/api/v1/profile/reminders/afdc6d11-727f-45e3-9b19-05cc84895dcd",
       "status": 200,
-      "elapsedMs": 10,
-      "requestId": "9bf1ee88-368f-4c35-843e-c0efc3a062e9"
+      "elapsedMs": 13,
+      "requestId": "be26edb7-2365-4168-b2d4-1391141a8928"
     },
     {
       "method": "GET",
       "path": "/api/v1/profile/recent",
       "status": 200,
-      "elapsedMs": 5,
-      "requestId": "e2f05742-5b0f-4f0b-a1f6-b68abaad581c"
+      "elapsedMs": 7,
+      "requestId": "2531b9c2-a975-4a45-95eb-084742b7b70b"
     },
     {
       "method": "GET",
       "path": "/api/v1/profile/reminders",
       "status": 200,
-      "elapsedMs": 4,
-      "requestId": "8834b826-0532-4956-8088-944e0ff35d54"
+      "elapsedMs": 8,
+      "requestId": "c022dcaf-693a-48f2-a1bf-1d28588c611b"
     },
     {
       "method": "POST",
       "path": "/api/admin/auth/login",
       "status": 200,
-      "elapsedMs": 56,
-      "requestId": "a256ad45-9b14-4c0f-abca-446ac7afd3cb"
+      "elapsedMs": 61,
+      "requestId": "e0832056-ed48-4f6c-a4e8-0aa8086deba9"
     },
     {
       "method": "GET",
       "path": "/api/admin/auth/me",
       "status": 200,
-      "elapsedMs": 7,
-      "requestId": "5d1eb151-378a-44a8-aea0-dae2d4f2c3bd"
+      "elapsedMs": 4,
+      "requestId": "dd94c23f-16ea-4a95-961a-908359858cbf"
     },
     {
       "method": "GET",
       "path": "/api/admin/overview",
       "status": 200,
-      "elapsedMs": 50,
-      "requestId": "21701130-66d7-40fc-81bc-a00ae2e4c579"
+      "elapsedMs": 43,
+      "requestId": "50ee490c-19a9-4a91-8aed-49efb9ba2bfb"
     },
     {
       "method": "GET",
       "path": "/api/admin/routes",
       "status": 200,
-      "elapsedMs": 20,
-      "requestId": "af377010-556e-41c6-a865-2916bcce6c23"
+      "elapsedMs": 19,
+      "requestId": "1f6dff57-5c68-4f7b-8106-fc0aaa544de5"
     },
     {
       "method": "GET",
       "path": "/api/admin/stops",
       "status": 200,
-      "elapsedMs": 40,
-      "requestId": "02aa53bf-4610-41ab-b741-02b04eb4cf66"
+      "elapsedMs": 41,
+      "requestId": "d6fffcdd-88d7-421c-b971-3256413a9f38"
     },
     {
       "method": "GET",
       "path": "/api/admin/notices",
       "status": 200,
-      "elapsedMs": 5,
-      "requestId": "96a4968b-5384-4d34-b7d7-7ea033f52cb3"
+      "elapsedMs": 9,
+      "requestId": "87088a6b-88dc-48f5-a822-01c362ca364d"
     },
     {
       "method": "GET",
       "path": "/api/admin/settings",
       "status": 200,
-      "elapsedMs": 4,
-      "requestId": "5f36f914-430c-49a1-8cea-abbfa0f32474"
+      "elapsedMs": 8,
+      "requestId": "ab1602e5-9e43-4355-952c-266159b8c1dc"
     },
     {
       "method": "GET",
       "path": "/api/admin/providers",
       "status": 200,
       "elapsedMs": 49,
-      "requestId": "39185f1a-b768-466b-bc5e-a2bdd4c7332e"
+      "requestId": "34de1ae0-741a-41b0-85ce-2358cc12c78f"
     },
     {
       "method": "GET",
       "path": "/api/admin/jobs",
       "status": 200,
-      "elapsedMs": 9,
-      "requestId": "21c83307-41b1-44b1-96c9-c2046627f3d0"
+      "elapsedMs": 19,
+      "requestId": "427413d9-934f-42f5-a775-6d57e1de354c"
     },
     {
       "method": "GET",
       "path": "/api/admin/audit",
       "status": 200,
-      "elapsedMs": 4,
-      "requestId": "123d1a20-5504-4e74-becb-a83ff0031be8"
+      "elapsedMs": 13,
+      "requestId": "47062fa3-ab30-4312-af22-4ff518467447"
     },
     {
       "method": "GET",
       "path": "/api/admin/users",
       "status": 200,
-      "elapsedMs": 5,
-      "requestId": "c358c8d6-071f-4078-a00a-5cefed5ae376"
+      "elapsedMs": 4,
+      "requestId": "435337d5-44b8-4de2-9a2e-fc2dc5723cda"
     },
     {
       "method": "POST",
       "path": "/api/admin/jobs/sync",
       "status": 403,
-      "elapsedMs": 4,
-      "requestId": "604e672c-0ec5-4bd1-9c6f-fbb44e4cecff"
+      "elapsedMs": 8,
+      "requestId": "c82953e2-83a7-4962-931e-4d825c3528f0"
     },
     {
       "method": "POST",
       "path": "/api/admin/auth/logout",
       "status": 401,
-      "elapsedMs": 4,
-      "requestId": "bfac7b83-e45e-4a99-8a71-088d97c0bc23"
+      "elapsedMs": 6,
+      "requestId": "3abe2579-474b-4ac6-8f67-c2bed48ed817"
     },
     {
       "method": "POST",
       "path": "/api/admin/jobs/sync",
       "status": 202,
-      "elapsedMs": 40,
-      "requestId": "8db9d34b-fa82-4245-b8e7-6a35227a0291"
+      "elapsedMs": 43,
+      "requestId": "8c76bb67-3b1a-4465-a1f8-1ed1084dc660"
     },
     {
       "method": "GET",
       "path": "/api/admin/jobs",
       "status": 200,
-      "elapsedMs": 6,
-      "requestId": "db585ce5-c331-4cff-b7ef-0e1111dabd84"
+      "elapsedMs": 7,
+      "requestId": "14b42857-0bb0-4bda-99d0-6879afa0136f"
     },
     {
       "method": "GET",
       "path": "/api/admin/jobs",
       "status": 200,
-      "elapsedMs": 858,
-      "requestId": "84ac340d-a237-4e17-8b88-6bc2e9c55396"
+      "elapsedMs": 788,
+      "requestId": "9c8fcb45-03de-4d88-912d-59541437086f"
     },
     {
       "method": "POST",
       "path": "/api/admin/reminders/evaluate",
       "status": 200,
-      "elapsedMs": 5,
-      "requestId": "cf54af83-69eb-4e78-8732-4de19f90307a"
+      "elapsedMs": 17,
+      "requestId": "d26cf786-d819-47ba-8e1e-d767e37f888d"
     },
     {
       "method": "POST",
       "path": "/api/admin/auth/logout",
       "status": 200,
-      "elapsedMs": 6,
-      "requestId": "536a3cf2-7e5d-4a39-9169-a03f91ef74bd"
+      "elapsedMs": 5,
+      "requestId": "abed652b-4f5e-4a22-9ff3-3ccb012aa03f"
     },
     {
       "method": "GET",
       "path": "/api/admin/auth/me",
       "status": 401,
-      "elapsedMs": 2,
-      "requestId": "32d2fb22-ebe4-4fef-8ca2-63f52e1f4ce1"
-    },
-    {
-      "method": "DELETE",
-      "path": "/api/v1/profile",
-      "status": 200,
       "elapsedMs": 6,
-      "requestId": "f246ba40-91d8-4a84-a658-bcbb3aa95848"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/profile/bookmarks",
-      "status": 401,
-      "elapsedMs": 2,
-      "requestId": "148b482e-101f-41d4-bb36-28657913029b"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/profile/sessions/refresh",
-      "status": 401,
-      "elapsedMs": 11,
-      "requestId": "dac3eae9-c1df-41a7-991b-a8a29c3df827"
+      "requestId": "75fbfbc9-7b98-442f-b9ab-28263a4b9130"
     },
     {
       "method": "DELETE",
       "path": "/api/v1/profile",
       "status": 200,
-      "elapsedMs": 12,
-      "requestId": "7f37e741-afca-4861-90fa-7f7d2b0588ba"
+      "elapsedMs": 9,
+      "requestId": "a171bbc9-abde-49c7-aa7e-1df9981abae5"
     },
     {
       "method": "GET",
       "path": "/api/v1/profile/bookmarks",
       "status": 401,
-      "elapsedMs": 7,
-      "requestId": "fabf0cea-9f2a-4b47-9713-9692eac92468"
+      "elapsedMs": 5,
+      "requestId": "f29a01f3-a3ad-42cf-986a-6bf9b5b4a799"
     },
     {
       "method": "POST",
       "path": "/api/v1/profile/sessions/refresh",
       "status": 401,
-      "elapsedMs": 8,
-      "requestId": "e10b7643-f189-4262-a21d-abc178a12c82"
+      "elapsedMs": 9,
+      "requestId": "52f02c99-f4ce-4c9c-b4bb-1cea86aebacc"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/profile",
+      "status": 200,
+      "elapsedMs": 9,
+      "requestId": "0d0d7b4d-3084-464b-b3a6-6696348a36da"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/bookmarks",
+      "status": 401,
+      "elapsedMs": 4,
+      "requestId": "814f073c-804f-4c12-8b88-9de4bf8d8293"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/profile/sessions/refresh",
+      "status": 401,
+      "elapsedMs": 3,
+      "requestId": "1fc4d6b9-91ce-48fa-85ae-ce1253aa8ee4"
     }
   ],
   "scope": "real HTTP, live upstreams, SQLite and service restart; no browser/IDE/device/store acceptance",
@@ -940,7 +940,7 @@
     "userVersion": 2,
     "journalMode": "wal"
   },
-  "finishedAt": "2026-10-17T08:53:51.927175+00:00",
+  "finishedAt": "2026-10-17T09:06:26.329640+00:00",
   "summary": {
     "passed": 58,
     "failed": 0,

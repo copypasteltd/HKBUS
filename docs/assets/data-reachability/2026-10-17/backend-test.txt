@@ -3,212 +3,217 @@
 > tsx --test test/*.test.ts && node --test deploy/tdas-egress/test/route.test.mjs
 
 TAP version 13
-# (node:24264) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (node:26012) ExperimentalWarning: SQLite is an experimental feature and might change at any time
 # (Use `node --trace-warnings ...` to show where the warning was created)
 # Subtest: rotating device credentials preserve data, reject replay and revoke deleted profiles
 ok 1 - rotating device credentials preserve data, reject replay and revoke deleted profiles
   ---
-  duration_ms: 1419.3517
+  duration_ms: 1447.7007
   ...
 # Subtest: health, config and canonical route identities are available
 ok 2 - health, config and canonical route identities are available
   ---
-  duration_ms: 16.2006
+  duration_ms: 19.9128
   ...
 # Subtest: invalid entities, partial coordinates and identical journey endpoints fail explicitly
 ok 3 - invalid entities, partial coordinates and identical journey endpoints fail explicitly
   ---
-  duration_ms: 14.9503
+  duration_ms: 38.6466
   ...
 # Subtest: profile credentials, bookmark idempotency, aliases and complete ordering
 ok 4 - profile credentials, bookmark idempotency, aliases and complete ordering
   ---
-  duration_ms: 22.8347
+  duration_ms: 37.9396
   ...
 # Subtest: profile ownership is enforced and reminder delivery is idempotent
 ok 5 - profile ownership is enforced and reminder delivery is idempotent
   ---
-  duration_ms: 55.0186
+  duration_ms: 81.7829
   ...
 # Subtest: admin cookie session, CSRF protection and role checks
 ok 6 - admin cookie session, CSRF protection and role checks
   ---
-  duration_ms: 334.3599
+  duration_ms: 344.3648
   ...
 # Subtest: notice draft/review/approval/scheduled publication, conflicts and rollback
 ok 7 - notice draft/review/approval/scheduled publication, conflicts and rollback
   ---
-  duration_ms: 45.185
+  duration_ms: 37.5848
   ...
 # Subtest: configuration revisions, real content propagation and feature shutdown
 ok 8 - configuration revisions, real content propagation and feature shutdown
   ---
-  duration_ms: 26.6434
+  duration_ms: 25.5817
   ...
 # Subtest: profile deletion revokes access and cascades personal data
 ok 9 - profile deletion revokes access and cascades personal data
   ---
-  duration_ms: 7.0769
+  duration_ms: 5.742
   ...
-# (node:26544) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (node:27768) ExperimentalWarning: SQLite is an experimental feature and might change at any time
 # (Use `node --trace-warnings ...` to show where the warning was created)
 # Subtest: wildcard origins permit public and error responses with credentials and cache variation
 ok 10 - wildcard origins permit public and error responses with credentials and cache variation
   ---
-  duration_ms: 1415.7567
+  duration_ms: 1437.8351
   ...
 # Subtest: preflights accept arbitrary client headers and every implemented request method
 ok 11 - preflights accept arbitrary client headers and every implemented request method
   ---
-  duration_ms: 29.1013
+  duration_ms: 32.4587
   ...
 # Subtest: any-origin Admin sessions reach authentication and support marked cookie writes
 ok 12 - any-origin Admin sessions reach authentication and support marked cookie writes
   ---
-  duration_ms: 226.6384
+  duration_ms: 275.9581
   ...
 # Subtest: an explicitly configured origin allowlist still rejects other Admin origins
 ok 13 - an explicitly configured origin allowlist still rejects other Admin origins
   ---
-  duration_ms: 53.9172
+  duration_ms: 56.3751
   ...
-# (node:32164) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (node:25092) ExperimentalWarning: SQLite is an experimental feature and might change at any time
 # (Use `node --trace-warnings ...` to show where the warning was created)
 # Subtest: native app origin may preflight actual bookmark, reminder and deletion methods
 ok 14 - native app origin may preflight actual bookmark, reminder and deletion methods
   ---
-  duration_ms: 2952.5192
+  duration_ms: 3106.0595
   ...
 # Subtest: runtime refuses fixture mode instead of silently accepting it
 ok 15 - runtime refuses fixture mode instead of silently accepting it
   ---
-  duration_ms: 0.8678
+  duration_ms: 1.0132
   ...
 # Subtest: empty live database seeds configuration only and reports its initialisation state
 ok 16 - empty live database seeds configuration only and reports its initialisation state
   ---
-  duration_ms: 56.919
+  duration_ms: 67.6667
   ...
 # Subtest: legacy sample database is refused and its records remain available for recovery
 ok 17 - legacy sample database is refused and its records remain available for recovery
   ---
-  duration_ms: 57.2773
+  duration_ms: 70.4887
   ...
 # Subtest: home requires location or a chosen stop and does not imply arbitrary stops are nearby
 ok 18 - home requires location or a chosen stop and does not imply arbitrary stops are nearby
   ---
-  duration_ms: 150.6386
+  duration_ms: 133.9511
   ...
 # Subtest: legacy unverified notices stay private even if marked published
 ok 19 - legacy unverified notices stay private even if marked published
   ---
-  duration_ms: 43.4911
+  duration_ms: 60.15
   ...
 # Subtest: legacy or poisoned ETA cache cannot replace an official-provider request
 ok 20 - legacy or poisoned ETA cache cannot replace an official-provider request
   ---
-  duration_ms: 82.6555
+  duration_ms: 81.4834
   ...
 # Subtest: over-age upstream ETA stays unavailable and never triggers a reminder
 ok 21 - over-age upstream ETA stays unavailable and never triggers a reminder
   ---
-  duration_ms: 99.3761
+  duration_ms: 115.3968
   ...
-# (node:23360) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (node:7496) ExperimentalWarning: SQLite is an experimental feature and might change at any time
 # (Use `node --trace-warnings ...` to show where the warning was created)
 # Subtest: SQLite restart and consistent backup preserve profile data and migrations
 ok 22 - SQLite restart and consistent backup preserve profile data and migrations
   ---
-  duration_ms: 3062.6367
+  duration_ms: 3272.1386
   ...
-# (node:27128) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (node:17496) ExperimentalWarning: SQLite is an experimental feature and might change at any time
 # (Use `node --trace-warnings ...` to show where the warning was created)
 # Subtest: KMB fields preserve service identity, numeric strings, Chinese names and null ETA
 ok 23 - KMB fields preserve service identity, numeric strings, Chinese names and null ETA
   ---
-  duration_ms: 10.4232
+  duration_ms: 10.2912
   ...
 # Subtest: TDAS HH:MM is duration and input constrains time, coordinates and endpoints
 ok 24 - TDAS HH:MM is duration and input constrains time, coordinates and endpoints
   ---
-  duration_ms: 2.8836
+  duration_ms: 1.6154
   ...
 # Subtest: successful ETA cache survives an upstream failure as explicitly stale data
 ok 25 - successful ETA cache survives an upstream failure as explicitly stale data
   ---
-  duration_ms: 2979.0866
+  duration_ms: 3188.3319
   ...
 # Subtest: catalog replacement is atomic when a provider returns inconsistent foreign keys
 ok 26 - catalog replacement is atomic when a provider returns inconsistent foreign keys
   ---
-  duration_ms: 56.8247
+  duration_ms: 80.9971
   ...
-# (node:14488) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (node:31784) ExperimentalWarning: SQLite is an experimental feature and might change at any time
 # (Use `node --trace-warnings ...` to show where the warning was created)
 # Subtest: TDAS egress authenticates privately, preserves official data, coalesces queries and caches for clients
 ok 27 - TDAS egress authenticates privately, preserves official data, coalesces queries and caches for clients
   ---
-  duration_ms: 2953.5535
+  duration_ms: 3131.5027
   ...
 # Subtest: direct TDAS stays available on hosts with official access and never receives the private egress key
 ok 28 - direct TDAS stays available on hosts with official access and never receives the private egress key
   ---
-  duration_ms: 43.6473
+  duration_ms: 62.1428
   ...
 # Subtest: road matching failures do not trip a provider outage and authentication or official denial is not retried
 ok 29 - road matching failures do not trip a provider outage and authentication or official denial is not retried
   ---
-  duration_ms: 57.1845
+  duration_ms: 85.7385
   ...
 # Subtest: transient TDAS failures retry and malformed results remain failed, uncached provider events
 ok 30 - transient TDAS failures retry and malformed results remain failed, uncached provider events
   ---
-  duration_ms: 395.1343
+  duration_ms: 407.1632
   ...
 # Subtest: TDAS outage circuit is scoped to the failed transport and timeout errors stay explicit
 ok 31 - TDAS outage circuit is scoped to the failed transport and timeout errors stay explicit
   ---
-  duration_ms: 554.1096
+  duration_ms: 584.4819
   ...
 # Subtest: partial or unsafe egress configuration fails startup without echoing credentials
 ok 32 - partial or unsafe egress configuration fails startup without echoing credentials
   ---
-  duration_ms: 1.161
+  duration_ms: 1.0989
   ...
 # Subtest: different TDAS queries respect the configured upstream interval
 ok 33 - different TDAS queries respect the configured upstream interval
   ---
-  duration_ms: 77.3076
+  duration_ms: 121.4991
   ...
 # Subtest: local TDAS backpressure is bounded, explicit and does not fabricate a provider failure
 ok 34 - local TDAS backpressure is bounded, explicit and does not fabricate a provider failure
   ---
-  duration_ms: 26.1296
+  duration_ms: 163.3645
   ...
-1..34
-# tests 34
+# Subtest: a retry never waits beyond the overall TDAS deadline
+ok 35 - a retry never waits beyond the overall TDAS deadline
+  ---
+  duration_ms: 284.5243
+  ...
+1..35
+# tests 35
 # suites 0
-# pass 34
+# pass 35
 # fail 0
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 7263.4148
+# duration_ms 8390.1853
 TAP version 13
 # Subtest: egress authenticates and validates requests before contacting TDAS
 ok 1 - egress authenticates and validates requests before contacting TDAS
   ---
-  duration_ms: 2.1968
+  duration_ms: 3.391
   ...
 # Subtest: egress forwards only validated parameters to the fixed official endpoint
 ok 2 - egress forwards only validated parameters to the fixed official endpoint
   ---
-  duration_ms: 30.1175
+  duration_ms: 48.9489
   ...
 # Subtest: egress preserves meaningful upstream failures and rejects invalid success bodies
 ok 3 - egress preserves meaningful upstream failures and rejects invalid success bodies
   ---
-  duration_ms: 3.7494
+  duration_ms: 5.2173
   ...
 1..3
 # tests 3
@@ -218,4 +223,4 @@ ok 3 - egress preserves meaningful upstream failures and rejects invalid success
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 186.2684
+# duration_ms 416.6903

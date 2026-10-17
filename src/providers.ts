@@ -45,9 +45,10 @@ export class Providers {
       return{provider,enabled,transport:provider==='TDAS'&&this.config.tdasEgressUrl?'authenticated-egress':'direct',state,checkedAt:event?.created_at||null,lastCode:event?.code||null};
     });
   }
-  private async tdasSlot(){
+  private async tdasSlot(deadline:number){
     const at=Date.now(),scheduled=Math.max(at,this.nextTdasRequestAt),wait=scheduled-at;
-    if(wait>4000)throw new AppError('TDAS_BUSY','道路查詢繁忙，請稍後重試',429,true);
+    if(wait>20000)throw new AppError('TDAS_BUSY','道路查詢繁忙，請稍後重試',429,true);
+    if(scheduled>=deadline)throw new AppError('UPSTREAM_TIMEOUT','道路查詢逾時，請稍後重試',504,true);
     this.nextTdasRequestAt=scheduled+this.config.tdasMinIntervalMs;
     if(wait>0)await new Promise(resolve=>setTimeout(resolve,wait));
   }
@@ -56,7 +57,7 @@ export class Providers {
     if(recent.length===5&&recent.every(x=>!x.success)&&Date.now()-Date.parse(recent[0]!.created_at)<30000)throw new AppError('UPSTREAM_CIRCUIT_OPEN','資料服務暫時不可用，請稍後重試',503,true);
     const deadline=Date.now()+30000;
     for(let attempt=0;attempt<2;attempt++){
-      if(provider==='TDAS')await this.tdasSlot();
+      if(provider==='TDAS')await this.tdasSlot(deadline);
       const start=Date.now();let failure:unknown;
       try{
         const timeout=provider==='TDAS'?Math.min(this.config.providerTimeoutMs,deadline-Date.now()):this.config.providerTimeoutMs;

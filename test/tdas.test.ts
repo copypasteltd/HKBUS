@@ -98,7 +98,7 @@ test('different TDAS queries respect the configured upstream interval',async()=>
 
 test('local TDAS backpressure is bounded, explicit and does not fabricate a provider failure',async()=>{
   let calls=0;
-  const ctx=await createApp({...config,tdasMinIntervalMs:5000},{logger:false,fetcher:async()=>{calls++;return json(road);}});
+  const ctx=await createApp({...config,tdasMinIntervalMs:60000},{logger:false,fetcher:async()=>{calls++;return json(road);}});
   try{
     await ctx.providers.roadRoute(input);
     await assert.rejects(ctx.providers.roadRoute({...input,lang:'en'}),problem('TDAS_BUSY',429,true));assert.equal(calls,1);
@@ -106,4 +106,13 @@ test('local TDAS backpressure is bounded, explicit and does not fabricate a prov
     assert.equal(ctx.store.get<{n:number}>('SELECT count(*) n FROM provider_events')!.n,1);
     assert.equal((await ctx.providers.roadRoute(input)).cached,true);
   }finally{await ctx.app.close();}
+});
+
+test('a retry never waits beyond the overall TDAS deadline',async()=>{
+  const actualNow=Date.now;let clock=actualNow(),calls=0;
+  const ctx=await createApp({...config,tdasMinIntervalMs:20000},{logger:false,fetcher:async()=>{calls++;clock+=31000;throw new DOMException('deadline','TimeoutError');}});
+  try{
+    Date.now=()=>clock;
+    await assert.rejects(ctx.providers.roadRoute(input),problem('UPSTREAM_TIMEOUT',504,true));assert.equal(calls,1);
+  }finally{Date.now=actualNow;await ctx.app.close();}
 });

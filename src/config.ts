@@ -18,7 +18,7 @@ export function loadConfig(overrides: Partial<Config> = {}): Config {
     kmbBaseUrl: process.env.KMB_BASE_URL || 'https://data.etabus.gov.hk/v1/transport/kmb',
     tdasBaseUrl: process.env.TDAS_BASE_URL || 'https://tdas-api.hkemobility.gov.hk/tdas/api/route',
     tdasEgressUrl:process.env.TDAS_EGRESS_URL||'',tdasEgressSecret:process.env.TDAS_EGRESS_SECRET||'',
-    tdasMinIntervalMs:Number(process.env.TDAS_MIN_INTERVAL_MS||4000),
+    tdasMinIntervalMs:Number(process.env.TDAS_MIN_INTERVAL_MS||20000),
     providerTimeoutMs: Number(process.env.PROVIDER_TIMEOUT_MS || 15000), tdasEnabled: process.env.TDAS_ENABLED !== 'false',
     syncHours: Number(process.env.CATALOG_SYNC_HOURS || 24), production: process.env.NODE_ENV === 'production', workerEnabled: true,
     ...overrides
