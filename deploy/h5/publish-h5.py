@@ -5,6 +5,7 @@ import argparse
 import base64
 import hashlib
 import json
+import os
 import re
 import shlex
 import subprocess
@@ -44,12 +45,14 @@ def main():
         for name in sorted(assets):package.add(dist/name,arcname=name,recursive=False)
     manifest = {'releaseId':release,'sourceCommit':build['sourceCommit'],'apiBase':build['apiBase'],'assets':assets,'archiveSha256':sha(archive),'buildVerifiedAt':build['finishedAt']}
     (out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
-    details = globals().get('TASK_SSH_DETAILS') or json.loads(args.access_file.read_text(encoding='utf-8'))
-    assert details['host'] == HOST and details['user'] == 'ubuntu'
+    details = globals().get('TASK_SSH_DETAILS') or (json.loads(args.access_file.read_text(encoding='utf-8')) if args.access_file.exists() else {})
+    assert details.get('host',HOST) == HOST and details.get('user','ubuntu') == 'ubuntu'
+    password = details.get('password') or os.environ.get('HKBUS_SSH_PASSWORD')
+    assert password, 'Set HKBUS_SSH_PASSWORD or provide a private --access-file with host/user/password; never commit it'
     client = paramiko.SSHClient();client.load_host_keys(str(args.known_hosts));client.set_missing_host_key_policy(paramiko.RejectPolicy())
     transport_report = {'startedAt':datetime.now(timezone.utc).isoformat(),'releaseId':release,'sshClosed':False,'passed':False}
     try:
-        client.connect(HOST,username='ubuntu',password=details['password'],timeout=20,allow_agent=False,look_for_keys=False)
+        client.connect(HOST,username='ubuntu',password=password,timeout=20,allow_agent=False,look_for_keys=False)
         transport = client.get_transport();transport.set_keepalive(30)
         assert 'SHA256:'+base64.b64encode(hashlib.sha256(transport.get_remote_server_key().asbytes()).digest()).decode().rstrip('=') == FINGERPRINT
         staging = '/home/ubuntu/.cache/hkbus-h5-'+stamp

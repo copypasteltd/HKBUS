@@ -1,0 +1,10 @@
+{
+  "website": "https://hkbus.copypaste.hk/",
+  "releaseId": "20261017T114748Z-60f6bf69909d",
+  "sourceCommit": "60f6bf69909d97eda762931db52751567acf31a1",
+  "files": 245,
+  "artifact": "hkbusgo-h5-dist.zip",
+  "bytes": 782466,
+  "sha256": "a5aa3ee5c04037b4760e27b23e55b005767864de4a89e59c9f96fb887c9cb31b",
+  "published": true
+}
