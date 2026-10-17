@@ -1,0 +1,12 @@
+{
+  "projectId": "prj_zLoc6HYDJKJss5opjLNk8rUCvMds",
+  "teamId": "team_d1wMBJF3rR0HBOBvngU2bkB8",
+  "projectName": "hkbusgo-tdas-egress",
+  "region": "hkg1",
+  "nodeVersionSetting": "24.x",
+  "nodeRuntimeFromPackage": "22.x",
+  "ssoProtection": null,
+  "encryptedSecretConfigured": true,
+  "applicationBearerAuthentication": true,
+  "dedicatedBackendTransport": true
+}

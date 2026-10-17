@@ -1,0 +1,63 @@
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_GKcBNdAeM78XnNTcm4teFE8jfmUe",
+    "url": "https://hkbusgo-tdas-egress-bcp3qdi06-sidcloud.vercel.app",
+    "productionUrl": "https://tdas-egress.vercel.app",
+    "inspectorUrl": "https://vercel.com/sidcloud/hkbusgo-tdas-egress/GKcBNdAeM78XnNTcm4teFE8jfmUe",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_GKcBNdAeM78XnNTcm4teFE8jfmUe",
+    "buildMachine": {
+      "cores": 2,
+      "memory": 8192,
+      "machine": "basic",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    },
+    "deploymentProtection": []
+  },
+  "message": "Deployment hkbusgo-tdas-egress-bcp3qdi06-sidcloud.vercel.app ready. Production URL: https://tdas-egress.vercel.app",
+  "next": [
+    {
+      "command": "vercel git connect --scope sidcloud",
+      "when": "Automatically deploy changes on every push"
+    },
+    {
+      "command": "vercel curl https://tdas-egress.vercel.app",
+      "when": "Verify deployment, including when Deployment Protection is enabled"
+    },
+    {
+      "command": "vercel inspect hkbusgo-tdas-egress-bcp3qdi06-sidcloud.vercel.app --scope sidcloud",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod --scope sidcloud",
+      "when": "Promote to production"
+    }
+  ]
+}
+
+Vercel CLI 62.7.0 (Node.js 22.14.0)
+Deploying hkbusgo-tdas-egress
+Uploading [--------------------] (0.0B/7.8KB)
+Uploading [===========---------] (4.4KB/7.8KB)
+Uploading [====================] (7.8KB/7.8KB)
+  Inspect         https://vercel.com/sidcloud/hkbusgo-tdas-egress/GKcBNdAeM78XnNTcm4teFE8jfmUe
+  Production      https://hkbusgo-tdas-egress-bcp3qdi06-sidcloud.vercel.app
+Building…
+Building…
+Running build in Washington, D.C., USA (East) – iad1
+Build machine configuration: 2 cores, 8 GB
+Retrieving list of deployment files...
+Previous build caches not available.
+Downloading 6 deployment files...
+Running "vercel build"
+Vercel CLI 64.0.2
+Installing dependencies...
+up to date in 732ms
+Build Completed in /vercel/output [1s]
+Deploying outputs...
+  Production      https://hkbusgo-tdas-egress-bcp3qdi06-sidcloud.vercel.app
+Completing…
+▲ Aliased         https://tdas-egress.vercel.app

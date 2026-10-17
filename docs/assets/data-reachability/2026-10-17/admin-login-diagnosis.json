@@ -1,0 +1,94 @@
+{
+  "access": [
+    "172.71.210.243 - - [17/Oct/2026:17:23:01 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "172.70.142.126 - - [17/Oct/2026:17:23:01 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "172.70.208.64 - - [17/Oct/2026:17:23:01 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "172.71.219.55 - - [17/Oct/2026:17:23:01 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "172.71.124.93 - - [17/Oct/2026:17:23:01 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "162.158.88.154 - - [17/Oct/2026:17:23:01 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "162.158.107.25 - - [17/Oct/2026:17:23:02 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "172.70.208.64 - - [17/Oct/2026:17:23:02 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "108.162.226.19 - - [17/Oct/2026:17:23:02 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "172.71.124.93 - - [17/Oct/2026:17:23:02 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "104.22.66.45 - - [17/Oct/2026:17:23:02 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "172.71.82.56 - - [17/Oct/2026:17:23:02 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "162.158.88.154 - - [17/Oct/2026:17:23:02 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "172.69.176.2 - - [17/Oct/2026:17:23:02 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "172.70.142.126 - - [17/Oct/2026:17:23:02 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "172.69.165.10 - - [17/Oct/2026:17:23:02 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "104.23.175.225 - - [17/Oct/2026:17:23:02 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "172.68.164.137 - - [17/Oct/2026:17:23:03 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "162.159.98.120 - - [17/Oct/2026:17:23:03 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "172.68.211.214 - - [17/Oct/2026:17:23:03 +0800] \"OPTIONS /api/admin/auth/login HTTP/1.1\" 204 0 \"-\" \"HKBusGo/1.0\"",
+    "162.158.193.206 - - [17/Oct/2026:17:23:04 +0800] \"POST /api/admin/auth/login HTTP/1.1\" 401 146 \"-\" \"HKBusGo/1.0\"",
+    "172.68.211.214 - - [17/Oct/2026:17:23:04 +0800] \"POST /api/admin/auth/login HTTP/1.1\" 200 260 \"-\" \"HKBusGo/1.0\"",
+    "104.22.193.130 - - [17/Oct/2026:17:25:01 +0800] \"POST /api/admin/auth/login HTTP/1.1\" 502 552 \"https://hkbus-api.copypaste.hk/admin/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36\"",
+    "162.158.189.50 - - [17/Oct/2026:17:25:07 +0800] \"POST /api/admin/auth/login HTTP/1.1\" 200 260 \"-\" \"HKBusGo/1.0\"",
+    "172.69.34.168 - - [17/Oct/2026:17:26:18 +0800] \"POST /api/admin/auth/login HTTP/1.1\" 200 260 \"https://hkbus-api.copypaste.hk/admin/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36\""
+  ],
+  "errors": [
+    "2026/10/17 17:25:01 [error] 1384145#0: *129786 connect() failed (111: Connection refused) while connecting to upstream, client: 104.22.193.130, server: hkbus-api.copypaste.hk, request: \"POST /api/admin/auth/login HTTP/1.1\", upstream: \"http://127.0.0.1:39410/api/admin/auth/login\", host: \"hkbus-api.copypaste.hk\", referrer: \"https://hkbus-api.copypaste.hk/admin/\""
+  ],
+  "logins": [
+    [
+      "auth.login",
+      "2026-10-17T09:26:18.171Z"
+    ],
+    [
+      "auth.login",
+      "2026-10-17T09:25:07.024Z"
+    ],
+    [
+      "auth.login",
+      "2026-10-17T09:25:02.440Z"
+    ],
+    [
+      "auth.login",
+      "2026-10-17T09:23:04.240Z"
+    ],
+    [
+      "auth.login",
+      "2026-10-17T09:16:22.857Z"
+    ],
+    [
+      "auth.login",
+      "2026-10-17T09:16:18.031Z"
+    ],
+    [
+      "auth.login",
+      "2026-10-17T09:07:54.332Z"
+    ],
+    [
+      "auth.login",
+      "2026-10-17T09:06:27.820Z"
+    ],
+    [
+      "auth.login",
+      "2026-10-17T09:06:24.077Z"
+    ],
+    [
+      "auth.login",
+      "2026-10-17T08:54:34.879Z"
+    ],
+    [
+      "auth.login",
+      "2026-10-17T08:53:53.713Z"
+    ],
+    [
+      "auth.login",
+      "2026-10-17T08:53:49.610Z"
+    ],
+    [
+      "auth.login",
+      "2026-10-17T08:39:44.597Z"
+    ],
+    [
+      "auth.login",
+      "2026-10-17T08:01:03.129Z"
+    ],
+    [
+      "auth.login",
+      "2026-10-17T08:00:46.106Z"
+    ]
+  ]
+}
