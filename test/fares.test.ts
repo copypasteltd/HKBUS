@@ -68,3 +68,7 @@ test('fare management remains authenticated and mutations require an operator ro
  const ctx=await setup();try{assert.equal((await ctx.app.inject('/api/admin/fares')).statusCode,401);assert.equal((await ctx.app.inject({method:'POST',url:'/api/admin/jobs/fares/sync',headers:{'x-hkbus-admin':'1'},payload:{}})).statusCode,401);ctx.store.run('INSERT INTO admins VALUES(?,?,?,?,?,?,?)','viewer','viewer@example.test','Viewer',passwordHash('test-only-password'),'viewer',1,new Date().toISOString());const viewer=issueSession(ctx.app,ctx.store,'viewer','admin','viewer').token;assert.equal((await ctx.app.inject({url:'/api/admin/fares',headers:{authorization:'Bearer '+viewer}})).statusCode,200);assert.equal((await ctx.app.inject({method:'POST',url:'/api/admin/jobs/fares/sync',headers:{authorization:'Bearer '+viewer,'x-hkbus-admin':'1'},payload:{}})).statusCode,403);
  }finally{await ctx.app.close();}
 });
+test('stale client stop identities cannot price a different physical stop at the same sequence',async()=>{
+ const ctx=await setup();try{await ctx.fares.sync();const path='/api/v1/routes/KMB%3A112%3AO%3A1/fare?boardSequence=1&alightSequence=5';assert.equal((await ctx.app.inject(path+'&boardStopId=stop-times&alightStopId=stop-kennedy')).statusCode,200);const stale=await ctx.app.inject(path+'&boardStopId=stop-central&alightStopId=stop-kennedy');assert.equal(stale.statusCode,409);assert.equal(stale.json().error.code,'FARE_STOPS_CHANGED');assert.equal((await ctx.app.inject(path+'&boardStopId=stop-times')).statusCode,422);
+ }finally{await ctx.app.close();}
+});

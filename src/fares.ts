@@ -5,7 +5,7 @@ import {FARE_BASE,FARE_SOURCE_URL,FARE_SPEC_URL,readOfficialXml,integer,moneyCen
 
 export interface FareSource {provider:'TD';source:'live';url:string;specificationUrl:string;dataDate:string;syncedAt:string;files:SourceFile[];fareRows:number;directions:number}
 export interface FareOption {dayCode:number|null;amountCents:number}
-export interface FareQuote {state:'available'|'conditional'|'unavailable'|'stale';currency:'HKD';amountCents:number|null;options:FareOption[];reason:string|null;basis:'adult-single-undiscounted';routeId:string;boardSequence:number;alightSequence:number;source:FareSource|null;checkedAt:string|null;officialUrl:string}
+export interface FareQuote {state:'available'|'conditional'|'unavailable'|'stale';currency:'HKD';amountCents:number|null;options:FareOption[];reason:string|null;basis:'adult-single-undiscounted';routeId:string;boardSequence:number;alightSequence:number;boardStopId:string;alightStopId:string;source:FareSource|null;checkedAt:string|null;officialUrl:string}
 const allowedDays=new Set([31,63,266,271,272,287,288,319,320,415,416,447,448,480,511]);
 const unsupported=(message='官方收費資料校驗失敗；保留上一版完整資料')=>new AppError('FARE_SOURCE_INVALID',message,502,true);
 export class Fares {
@@ -29,7 +29,7 @@ export class Fares {
   const sequence=stops||this.store.sequence(routeId),board=sequence.find(s=>s.sequence===boardSequence),alight=sequence.find(s=>s.sequence===alightSequence);
   if(!board||!alight||alightSequence<=boardSequence)throw new AppError('FARE_INVALID_STOPS','需要同一服務方向中依次排列的上車及下車站序',422);
   const source=this.source(),checkedAt=this.store.setting<string|null>('fareCheckedAt',null),fallbackUrl='https://search.kmb.hk/KMBWebSite/?action=routesearch&route='+encodeURIComponent(route.routeNo)+'&lang=zh-hk';
-  const result:FareQuote={state:'unavailable',currency:'HKD',amountCents:null,options:[],reason:null,basis:'adult-single-undiscounted',routeId,boardSequence,alightSequence,source,checkedAt,officialUrl:fallbackUrl};
+  const result:FareQuote={state:'unavailable',currency:'HKD',amountCents:null,options:[],reason:null,basis:'adult-single-undiscounted',routeId,boardSequence,alightSequence,boardStopId:board.id,alightStopId:alight.id,source,checkedAt,officialUrl:fallbackUrl};
   const fail=(reason:string)=>({...result,reason});
   if(!source)return fail('NOT_SYNCED');
   const mapping=this.mapping(route,sequence);if(!mapping)return fail('CATALOG_CHANGED');if(!mapping.key)return fail(mapping.status==='ambiguous'?'ROUTE_AMBIGUOUS':'ROUTE_UNMATCHED');
