@@ -1,13 +1,16 @@
 """Read-only public HTTPS and official KMB route-ETA acceptance. No fixture data."""
-import json,time,urllib.parse,urllib.request,urllib.error
+import json,time,urllib.parse,subprocess
 from datetime import datetime,timezone
 
 BASE='https://hkbus-api.copypaste.hk/api'
 OFFICIAL='https://data.etabus.gov.hk/v1/transport/kmb'
 def request(url,headers=None):
-    try:
-        with urllib.request.urlopen(urllib.request.Request(url,headers=headers or {}),timeout=35) as response:return response.status,dict(response.headers),json.load(response)
-    except urllib.error.HTTPError as error:return error.code,dict(error.headers),json.load(error)
+    command=['curl','--silent','--show-error','--include','--max-time','35']
+    for key,value in (headers or {}).items():command.extend(['--header',key+': '+value])
+    result=subprocess.run([*command,url],capture_output=True,check=True)
+    head,body=result.stdout.split(b'\r\n\r\n',1)
+    lines=head.decode().splitlines();status=int(lines[0].split()[1]);fields=dict(line.split(':',1) for line in lines[1:] if ':' in line)
+    return status,{key.lower():value.strip() for key,value in fields.items()},json.loads(body)
 def get(path):
     status,_,body=request(BASE+path);assert status==200,(path,status,body);return body['data']
 def main():
@@ -28,7 +31,7 @@ def main():
         matched=[]
         for attempt in range(2):
             result=get('/v1/routes/KMB%3A112%3AO%3A1/arrivals?force=true')
-            status,_,raw=request(OFFICIAL+'/route-eta/112/1');assert status==200
+            status,_,raw=request(OFFICIAL+'/route-eta/112/1?_t='+str(int(time.time()//15)));assert status==200
             official={(int(row['seq']),int(row['eta_seq'])):row for row in raw['data'] if row['dir']=='O' and str(row['service_type'])=='1' and row['route']=='112'}
             for row in result['arrivals']:
                 source=official.get((row['stopSequence'],row['etaSequence']))

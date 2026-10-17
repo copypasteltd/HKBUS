@@ -12,7 +12,7 @@ async function app(fetcher:typeof fetch){
 }
 test('whole-route API maps exact direction/service/sequence, including repeated physical stops',async()=>{
   let calls=0;
-  const ctx=await app(async url=>{calls++;assert.ok(String(url).endsWith('/route-eta/112/1'));return new Response(JSON.stringify({generated_timestamp:new Date().toISOString(),data:[input(),input({seq:2,eta_seq:2,rmk_tc:'原定班次'}),input({seq:3}),input({dir:'I'}),input({service_type:2}),input({route:'6X'}),input({seq:999}),input({seq:2,eta_seq:3,eta:null})]}));});
+  const ctx=await app(async url=>{calls++;const target=new URL(String(url));assert.ok(target.pathname.endsWith('/route-eta/112/1'));assert.ok(/^\d+$/.test(target.searchParams.get('_t')||''));return new Response(JSON.stringify({generated_timestamp:new Date().toISOString(),data:[input(),input({seq:2,eta_seq:2,rmk_tc:'原定班次'}),input({seq:3}),input({dir:'I'}),input({service_type:2}),input({route:'6X'}),input({seq:999}),input({seq:2,eta_seq:3,eta:null})]}));});
   try{
     const response=await ctx.app.inject({url:'/api/v1/routes/'+encodeURIComponent(id)+'/arrivals?force=true'});assert.equal(response.statusCode,200);
     const data=response.json().data;assert.equal(data.route.id,id);assert.equal(data.stops.length,3);assert.equal(data.arrivals.length,4);

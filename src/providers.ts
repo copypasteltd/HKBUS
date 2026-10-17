@@ -139,7 +139,7 @@ export class Providers {
     if(!force&&cache&&Date.parse(cache.expires_at)>Date.now())return result(cache,true);
     return this.deduplicate(key,async()=>{
       try{
-        const raw=z.object({generated_timestamp:z.string().optional(),data:z.array(z.unknown())}).parse(await this.request('KMB','stop-eta',this.config.kmbBaseUrl.replace(/\/$/,'')+'/stop-eta/'+encodeURIComponent(stopId)));
+        const raw=z.object({generated_timestamp:z.string().optional(),data:z.array(z.unknown())}).parse(await this.request('KMB','stop-eta',this.config.kmbBaseUrl.replace(/\/$/,'')+'/stop-eta/'+encodeURIComponent(stopId)+'?_t='+Math.floor(Date.now()/15000)));
         const identities=new Map(routes.map(route=>[route.id,new Set(this.store.sequence(route.id).filter(stop=>stop.id===stopId).map(stop=>stop.sequence))]));
         const arrivals=raw.data.map(row=>normalizeArrival(row,stopId,Date.now(),policy.etaFreshSeconds)).filter(row=>identities.get(row.routeId)?.has(row.stopSequence)).sort((a,b)=>a.routeNo.localeCompare(b.routeNo,undefined,{numeric:true})||a.bound.localeCompare(b.bound)||a.serviceType.localeCompare(b.serviceType)||a.stopSequence-b.stopSequence||a.etaSequence-b.etaSequence);
         const generatedAt=arrivals.map(x=>x.generatedAt).sort().at(-1)||raw.generated_timestamp||'';
@@ -174,7 +174,10 @@ export class Providers {
     if(!force&&cache&&Date.parse(cache.expires_at)>Date.now())return result(cache,true);
     return this.deduplicate(key,async()=>{
       try{
-        const raw=await this.request('KMB','route-eta',this.config.kmbBaseUrl.replace(/\/$/,'')+'/route-eta/'+encodeURIComponent(route.routeNo)+'/'+encodeURIComponent(route.serviceType),undefined,{validate:value=>z.object({generated_timestamp:z.string().optional(),data:z.array(etaSchema)}).parse(value)});
+        // The official CDN advertises max-age=300 and ignores request no-cache.
+        // A shared 15s URL slot bounds that cache without a unique URL per user.
+        // Provider-generated timestamps remain authoritative for freshness.
+        const raw=await this.request('KMB','route-eta',this.config.kmbBaseUrl.replace(/\/$/,'')+'/route-eta/'+encodeURIComponent(route.routeNo)+'/'+encodeURIComponent(route.serviceType)+'?_t='+Math.floor(Date.now()/15000),undefined,{validate:value=>z.object({generated_timestamp:z.string().optional(),data:z.array(etaSchema)}).parse(value)});
         // The official response includes both directions and has no stop ID. Only the
         // requested identity and its exact sequence may supply the station mapping.
         const arrivals=raw.data.filter(row=>routeId(row.route,row.dir,row.service_type)===id&&bySequence.has(row.seq)).map(row=>normalizeArrival(row,bySequence.get(row.seq)!.id,Date.now(),policy.etaFreshSeconds)).sort((a,b)=>a.stopSequence-b.stopSequence||a.etaSequence-b.etaSequence);

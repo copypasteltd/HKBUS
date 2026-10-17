@@ -14,7 +14,7 @@ export const fixtureRoutes: Route[] = ['112','2A','6X','102','116'].flatMap(rout
 const sequences:Record<string,string[]>={'112':['stop-times','stop-paterson','stop-wan-chai','stop-central','stop-kennedy'],'2A':['stop-times','stop-hennessy','stop-wan-chai','stop-central'],'6X':['stop-central','stop-hennessy','stop-wan-chai'],'102':['stop-hennessy','stop-central','stop-kennedy'],'116':['stop-times','stop-paterson']};
 export const fixtureRelations=fixtureRoutes.flatMap(route=>(route.bound==='O'?sequences[route.routeNo]!:sequences[route.routeNo]!.slice().reverse()).map((stopId,index)=>({routeId:route.id,stopId,sequence:index+1})));
 export const testFetcher:typeof fetch=async(input)=>{
-  const url=String(input);
+  const url=new URL(String(input)).origin+new URL(String(input)).pathname;
   let data:unknown;
   if(url.endsWith('/route/'))data=fixtureRoutes.map(x=>({route:x.routeNo,bound:x.bound,service_type:x.serviceType,orig_tc:x.origin.tc,orig_sc:x.origin.sc,orig_en:x.origin.en,dest_tc:x.destination.tc,dest_sc:x.destination.sc,dest_en:x.destination.en}));
   else if(url.endsWith('/stop'))data=fixtureStops.map(x=>({stop:x.id,name_tc:x.name.tc,name_sc:x.name.sc,name_en:x.name.en,lat:x.latitude,long:x.longitude}));
