@@ -5,7 +5,7 @@ import {useApp} from '../state';
 import type {Stop} from '../services/types';
 
 export function LocalPrivacy(){const app=useApp();return <View className='local-privacy'>
-  <Text className='description'>{app.tr('無需登入。語言、閱讀偏好、首頁車站、收藏、最近查看及提醒均儲存在目前裝置，不建立雲端個人檔案。','无需登录。语言、阅读偏好、首页车站、收藏、最近查看及提醒均保存在当前设备，不建立云端个人档案。','No sign-in is needed. Language, reading preferences, home stop, favourites, history and reminders stay on this device; no cloud profile is created.')}</Text>
+  <Text className='description'>{app.tr('無需登入。語言、閱讀偏好、首頁車站、收藏、最近查看、提醒、常用行程及候車看板均儲存在目前裝置，不建立雲端個人檔案。','无需登录。语言、阅读偏好、首页车站、收藏、最近查看、提醒、常用行程及候车看板均保存在当前设备，不建立云端个人档案。','No sign-in is needed. Language, reading preferences, home stop, favourites, history, reminders, saved journeys and watches stay on this device; no cloud profile is created.')}</Text>
   <Text className='description'>{app.tr('不同瀏覽器、小程式或裝置各自保存，暫不互相同步。清除網站/小程式資料或移除應用程式後，這些設定可能遺失。','不同浏览器、小程序或设备分别保存，暂不互相同步。清除网站/小程序数据或卸载应用后，这些设置可能丢失。','Browsers, mini-programs and devices keep separate settings. Clearing site/app storage or uninstalling may remove them.')}</Text>
   <Text className='description'>{app.tr('查詢路線、車站、到站和道路資料仍需連線。定位僅在你主動同意時用於目前查詢，不保存精確位置。到站提醒只在 App 或頁面開啟時檢查。','查询路线、车站、到站和道路数据仍需联网。定位仅在你主动同意时用于当前查询，不保存精确位置。到站提醒只在 App 或页面打开时检查。','Transit and road queries still use the live API. Location is requested only by your action and is not saved. Arrival reminders are checked while the app or page is open.')}</Text>
 </View>;}

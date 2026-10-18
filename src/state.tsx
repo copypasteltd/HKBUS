@@ -2,13 +2,13 @@ import {createContext,useContext,useState,useEffect,useCallback,useRef,type Prop
 import Taro,{useDidShow} from '@tarojs/taro';
 import {api,ApiError} from './services/api';
 import {localUser,publicEntity,startLocalReminders,stopLocalReminders} from './services/local-user';
-import {DEVICE_KEY,type Preferences,type RecentItem,type DeviceReminder} from './services/device-store';
+import {DEVICE_KEY,type Preferences,type RecentItem,type DeviceReminder,type SavedTrip,type WatchItem} from './services/device-store';
 import type {Locale,Names,Bookmark,ProductConfig,Stop,Route} from './services/types';
 const defaults:ProductConfig={mode:'live',features:{reminders:false,traffic:false,planner:false,map:true},tdasEnabled:false,catalogSyncedAt:null,sources:[],content:{coverage:{tc:'KMB / LWB 到站資訊',sc:'KMB / LWB 到站信息',en:'KMB / LWB arrivals'},privacy:{tc:'',sc:'',en:''},help:{tc:'',sc:'',en:''},sourceUrl:'',privacyUrl:'',supportEmail:'',maintenance:false}};
 interface AppState{
   locale:Locale;setLocale:(locale:Locale)=>void;large:boolean;setLarge:(large:boolean)=>void;
   preferences:Preferences;setPreferences:(patch:Partial<Preferences>)=>void;storageError:string;
-  config:ProductConfig;configError:string;reloadConfig:()=>Promise<void>;bookmarks:Bookmark[];recent:RecentItem[];reminders:DeviceReminder[];
+  config:ProductConfig;configError:string;reloadConfig:()=>Promise<void>;bookmarks:Bookmark[];recent:RecentItem[];reminders:DeviceReminder[];trips:SavedTrip[];watches:WatchItem[];
   refreshBookmarks:()=>Promise<void>;favorite:(kind:'stop'|'route',id:string,alias?:string)=>Promise<void>;isFavorite:(kind:'stop'|'route',id:string)=>boolean;
   visit:(kind:'stop'|'route',entity:Stop|Route)=>void;
   tr:(tc:string,sc:string,en:string)=>string;name:(value:Names|undefined)=>string;
@@ -39,7 +39,7 @@ export function AppProvider({children}:PropsWithChildren){
   };
   const locale=device.preferences.locale;
   const value:AppState={locale,setLocale:next=>setPreferences({locale:next}),large:device.preferences.largeText,setLarge:largeText=>setPreferences({largeText}),preferences:device.preferences,setPreferences,storageError,
-    config,configError,reloadConfig,bookmarks:device.bookmarks,recent:device.recent,reminders:device.reminders,refreshBookmarks,favorite,isFavorite:(kind,id)=>device.bookmarks.some(x=>x.kind===kind&&x.entityId===id),
+    config,configError,reloadConfig,bookmarks:device.bookmarks,recent:device.recent,reminders:device.reminders,trips:device.trips,watches:device.watches,refreshBookmarks,favorite,isFavorite:(kind,id)=>device.bookmarks.some(x=>x.kind===kind&&x.entityId===id),
     visit:(kind,entity)=>{try{localUser.visit(kind,entity);}catch{/* The visible storage banner reports a failed local write. */}},
     tr:(tc,sc,en)=>locale==='en'?en:locale==='sc'?sc:tc,name:value=>value?.[locale]||value?.tc||value?.en||'',coordinates,setCoordinates,
     clearPersonalData:async()=>{localUser.clear();api.clearCache();setCoordinates(null);}};

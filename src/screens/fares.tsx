@@ -9,8 +9,8 @@ import type {FareQuote,Route,Stop,RouteFares,JourneyPricing} from '../services/t
 export function FareValue({quote,offline=false}:{quote:FareQuote|null|undefined;offline?:boolean}){
  const app=useApp();return <View className={'fare-value '+(offline||quote?.state==='stale'?'fare-stale':'')}><Text className='fare-amount'>{quote?.amountCents!==null&&quote?.amountCents!==undefined?fareAmount(quote.amountCents):app.tr('未核實','未核实','Unverified')}</Text>{(offline||quote?.state!=='available')&&<Text className='caption'>{offline?app.tr('離線保存的舊資料，請連線確認','离线保存的旧数据，请联网确认','Saved offline data; reconnect to confirm'):fareReason(quote,app.locale)}</Text>}</View>;
 }
-export function FarePanel({route,stops,fares,boardSequence,onBoardChange,onReload,offline}:{route:Route;stops:Stop[];fares?:RouteFares;boardSequence:number|null;onBoardChange:(sequence:number)=>void;onReload:()=>void;offline:boolean}){
- const app=useApp(),[to,setTo]=useState(stops[stops.length-1]?.sequence||0),[details,setDetails]=useState(false);
+export function FarePanel({route,stops,fares,boardSequence,alightSequence,onBoardChange,onReload,offline}:{route:Route;stops:Stop[];fares?:RouteFares;boardSequence:number|null;alightSequence?:number;onBoardChange:(sequence:number)=>void;onReload:()=>void;offline:boolean}){
+ const app=useApp(),[to,setTo]=useState(alightSequence||stops[stops.length-1]?.sequence||0),[details,setDetails]=useState(false);
  const board=stops.find(s=>s.sequence===boardSequence)||stops[0],boardIndex=Math.max(0,stops.indexOf(board)),alights=stops.filter(s=>(s.sequence||0)>(board?.sequence||0));
  const alight=alights.find(s=>s.sequence===to)||alights[alights.length-1];
  const resource=useResource<FareQuote>(board&&alight?'/v1/routes/'+encodeURIComponent(route.id)+'/fare'+query({boardSequence:board.sequence,alightSequence:alight.sequence,boardStopId:board.id,alightStopId:alight.id}):null);
