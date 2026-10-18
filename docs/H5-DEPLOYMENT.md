@@ -6,6 +6,8 @@
 
 [本次网站发布、版本、完整验收及截图](H5-SITE-LIVE.md) · [线路到站业务修复](ROUTE-ARRIVALS.md) · [旧 H5 导出记录](https://github.com/copypasteltd/HKBUS/blob/android/docs/H5-DIST.md)
 
+2026-10-19 当前版本：`20261018T212503Z-8edd4cf71378`，17 页、254 个公网文件核验；18 项专项及 28 项回归通过，详见 [七项验收](SGBUS-ALIGNMENT.md)。MapLibre 6 的 worker/shared 模块按版本随站发布，在 `/assets/maplibre/` 的本应用 location 声明 `.mjs` JavaScript MIME；不修改宝塔全局 MIME 或主站 vhost。旧版受管扩展仅按发布器所识别的完整旧模板迁移，人工差异仍停止。
+
 ### 后续更新约定
 
 用户已在 2026-10-17 明确授权：后续实际前端更新完成后，自行同步对应服务器前端路径，不必再次询问网站发布许可。共享移动端 UI/业务变更须同步相关独立客户端，并使用 Android 分支构建和发布实际 H5。Admin 仍发布到 `https://hkbus-api.copypaste.hk/admin/`，沿用 Backend 分支的 `deploy/linux/deploy-admin.py`，不能覆盖乘客网站。
@@ -29,7 +31,7 @@ npm run deploy:h5
 
 固定目标为 `ubuntu@43.160.221.28`，SSH 主机指纹必须为 `SHA256:RRe4A9Z+YdIUgq4l2DYxXnmuucnIVzeBbmeB2E16LqE`。脚本使用 `RejectPolicy`，维护环境须先准备经过该指纹核对的 `known_hosts`，不会自动信任未知服务器。
 
-脚本先检查类型及测试、编译、记录 269 个相关源文件和 245 个产物的 SHA-256（数量随工程变化），拒绝构建后被修改的源码或 dist。上传和服务器发布脚本位于 [publish-h5.py](https://github.com/copypasteltd/HKBUS/blob/android/deploy/h5/publish-h5.py)、[deploy-site.py](https://github.com/copypasteltd/HKBUS/blob/android/deploy/h5/deploy-site.py)。无需本地 Docker、WSL、虚拟机或模拟器。
+脚本先检查类型及测试、编译、记录相关源文件与全部产物的 SHA-256（2026-10-19 为 254 个产物，数量随工程变化），拒绝构建后被修改的源码或 dist。上传和服务器发布脚本位于 [publish-h5.py](https://github.com/copypasteltd/HKBUS/blob/android/deploy/h5/publish-h5.py)、[deploy-site.py](https://github.com/copypasteltd/HKBUS/blob/android/deploy/h5/deploy-site.py)。无需本地 Docker、WSL、虚拟机或模拟器。
 
 ### 宝塔路径和回滚
 
@@ -60,3 +62,6 @@ Future frontend updates are authorized to publish to their corresponding product
 Use native Windows Node/Python. `npm run release:h5` checks types, runs tests and builds the actual H5. `npm run deploy:h5` also uploads and publishes it. Supply SSH credentials through a private access file or `HKBUS_SSH_PASSWORD`; provide the trusted known-hosts file matching the fingerprint above. No passwords belong in source, documentation or output packages.
 
 Publication validates source/build hashes, archive paths and static files, retains old lazy chunks, switches a versioned symlink atomically, validates/reloads Nginx, then verifies every public file and the actual cross-origin arrival API. Failure restores the previous pointer/configuration. The original site and an initial offline backup remain available. Review the actual published pages/API, record evidence under `docs/`, and close test browser/proxy connections. See [the release report](H5-SITE-LIVE.md) for current versions and independently scoped acceptance.
+
+
+2026-10-19: the current release contains 17 pages and 254 verified public files, with 18 feature and 28 regression groups passed. MapLibre 6 worker/shared modules are versioned with the site; JavaScript MIME for .mjs is scoped to the owned map-assets location. Global BaoTa MIME and the main vhost remain unchanged. See [current acceptance](SGBUS-ALIGNMENT.md).
