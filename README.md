@@ -1,5 +1,13 @@
 # 港巴通 HKBusGo — 项目与工程导航 / Project & Repository Guide
 
+**2026-10-19 七项对标更新 / SG Bus alignment:** 地图、实时到站、总站时刻、收藏查车、收藏管理、道路搜索和个性化已更新。/ Real street maps, configurable arrivals, origin timetables, selected-service favourites, management, road search and local appearance controls are available. 共 17 页，客户端各 55 项测试及目标构建通过；实际 H5 专项 18 组、业务回归 28 组通过。/ 17 pages; each client passed 55 tests and its target build; the public H5 passed 18 feature and 28 regression groups. [完整规则与验收 / Requirements](docs/SGBUS-ALIGNMENT.md) · [实际网站 / Live website](https://hkbus.copypaste.hk/)。
+
+本分支为工程导航；各运行工程保持独立。/ This branch is the project guide; runtime projects remain independent.
+
+<img src="docs/assets/sgbus-alignment/2026-10-19/route-map.png" width="230" alt="Official route on the actual production H5" />
+
+较早版本记录 / Earlier release records:
+
 <!-- interactive-2026-10-18 -->
 **2026-10-18 常用出行扩展 / Interactive travel extensions:** 常用行程（12 条）、精确站序候车看板（6 项）、直达/转乘和已核实票价筛选、三方案比较已上线；16 页、三语、大字、本机保存，无乘客账号。四端各 44 项测试及目标编译通过。 / Regular journeys, exact-stop live waiting board, journey filters and comparison are live. Preferences and travel collections stay on this device. Each client passed 44 tests and its target build. [需求与验收 / Requirements and acceptance](docs/INTERACTIVE-EXTENSIONS.md) · [实际网站 / Live website](https://hkbus.copypaste.hk/)。以下较早记录为历史快照 / Earlier entries are historical snapshots.
 

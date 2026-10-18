@@ -1,0 +1,15 @@
+{
+  "purpose": "actual public HTTPS browser acceptance from the owned Hong Kong server network",
+  "allowedHosts": [
+    "hkbus-api.copypaste.hk:443",
+    "hkbus.copypaste.hk:443",
+    "tiles.openfreemap.org:443"
+  ],
+  "tlsValidationDisabled": false,
+  "responsesSubstituted": false,
+  "osNetworkSettingsChanged": false,
+  "listenerClosed": true,
+  "sshClosed": true,
+  "browserExitCode": 0,
+  "passed": true
+}

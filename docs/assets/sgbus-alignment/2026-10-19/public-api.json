@@ -1,0 +1,327 @@
+{
+  "routes": [
+    {
+      "id": "KMB:112:O:1",
+      "stops": 23,
+      "referenceState": "available",
+      "geometryPoints": 524,
+      "timetableBands": 25,
+      "today": {
+        "date": "2026-10-19",
+        "minute": 303,
+        "holiday": "The day following Chung Yeung Festival",
+        "calendarKnown": true,
+        "state": "before-first",
+        "windows": [
+          {
+            "start": 400,
+            "end": 460
+          },
+          {
+            "start": 460,
+            "end": 525
+          },
+          {
+            "start": 525,
+            "end": 655
+          },
+          {
+            "start": 655,
+            "end": 785
+          },
+          {
+            "start": 785,
+            "end": 915
+          },
+          {
+            "start": 915,
+            "end": 990
+          },
+          {
+            "start": 990,
+            "end": 1045
+          },
+          {
+            "start": 1045,
+            "end": 1269
+          },
+          {
+            "start": 1269,
+            "end": 1386
+          },
+          {
+            "start": 1386,
+            "end": 1470
+          }
+        ],
+        "carryover": [],
+        "firstDeparture": 400,
+        "lastDeparture": 1470,
+        "sourceUrl": "https://www.1823.gov.hk/common/ical/en.json",
+        "basis": "origin-departure"
+      },
+      "etaRows": 23,
+      "freshness": {
+        "state": "fresh",
+        "generatedAt": "2026-10-18T21:02:28.000Z",
+        "fetchedAt": "2026-10-18T21:03:22.833Z",
+        "cached": false,
+        "source": "live",
+        "provider": "KMB"
+      }
+    },
+    {
+      "id": "KMB:112:I:1",
+      "stops": 24,
+      "referenceState": "available",
+      "geometryPoints": 650,
+      "timetableBands": 24,
+      "today": {
+        "date": "2026-10-19",
+        "minute": 303,
+        "holiday": "The day following Chung Yeung Festival",
+        "calendarKnown": true,
+        "state": "before-first",
+        "windows": [
+          {
+            "start": 380,
+            "end": 460
+          },
+          {
+            "start": 460,
+            "end": 525
+          },
+          {
+            "start": 525,
+            "end": 1175
+          },
+          {
+            "start": 1175,
+            "end": 1240
+          },
+          {
+            "start": 1240,
+            "end": 1305
+          },
+          {
+            "start": 1305,
+            "end": 1386
+          },
+          {
+            "start": 1386,
+            "end": 1470
+          }
+        ],
+        "carryover": [],
+        "firstDeparture": 380,
+        "lastDeparture": 1470,
+        "sourceUrl": "https://www.1823.gov.hk/common/ical/en.json",
+        "basis": "origin-departure"
+      },
+      "etaRows": 24,
+      "freshness": {
+        "state": "fresh",
+        "generatedAt": "2026-10-18T21:02:28.000Z",
+        "fetchedAt": "2026-10-18T21:03:25.541Z",
+        "cached": false,
+        "source": "live",
+        "provider": "KMB"
+      }
+    },
+    {
+      "id": "KMB:N182:O:1",
+      "stops": 35,
+      "referenceState": "available",
+      "geometryPoints": 1568,
+      "timetableBands": 3,
+      "today": {
+        "date": "2026-10-19",
+        "minute": 303,
+        "holiday": "The day following Chung Yeung Festival",
+        "calendarKnown": true,
+        "state": "within-origin-hours",
+        "windows": [
+          {
+            "start": 10,
+            "end": 280
+          },
+          {
+            "start": 280,
+            "end": 330
+          },
+          {
+            "start": 330,
+            "end": 350
+          }
+        ],
+        "carryover": [],
+        "firstDeparture": 10,
+        "lastDeparture": 350,
+        "sourceUrl": "https://www.1823.gov.hk/common/ical/en.json",
+        "basis": "origin-departure"
+      },
+      "etaRows": 35,
+      "freshness": {
+        "state": "fresh",
+        "generatedAt": "2026-10-18T21:03:24.000Z",
+        "fetchedAt": "2026-10-18T21:03:28.022Z",
+        "cached": false,
+        "source": "live",
+        "provider": "KMB"
+      }
+    },
+    {
+      "id": "KMB:48X:O:1",
+      "stops": 19,
+      "referenceState": "available",
+      "geometryPoints": 483,
+      "timetableBands": 15,
+      "today": {
+        "date": "2026-10-19",
+        "minute": 303,
+        "holiday": "The day following Chung Yeung Festival",
+        "calendarKnown": true,
+        "state": "before-first",
+        "windows": [
+          {
+            "start": 330,
+            "end": 410
+          },
+          {
+            "start": 410,
+            "end": 780
+          },
+          {
+            "start": 780,
+            "end": 1268
+          },
+          {
+            "start": 1268,
+            "end": 1388
+          },
+          {
+            "start": 1388,
+            "end": 1448
+          }
+        ],
+        "carryover": [],
+        "firstDeparture": 330,
+        "lastDeparture": 1448,
+        "sourceUrl": "https://www.1823.gov.hk/common/ical/en.json",
+        "basis": "origin-departure"
+      },
+      "etaRows": 23,
+      "freshness": {
+        "state": "fresh",
+        "generatedAt": "2026-10-18T21:03:24.000Z",
+        "fetchedAt": "2026-10-18T21:03:29.477Z",
+        "cached": false,
+        "source": "live",
+        "provider": "KMB"
+      }
+    }
+  ],
+  "search": [
+    {
+      "q": "Nathan Rd",
+      "first": "road:897a56ddaa2de3086aee",
+      "total": 1
+    },
+    {
+      "q": "ＮＡＴＨＡＮ　ＲＤ.",
+      "first": "road:897a56ddaa2de3086aee",
+      "total": 1
+    },
+    {
+      "q": "弥敦道",
+      "first": "road:897a56ddaa2de3086aee",
+      "total": 1
+    },
+    {
+      "q": "彌敦道",
+      "first": "road:897a56ddaa2de3086aee",
+      "total": 1
+    }
+  ],
+  "browserClosed": true,
+  "responsesSubstituted": false,
+  "health": {
+    "status": "ok",
+    "version": "1.0.0",
+    "database": "ready",
+    "catalogRoutes": 1611,
+    "catalogSyncedAt": "2026-10-18T09:25:27.932Z",
+    "source": "live",
+    "dataStatus": "unverified",
+    "dataServices": [
+      {
+        "provider": "KMB",
+        "enabled": true,
+        "transport": "direct",
+        "state": "unverified",
+        "checkedAt": "2026-10-18T20:57:51.669Z",
+        "lastCode": null
+      },
+      {
+        "provider": "TDAS",
+        "enabled": true,
+        "transport": "authenticated-egress",
+        "state": "unverified",
+        "checkedAt": "2026-10-17T20:54:56.252Z",
+        "lastCode": null
+      }
+    ],
+    "fareData": {
+      "state": "available",
+      "dataDate": "2026-10-14",
+      "checkedAt": "2026-10-18T09:26:27.654Z",
+      "lastFailure": null
+    },
+    "transitReference": {
+      "source": "live",
+      "places": {
+        "fetchedAt": "2026-10-18T20:50:00.272Z",
+        "catalogSyncedAt": "2026-10-18T09:25:27.932Z",
+        "sourceUrl": "https://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=getallstops",
+        "matchedStops": 6472,
+        "totalStops": 6775,
+        "roads": 1050
+      },
+      "calendar": {
+        "years": [
+          2025,
+          2026,
+          2027
+        ],
+        "fetchedAt": "2026-10-18T20:50:00.696Z",
+        "sourceUrl": "https://www.1823.gov.hk/common/ical/en.json"
+      },
+      "cachedRoutes": 1,
+      "vehiclePositions": false
+    }
+  },
+  "status": {
+    "source": "live",
+    "places": {
+      "fetchedAt": "2026-10-18T20:50:00.272Z",
+      "catalogSyncedAt": "2026-10-18T09:25:27.932Z",
+      "sourceUrl": "https://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=getallstops",
+      "matchedStops": 6472,
+      "totalStops": 6775,
+      "roads": 1050
+    },
+    "calendar": {
+      "years": [
+        2025,
+        2026,
+        2027
+      ],
+      "fetchedAt": "2026-10-18T20:50:00.696Z",
+      "sourceUrl": "https://www.1823.gov.hk/common/ical/en.json"
+    },
+    "cachedRoutes": 4,
+    "vehiclePositions": false
+  },
+  "passed": true,
+  "finishedAt": "2026-10-18T21:03:32.306Z"
+}
