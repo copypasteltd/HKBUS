@@ -1,0 +1,1561 @@
+{
+  "website": "https://hkbus.copypaste.hk",
+  "startedAt": "2026-10-18T10:28:59.613Z",
+  "checks": [
+    {
+      "name": "Existing schema 1 preferences and real saved stops migrate durably to schema 2",
+      "passed": true
+    },
+    {
+      "name": "Stop arrivals can prefill a current official origin without location",
+      "passed": true
+    },
+    {
+      "name": "Create, persist and rename a saved official stop pair entirely on-device",
+      "passed": true
+    },
+    {
+      "name": "A reverse saved pair is distinct; move up/down and confirmed deletion update the list",
+      "passed": true
+    },
+    {
+      "name": "Reusing a regular journey resolves current stops and calls the real planner",
+      "passed": true,
+      "candidates": 3
+    },
+    {
+      "name": "Direct/transfer filters, verified-price sort and complete-price filter match the actual response",
+      "passed": true
+    },
+    {
+      "name": "Three actual journey options can be compared, removed and cleared",
+      "passed": true
+    },
+    {
+      "name": "Journey leg opens both exact boarding and alighting identities in route fare details",
+      "passed": true
+    },
+    {
+      "name": "Two exact route-stop occurrences persist and render real production predictions",
+      "passed": true,
+      "watches": 2,
+      "uniqueRoutes": 1
+    },
+    {
+      "name": "Refresh all sends one public arrival request for two watches sharing a route",
+      "passed": true
+    },
+    {
+      "name": "Pause prevents automatic network refresh across a complete 30-second polling interval",
+      "passed": true
+    },
+    {
+      "name": "Offline refresh suppresses trusted countdowns while local watch naming still works",
+      "passed": true
+    },
+    {
+      "name": "Resuming and reloading restores the real watch data and saved alias",
+      "passed": true
+    },
+    {
+      "name": "Confirmed watch removal and adding the exact current stop again work",
+      "passed": true
+    },
+    {
+      "name": "Home exposes saved journeys and waiting-board entry points",
+      "passed": true
+    },
+    {
+      "name": "Reverse search sends swapped official stop IDs without assuming a return service",
+      "passed": true
+    },
+    {
+      "name": "Swapping endpoints removes old candidates and comparison state",
+      "passed": true
+    },
+    {
+      "name": "Unknown official fares stay unverified; empty filters recover; UI enforces the three-option cap",
+      "passed": true
+    },
+    {
+      "name": "Malformed stop links and stale route-stop identity links expose recovery without misdirecting the user",
+      "passed": true
+    },
+    {
+      "name": "Saved journeys remain locally editable without API access",
+      "passed": true
+    },
+    {
+      "name": "Same-origin storage updates refresh the regular journey list in another owned tab",
+      "passed": true
+    },
+    {
+      "name": "A simulated failed local write keeps the old saved journey and reports failure",
+      "passed": true
+    },
+    {
+      "name": "A simulated old local watch sequence is rejected against the real current route and shows no countdown",
+      "passed": true
+    },
+    {
+      "name": "Four phone/landscape widths support English large text and 44px controls",
+      "passed": true,
+      "states": 24
+    },
+    {
+      "name": "All 16 pages load and contextual guides explain the new journeys and waiting board",
+      "passed": true
+    },
+    {
+      "name": "Simplified Chinese large text remains usable in the four extended flows at 320px",
+      "passed": true
+    },
+    {
+      "name": "Reset preferences preserves travel collections; clear all removes them and returns home",
+      "passed": true
+    },
+    {
+      "name": "No personal profile traffic, passenger credentials, page errors or missing assets",
+      "passed": true,
+      "publicRequests": 141
+    }
+  ],
+  "requests": [
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319356577
+    },
+    {
+      "path": "/api/v1/home",
+      "query": "?platform=h5",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319358026
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319361180
+    },
+    {
+      "path": "/api/v1/home",
+      "query": "?stopId=BFC406EB675EF22E&platform=h5",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319361189
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319367125
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319372006
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319376887
+    },
+    {
+      "path": "/api/v1/stops/44AF4BBD0B0BB3A0/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319376893
+    },
+    {
+      "path": "/api/v1/stops/44AF4BBD0B0BB3A0",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319382846
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319388793
+    },
+    {
+      "path": "/api/v1/stops",
+      "query": "?pageSize=20",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319393856
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319405549
+    },
+    {
+      "path": "/api/v1/stops",
+      "query": "?pageSize=20",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319405689
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319406230
+    },
+    {
+      "path": "/api/v1/stops/44AF4BBD0B0BB3A0",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319406230
+    },
+    {
+      "path": "/api/v1/journeys",
+      "query": "",
+      "method": "POST",
+      "authorization": false,
+      "at": 1792319406817
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319411270
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319411270
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=1&alightSequence=23&boardStopId=BFC406EB675EF22E&alightStopId=44AF4BBD0B0BB3A0",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319412365
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319413519
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319413529
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319413529
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=1&alightSequence=23&boardStopId=BFC406EB675EF22E&alightStopId=44AF4BBD0B0BB3A0",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319413579
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319414958
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319414973
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319414973
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=10&alightSequence=23&boardStopId=153D32217234A0F0&alightStopId=44AF4BBD0B0BB3A0",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319414973
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319416419
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319417146
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319417760
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "?force=true",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319454358
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319454477
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319458529
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319458536
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319460254
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319460261
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319460261
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=10&alightSequence=23&boardStopId=153D32217234A0F0&alightStopId=44AF4BBD0B0BB3A0",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319460324
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319461751
+    },
+    {
+      "path": "/api/v1/home",
+      "query": "?stopId=BFC406EB675EF22E&platform=h5",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319461761
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319462343
+    },
+    {
+      "path": "/api/v1/stops/44AF4BBD0B0BB3A0",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319462420
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319462420
+    },
+    {
+      "path": "/api/v1/journeys",
+      "query": "",
+      "method": "POST",
+      "authorization": false,
+      "at": 1792319463031
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319464621
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319464662
+    },
+    {
+      "path": "/api/v1/stops/44AF4BBD0B0BB3A0",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319464662
+    },
+    {
+      "path": "/api/v1/journeys",
+      "query": "",
+      "method": "POST",
+      "authorization": false,
+      "at": 1792319465200
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319469061
+    },
+    {
+      "path": "/api/v1/stops/B63202433AD89E92",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319469092
+    },
+    {
+      "path": "/api/v1/stops/21466046C6868AA7",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319469093
+    },
+    {
+      "path": "/api/v1/journeys",
+      "query": "",
+      "method": "POST",
+      "authorization": false,
+      "at": 1792319471006
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319475534
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319476079
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319476088
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319476088
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=1&alightSequence=23&boardStopId=BFC406EB675EF22E&alightStopId=44AF4BBD0B0BB3A0",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319476143
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319476677
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319484232
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319486094
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319486693
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319486699
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319488126
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319488153
+    },
+    {
+      "path": "/api/v1/stops/44AF4BBD0B0BB3A0",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319488153
+    },
+    {
+      "path": "/api/v1/journeys",
+      "query": "",
+      "method": "POST",
+      "authorization": false,
+      "at": 1792319488860
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319490589
+    },
+    {
+      "path": "/api/v1/home",
+      "query": "?stopId=BFC406EB675EF22E&platform=h5",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319490597
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319491235
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319493622
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319494094
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319494581
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319494589
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319496013
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319496034
+    },
+    {
+      "path": "/api/v1/stops/44AF4BBD0B0BB3A0",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319496034
+    },
+    {
+      "path": "/api/v1/journeys",
+      "query": "",
+      "method": "POST",
+      "authorization": false,
+      "at": 1792319496737
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319498443
+    },
+    {
+      "path": "/api/v1/home",
+      "query": "?stopId=BFC406EB675EF22E&platform=h5",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319498452
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319499002
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319499520
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319499999
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319500488
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319500492
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319501907
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319501931
+    },
+    {
+      "path": "/api/v1/stops/44AF4BBD0B0BB3A0",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319501931
+    },
+    {
+      "path": "/api/v1/journeys",
+      "query": "",
+      "method": "POST",
+      "authorization": false,
+      "at": 1792319502426
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319504344
+    },
+    {
+      "path": "/api/v1/home",
+      "query": "?stopId=BFC406EB675EF22E&platform=h5",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319504352
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319504894
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319505488
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319505975
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319506457
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319506464
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319507867
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319507875
+    },
+    {
+      "path": "/api/v1/stops/44AF4BBD0B0BB3A0",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319507875
+    },
+    {
+      "path": "/api/v1/journeys",
+      "query": "",
+      "method": "POST",
+      "authorization": false,
+      "at": 1792319508403
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319510315
+    },
+    {
+      "path": "/api/v1/home",
+      "query": "?stopId=BFC406EB675EF22E&platform=h5",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319510323
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319510797
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319511319
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319511971
+    },
+    {
+      "path": "/api/v1/home",
+      "query": "?stopId=BFC406EB675EF22E&platform=h5",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319511977
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319512554
+    },
+    {
+      "path": "/api/v1/routes",
+      "query": "?page=1&pageSize=20",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319513786
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319514826
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319516699
+    },
+    {
+      "path": "/api/v1/stops",
+      "query": "?radius=3000&pageSize=20",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319517355
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319518501
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319518508
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319519059
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319519064
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319519064
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=1&alightSequence=23&boardStopId=BFC406EB675EF22E&alightStopId=44AF4BBD0B0BB3A0",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319519126
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319519677
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319520178
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319520667
+    },
+    {
+      "path": "/api/v1/notices",
+      "query": "?platform=h5",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319521418
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319522504
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319523853
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319525653
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319527529
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319528015
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319529910
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319530386
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319530392
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319530870
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319531340
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319531931
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319532467
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319532475
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319533853
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319533859
+    },
+    {
+      "path": "/api/v1/stops/44AF4BBD0B0BB3A0",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319533859
+    },
+    {
+      "path": "/api/v1/journeys",
+      "query": "",
+      "method": "POST",
+      "authorization": false,
+      "at": 1792319534338
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319536264
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319536802
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319537382
+    },
+    {
+      "path": "/api/v1/home",
+      "query": "?platform=h5",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792319537807
+    }
+  ],
+  "pageErrors": [],
+  "missingAssets": [],
+  "screenshots": [
+    "regular-journeys.png",
+    "planner-filter-and-sort.png",
+    "journey-comparison.png",
+    "waiting-board.png",
+    "waiting-board-offline.png",
+    "home-travel-tools.png",
+    "trips-320-en-large.png",
+    "watchboard-320-en-large.png",
+    "planner-320-en-large.png",
+    "trips-375-en-large.png",
+    "watchboard-375-en-large.png",
+    "planner-375-en-large.png",
+    "trips-430-en-large.png",
+    "watchboard-430-en-large.png",
+    "planner-430-en-large.png",
+    "trips-844-en-large.png",
+    "watchboard-844-en-large.png",
+    "planner-844-en-large.png",
+    "trips-320-sc-large.png"
+  ],
+  "responsive": [
+    {
+      "screen": "trips",
+      "width": 320,
+      "height": 740,
+      "locale": "en",
+      "largeText": true,
+      "controls": 4,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "watchboard",
+      "width": 320,
+      "height": 740,
+      "locale": "en",
+      "largeText": true,
+      "controls": 12,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "planner",
+      "width": 320,
+      "height": 740,
+      "locale": "en",
+      "largeText": true,
+      "controls": 10,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "home",
+      "width": 320,
+      "height": 740,
+      "locale": "en",
+      "largeText": true,
+      "controls": 2,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "bookmarks",
+      "width": 320,
+      "height": 740,
+      "locale": "en",
+      "largeText": true,
+      "controls": 2,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "settings",
+      "width": 320,
+      "height": 740,
+      "locale": "en",
+      "largeText": true,
+      "controls": 0,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "trips",
+      "width": 375,
+      "height": 812,
+      "locale": "en",
+      "largeText": true,
+      "controls": 4,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "watchboard",
+      "width": 375,
+      "height": 812,
+      "locale": "en",
+      "largeText": true,
+      "controls": 12,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "planner",
+      "width": 375,
+      "height": 812,
+      "locale": "en",
+      "largeText": true,
+      "controls": 10,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "home",
+      "width": 375,
+      "height": 812,
+      "locale": "en",
+      "largeText": true,
+      "controls": 2,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "bookmarks",
+      "width": 375,
+      "height": 812,
+      "locale": "en",
+      "largeText": true,
+      "controls": 2,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "settings",
+      "width": 375,
+      "height": 812,
+      "locale": "en",
+      "largeText": true,
+      "controls": 0,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "trips",
+      "width": 430,
+      "height": 932,
+      "locale": "en",
+      "largeText": true,
+      "controls": 4,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "watchboard",
+      "width": 430,
+      "height": 932,
+      "locale": "en",
+      "largeText": true,
+      "controls": 12,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "planner",
+      "width": 430,
+      "height": 932,
+      "locale": "en",
+      "largeText": true,
+      "controls": 10,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "home",
+      "width": 430,
+      "height": 932,
+      "locale": "en",
+      "largeText": true,
+      "controls": 2,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "bookmarks",
+      "width": 430,
+      "height": 932,
+      "locale": "en",
+      "largeText": true,
+      "controls": 2,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "settings",
+      "width": 430,
+      "height": 932,
+      "locale": "en",
+      "largeText": true,
+      "controls": 0,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "trips",
+      "width": 844,
+      "height": 390,
+      "locale": "en",
+      "largeText": true,
+      "controls": 4,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "watchboard",
+      "width": 844,
+      "height": 390,
+      "locale": "en",
+      "largeText": true,
+      "controls": 12,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "planner",
+      "width": 844,
+      "height": 390,
+      "locale": "en",
+      "largeText": true,
+      "controls": 10,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "home",
+      "width": 844,
+      "height": 390,
+      "locale": "en",
+      "largeText": true,
+      "controls": 2,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "bookmarks",
+      "width": 844,
+      "height": 390,
+      "locale": "en",
+      "largeText": true,
+      "controls": 2,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "settings",
+      "width": 844,
+      "height": 390,
+      "locale": "en",
+      "largeText": true,
+      "controls": 0,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "trips",
+      "width": 320,
+      "height": 740,
+      "locale": "sc",
+      "largeText": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "watchboard",
+      "width": 320,
+      "height": 740,
+      "locale": "sc",
+      "largeText": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "planner",
+      "width": 320,
+      "height": 740,
+      "locale": "sc",
+      "largeText": true,
+      "horizontalOverflow": false
+    },
+    {
+      "screen": "help",
+      "width": 320,
+      "height": 740,
+      "locale": "sc",
+      "largeText": true,
+      "horizontalOverflow": false
+    }
+  ],
+  "navigation": [
+    {
+      "screen": "home",
+      "loaded": true,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "routes",
+      "loaded": true,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "search",
+      "loaded": true,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "nearby",
+      "loaded": true,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "arrivals",
+      "loaded": true,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "route",
+      "loaded": true,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "bookmarks",
+      "loaded": true,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "settings",
+      "loaded": true,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "notices",
+      "loaded": true,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "notice",
+      "loaded": true,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "help",
+      "loaded": true,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "reminders",
+      "loaded": true,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "planner",
+      "loaded": true,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "traffic",
+      "loaded": true,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "trips",
+      "loaded": true,
+      "bottomControlClear": true
+    },
+    {
+      "screen": "watchboard",
+      "loaded": true,
+      "bottomControlClear": true
+    }
+  ],
+  "realSources": [
+    {
+      "method": "GET",
+      "path": "/v1/routes/KMB%3A112%3AO%3A1",
+      "status": 200,
+      "transport": "owned Chrome page; closed after read"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/stops/BFC406EB675EF22E",
+      "status": 200,
+      "transport": "owned Chrome page; closed after read"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/stops/44AF4BBD0B0BB3A0",
+      "status": 200,
+      "transport": "owned Chrome page; closed after read"
+    },
+    {
+      "kind": "watch",
+      "routeId": "KMB:112:O:1",
+      "stopId": "BFC406EB675EF22E",
+      "sequence": 1,
+      "officialPredictionRows": 3,
+      "freshness": {
+        "state": "fresh",
+        "generatedAt": "2026-10-18T10:30:05.000Z",
+        "fetchedAt": "2026-10-18T10:30:12.872Z",
+        "cached": true,
+        "source": "live",
+        "provider": "KMB"
+      }
+    },
+    {
+      "kind": "watch",
+      "routeId": "KMB:112:O:1",
+      "stopId": "153D32217234A0F0",
+      "sequence": 10,
+      "officialPredictionRows": 3,
+      "freshness": {
+        "state": "fresh",
+        "generatedAt": "2026-10-18T10:30:05.000Z",
+        "fetchedAt": "2026-10-18T10:30:12.872Z",
+        "cached": true,
+        "source": "live",
+        "provider": "KMB"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/stops/B63202433AD89E92",
+      "status": 200,
+      "transport": "owned Chrome page; closed after read"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/stops/21466046C6868AA7",
+      "status": 200,
+      "transport": "owned Chrome page; closed after read"
+    }
+  ],
+  "apiResponsesSubstituted": false,
+  "browserClosed": true,
+  "officialMiniProgramIDE": false,
+  "physicalDevice": false,
+  "officialPair": {
+    "start": {
+      "id": "BFC406EB675EF22E",
+      "name": {
+        "tc": "北角(百福道)總站",
+        "sc": "北角(百福道)总站",
+        "en": "NORTH POINT (PAK FUK ROAD) BUS TERMINUS"
+      },
+      "latitude": 22.291039,
+      "longitude": 114.205064,
+      "source": "live",
+      "active": true
+    },
+    "end": {
+      "id": "44AF4BBD0B0BB3A0",
+      "name": {
+        "tc": "長沙灣(蘇屋邨)巴士總站 (SS941)",
+        "sc": "长沙湾(苏屋邨)巴士总站 (SS941)",
+        "en": "CHEUNG SHA WAN (SO UK ESTATE) BUS TERMINUS (SS941)"
+      },
+      "latitude": 22.340959,
+      "longitude": 114.15865,
+      "source": "live",
+      "active": true
+    }
+  },
+  "passed": true,
+  "finishedAt": "2026-10-18T10:32:17.985Z"
+}
