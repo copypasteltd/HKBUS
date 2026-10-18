@@ -8,96 +8,102 @@
   "projects": [
     {
       "branch": "backend",
-      "commit": "57fdd4042262b30edd587a4b85ebfbc8d52ae7eb",
+      "commit": "d6fcae40916d47c9541cac1c8dec9464dac3d2df",
       "docs": {
-        "localLinks": 235,
+        "localLinks": 248,
         "images": 39,
-        "bilingualReadmeBytes": 19122
+        "bilingualReadmeBytes": 20206
       },
       "git": {
-        "trackedFiles": 505,
-        "historyBlobsChecked": 541,
+        "trackedFiles": 544,
+        "newBlobsChecked": 40,
         "privateMaterialExcluded": true,
+        "scanScope": "staged files and all commits since the recorded baseline; prior history already verified",
         "submodules": false,
         "symlinks": false
       }
     },
     {
       "branch": "admin",
-      "commit": "1772c8cb2af4dab0b9288a7e9013ee69dd02dd05",
+      "commit": "2c1b846e9ac4f086fd01fec261b051dfae67309b",
       "docs": {
-        "localLinks": 208,
+        "localLinks": 221,
         "images": 39,
-        "bilingualReadmeBytes": 15069
+        "bilingualReadmeBytes": 16153
       },
       "git": {
-        "trackedFiles": 444,
-        "historyBlobsChecked": 396,
+        "trackedFiles": 483,
+        "newBlobsChecked": 40,
         "privateMaterialExcluded": true,
+        "scanScope": "staged files and all commits since the recorded baseline; prior history already verified",
         "submodules": false,
         "symlinks": false
       }
     },
     {
       "branch": "wechat",
-      "commit": "cc87e8614a83b71208893b0099f22af6353e1851",
+      "commit": "0f75134cd6f81e0e24b0e1b39b70a7c0b5694635",
       "docs": {
-        "localLinks": 210,
+        "localLinks": 223,
         "images": 39,
-        "bilingualReadmeBytes": 17813
+        "bilingualReadmeBytes": 18897
       },
       "git": {
-        "trackedFiles": 711,
-        "historyBlobsChecked": 667,
+        "trackedFiles": 761,
+        "newBlobsChecked": 72,
         "privateMaterialExcluded": true,
+        "scanScope": "staged files and all commits since the recorded baseline; prior history already verified",
         "submodules": false,
         "symlinks": false
       }
     },
     {
       "branch": "alipay",
-      "commit": "b944c2f97dcbaae8aa607b7b9d6ff9f548f1562a",
+      "commit": "a27248cef07a977a45c3adae5b8bc17cf336887b",
       "docs": {
-        "localLinks": 210,
+        "localLinks": 223,
         "images": 39,
-        "bilingualReadmeBytes": 17757
+        "bilingualReadmeBytes": 18841
       },
       "git": {
-        "trackedFiles": 710,
-        "historyBlobsChecked": 666,
+        "trackedFiles": 760,
+        "newBlobsChecked": 72,
         "privateMaterialExcluded": true,
+        "scanScope": "staged files and all commits since the recorded baseline; prior history already verified",
         "submodules": false,
         "symlinks": false
       }
     },
     {
       "branch": "douyin",
-      "commit": "ceb091f729c8b712496c02811d5c410cf63b11d1",
+      "commit": "cc538d0bb513cd6a8d59ed9d24a76bf3511bd38b",
       "docs": {
-        "localLinks": 210,
+        "localLinks": 223,
         "images": 39,
-        "bilingualReadmeBytes": 17711
+        "bilingualReadmeBytes": 18795
       },
       "git": {
-        "trackedFiles": 711,
-        "historyBlobsChecked": 667,
+        "trackedFiles": 761,
+        "newBlobsChecked": 72,
         "privateMaterialExcluded": true,
+        "scanScope": "staged files and all commits since the recorded baseline; prior history already verified",
         "submodules": false,
         "symlinks": false
       }
     },
     {
       "branch": "android",
-      "commit": "8a4f08ee34b284221dc35c9a8a3d8c9f20169b5f",
+      "commit": "842177c2dc7b19b85739ba91cf35f8b64eb7bdae",
       "docs": {
-        "localLinks": 218,
+        "localLinks": 231,
         "images": 39,
-        "bilingualReadmeBytes": 19623
+        "bilingualReadmeBytes": 20707
       },
       "git": {
-        "trackedFiles": 788,
-        "historyBlobsChecked": 774,
+        "trackedFiles": 838,
+        "newBlobsChecked": 72,
         "privateMaterialExcluded": true,
+        "scanScope": "staged files and all commits since the recorded baseline; prior history already verified",
         "submodules": false,
         "symlinks": false
       }
@@ -130,13 +136,13 @@
   "productionApiDelivery": "docs/PRODUCTION-API.md",
   "h5Export": {
     "sourceBranch": "android",
-    "buildSourceCommit": "be0ff19f497eeec69e640b28aec3b7c1662553ee",
+    "buildSourceCommit": "d253bc593d49e1bf52ed90a147dc8fbe46b75f64",
     "apiBase": "https://hkbus-api.copypaste.hk/api/",
-    "documentation": "docs/FARES-INTEGRATION.md",
-    "compiledFiles": 245,
-    "pages": 14,
+    "documentation": "docs/INTERACTIVE-EXTENSIONS.md",
+    "compiledFiles": 247,
+    "pages": 16,
     "websiteDeployed": true,
-    "releaseId": "20261017T205331Z-be0ff19f497e"
+    "releaseId": "20261018T101200Z-d253bc593d49"
   },
   "productionCors": {
     "origins": "*",
@@ -153,9 +159,9 @@
   "routeArrivals": "docs/ROUTE-ARRIVALS.md",
   "routeArrivalRuntimeCommit": "a1ec760d8bedf7e5f921a7e5c41a228afeccfdc0",
   "actualH5Url": "https://hkbus.copypaste.hk/",
-  "actualH5Release": "20261017T205331Z-be0ff19f497e",
-  "actualH5BuildCommit": "be0ff19f497eeec69e640b28aec3b7c1662553ee",
-  "h5ReleaseReport": "docs/FARES-INTEGRATION.md",
+  "actualH5Release": "20261018T101200Z-d253bc593d49",
+  "actualH5BuildCommit": "d253bc593d49e1bf52ed90a147dc8fbe46b75f64",
+  "h5ReleaseReport": "docs/INTERACTIVE-EXTENSIONS.md",
   "frontendPublicationAuthorized": true,
   "personalDataStorage": "frontend-on-device",
   "passengerAccounts": false,
@@ -176,18 +182,28 @@
       "compiledFiles": 245,
       "pages": 14,
       "websiteDeployed": false
+    },
+    {
+      "sourceBranch": "android",
+      "buildSourceCommit": "be0ff19f497eeec69e640b28aec3b7c1662553ee",
+      "apiBase": "https://hkbus-api.copypaste.hk/api/",
+      "documentation": "docs/FARES-INTEGRATION.md",
+      "compiledFiles": 245,
+      "pages": 14,
+      "websiteDeployed": true,
+      "releaseId": "20261017T205331Z-be0ff19f497e"
     }
   ],
   "routeArrivalFeatureOriginalCommit": "eabd6a04f0f84dbaebe584b2220d630851747fe4",
-  "updatedAt": "2026-10-17T21:14:27.252265+00:00",
+  "updatedAt": "2026-10-18T10:34:46.370532+00:00",
   "currentFareIntegration": {
     "backendRuntimeCommit": "a1ec760d8bedf7e5f921a7e5c41a228afeccfdc0",
     "backendRelease": "20261017T202836Z-a1ec760d8bed",
     "backendPort": 39410,
     "adminBuildCommit": "63843ad100afe7b8291ccf73b7b0dedfbb26d37d",
     "adminRelease": "20261017T205911Z-63843ad100af",
-    "h5BuildCommit": "be0ff19f497eeec69e640b28aec3b7c1662553ee",
-    "h5Release": "20261017T205331Z-be0ff19f497e",
+    "h5BuildCommit": "d253bc593d49e1bf52ed90a147dc8fbe46b75f64",
+    "h5Release": "20261018T101200Z-d253bc593d49",
     "source": "Transport Department official routes and fares XML",
     "dataDate": "2026-10-14",
     "coverage": {
@@ -202,5 +218,25 @@
     "acceptanceReport": "docs/FARES-INTEGRATION.md",
     "passengerAccounts": false,
     "personalDataStorage": "frontend-on-device"
+  },
+  "interactiveTravelReport": "docs/INTERACTIVE-EXTENSIONS.md",
+  "currentInteractiveExtensions": {
+    "sourceBuildCommits": {
+      "wechat": "5f221da13c2713727f5f65aff6316637f2d6e7a9",
+      "alipay": "363e06f54c36290927efe74305a3e1cd476b520e",
+      "douyin": "c3abc4687cfd705df4e9bd7cb0f1430b4b0e7b81",
+      "android": "d253bc593d49e1bf52ed90a147dc8fbe46b75f64"
+    },
+    "h5Release": "20261018T101200Z-d253bc593d49",
+    "pages": 16,
+    "businessTestsPerClient": 44,
+    "localStorageSchema": 2,
+    "regularJourneyLimit": 12,
+    "watchBoardLimit": 6,
+    "comparisonLimit": 3,
+    "backendRuntimeChanged": false,
+    "adminRuntimeChanged": false,
+    "acceptanceReport": "docs/INTERACTIVE-EXTENSIONS.md",
+    "artifactsManifest": "docs/assets/interactive-expansion/2026-10-18/artifacts.json"
   }
 }
