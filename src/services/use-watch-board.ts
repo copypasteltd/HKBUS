@@ -31,7 +31,7 @@ export function useWatchBoard(items:WatchItem[],paused:boolean){
     if(!isPaused.current)void refresh(false);
     return()=>{generation.current++;busy.current=false;};
   },[refresh]);
-  useEffect(()=>{if(!paused)resume();setClock(Date.now());},[paused]);
+  useEffect(()=>{if(!paused)void latest.current(false);setClock(Date.now());},[paused]);
   useEffect(()=>{
     let disposed=false,removeNative:(()=>void)|undefined;
     const timer=setInterval(()=>{if(!isVisible())return;setClock(Date.now());if(!isPaused.current&&Date.now()-lastPoll.current>=30000)void latest.current(false);},10000);
