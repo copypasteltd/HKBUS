@@ -13,6 +13,7 @@ import { Store, passwordHash } from './database.js';
 import { AppError, now } from './domain.js';
 import { Providers, type Fetcher } from './providers.js';
 import {Fares} from './fares.js';
+import {TransitReference} from './transit-reference.js';
 import { seedSettings } from './settings.js';
 import { validateMutationOrigin } from './auth.js';
 import { evaluateReminders } from './usecases.js';
@@ -21,7 +22,7 @@ import { registerProfile } from './profile-api.js';
 import { registerAdmin } from './admin-api.js';
 import { contract,documentSchema } from './contracts.js';
 
-export interface Context { app:FastifyInstance;store:Store;providers:Providers;fares:Fares;config:Config }
+export interface Context { app:FastifyInstance;store:Store;providers:Providers;fares:Fares;reference:TransitReference;config:Config }
 export function payload(ctx:Context,request:FastifyRequest,data:unknown){return{data,meta:{requestId:request.id,mode:ctx.config.providerMode,generatedAt:now()}};}
 export function add(ctx:Context,method:'GET'|'POST'|'PUT'|'PATCH'|'DELETE',url:string,summary:string,handler:RouteHandlerMethod,options:Record<string,unknown>={}){
   ctx.app.route({method,url,schema:{tags:[url.includes('/admin')?'Admin':url.includes('/profile')?'Profile':'Transit'],summary,...contract(method,url)},handler,...options});
@@ -43,7 +44,7 @@ export async function createApp(overrides:Partial<Config>={},options:{logger?:bo
   await app.register(rateLimit,{max:config.rateLimitMax,timeWindow:'1 minute',errorResponseBuilder:()=>({error:{code:'RATE_LIMITED',message:'請求過於頻繁，請稍後重試',retryable:true}})});
   await app.register(swagger,{transform:({schema,url})=>({schema:documentSchema(schema),url}),openapi:{info:{title:'港巴通 API',version:'1.0.0',description:'KMB/LWB BFF、TDAS 道路參考及運營 API。只支援真實資料模式。成功：{data,meta:{requestId,mode:live,generatedAt}}；錯誤：{error:{code,message,requestId,retryable,fields?}}。Admin 寫入需 X-HKBus-Admin: 1；Zod 是輸入校驗來源。'},components:{securitySchemes:{bearerAuth:{type:'http',scheme:'bearer'},adminCookie:{type:'apiKey',in:'cookie',name:'hkbus_admin'}}}}});
   await app.register(swaggerUI,{routePrefix:'/api/docs',logo:{type:'image/svg+xml',content:brandLogoWhiteSvg,href:'/api/docs/'},theme:{js:[{filename:'hkbus-brand.js',content:brandUiScript}],title:'港巴通 API',favicon:[{filename:'hkbus-favicon.png',rel:'icon',type:'image/png',sizes:'32x32',content:brandFaviconPng}]}});
-  const providers=new Providers(store,config,options.fetcher),fares=new Fares(store,options.fetcher),ctx:Context={app,store,providers,fares,config};
+  const providers=new Providers(store,config,options.fetcher),fares=new Fares(store,options.fetcher),reference=new TransitReference(store,options.fetcher),ctx:Context={app,store,providers,fares,reference,config};
   app.addHook('onRequest',async(request,reply)=>{reply.header('X-Request-Id',request.id);reply.header('X-Content-Type-Options','nosniff');reply.header('Cache-Control','no-store');validateMutationOrigin(config,request);});
   app.addHook('onResponse',async(request,reply)=>{
     const bucket=now().slice(0,13)+':00:00.000Z',route=request.routeOptions.url||'unmatched';
@@ -73,7 +74,7 @@ export async function createApp(overrides:Partial<Config>={},options:{logger?:bo
     store.run('DELETE FROM metrics WHERE bucket<?',new Date(Date.now()-90*86400000).toISOString());
     store.run('DELETE FROM profiles WHERE id IN (SELECT profile_id FROM profile_credentials WHERE expires_at<?)',now());
   },3600000):undefined;cleanupTimer?.unref();
-  app.addHook('onClose',async()=>{closed=true;clearInterval(timer);clearInterval(syncTimer);clearInterval(cleanupTimer);while(workerRunning)await new Promise(resolve=>setTimeout(resolve,30));await providers.settle();await fares.settle();store.close();});
+  app.addHook('onClose',async()=>{closed=true;clearInterval(timer);clearInterval(syncTimer);clearInterval(cleanupTimer);while(workerRunning)await new Promise(resolve=>setTimeout(resolve,30));await providers.settle();await fares.settle();await reference.settle();store.close();});
   await app.ready();
   if(config.workerEnabled)syncIfDue();
   return {...ctx,tick};

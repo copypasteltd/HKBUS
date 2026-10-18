@@ -1,5 +1,7 @@
 # 港巴通 HKBusGo — 后端服务 / Backend API
 
+**2026-10-19 SG Bus 能力对齐 / Transit alignment:** 新增经官方现行站序核对的道路几何、总站时刻表、香港假期运行日、真实道路检索和完整站点服务接口。乘客收藏与喜好继续仅在本机保存。 / Adds verified route geometry, origin timetables, Hong Kong service days, road search and exact stop services. Passenger preferences remain local. [接口与维护说明 / API and maintenance](docs/SGBUS-ALIGNMENT.md)。部署与公网验收将在工作区的 `docs/hkbus-sgbus-alignment-2026-10-19.md` 分别记录。 / Deployment and public acceptance are recorded separately in the workspace report.
+
 <!-- interactive-2026-10-18 -->
 **2026-10-18 常用出行扩展 / Interactive travel extensions:** 常用行程（12 条）、精确站序候车看板（6 项）、直达/转乘和已核实票价筛选、三方案比较已上线；16 页、三语、大字、本机保存，无乘客账号。四端各 44 项测试及目标编译通过。 / Regular journeys, exact-stop live waiting board, journey filters and comparison are live. Preferences and travel collections stay on this device. Each client passed 44 tests and its target build. [需求与验收 / Requirements and acceptance](docs/INTERACTIVE-EXTENSIONS.md) · [实际网站 / Live website](https://hkbus.copypaste.hk/)。以下较早记录为历史快照 / Earlier entries are historical snapshots.
 

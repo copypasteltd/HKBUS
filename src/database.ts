@@ -11,7 +11,7 @@ export class Store {
     this.db = new DatabaseSync(path);
     this.db.exec('PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON; PRAGMA busy_timeout=5000;');
     const version=Number(this.db.prepare('PRAGMA user_version').get()!.user_version);
-    if(version>2){this.db.close();throw new Error('Database schema is newer than this server.');}
+    if(version>3){this.db.close();throw new Error('Database schema is newer than this server.');}
     this.db.exec(`
       BEGIN IMMEDIATE;
       CREATE TABLE IF NOT EXISTS routes(id TEXT PRIMARY KEY, route_no TEXT NOT NULL, bound TEXT NOT NULL, service_type TEXT NOT NULL, document TEXT NOT NULL, active INTEGER NOT NULL DEFAULT 1);
@@ -36,7 +36,10 @@ export class Store {
       CREATE TABLE IF NOT EXISTS metrics(bucket TEXT NOT NULL, method TEXT NOT NULL, route TEXT NOT NULL, status INTEGER NOT NULL, count INTEGER NOT NULL, total_ms INTEGER NOT NULL, PRIMARY KEY(bucket,method,route,status));
       CREATE TABLE IF NOT EXISTS fare_directions(id TEXT PRIMARY KEY, document TEXT NOT NULL);
       CREATE TABLE IF NOT EXISTS fare_mappings(route_id TEXT PRIMARY KEY, document TEXT NOT NULL);
-      PRAGMA user_version=2;
+      CREATE TABLE IF NOT EXISTS stop_places(stop_id TEXT PRIMARY KEY, document TEXT NOT NULL);
+      CREATE TABLE IF NOT EXISTS roads(id TEXT PRIMARY KEY, document TEXT NOT NULL);
+      CREATE TABLE IF NOT EXISTS route_references(route_id TEXT PRIMARY KEY, document TEXT NOT NULL);
+      PRAGMA user_version=3;
       COMMIT;
     `);
   }

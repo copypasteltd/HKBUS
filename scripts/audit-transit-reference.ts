@@ -1,0 +1,15 @@
+import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
+import {resolve} from 'node:path';
+import {buildPlaces,parseOperatorRoute,parseCalendar} from '../src/transit-reference.js';
+import type {Stop} from '../src/domain.js';
+const root=resolve('../..'),source=resolve(root,'output/sgbus-alignment-2026-10-19/sources'),probes=resolve(root,'docs/assets/sgbus-alignment/2026-10-19/source-probes');
+const read=(path:string)=>JSON.parse(readFileSync(path,'utf8'));
+const stops:Stop[]=read(resolve(source,'kmb-stops.json')).data.map((row:Record<string,string>)=>({id:row.stop,name:{tc:row.name_tc,sc:row.name_sc,en:row.name_en},latitude:Number(row.lat),longitude:Number(row.long),source:'live'}));
+const places=buildPlaces(read(resolve(probes,'all-stops-official.json')),stops),rawRoute=read(resolve(source,'kmb-route-112.json')).data;
+const route={id:'KMB:112:O:1',routeNo:'112',bound:'O' as const,serviceType:'1',operator:'KMB',origin:{tc:rawRoute.orig_tc,sc:rawRoute.orig_sc,en:rawRoute.orig_en},destination:{tc:rawRoute.dest_tc,sc:rawRoute.dest_sc,en:rawRoute.dest_en},source:'live' as const};
+const sequence=read(resolve(source,'kmb-relations.json')).data.filter((row:Record<string,string>)=>row.route==='112'&&row.bound==='O'&&String(row.service_type)==='1').map((row:Record<string,string>)=>({...stops.find(stop=>stop.id===row.stop)!,sequence:Number(row.seq)})).sort((a:{sequence:number},b:{sequence:number})=>a.sequence-b.sequence);
+const dictionary={route,stops:sequence};
+const reference=parseOperatorRoute(read(resolve(probes,'stops-112.json')),dictionary.route,dictionary.stops,new Date().toISOString(),read(resolve(probes,'schedule-112-official.json')));
+const calendar=parseCalendar(read(resolve(probes,'hk-holidays.json')),new Date().toISOString());
+const report={at:new Date().toISOString(),officialStopCount:stops.length,matchedStops:places.places.length,roads:places.roads.length,coverage:places.places.length/stops.length,nathan:places.roads.filter(road=>road.name.en.includes('NATHAN')),route112:{id:dictionary.route.id,stops:dictionary.stops.length,geometryPaths:reference.geometry?.coordinates.length,geometryPoints:reference.geometry?.coordinates.flat().length,scheduleBands:reference.operatingHours.bands.length},calendarYears:calendar.years};
+mkdirSync(resolve(root,'docs/assets/sgbus-alignment/2026-10-19'),{recursive:true});writeFileSync(resolve(root,'docs/assets/sgbus-alignment/2026-10-19/source-audit.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));
