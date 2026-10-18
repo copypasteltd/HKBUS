@@ -6,9 +6,11 @@ export interface RecentItem {kind:'stop'|'route';entityId:string;entity:Stop|Rou
 export interface DeviceReminder extends Reminder {stop_sequence:number}
 export interface SavedTrip {id:string;alias:string;start:Stop;end:Stop}
 export interface WatchItem {id:string;alias:string;stop:Stop;route:Route;sequence:number}
-export interface DeviceData {schema:1;revision:number;resetVersion:number;preferences:Preferences;bookmarks:Bookmark[];recent:RecentItem[];reminders:DeviceReminder[];trips:SavedTrip[];watches:WatchItem[]}
+export interface DeviceData {schema:2;boundary:string;revision:number;resetVersion:number;preferences:Preferences;bookmarks:Bookmark[];recent:RecentItem[];reminders:DeviceReminder[];trips:SavedTrip[];watches:WatchItem[]}
 export const preferenceDefaults=():Preferences=>({locale:'tc',largeText:false,etaDisplay:'minutes',homeStopId:null,defaultReminderMinutes:5,rememberRecent:true,introDismissed:false});
-const empty=():DeviceData=>({schema:1,revision:0,resetVersion:0,preferences:preferenceDefaults(),bookmarks:[],recent:[],reminders:[],trips:[],watches:[]});
+// A local reset marker, never an identity or network credential.
+const resetBoundary=()=>Date.now().toString(36)+'-'+Math.random().toString(36).slice(2)+'-'+Math.random().toString(36).slice(2);
+const empty=():DeviceData=>({schema:2,boundary:resetBoundary(),revision:0,resetVersion:0,preferences:preferenceDefaults(),bookmarks:[],recent:[],reminders:[],trips:[],watches:[]});
 const record=(value:unknown):Record<string,unknown>=>value&&typeof value==='object'&&!Array.isArray(value)?value as Record<string,unknown>:{};
 const rows=(value:unknown)=>Array.isArray(value)?value:[];
 const stopId=(value:unknown)=>typeof value==='string'&&/^[A-F0-9]{16}$/.test(value);
@@ -32,7 +34,7 @@ export function catalogSnapshot(kind:'stop'|'route',value:unknown):Stop|Route|nu
 
 export function normalizeDevice(value:unknown,clock=Date.now()):DeviceData {
   if(value===null||value===undefined||value==='')return empty();
-  const input=record(value);if(input.schema!==1)throw new Error('本機資料版本無法讀取，請先檢查或在設定中清除本機資料。');
+  const input=record(value);if(input.schema!==1&&input.schema!==2)throw new Error('本機資料版本無法讀取，請先檢查或在設定中清除本機資料。');
   const p=record(input.preferences),preferences=preferenceDefaults();
   if(['tc','sc','en'].includes(String(p.locale)))preferences.locale=p.locale as Locale;
   for(const key of ['largeText','rememberRecent','introDismissed'] as const)if(typeof p[key]==='boolean')preferences[key]=p[key];
@@ -72,7 +74,7 @@ export function normalizeDevice(value:unknown,clock=Date.now()):DeviceData {
     const id='watch:'+route.id+':'+stop.id+':'+r.sequence;if(seen.has(id))continue;seen.add(id);
     watches.push({id,alias:label(r.alias),stop,route,sequence:Number(r.sequence)});
   }
-  return {schema:1,revision:Number.isSafeInteger(input.revision)&&Number(input.revision)>=0?Number(input.revision):0,resetVersion:Number.isSafeInteger(input.resetVersion)&&Number(input.resetVersion)>=0?Number(input.resetVersion):0,preferences,bookmarks,recent,reminders,trips,watches};
+  return {schema:2,boundary:typeof input.boundary==='string'&&/^[a-z0-9-]{8,120}$/.test(input.boundary)?input.boundary:resetBoundary(),revision:Number.isSafeInteger(input.revision)&&Number(input.revision)>=0?Number(input.revision):0,resetVersion:Number.isSafeInteger(input.resetVersion)&&Number(input.resetVersion)>=0?Number(input.resetVersion):0,preferences,bookmarks,recent,reminders,trips,watches};
 }
 
 export interface DeviceAdapter {read:()=>unknown;write:(value:DeviceData)=>boolean;legacy?:()=>DeviceData|null;clearLegacy?:()=>void}
@@ -89,14 +91,15 @@ export function createDeviceStore(adapter:DeviceAdapter){
   try{
     const raw=adapter.read();
     if(raw===null||raw===undefined||raw===''){
-      const migrated=adapter.legacy?.();if(migrated)write(normalizeDevice(migrated));else current=empty();
-    }else current=normalizeDevice(raw);
+      const migrated=adapter.legacy?.();write(normalizeDevice(migrated||empty()));
+    }else {current=normalizeDevice(raw);if(record(raw).schema!==2||record(raw).boundary!==current.boundary)write(current);}
     // Cleanup happens only after a successful read/migration; failure preserves the old cache.
     adapter.clearLegacy?.();
   }catch(problem){fail(problem);}
   return {
     snapshot:()=>clone(current),error:()=>error,refresh,
-    assertCurrent(version:number){if(read().resetVersion!==version)throw new Error('本機資料已清除，請重新操作。');},
+    checkpoint(){const data=read();return {resetVersion:data.resetVersion,boundary:data.boundary};},
+    assertCurrent(version:{resetVersion:number;boundary:string}){const data=read();if(data.resetVersion!==version.resetVersion||data.boundary!==version.boundary)throw new Error('本機資料已清除，請重新操作。');},
     subscribe(fn:()=>void){listeners.add(fn);return()=>{listeners.delete(fn);};},
     preferences(patch:Partial<Preferences>){mutate(data=>{data.preferences={...data.preferences,...patch};if(patch.rememberRecent===false)data.recent=[];});},
     resetPreferences(){mutate(data=>{data.preferences={...preferenceDefaults(),introDismissed:true};});},
