@@ -15,10 +15,13 @@ export function arrivalView(arrival:Arrival|undefined,clock=Date.now(),stale=fal
   const minutes=Math.max(0,Math.ceil((eta-clock)/60000));
   // Hong Kong has no daylight-saving offset. This also works in mini-program JS engines.
   const time=new Date(eta+8*3600000).toISOString().slice(11,16);
-  return {state:minutes===0?'due' as const:'minutes' as const,minutes,time};
+  return {state:eta-clock<60000?'due' as const:'minutes' as const,minutes,time};
 }
 
 export function staleArrivals(result:Pick<Arrivals,'freshness'>,offline=false,clock=Date.now()){
   const generated=Date.parse(result.freshness.generatedAt||'');
   return offline||result.freshness.state!=='fresh'||!Number.isFinite(generated)||clock-generated>60000;
 }
+
+/** A missing first prediction does not erase a later valid estimate for the same exact service. */
+export function hasArrivalEstimate(rows:Arrival[],clock=Date.now(),stale=false){return rows.some(row=>['minutes','due'].includes(arrivalView(row,clock,stale).state));}
