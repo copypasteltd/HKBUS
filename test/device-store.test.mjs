@@ -43,7 +43,7 @@ test('reminders isolate repeated stop sequence and reject late delivery after pa
 test('reset preferences preserves saved items, full clear resets all, and unknown schema fails closed',()=>{
   const storage=disk(),store=createDeviceStore(storage);store.bookmark('stop',stop);store.visit('route',route);store.preferences({locale:'en'});store.resetPreferences();assert.equal(store.snapshot().bookmarks.length,1);assert.equal(store.snapshot().recent.length,1);assert.equal(store.snapshot().preferences.locale,'tc');
   store.clear();assert.equal(store.snapshot().bookmarks.length,0);assert.equal(store.snapshot().preferences.introDismissed,false);
-  storage.write({schema:99});const future=createDeviceStore(storage);assert.ok(future.error());assert.throws(()=>future.preferences({locale:'en'}));assert.equal(storage.read().schema,99);future.clear();assert.equal(storage.read().schema,2);
+  storage.write({schema:99});const future=createDeviceStore(storage);assert.ok(future.error());assert.throws(()=>future.preferences({locale:'en'}));assert.equal(storage.read().schema,99);future.clear();assert.equal(storage.read().schema,3);
 });
 test('legacy migration cleans credentials only after a durable write and never reads an API',()=>{
   const storage=disk();let cleared=0;const previous=normalizeDevice({schema:1,preferences:{locale:'en'},bookmarks:[{kind:'stop',entityId:stop.id,entity:stop,alias:'Legacy'}]});

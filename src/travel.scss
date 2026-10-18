@@ -1,9 +1,9 @@
 /* Shared extensions of Accessible Calm Minimal; keep long labels and large text usable. */
-$ink:#163b63;$teal:#0c716e;$line:#dce4e8;$muted:#53677f;
+$ink:var(--ink);$teal:var(--accent);$line:var(--line);$muted:var(--muted);
 .app-root{
  .local-overview-counts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 10px}.local-overview-item .caption{overflow-wrap:anywhere}
  .travel-shortcuts{display:flex;flex-direction:column;gap:10px}
- .travel-shortcut,.travel-entry{display:flex;align-items:center;gap:12px;width:100%;padding:16px;background:#fff;border:1px solid $line;border-radius:16px;min-height:60Px;text-align:left}
+ .travel-shortcut,.travel-entry{display:flex;align-items:center;gap:12px;width:100%;padding:16px;background:var(--card);border:1px solid $line;border-radius:16px;min-height:60Px;text-align:left}
  .travel-shortcut>view,.travel-entry>text:first-of-type{flex:1;min-width:0}.travel-shortcut .caption{margin-top:5px}.travel-entry{margin:12px 0;font-size:14px;font-weight:700}
  .trip-endpoints{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;font-size:15px;line-height:1.6}.trip-endpoints>text{overflow-wrap:anywhere}
  .saved-trip>.button-row,.watch-controls{flex-wrap:wrap}.saved-trip>.button-row>.action{flex:1 1 110px}
@@ -15,8 +15,8 @@ $ink:#163b63;$teal:#0c716e;$line:#dce4e8;$muted:#53677f;
  .journey-controls .control-label{display:block;margin-top:20px}.journey-controls .preference-options>.filter-chip{flex:1 1 85px;min-height:48Px;white-space:normal;line-height:1.4}
  .journey-price-toggle{display:flex;align-items:center;gap:12px;min-height:52Px;width:100%;text-align:left;margin:12px 0;font-size:14px}.journey-price-toggle>text{flex:1;min-width:0}
  .comparison-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0}.comparison-bar .text-button{min-height:48Px;white-space:normal;text-align:right}
- .comparison-toggle{display:flex;gap:8px;align-items:center;justify-content:center;width:100%;min-height:48Px;border:1px solid #b7cecc;border-radius:12px;color:$teal;margin-top:16px;font-size:14px;white-space:normal;padding:10px}
- .comparison-toggle.selected{background:#e6f4f1;border-color:$teal}.journey-candidate.is-selected{border-color:$teal}.journey-leg-actions{display:flex;flex-direction:column;align-items:flex-start;margin-top:6px}.journey-leg-actions>.text-button{min-height:48Px;white-space:normal;justify-content:flex-start;text-align:left;padding:7px 0}
+ .comparison-toggle{display:flex;gap:8px;align-items:center;justify-content:center;width:100%;min-height:48Px;border:1px solid var(--control-border);border-radius:12px;color:$teal;margin-top:16px;font-size:14px;white-space:normal;padding:10px}
+ .comparison-toggle.selected{background:var(--soft);border-color:$teal}.journey-candidate.is-selected{border-color:$teal}.journey-leg-actions{display:flex;flex-direction:column;align-items:flex-start;margin-top:6px}.journey-leg-actions>.text-button{min-height:48Px;white-space:normal;justify-content:flex-start;text-align:left;padding:7px 0}
  .journey-candidate .journey-head{flex-wrap:wrap}.comparison-list .journey-candidate{margin-top:0}.comparison-list .result-meta{margin:18px 0 8px}.journey-candidate .journey-leg>view{min-width:0}
  .stop-planning-actions{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}.stop-planning-actions>.action{flex:1 1 115px;min-height:48Px}
  .arrival-actions{flex-wrap:wrap}.arrival-actions>view:first-child{flex:1;min-width:110px}.stop-arrival-actions{max-width:100%}.stop-arrival-actions>.text-button{overflow-wrap:anywhere;white-space:normal;text-align:left;justify-content:flex-start}

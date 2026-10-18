@@ -48,6 +48,13 @@ location ^~ /css/ {
     add_header Cache-Control "public, max-age=31536000, immutable, no-transform";
     add_header X-Content-Type-Options nosniff always;
 }
+location ^~ /assets/maplibre/ {
+    root /www/wwwroot/hkbus.copypaste.hk/.hkbusgo/current;
+    types { application/javascript mjs; text/plain txt; }
+    try_files $uri =404;
+    add_header Cache-Control "no-cache, no-transform" always;
+    add_header X-Content-Type-Options nosniff always;
+}
 location ^~ /assets/ {
     root /www/wwwroot/hkbus.copypaste.hk/.hkbusgo/current;
     try_files $uri =404;
@@ -61,6 +68,16 @@ location / {
     add_header X-Content-Type-Options nosniff always;
 }
 '''
+
+# Accept only our exact previous extension while adding strict module-worker MIME types.
+LEGACY_CONFIG = CONFIG.replace('''location ^~ /assets/maplibre/ {
+    root /www/wwwroot/hkbus.copypaste.hk/.hkbusgo/current;
+    types { application/javascript mjs; text/plain txt; }
+    try_files $uri =404;
+    add_header Cache-Control "no-cache, no-transform" always;
+    add_header X-Content-Type-Options nosniff always;
+}
+''', '')
 
 
 def sha(content):return hashlib.sha256(content).hexdigest()
@@ -88,7 +105,7 @@ def main():
     assert re.search(r'^\s*root\s+'+re.escape(str(SITE))+r';',VHOST.read_text(),re.M)
     assert 'include '+str(SNIPPET.parent)+'/*.conf;' in VHOST.read_text()
     assert not BASE.exists() or OWNER.is_file() and json.loads(OWNER.read_text())['project'] == 'HKBusGo H5'
-    assert not SNIPPET.exists() or OWNER.is_file() and SNIPPET.read_text() == CONFIG,'Unowned or manually edited H5 extension'
+    assert not SNIPPET.exists() or OWNER.is_file() and SNIPPET.read_text() in (CONFIG,LEGACY_CONFIG),'Unowned or manually edited H5 extension'
     assert not CURRENT.exists() or CURRENT.is_symlink() and CURRENT.resolve().is_relative_to(BASE/'releases')
     assert sha((staging/'h5-dist.tar.gz').read_bytes()) == spec['archiveSha256']
     release=BASE/'releases'/spec['releaseId'];assert not release.exists()
@@ -154,6 +171,7 @@ def main():
             name,digest=item;body,headers=fetch(URL+('' if name=='index.html' else name))
             assert sha(body) == digest,'Public artifact mismatch: '+name
             assert 'no-transform' in headers.lower(),'Cache header missing: '+name
+            if name.endswith('.mjs'):assert re.search(r'^content-type:\s*(?:application|text)/javascript\b',headers,re.I|re.M),'Module worker MIME type missing: '+name
             return {'path':'/'+('' if name=='index.html' else name),'status':200,'sha256':digest}
         with ThreadPoolExecutor(max_workers=4) as pool:report['checks']=list(pool.map(verify,spec['assets'].items()))
         body,headers=fetch(URL+'index.html');assert sha(body) == spec['assets']['index.html'] and 'no-store' in headers.lower()

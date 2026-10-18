@@ -1,0 +1,51 @@
+/* Accessible Calm Minimal: the approved spacing, logo and colours remain the light default. */
+:root,page,.app-root{--surface:#f8faf9;--ink:#163b63;--muted:#536b7d;--accent:#0c716e;--line:#d9e2e8;--card:#ffffff;--soft:#edf7f5;--control-border:#b1c3cf;--warning-bg:#fff6df;--warning-ink:#79540b;--line-soft:#edf1f4;--on-accent:#ffffff;--danger:#a64132}
+:root[data-theme=dark],.app-root.theme-dark{--surface:#10242d;--ink:#e5f2f4;--muted:#b0c6ce;--accent:#72d7c7;--line:#385560;--card:#19333f;--soft:#203e48;--control-border:#577580;--warning-bg:#433718;--warning-ink:#f5d77d;--line-soft:#294550;--on-accent:#10242d;--danger:#ffb4a4}
+html,body,page{background:var(--surface);color:var(--ink)}
+.app-root{
+ color:var(--ink);
+ .route-number{color:#ffffff}.action:not(.secondary) .icon{filter:brightness(0) invert(1)}
+ &.theme-dark{.icon-ink,.icon-muted{filter:brightness(0) invert(1);opacity:.9}.icon-teal{filter:brightness(0) saturate(100%) invert(84%) sepia(28%) saturate(579%) hue-rotate(110deg) brightness(94%) contrast(91%)}.action:not(.secondary) .icon{filter:brightness(0)}.modal-backdrop{background:rgba(0,0,0,.65)}}
+ .street-map{border:1px solid var(--line);background:var(--card);border-radius:16px;margin:18px 0;overflow:hidden}
+ .map-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:5px 12px}
+ .map-stage{width:100%;height:330Px;position:relative;display:block;background:var(--soft)}
+ .map-loading{display:flex;align-items:center;justify-content:center;color:var(--muted)}
+ .map-footnote{display:block;padding:11px 12px;font-size:12px;color:var(--muted);line-height:1.6}
+ .map-warning{display:block;padding:10px 12px;background:var(--warning-bg);color:var(--warning-ink);font-size:13px;line-height:1.6;overflow-wrap:anywhere}
+ .map-stage .maplibregl-ctrl [type=button]{width:44Px;height:44Px;min-width:44Px;min-height:44Px}
+ .map-stage .maplibregl-ctrl-attrib{color:#234;background:rgba(255,255,255,.94);font-size:10Px;max-width:100%;line-height:1.5;padding:3Px 6Px}
+ .map-stage .maplibregl-ctrl-attrib a{color:#234;min-height:24Px;display:inline-flex;align-items:center;text-decoration:underline}
+ .map-stage .maplibregl-ctrl-logo{min-height:24Px}
+ .map-selected-stop .action{margin-top:12px}.road-stop-group{margin-top:16px}.road-row{min-height:88px}.road-row .row-copy{flex:1;min-width:0}
+ .route-road-index{margin:12px 0}.route-road-index .filter-row{max-height:150px;overflow:auto;padding:5px 1px}
+ .operating-card{margin:18px 0}.operating-card>.description{font-size:13px;line-height:1.7;margin-bottom:12px}
+ .operating-status{display:block;font-weight:700;font-size:15px;color:var(--accent)}.operating-status.unverified{color:var(--warning-ink)}
+ .operating-date{margin:14px 0 10px}.operating-pair{display:flex;gap:12px}.operating-pair>view{flex:1;min-width:0}
+ .operating-time{display:block;font-size:25px;font-weight:700;line-height:1.4;overflow-wrap:anywhere}
+ .operating-timeline{position:relative;height:14px;border-radius:7px;background:var(--line-soft);margin-top:16px;overflow:visible}
+ .operating-band{position:absolute;top:0;bottom:0;border-radius:7px;background:var(--accent)}.operating-now{position:absolute;top:-4px;width:3Px;height:22px;background:#c65f4c;transform:translateX(-50%)}
+ .operating-axis{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-top:5px}.operating-expand{margin-top:10px;width:100%}
+ .schedule-bands{border-top:1px solid var(--line)}.schedule-band{padding:12px 0;border-bottom:1px solid var(--line)}.schedule-band .row-title{display:block;margin:4px 0}.source-timestamp{margin-top:12px}
+ .service-hours>.text-button{width:100%;justify-content:flex-start}.service-hours .operating-card{padding:12px}
+ .arrival-partition{margin-top:20px}.arrival-section-title{display:block;color:var(--muted);font-size:13px;font-weight:700;margin-bottom:10px}
+ .arrival-service-cards{display:grid;gap:10px}.arrival-service-cards.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.arrival-service-cards.list{grid-template-columns:minmax(0,1fr)}
+ .grid>.service-card:only-child{grid-column:1/-1}.grid>.service-card:only-child .service-heading{flex-direction:row;align-items:center}.grid>.service-card:only-child .service-copy,.grid>.service-card:only-child .service-copy .row-title{min-height:0}
+ .service-card{border:1px solid var(--line);border-radius:15px;padding:12px;background:var(--card);min-width:0;overflow-wrap:anywhere}.service-card.is-expanded{grid-column:1/-1}
+ .service-heading{display:flex;align-items:center;gap:9px}.service-copy{flex:1;min-width:0}.service-heading .route-number{font-size:19px;min-width:48px;padding:4px 6px;border-radius:10px}
+ .service-heading .row-title{font-size:14px;line-height:1.5;display:block}.service-heading .caption{font-size:12px;margin-top:4px}
+ .grid .service-heading{flex-direction:column;align-items:flex-start}.grid .service-copy{min-height:68px}.grid .service-copy .row-title{min-height:42px}
+ .service-predictions{display:flex;gap:7px;padding:14px 0 6px;align-items:flex-start}.service-prediction{flex:1;min-width:0}.service-prediction>.caption{margin-bottom:7px}
+ .service-prediction .arrival-number{flex-wrap:wrap;gap:2px;align-items:baseline}.service-prediction .eta-number{font-size:27px;line-height:1.2;letter-spacing:-1px}.service-prediction .no-eta{font-size:12px;line-height:1.5;white-space:normal}
+ .service-prediction .arrival-number.is-clock .eta-number{font-size:20px;letter-spacing:-.5px}.service-prediction .eta-unit{font-size:12px}.service-remark{margin-top:8px}
+ .service-more{width:100%;border-top:1px solid var(--line);margin-top:10px}.service-actions{display:flex;gap:8px;flex-wrap:wrap}.service-actions>.text-button{flex:1 1 120px}.service-expanded{margin-top:8px}
+ .list .service-card{padding:14px}.list .service-predictions{gap:12px}.list .service-prediction .eta-number{font-size:34px}.list .service-prediction .arrival-number.is-clock .eta-number{font-size:26px}
+ .unmatched-services{display:block;margin-top:12px;padding:12px;background:var(--warning-bg);color:var(--warning-ink)}
+ .favorite-toolbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.favorite-toolbar .filter-row{flex:1;margin-bottom:8px}
+ .favorite-card{padding:14px;margin-top:16px}.favorite-card.pinned{border-color:var(--accent)}.favorite-card-heading{display:flex;align-items:center;gap:10px}.favorite-title{flex:1;min-width:0}.favorite-title .caption{margin-top:5px;overflow-wrap:anywhere}
+ .favorite-live{margin-top:14px}.favorite-controls{display:flex;gap:6px 10px;flex-wrap:wrap;margin-top:12px;border-top:1px solid var(--line);padding-top:6px}.favorite-controls>.text-button{flex:1 1 76px;font-size:12px}
+ .favorite-card .arrival-service-cards.grid{gap:8px}.favorite-card .service-card{padding:10px}.favorite-card .service-heading .route-number{font-size:18px}
+ .service-selection-list{display:flex;flex-direction:column;gap:9px;margin:14px 0}.service-selection{display:flex;gap:12px;text-align:left;padding:12px;border:1px solid var(--control-border);border-radius:12px;min-height:64Px;align-items:center;color:var(--ink)}.service-selection>view{flex:1;min-width:0}.service-selection.selected{border-color:var(--accent);background:var(--soft)}.service-selection .caption{margin-top:5px}
+ &.text-small{.row-title,.setting-title{font-size:14px}.description{font-size:13px}.card-title{font-size:16px}.page-heading{font-size:25px}.section-title{font-size:17px}.eta-number{font-size:54px}.service-prediction .eta-number{font-size:24px}.caption{font-size:12px}}
+ &.text-large{.description{font-size:16px}.field-label,.field-control,.filter-chip,.action{font-size:17px}.card-title,.section-title{font-size:20px}.service-heading .row-title{font-size:17px}.service-heading .caption,.service-prediction .no-eta{font-size:14px}.service-prediction .eta-number{font-size:32px}.service-prediction .arrival-number.is-clock .eta-number{font-size:26px}.arrival-service-cards.grid{grid-template-columns:minmax(0,1fr)}.grid .service-heading{flex-direction:row;align-items:center}.grid .service-copy{min-height:0}.grid .service-copy .row-title{min-height:0}.operating-time{font-size:28px}.favorite-controls>.text-button{font-size:14px}.caption{font-size:14px}}
+ @media(max-width:360px){.grid{grid-template-columns:minmax(0,1fr)}.grid .service-heading{flex-direction:row;align-items:center}.grid .service-copy,.grid .service-copy .row-title{min-height:0}.favorite-toolbar>.text-button{margin-left:auto}.map-stage{height:300Px}}
+}
