@@ -1,22 +1,76 @@
-import {useState} from 'react';
+import {useState,useEffect,useRef} from 'react';
 import {View,Text,Button,Picker} from '@tarojs/components';
+import Taro from '@tarojs/taro';
 import {Shell,Intro,Section,Action,Icon,StateCard,ModeNote,RouteChip} from '../components';
 import {useApp,useAction} from '../state';
 import {api} from '../services/api';
 import {StopSelect} from './transit';
-import {go,openStop} from '../navigation';
-import {FareValue,JourneyFare} from './fares';
-import type {Stop,Route,FareQuote,JourneyPricing} from '../services/types';
+import {go,useParam} from '../navigation';
+import {SaveTripButton} from './travel-actions';
+import {JourneyCard,JourneyControls,JourneyComparison} from './journey-tools';
+import {selectJourneys,toggleComparison,type JourneyResult,type JourneyFilter,type JourneySort} from '../services/journeys';
+import type {Stop} from '../services/types';
 import {GuideLink,JourneySteps} from './content';
 import {hongKongTime} from '../services/discovery';
 
-interface JourneyResult {start:Stop;end:Stop;journeys:{id:string;transfers:number;stopCount:number;legs:{route:Route;board:Stop;alight:Stop;stops:number;fare?:FareQuote}[];pricing?:JourneyPricing}[];notice:string}
 interface RoadResult {provider:string;source:'live';distanceMeters:number;durationSeconds:number;averageSpeedKmh:number|null;generatedAt:string;alternatives:{name:string;distU:string;eta:string}[];notice:string}
 export function Planner(){
-  const app=useApp(),action=useAction();const[start,setStart]=useState<Stop|null>(null),[end,setEnd]=useState<Stop|null>(null),[result,setResult]=useState<JourneyResult|null>(null),[error,setError]=useState('');
-  const select=(which:'start'|'end',stop:Stop)=>{(which==='start'?setStart:setEnd)(stop);setResult(null);setError('');};
-  const search=()=>void action.run(async()=>{setError('');setResult(null);if(!start||!end){setError(app.tr('請選擇出發地與目的地','请选择出发地与目的地','Choose both your origin and destination.'));return;}if(start.id===end.id){setError(app.tr('起點與終點不能相同','起点与终点不能相同','Choose two different stops.'));return;}try{setResult(await api.post<JourneyResult>('/v1/journeys',{startId:start.id,endId:end.id}));}catch(problem){setError(problem instanceof Error?problem.message:'Unable to find journeys');}});
-  return <Shell screen='planner' title={app.tr('行程規劃','行程规划','Plan a journey')} subtitle='Journey planner'><Intro eyebrow='One journey at a time' title={app.tr('從這裡，到想去的地方。','从这里，到想去的地方。','From here to where you want to be.')} description={app.tr('查找直達或同站轉乘的巴士路線。','查找直达或同站换乘的巴士路线。','Find direct buses or a transfer at the same stop.')}/><View className='card journey-form'><StopSelect label={app.tr('出發地','出发地','From')} value={start} onChange={stop=>select('start',stop)}/><Button className='icon-button' ariaLabel={app.tr('交換起終點','交换起终点','Swap origin and destination')} onClick={()=>{setStart(end);setEnd(start);setResult(null);setError('');}}><Icon name='refresh' color='teal'/></Button><StopSelect label={app.tr('目的地','目的地','To')} value={end} onChange={stop=>select('end',stop)}/><Text className='field-hint'>{app.tr('按目前已同步的官方站序查詢。車費採用已核實的官方普通成人單程收費，未計優惠；不預測候車或乘車時間。','按目前已同步的官方站序查询。票价采用已核实的官方普通成人单程收费，未计优惠；不预测候车或乘车时间。','Uses the latest synced official stop sequence. Verified official standard adult single fares are shown before discounts. Waiting and journey times are not predicted.')}</Text>{error&&<Text className='form-error' {...(process.env.TARO_ENV==='h5'?{role:'alert'}:{})}>{error}</Text>}<View className='button-row'><Action loading={action.busy} disabled={!app.config.features.planner} onClick={search}><Icon name='route' color='white'/>{app.tr('查看建議','查看建议','Find journeys')}</Action><Action secondary onClick={()=>{setStart(null);setEnd(null);setResult(null);setError('');}}>{app.tr('重設','重置','Reset')}</Action></View></View>{!app.config.features.planner&&<StateCard title={app.tr('行程查詢暫未開啟','行程查询暂未开启','Journey search is unavailable')}/>}{result?<Section title={app.tr('建議行程','建议行程','Suggested journeys')} caption={app.name(result.start.name)+' → '+app.name(result.end.name)}>{result.journeys.map(journey=><View className='card' key={journey.id}><View className='journey-head'><Text className='card-title'>{journey.transfers===0?app.tr('無需轉乘','无需换乘','Direct bus'):app.tr('同站轉乘一次','同站换乘一次','One transfer at the same stop')}</Text><Text className='pill'>{journey.stopCount} {app.tr('站','站','stops')}</Text></View>{journey.legs.map((leg,index)=><View className='journey-leg' key={index}><RouteChip route={leg.route}/><View><Text className='row-title'>{app.name(leg.board.name)} → {app.name(leg.alight.name)}</Text><Text className='caption'>{app.tr('往 ','往 ','to ')}{app.name(leg.route.destination)} · {leg.stops} {app.tr('站','站','stops')}</Text><View className='journey-leg-fare'><Text className='caption'>{app.tr('本程普通單程車費','本程普通单程票价','Standard single fare for this leg')}</Text><FareValue quote={leg.fare}/></View><Button className='text-button' onClick={()=>openStop(leg.board.id)}>{app.tr('查看上車站到站','查看上车站到站','See boarding stop arrivals')}<Icon name='chevron' size={14}/></Button></View></View>)}<JourneyFare pricing={journey.pricing}/></View>)}{!result.journeys.length&&<StateCard title={app.tr('暫未找到行程','暂未找到行程','No journeys found')} description={app.tr('試試鄰近車站。目前只提供直達或同一車站轉乘一次的候選路線。','试试邻近车站。目前只提供直达或在同一车站换乘一次的候选路线。','Try nearby stops. Only direct buses and one transfer at the same stop are supported.')}/>}</Section>:<Section title={app.tr('準備出發','准备出发','Ready when you are')}><JourneySteps/></Section>}{app.config.features.traffic&&<Button className='text-button' onClick={()=>go('traffic')}><Icon name='traffic' color='teal'/>{app.tr('查看道路交通參考','查看道路交通参考','Road traffic reference')}</Button>}<GuideLink topic='planning'/><ModeNote/></Shell>;
+  const app=useApp(),action=useAction(),startId=useParam('startId'),endId=useParam('endId'),auto=useParam('auto');
+  const[start,setStart]=useState<Stop|null>(null),[end,setEnd]=useState<Stop|null>(null),[result,setResult]=useState<JourneyResult|null>(null),[error,setError]=useState(''),[resolving,setResolving]=useState(false);
+  const[filter,setFilter]=useState<JourneyFilter>('all'),[sort,setSort]=useState<JourneySort>('stops'),[pricedOnly,setPricedOnly]=useState(false),[compared,setCompared]=useState<string[]>([]),[comparison,setComparison]=useState(false);
+  const generation=useRef(0);
+  const invalidate=()=>{generation.current++;setResolving(false);setResult(null);setError('');setCompared([]);setComparison(false);};
+  const select=(which:'start'|'end',stop:Stop)=>{invalidate();(which==='start'?setStart:setEnd)(stop);};
+  async function find(a:Stop,b:Stop,ticket:number){
+    const value=await api.post<JourneyResult>('/v1/journeys',{startId:a.id,endId:b.id});
+    if(ticket!==generation.current)return;
+    if(value.start.id!==a.id||value.end.id!==b.id)throw new Error(app.tr('行程站點已變更，請重新查詢','行程站点已变更，请重新查询','Journey stops changed. Search again.'));
+    setResult(value);
+  }
+  useEffect(()=>()=>{generation.current++;},[]);
+  useEffect(()=>{
+    if(!startId&&!endId)return;
+    invalidate();setStart(null);setEnd(null);
+    const ticket=generation.current;
+    if(!startId&&!endId)return;
+    setResolving(true);
+    const resolve=async(id:string)=>{
+      if(!/^[A-F0-9]{16}$/.test(id))throw new Error(app.tr('車站連結無效，請重新選站','车站链接无效，请重新选站','Invalid stop link. Choose a stop again.'));
+      const value=await api.get<{stop:Stop}>('/v1/stops/'+encodeURIComponent(id));
+      if(value.stop?.id!==id||value.stop.active===false)throw new Error(app.tr('車站已變更，請重新選站','车站已变更，请重新选站','This stop changed. Choose it again.'));
+      return value.stop;
+    };
+    void (async()=>{
+      try{
+        const[a,b]=await Promise.all([startId?resolve(startId):null,endId?resolve(endId):null]);
+        if(ticket!==generation.current)return;setStart(a);setEnd(b);
+        if(auto==='1'&&a&&b&&a.id!==b.id&&app.config.features.planner)await find(a,b,ticket);
+      }catch(problem){if(ticket===generation.current)setError(problem instanceof Error?problem.message:'Unable to load stops');}
+      finally{if(ticket===generation.current)setResolving(false);}
+    })();
+    return()=>{generation.current++;};
+  },[startId,endId,auto,app.config.features.planner]);
+  const search=()=>void action.run(async()=>{
+    invalidate();const ticket=generation.current;
+    if(!start||!end){setError(app.tr('請選擇出發地與目的地','请选择出发地与目的地','Choose both your origin and destination.'));return;}
+    if(start.id===end.id){setError(app.tr('起點與終點不能相同','起点与终点不能相同','Choose two different stops.'));return;}
+    try{await find(start,end,ticket);}catch(problem){if(ticket===generation.current)setError(problem instanceof Error?problem.message:'Unable to find journeys');}
+  });
+  const journeys=selectJourneys(result?.journeys||[],filter,sort,pricedOnly),chosen=(result?.journeys||[]).filter(x=>compared.includes(x.id));
+  const compare=(id:string)=>{try{setCompared(toggleComparison(compared,id));}catch{void Taro.showToast({title:app.tr('最多比較 3 條行程，請先移除一條','最多比较 3 条行程，请先移除一条','Compare up to three journeys. Remove one first.'),icon:'none'});}};
+  return <Shell screen='planner' title={app.tr('行程規劃','行程规划','Plan a journey')} subtitle='Journey planner'>
+    <Intro eyebrow='One journey at a time' title={app.tr('從這裡，到想去的地方。','从这里，到想去的地方。','From here to where you want to be.')} description={app.tr('查找直達或同站轉乘，再選一條適合你的行程。','查找直达或同站换乘，再选一条适合你的行程。','Find direct buses or a same-stop transfer, then compare your options.')}/>
+    <Button className='travel-entry' onClick={()=>go('trips')}><Icon name='star' color='teal' size={20}/><Text>{app.tr('使用常用行程','使用常用行程','Use a saved journey')}</Text><Text className='count-badge'>{app.trips.length}</Text><Icon name='chevron' size={16}/></Button>
+    <View className='card journey-form'><StopSelect label={app.tr('出發地','出发地','From')} value={start} onChange={stop=>select('start',stop)}/><Button className='icon-button' disabled={resolving} ariaLabel={app.tr('交換起終點','交换起终点','Swap origin and destination')} onClick={()=>{invalidate();setStart(end);setEnd(start);}}><Icon name='refresh' color='teal'/></Button><StopSelect label={app.tr('目的地','目的地','To')} value={end} onChange={stop=>select('end',stop)}/><Text className='field-hint'>{app.tr('只提供目前資料中的直達或一次同站轉乘候選，不含步行轉乘。站數不代表乘車時間；車費未計優惠。','仅提供当前数据中的直达或一次同站换乘候选，不含步行换乘。站数不代表乘车时间；票价未计优惠。','Suggestions cover direct buses or one same-stop transfer, without walking transfers. Stop count is not journey time. Fares exclude discounts.')}</Text>{resolving&&<Text className='caption'>{app.tr('核對官方車站與行程中…','核对官方车站与行程中…','Checking current stops and journeys…')}</Text>}{error&&<Text className='form-error' {...(process.env.TARO_ENV==='h5'?{role:'alert'}:{})}>{error}</Text>}<View className='button-row'><Action loading={action.busy||resolving} disabled={!app.config.features.planner} onClick={search}><Icon name='route' color='white'/>{app.tr('查看建議','查看建议','Find journeys')}</Action><Action secondary onClick={()=>{invalidate();setResolving(false);setStart(null);setEnd(null);}}>{app.tr('重設','重置','Reset')}</Action></View>{start&&end&&start.id!==end.id&&!resolving&&<SaveTripButton start={start} end={end}/>}</View>
+    {!app.config.features.planner&&<StateCard title={app.tr('行程查詢暫未開啟','行程查询暂未开启','Journey search is unavailable')}/>}
+    {result?<Section title={app.tr('建議行程','建议行程','Suggested journeys')} caption={app.name(result.start.name)+' → '+app.name(result.end.name)}>
+      {!!result.journeys.length&&<><JourneyControls filter={filter} sort={sort} pricedOnly={pricedOnly} onFilter={setFilter} onSort={setSort} onPriced={()=>setPricedOnly(!pricedOnly)} total={result.journeys.length} visible={journeys.length}/><View className='comparison-bar'><Text className='caption'>{compared.length}/3 {app.tr('已選比較','已选比较','selected to compare')}</Text><Button className='text-button' disabled={!compared.length} onClick={()=>setComparison(true)}>{app.tr('查看比較','查看比较','Compare selected')}<Icon name='chevron' color='teal' size={16}/></Button></View></>}
+      {journeys.map(journey=><JourneyCard key={journey.id} journey={journey} selected={compared.includes(journey.id)} onCompare={()=>compare(journey.id)}/>)}
+      {!journeys.length&&<StateCard title={result.journeys.length?app.tr('沒有符合篩選的行程','没有符合筛选的行程','No journeys match these filters'):app.tr('暫未找到行程','暂未找到行程','No journeys found')} description={app.tr('可清除篩選，或改選鄰近車站。只比較這次查詢返回的候選，不保證全港最低車費。','可清除筛选，或改选邻近车站。仅比较本次查询返回的候选，不保证全港最低票价。','Clear filters or choose nearby stops. Comparisons cover the suggestions returned for this search, not every route in Hong Kong.')} retry={result.journeys.length?()=>{setFilter('all');setPricedOnly(false);}:undefined} actionLabel={app.tr('清除篩選','清除筛选','Clear filters')}/>}
+    </Section>:!resolving&&<Section title={app.tr('準備出發','准备出发','Ready when you are')}><JourneySteps/></Section>}
+    {app.config.features.traffic&&<Button className='text-button' onClick={()=>go('traffic')}><Icon name='traffic' color='teal'/>{app.tr('查看道路交通參考','查看道路交通参考','Road traffic reference')}</Button>}<GuideLink topic='planning'/><ModeNote/>
+    {comparison&&<JourneyComparison journeys={chosen} onRemove={id=>setCompared(compared.filter(x=>x!==id))} onClear={()=>setCompared([])} onClose={()=>setComparison(false)}/>}
+  </Shell>;
 }
 export function Traffic(){
   const app=useApp(),action=useAction();const[start,setStart]=useState<Stop|null>(null),[end,setEnd]=useState<Stop|null>(null),[depart,setDepart]=useState(0),[type,setType]=useState<'ST'|'SD'>('ST'),[tunnel,setTunnel]=useState(''),[result,setResult]=useState<RoadResult|null>(null),[error,setError]=useState('');
