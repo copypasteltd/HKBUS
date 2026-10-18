@@ -1,5 +1,11 @@
 # 港巴通 HKBusGo — 运营管理后台 / Operations Admin
 
+<!-- interactive-2026-10-18 -->
+**2026-10-18 常用出行扩展 / Interactive travel extensions:** 常用行程（12 条）、精确站序候车看板（6 项）、直达/转乘和已核实票价筛选、三方案比较已上线；16 页、三语、大字、本机保存，无乘客账号。四端各 44 项测试及目标编译通过。 / Regular journeys, exact-stop live waiting board, journey filters and comparison are live. Preferences and travel collections stay on this device. Each client passed 44 tests and its target build. [需求与验收 / Requirements and acceptance](docs/INTERACTIVE-EXTENSIONS.md) · [实际网站 / Live website](https://hkbus.copypaste.hk/)。以下较早记录为历史快照 / Earlier entries are historical snapshots.
+
+<img src="docs/assets/interactive-expansion/2026-10-18/waiting-board.png" width="220" alt="Actual website waiting board with official predictions" /> <img src="docs/assets/interactive-expansion/2026-10-18/journey-comparison.png" width="220" alt="Comparison of real journey options" />
+<!-- /interactive-2026-10-18 -->
+
 <!-- fares-2026-10-18 -->
 **2026-10-18 官方收费 / Official fares:** 路线分段查价、逐站至终点金额、行程逐段/合计和管理后台收费同步已发布。金额来自运输署官方 XML，普通成人单程、未计优惠；未核实不当作零。完整/部分/未映射方向：1150/17/444。本机喜好继续无需账号。 / Official stop-specific fares, journey totals and operations sync are live. Missing prices stay unverified; preferences stay on this device. [需求及验收 / Requirements and acceptance](docs/FARES-INTEGRATION.md) · [打开网站 / Open website](https://hkbus.copypaste.hk/)。以下较早记录为历史快照 / Earlier entries are historical snapshots.
 
