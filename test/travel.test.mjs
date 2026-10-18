@@ -8,7 +8,7 @@ const route={id:'KMB:112:O:1',routeNo:'112',bound:'O',serviceType:'1',operator:'
 function disk(){let data=null,fail=false;return {read:()=>clone(data),write:value=>{if(fail)return false;data=clone(value);return true;},fail:next=>{fail=next;}};}
 test('existing schema 1 upgrades without losing preferences or personal collections',()=>{
   const value=normalizeDevice({schema:1,revision:8,resetVersion:4,preferences:{locale:'en',rememberRecent:false},bookmarks:[{kind:'stop',entityId:stop(1).id,entity:stop(1)}]});
-  assert.equal(value.preferences.locale,'en');assert.equal(value.bookmarks.length,1);assert.equal(value.revision,8);assert.equal(value.resetVersion,4);assert.deepEqual(value.trips,[]);assert.deepEqual(value.watches,[]);
+  assert.equal(value.schema,2);assert.ok(value.boundary);assert.equal(value.preferences.locale,'en');assert.equal(value.bookmarks.length,1);assert.equal(value.revision,8);assert.equal(value.resetVersion,4);assert.deepEqual(value.trips,[]);assert.deepEqual(value.watches,[]);
 });
 test('saved pairs deduplicate direction, retain independent reverse trips and persist order',()=>{
   const adapter=disk(),a=createDeviceStore(adapter);const id=a.trip(stop(1),stop(2),'Work');a.trip(stop(1),stop(2),'Updated');const reverse=a.trip(stop(2),stop(1),'Home');
@@ -39,11 +39,11 @@ test('normalization rejects malformed watches and duplicate/fixture trip metadat
 test('storage failure preserves new collections; resetting preferences keeps them, clear removes them',()=>{
   const d=disk(),a=createDeviceStore(d);const trip=a.trip(stop(1),stop(2));a.watch(stop(1),route,1);d.fail(true);
   assert.throws(()=>a.removeTrip(trip));assert.throws(()=>a.renameWatch(a.snapshot().watches[0].id,'Changed'));assert.equal(a.snapshot().trips.length,1);assert.equal(a.snapshot().watches[0].alias,'');
-  d.fail(false);a.preferences({locale:'en'});a.resetPreferences();assert.equal(a.snapshot().trips.length,1);assert.equal(a.snapshot().watches.length,1);const version=a.snapshot().resetVersion;a.clear();assert.equal(a.snapshot().trips.length,0);assert.equal(a.snapshot().watches.length,0);assert.throws(()=>a.assertCurrent(version));
+  d.fail(false);a.preferences({locale:'en'});a.resetPreferences();assert.equal(a.snapshot().trips.length,1);assert.equal(a.snapshot().watches.length,1);const version=a.checkpoint();a.clear();assert.equal(a.snapshot().trips.length,0);assert.equal(a.snapshot().watches.length,0);assert.throws(()=>a.assertCurrent(version));
 });
 test('separate store instances preserve independent edits and detect cleared data generations',()=>{
   const d=disk(),a=createDeviceStore(d),b=createDeviceStore(d);a.trip(stop(1),stop(2));b.watch(stop(1),route,1);a.refresh();assert.equal(a.snapshot().watches.length,1);assert.equal(a.snapshot().trips.length,1);
-  const generation=b.snapshot().resetVersion;a.clear();assert.throws(()=>b.assertCurrent(generation));b.refresh();assert.equal(b.snapshot().trips.length,0);assert.equal(b.snapshot().watches.length,0);
+  const generation=b.checkpoint();a.clear();assert.throws(()=>b.assertCurrent(generation));b.refresh();assert.equal(b.snapshot().trips.length,0);assert.equal(b.snapshot().watches.length,0);
 });
 function journey(id,transfers,stopCount,total){const legs=Array.from({length:transfers+1},()=>({route,board:stop(1),alight:stop(2),stops:2}));return {id,transfers,stopCount,legs,pricing:{state:total===null?'partial':'complete',totalCents:total,knownSubtotalCents:0,pricedLegs:total===null?0:legs.length,totalLegs:legs.length,currency:'HKD',discountsApplied:false}};}
 test('filters retain direct or one transfer candidates and stable sorting never makes partial fares zero',()=>{
@@ -62,4 +62,17 @@ test('watch validity requires exact official direction, service, stop identity a
   const item={route,stop:stop(1),sequence:8},result={route,stops:[{...stop(1),sequence:1},{...stop(1),sequence:8}],arrivals:[]};
   assert.equal(watchStop(item,result).sequence,8);assert.equal(watchStop({...item,sequence:2},result),null);assert.equal(watchStop(item,{...result,stops:[{...stop(2),sequence:8}]}),null);
   assert.equal(watchStop(item,{...result,route:{...route,serviceType:'2'}}),null);assert.equal(watchStop(item,{...result,route:{...route,active:false}}),null);
+});
+
+test('an upgrade writes schema 2 atomically, preserving schema 1 data and rejecting unknown future versions',()=>{
+ const d=disk();d.write({schema:1,revision:6,preferences:{locale:'en'},bookmarks:[{kind:'stop',entityId:stop(1).id,entity:stop(1)}]});
+ const upgraded=createDeviceStore(d);assert.equal(d.read().schema,2);assert.equal(upgraded.snapshot().bookmarks.length,1);assert.equal(upgraded.snapshot().preferences.locale,'en');
+ const boundary=upgraded.snapshot().boundary;assert.equal(createDeviceStore(d).snapshot().boundary,boundary);d.write({schema:99});assert.ok(createDeviceStore(d).error());assert.equal(d.read().schema,99);
+});
+test('complete external storage removal or an old tab clear cannot reuse the same reset counter to resurrect pending work',()=>{
+ const d=disk(),a=createDeviceStore(d);a.trip(stop(1),stop(2));const before=a.checkpoint();d.write(null);createDeviceStore(d);assert.throws(()=>a.assertCurrent(before));
+ const b=createDeviceStore(d),checkpoint=b.checkpoint();d.write({schema:1,resetVersion:checkpoint.resetVersion,preferences:{},bookmarks:[],recent:[],reminders:[]});assert.throws(()=>b.assertCurrent(checkpoint));
+});
+test('a failed schema upgrade preserves the old raw data and exposes storage failure',()=>{
+ const d=disk(),legacy={schema:1,preferences:{locale:'en'},bookmarks:[]};d.write(legacy);d.fail(true);const store=createDeviceStore(d);assert.ok(store.error());assert.deepEqual(d.read(),legacy);
 });
