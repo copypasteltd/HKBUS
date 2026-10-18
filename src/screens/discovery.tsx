@@ -12,6 +12,7 @@ import {useArrivals} from '../services/use-arrivals';
 import {arrivalView,stationArrivals,staleArrivals} from '../services/arrivals';
 import {routeSuggestions} from '../services/discovery';
 import {QuickActions,SavedShortcuts,ContinueViewing,ServiceFacts,GuideLink} from './content';
+import {TravelShortcuts} from './travel-library';
 
 export function Home(){
   const app=useApp(),action=useAction();const[permissionError,setPermissionError]=useState(false),[routeId,setRouteId]=useState('');
@@ -44,7 +45,7 @@ export function Home(){
     {data&&!result&&<View className='arrival-onboarding'><View className='onboarding-route'><View className='onboarding-stop'/><View className='onboarding-track'/><View className='onboarding-bus'><Icon name='bus' size={30} color='teal'/></View></View><Text className='card-title'>{data.selection==='none'?app.tr('先選一站，看看下一班','先选一站，看看下一班','Choose a stop. See your next bus.'):app.tr('暫時未能取得到站資料','暂时未能获取到站数据','Arrival information is unavailable')}</Text><Text className='description'>{data.selection==='none'?app.tr('搜尋車站或使用定位；收藏後，這裡會記住你的常用一站。','搜索车站或使用定位；收藏后，这里会记住你的常用一站。','Search or use location. Save a stop to make it your starting point next time.'):data.warnings[0]?.message}</Text><View className='button-row'><Action onClick={()=>go('search')}><Icon name='search' color='white'/>{app.tr('搜尋車站','搜索车站','Find a stop')}</Action>{data.warnings.some(x=>x.retryable)&&<Action secondary onClick={()=>void resource.reload()}>{app.tr('重新載入','重新加载','Reload')}</Action>}</View></View>}
     {data?.notices[0]&&<Button className='notice-card' onClick={()=>go('notice',{id:data.notices[0].id})}><Icon name='info' color='teal' size={24}/><View className='notice-text'><Text className='caption'>{app.tr('服務通知','服务通知','Service notice')}</Text><Text className='row-title'>{app.name(data.notices[0].title)}</Text></View><Icon name='chevron' size={17}/></Button>}
     {!!data?.nearbyStops.length&&<Section title={app.coordinates?app.tr('附近車站','附近车站','Nearby stops'):app.tr('常用車站','常用车站','Saved stop')} action={<Button className='text-button' onClick={()=>go('nearby')}>{app.tr('更多車站','更多车站','More stops')}<Icon name='chevron' size={15}/></Button>}><View className='stop-list'>{data.nearbyStops.slice(0,3).map(stop=><StopRow stop={stop} key={stop.id}/>)}</View></Section>}
-    <SavedShortcuts/><ContinueViewing/>
+    <TravelShortcuts/><SavedShortcuts/><ContinueViewing/>
     {!app.preferences.introDismissed&&<View className='card local-preferences-card'><View className='preference-invite-heading'><Icon name='accessibility' color='teal' size={24}/><Text className='card-title'>{app.tr('讓港巴通記住你的習慣','让港巴通记住你的习惯','Make HKBusGo feel familiar')}</Text></View><Text className='description'>{app.tr('語言、閱讀方式與常用車站，免登入保存在本機。','语言、阅读方式与常用车站，免登录保存在本机。','Keep language, reading and stop preferences on this device without signing in.')}</Text><View className='button-row'><Action small onClick={()=>{app.setPreferences({introDismissed:true});go('settings');}}>{app.tr('設定偏好','设置偏好','Set preferences')}</Action><Action secondary small onClick={()=>app.setPreferences({introDismissed:true})}>{app.tr('稍後','稍后','Later')}</Action></View></View>}
     <Section title={app.tr('出發前，了解多一點','出发前，多了解一点','Before you set off')}><GuideLink topic='arrivals'/><GuideLink topic='direction'/></Section><ServiceFacts/>
   </Shell>;
