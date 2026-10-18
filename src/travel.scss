@@ -1,0 +1,28 @@
+/* Shared extensions of Accessible Calm Minimal; keep long labels and large text usable. */
+$ink:#163b63;$teal:#0c716e;$line:#dce4e8;$muted:#53677f;
+.app-root{
+ .local-overview-counts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 10px}.local-overview-item .caption{overflow-wrap:anywhere}
+ .travel-shortcuts{display:flex;flex-direction:column;gap:10px}
+ .travel-shortcut,.travel-entry{display:flex;align-items:center;gap:12px;width:100%;padding:16px;background:#fff;border:1px solid $line;border-radius:16px;min-height:60Px;text-align:left}
+ .travel-shortcut>view,.travel-entry>text:first-of-type{flex:1;min-width:0}.travel-shortcut .caption{margin-top:5px}.travel-entry{margin:12px 0;font-size:14px;font-weight:700}
+ .trip-endpoints{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;font-size:15px;line-height:1.6}.trip-endpoints>text{overflow-wrap:anywhere}
+ .saved-trip>.button-row,.watch-controls{flex-wrap:wrap}.saved-trip>.button-row>.action{flex:1 1 110px}
+ .travel-manage{display:flex;flex-wrap:wrap;gap:4px 10px;border-top:1px solid $line;margin-top:16px;padding-top:8px}
+ .travel-manage>.text-button{min-height:48Px;padding:8px 6px;white-space:normal;text-align:left}
+ .watch-controls{display:flex;gap:10px;margin-top:16px}.watch-controls>.action{flex:1 1 125px}.watch-poll-note{margin:12px 0 16px}
+ .watch-card-heading{display:flex;align-items:flex-start;gap:12px}.watch-card-heading>view{flex:1;min-width:0}.watch-card-heading .caption{margin-top:5px}.watch-card .card-title{overflow-wrap:anywhere}
+ .watch-prediction{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:20px 0 14px}.watch-prediction .eta-number{font-size:44px;letter-spacing:-1px}.watch-card .freshness{margin-top:12px}.watch-card>.form-error{display:block;margin-top:14px}
+ .journey-controls .control-label{display:block;margin-top:20px}.journey-controls .preference-options>.filter-chip{flex:1 1 85px;min-height:48Px;white-space:normal;line-height:1.4}
+ .journey-price-toggle{display:flex;align-items:center;gap:12px;min-height:52Px;width:100%;text-align:left;margin:12px 0;font-size:14px}.journey-price-toggle>text{flex:1;min-width:0}
+ .comparison-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0}.comparison-bar .text-button{min-height:48Px;white-space:normal;text-align:right}
+ .comparison-toggle{display:flex;gap:8px;align-items:center;justify-content:center;width:100%;min-height:48Px;border:1px solid #b7cecc;border-radius:12px;color:$teal;margin-top:16px;font-size:14px;white-space:normal;padding:10px}
+ .comparison-toggle.selected{background:#e6f4f1;border-color:$teal}.journey-candidate.is-selected{border-color:$teal}.journey-leg-actions{display:flex;flex-direction:column;align-items:flex-start;margin-top:6px}.journey-leg-actions>.text-button{min-height:48Px;white-space:normal;justify-content:flex-start;text-align:left;padding:7px 0}
+ .journey-candidate .journey-head{flex-wrap:wrap}.comparison-list .journey-candidate{margin-top:0}.comparison-list .result-meta{margin:18px 0 8px}.journey-candidate .journey-leg>view{min-width:0}
+ .stop-planning-actions{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}.stop-planning-actions>.action{flex:1 1 115px;min-height:48Px}
+ .arrival-actions{flex-wrap:wrap}.arrival-actions>view:first-child{flex:1;min-width:110px}.stop-arrival-actions{max-width:100%}.stop-arrival-actions>.text-button{overflow-wrap:anywhere;white-space:normal;text-align:left;justify-content:flex-start}
+ .travel-inline-editor{scroll-margin-top:16px}.travel-inline-editor .trip-editor-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}.travel-inline-editor>.form-error{display:block;margin-top:12px}
+ .route-deep-link-warning{margin:14px 0}
+ &.large-text .travel-shortcut .row-title{font-size:18px}&.large-text .travel-entry,&.large-text .trip-endpoints,&.large-text .comparison-toggle,&.large-text .journey-price-toggle{font-size:17px}
+ &.large-text .travel-manage>.text-button{font-size:16px}&.large-text .watch-card-heading{flex-wrap:wrap}&.large-text .watch-card-heading>view{min-width:150px}
+ @media(max-width:360px){.journey-candidate .journey-leg{gap:8px}.journey-candidate .route-chip{min-width:44Px}.watch-card{padding:14px}.comparison-bar{flex-wrap:wrap}}
+}

@@ -3,6 +3,7 @@ import {api,API_BASE,storage} from './api';
 import {dataNamespace,isLiveData} from './data-policy';
 import {createDeviceStore,DEVICE_KEY,normalizeDevice,preferenceDefaults,type DeviceData} from './device-store';
 import {matchingReminder} from './local-reminders';
+import {watchStop} from './journeys';
 import {deliverNotification} from './platform';
 import type {Route,RouteArrivals,Stop} from './types';
 
@@ -34,6 +35,15 @@ export async function saveLocalReminder(stop:Stop,route:Route,threshold:number){
   const matching=detail.stops.filter(x=>x.id===stop.id&&(stop.sequence===undefined||x.sequence===stop.sequence));
   if(matching.length!==1||!matching[0].sequence)throw new Error('請在線路詳情選擇具體站序後設定提醒。');
   localUser.reminder(stop,route,matching[0].sequence,threshold);
+}
+export async function saveLocalWatch(stop:Stop,route:Route,sequence?:number){
+  const version=localUser.snapshot().resetVersion;
+  const result=await api.get<RouteArrivals>('/v1/routes/'+encodeURIComponent(route.id)+'/arrivals');
+  localUser.assertCurrent(version);
+  const candidates=result.stops.filter(x=>x.id===stop.id&&(sequence===undefined||x.sequence===sequence));
+  const current=candidates.length===1?watchStop({route,stop,sequence:candidates[0].sequence},result):null;
+  if(!current)throw new Error('站序已變更或不唯一，請開啟線路詳情重新選擇上車站。');
+  localUser.watch(current,result.route,current.sequence!);
 }
 let timer:ReturnType<typeof setInterval>|undefined,busy=false,enabled=false,unsubscribe:(()=>void)|undefined;
 async function poll(){

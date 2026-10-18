@@ -5,6 +5,7 @@ import {openStop} from '../navigation';
 import {arrivalView,stationArrivals} from '../services/arrivals';
 import {fareAmount,fareReason} from '../services/fares';
 import type {Arrival,Route,Stop,FareQuote} from '../services/types';
+import {WatchButton} from './travel-actions';
 
 export function RouteStopArrivals({route,stop,arrivals,clock,stale,phase,fare,onFare,expanded,onToggle,onRemind}:{route:Route;stop:Stop;arrivals:Arrival[];clock:number;stale:boolean;phase:'loading'|'error'|'ready';fare?:FareQuote|null;onFare?:()=>void;expanded:boolean;onToggle:()=>void;onRemind?:()=>void}){
   const app=useApp(),rows=stationArrivals(arrivals,route.id,stop.id,stop.sequence,clock).slice(0,3);
@@ -27,7 +28,7 @@ export function RouteStopArrivals({route,stop,arrivals,clock,stale,phase,fare,on
       </View>;})}
       {phase==='ready'&&!rows.length&&<Text className='description'>{app.tr('本站暫無預計到站資料，不代表路線停駛。','本站暂无预计到站数据，不代表路线停驶。','No arrival estimate is available for this stop. This does not mean the route is suspended.')}</Text>}
       {fare&&<View className='route-boarding-fare'><View><Text className='caption'>{app.tr('由本站至終點 · 普通成人單程','由本站至终点 · 普通成人单程','From here to terminus · standard adult single')}</Text><Text className='row-title'>{fare.state==='available'?fareAmount(fare.amountCents):fareReason(fare,app.locale)}</Text></View><Button className='text-button' onClick={onFare}>{app.tr('選擇下車站','选择下车站','Choose alighting stop')}<Icon name='chevron' size={14}/></Button></View>}
-      <View className='route-stop-actions'><Button className='text-button' onClick={()=>openStop(stop.id)}><Icon name='bus' color='teal' size={17}/>{app.tr('車站所有路線','车站所有路线','All routes at this stop')}</Button>{onRemind&&<Button className='text-button' onClick={onRemind}><Icon name='bell' color='teal' size={17}/>{app.tr('到站提醒','到站提醒','Arrival reminder')}</Button>}</View>
+      <View className='route-stop-actions'><Button className='text-button' onClick={()=>openStop(stop.id)}><Icon name='bus' color='teal' size={17}/>{app.tr('車站所有路線','车站所有路线','All routes at this stop')}</Button><WatchButton stop={stop} route={route} sequence={stop.sequence}/>{onRemind&&<Button className='text-button' onClick={onRemind}><Icon name='bell' color='teal' size={17}/>{app.tr('到站提醒','到站提醒','Arrival reminder')}</Button>}</View>
     </View>}
   </View>;
 }
