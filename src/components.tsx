@@ -1,4 +1,4 @@
-import {useEffect,type PropsWithChildren,type ReactNode} from 'react';
+import {useEffect,useRef,type PropsWithChildren,type ReactNode} from 'react';
 import {View,Text,Button,Image} from '@tarojs/components';
 import Taro,{useShareAppMessage} from '@tarojs/taro';
 import {useApp} from './state';
@@ -37,16 +37,16 @@ export function RouteRow({route,onClick}:{route:Route;onClick?:()=>void}){
 export function Freshness({result,offline=false}:{result:Pick<Arrivals,'freshness'>;offline?:boolean}){const app=useApp(),stale=staleArrivals(result,offline);const at=Date.parse(result.freshness.generatedAt||'');return <View className={'freshness '+(stale?'is-stale':'')}><Text>KMB ETA · {stale?app.tr('資料較舊','数据较旧','Stale'):app.tr('已更新','已更新','Updated')} {Number.isFinite(at)?new Date(at+8*3600000).toISOString().slice(11,19)+' HKT':'—'}</Text>{result.freshness.cached&&<Text>{app.tr('快取','缓存','Cached')}</Text>}</View>;}
 export function ArrivalNumber({arrival,clock=Date.now(),stale=false}:{arrival?:Arrival;clock?:number;stale?:boolean}){const app=useApp(),value=arrivalView(arrival,clock,stale);if(value.state==='stale')return <Text className='no-eta'>{app.tr('資料較舊','数据较旧','Stale data')}</Text>;if(value.state==='none')return <Text className='no-eta'>{app.tr('暫無預計','暂无预计','No estimate')}</Text>;if(app.preferences.etaDisplay==='clock'&&value.time)return <View className='arrival-number is-clock'><Text className='eta-number'>{value.time}</Text><Text className='caption'>HKT</Text></View>;return <View className='arrival-number'><Text className='eta-number'>{value.state==='due'?'—':value.minutes}</Text><View><Text>{value.state==='due'?app.tr('即將到達','即将到达','Due'):app.tr('分鐘','分钟','min')}</Text>{app.locale!=='en'&&<Text className='caption'>min</Text>}</View></View>;}
 export function Modal({title,children,onClose}:{title:string;children:ReactNode;onClose:()=>void}){
-  const app=useApp();
+  const app=useApp(),panelRef=useRef<HTMLElement|null>(null);
   useEffect(()=>{
     if(process.env.TARO_ENV!=='h5')return;
-    const previous=document.activeElement as HTMLElement|null,panel=document.querySelector('.modal-sheet') as HTMLElement|null;
-    const disabled:Element[]=[];let branch:Element|null=document.querySelector('.modal-backdrop');
+    const previous=document.activeElement as HTMLElement|null,panel=panelRef.current;
+    const disabled:Element[]=[];let branch:Element|null=panel?.closest('.modal-backdrop')||null;
     while(branch&&branch!==document.body){const parent=branch.parentElement;if(!parent)break;for(const sibling of Array.from(parent.children))if(sibling!==branch&&!sibling.hasAttribute('inert')){sibling.setAttribute('inert','');disabled.push(sibling);}if(branch.classList.contains('app-root'))break;branch=parent;}
     const overflow=document.body.style.overflow;document.body.style.overflow='hidden';
-    const focus=panel?.querySelector('button,taro-button-core,input,select') as HTMLElement|null;focus?.focus();
+    const frame=requestAnimationFrame(()=>{const focus=panel?.querySelector('button,taro-button-core,input,select') as HTMLElement|null;if(focus){focus.tabIndex=0;focus.focus();}});
     const key=(event:KeyboardEvent)=>{if(event.key==='Escape')onClose();if(event.key==='Tab'&&panel){const controls=Array.from(panel.querySelectorAll<HTMLElement>('button,taro-button-core,input,select,[tabindex="0"]')).filter(x=>(x as HTMLElement & {disabled?:boolean}).disabled!==true&&x.getAttribute('aria-disabled')!=='true');const first=controls[0],last=controls[controls.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last?.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus();}}};
-    document.addEventListener('keydown',key);return()=>{disabled.forEach(element=>element.removeAttribute('inert'));document.body.style.overflow=overflow;document.removeEventListener('keydown',key);previous?.focus();};
+    document.addEventListener('keydown',key);return()=>{cancelAnimationFrame(frame);disabled.forEach(element=>element.removeAttribute('inert'));document.body.style.overflow=overflow;document.removeEventListener('keydown',key);previous?.focus();};
   },[]);
-  return <View className='modal-backdrop' onClick={onClose}><View className='modal-sheet' ariaRole='dialog' {...(process.env.TARO_ENV==='h5'?{'aria-modal':true}:{})} onClick={event=>event.stopPropagation()}><View className='modal-handle'/><View className='modal-header'><Text className='section-title'>{title}</Text><Button className='icon-button' onClick={onClose} ariaLabel={app.tr('關閉','关闭','Close')}><Icon name='close'/></Button></View><View className='modal-body'>{children}</View></View></View>;
+  return <View className='modal-backdrop' onClick={onClose}><View className='modal-sheet' ref={element=>{panelRef.current=element as unknown as HTMLElement;}} ariaRole='dialog' ariaLabel={title} {...(process.env.TARO_ENV==='h5'?{'aria-modal':true}:{})} onClick={event=>event.stopPropagation()}><View className='modal-handle'/><View className='modal-header'><Text className='section-title'>{title}</Text><Button className='icon-button' onClick={onClose} ariaLabel={app.tr('關閉','关闭','Close')}><Icon name='close'/></Button></View><View className='modal-body'>{children}</View></View></View>;
 }
