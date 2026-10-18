@@ -8,7 +8,7 @@ const route={id:'KMB:112:O:1',routeNo:'112',bound:'O',serviceType:'1',operator:'
 function disk(){let data=null,fail=false;return {read:()=>clone(data),write:value=>{if(fail)return false;data=clone(value);return true;},fail:next=>{fail=next;}};}
 test('existing schema 1 upgrades without losing preferences or personal collections',()=>{
   const value=normalizeDevice({schema:1,revision:8,resetVersion:4,preferences:{locale:'en',rememberRecent:false},bookmarks:[{kind:'stop',entityId:stop(1).id,entity:stop(1)}]});
-  assert.equal(value.schema,2);assert.ok(value.boundary);assert.equal(value.preferences.locale,'en');assert.equal(value.bookmarks.length,1);assert.equal(value.revision,8);assert.equal(value.resetVersion,4);assert.deepEqual(value.trips,[]);assert.deepEqual(value.watches,[]);
+  assert.equal(value.schema,3);assert.ok(value.boundary);assert.equal(value.preferences.locale,'en');assert.equal(value.bookmarks.length,1);assert.equal(value.revision,8);assert.equal(value.resetVersion,4);assert.deepEqual(value.trips,[]);assert.deepEqual(value.watches,[]);
 });
 test('saved pairs deduplicate direction, retain independent reverse trips and persist order',()=>{
   const adapter=disk(),a=createDeviceStore(adapter);const id=a.trip(stop(1),stop(2),'Work');a.trip(stop(1),stop(2),'Updated');const reverse=a.trip(stop(2),stop(1),'Home');
@@ -64,9 +64,9 @@ test('watch validity requires exact official direction, service, stop identity a
   assert.equal(watchStop(item,{...result,route:{...route,serviceType:'2'}}),null);assert.equal(watchStop(item,{...result,route:{...route,active:false}}),null);
 });
 
-test('an upgrade writes schema 2 atomically, preserving schema 1 data and rejecting unknown future versions',()=>{
+test('an upgrade writes schema 3 atomically, preserving schema 1 data and rejecting unknown future versions',()=>{
  const d=disk();d.write({schema:1,revision:6,preferences:{locale:'en'},bookmarks:[{kind:'stop',entityId:stop(1).id,entity:stop(1)}]});
- const upgraded=createDeviceStore(d);assert.equal(d.read().schema,2);assert.equal(upgraded.snapshot().bookmarks.length,1);assert.equal(upgraded.snapshot().preferences.locale,'en');
+ const upgraded=createDeviceStore(d);assert.equal(d.read().schema,3);assert.equal(upgraded.snapshot().bookmarks.length,1);assert.equal(upgraded.snapshot().preferences.locale,'en');
  const boundary=upgraded.snapshot().boundary;assert.equal(createDeviceStore(d).snapshot().boundary,boundary);d.write({schema:99});assert.ok(createDeviceStore(d).error());assert.equal(d.read().schema,99);
 });
 test('complete external storage removal or an old tab clear cannot reuse the same reset counter to resurrect pending work',()=>{

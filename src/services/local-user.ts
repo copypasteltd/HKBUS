@@ -12,7 +12,7 @@ function storageKeys(){try{return Taro.getStorageInfoSync().keys;}catch{return[]
 function legacy():DeviceData|null {
   const preferences=preferenceDefaults(),locale=storage.get('hkbus-locale','tc'),large=storage.get('hkbus-large',false);
   if(['tc','sc','en'].includes(locale))preferences.locale=locale as typeof preferences.locale;
-  if(typeof large==='boolean')preferences.largeText=large;
+  if(typeof large==='boolean'){preferences.largeText=large;preferences.textSize=large?'large':'medium';}
   const id=storage.get<string>(namespace+':session:id',''),prefix=namespace+':cache:profile:'+id+':';
   const cached=(path:string)=>{const entry=storage.get<{mode?:string;value?:unknown}|null>(prefix+path,null);return entry?.mode==='live'&&isLiveData(entry.value)&&Array.isArray(entry.value)?entry.value:[];};
   const bookmarks=cached('/v1/profile/bookmarks'),recent=cached('/v1/profile/recent');
