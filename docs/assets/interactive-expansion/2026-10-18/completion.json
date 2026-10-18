@@ -1,0 +1,93 @@
+{
+  "passed": true,
+  "finishedAt": "2026-10-18T10:33:52.290075+00:00",
+  "requirements": [
+    {
+      "id": "EXT-01",
+      "implemented": true
+    },
+    {
+      "id": "EXT-02",
+      "implemented": true
+    },
+    {
+      "id": "EXT-03",
+      "implemented": true
+    },
+    {
+      "id": "EXT-04",
+      "implemented": true
+    },
+    {
+      "id": "EXT-05",
+      "implemented": true
+    },
+    {
+      "id": "EXT-06",
+      "implemented": true
+    },
+    {
+      "id": "EXT-07",
+      "implemented": true
+    },
+    {
+      "id": "EXT-08",
+      "implemented": true
+    },
+    {
+      "id": "EXT-09",
+      "implemented": true
+    },
+    {
+      "id": "EXT-10",
+      "implemented": true
+    },
+    {
+      "id": "EXT-11",
+      "implemented": true
+    },
+    {
+      "id": "EXT-12",
+      "implemented": true
+    }
+  ],
+  "gates": [
+    "builds",
+    "deployment",
+    "transport",
+    "browser",
+    "browser-network",
+    "artifacts",
+    "final-audit",
+    "source-consistency"
+  ],
+  "sourceBuildCommits": {
+    "wechat": "5f221da13c2713727f5f65aff6316637f2d6e7a9",
+    "alipay": "363e06f54c36290927efe74305a3e1cd476b520e",
+    "douyin": "c3abc4687cfd705df4e9bd7cb0f1430b4b0e7b81",
+    "android": "d253bc593d49e1bf52ed90a147dc8fbe46b75f64"
+  },
+  "releaseId": "20261018T101200Z-d253bc593d49",
+  "publishedH5Files": 247,
+  "pages": 16,
+  "tests": {
+    "android": 44,
+    "wechat": 44,
+    "alipay": 44,
+    "douyin": 44
+  },
+  "browserGroups": 28,
+  "responsiveStates": 28,
+  "profileRequests": 0,
+  "passengerAccounts": false,
+  "storageSchema": 2,
+  "apiResponsesSubstituted": false,
+  "backendChanged": false,
+  "adminChanged": false,
+  "databaseAndSiteConfigurationPreserved": true,
+  "officialMiniProgramIDE": false,
+  "physicalDevice": false,
+  "storeSubmission": false,
+  "iosBuilt": false,
+  "demoTouched": false
+}
