@@ -1,5 +1,13 @@
 # 港巴通 HKBusGo — 后端服务 / Backend API
 
+**2026-10-19 七项对标更新 / SG Bus alignment:** 地图、实时到站、总站时刻、收藏查车、收藏管理、道路搜索和个性化已更新。/ Real street maps, configurable arrivals, origin timetables, selected-service favourites, management, road search and local appearance controls are available. 共 17 页，客户端各 55 项测试及目标构建通过；实际 H5 专项 18 组、业务回归 28 组通过。/ 17 pages; each client passed 55 tests and its target build; the public H5 passed 18 feature and 28 regression groups. [完整规则与验收 / Requirements](docs/SGBUS-ACCEPTANCE.md) · [实际网站 / Live website](https://hkbus.copypaste.hk/)。
+
+后端保留宝塔数据库，服务端口 39410；接口契约见 docs/SGBUS-ALIGNMENT.md。/ Backend retains the BaoTa-managed database and port 39410.
+
+<img src="docs/assets/sgbus-alignment/2026-10-19/route-map.png" width="230" alt="Official route on the actual production H5" />
+
+较早版本记录 / Earlier release records:
+
 **2026-10-19 SG Bus 能力对齐 / Transit alignment:** 新增经官方现行站序核对的道路几何、总站时刻表、香港假期运行日、真实道路检索和完整站点服务接口。乘客收藏与喜好继续仅在本机保存。 / Adds verified route geometry, origin timetables, Hong Kong service days, road search and exact stop services. Passenger preferences remain local. [接口与维护说明 / API and maintenance](docs/SGBUS-ALIGNMENT.md)。部署与公网验收将在工作区的 `docs/hkbus-sgbus-alignment-2026-10-19.md` 分别记录。 / Deployment and public acceptance are recorded separately in the workspace report.
 
 <!-- interactive-2026-10-18 -->
