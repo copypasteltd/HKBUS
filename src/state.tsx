@@ -6,9 +6,9 @@ import {DEVICE_KEY,type Preferences,type RecentItem,type DeviceReminder,type Sav
 import type {Locale,Names,Bookmark,ProductConfig,Stop,Route} from './services/types';
 const defaults:ProductConfig={mode:'live',features:{reminders:false,traffic:false,planner:false,map:true},tdasEnabled:false,catalogSyncedAt:null,sources:[],content:{coverage:{tc:'KMB / LWB 到站資訊',sc:'KMB / LWB 到站信息',en:'KMB / LWB arrivals'},privacy:{tc:'',sc:'',en:''},help:{tc:'',sc:'',en:''},sourceUrl:'',privacyUrl:'',supportEmail:'',maintenance:false}};
 interface AppState{
-  locale:Locale;setLocale:(locale:Locale)=>void;large:boolean;setLarge:(large:boolean)=>void;
+  locale:Locale;setLocale:(locale:Locale)=>void;large:boolean;setLarge:(large:boolean)=>void;theme:'light'|'dark';
   preferences:Preferences;setPreferences:(patch:Partial<Preferences>)=>void;storageError:string;
-  config:ProductConfig;configError:string;reloadConfig:()=>Promise<void>;bookmarks:Bookmark[];recent:RecentItem[];reminders:DeviceReminder[];trips:SavedTrip[];watches:WatchItem[];
+  config:ProductConfig;configError:string;reloadConfig:()=>Promise<void>;bookmarks:Bookmark[];recent:RecentItem[];recentStops:RecentItem[];reminders:DeviceReminder[];trips:SavedTrip[];watches:WatchItem[];
   refreshBookmarks:()=>Promise<void>;favorite:(kind:'stop'|'route',id:string,alias?:string)=>Promise<void>;isFavorite:(kind:'stop'|'route',id:string)=>boolean;
   visit:(kind:'stop'|'route',entity:Stop|Route)=>void;
   tr:(tc:string,sc:string,en:string)=>string;name:(value:Names|undefined)=>string;
@@ -20,6 +20,10 @@ export function AppProvider({children}:PropsWithChildren){
   const[device,setDevice]=useState(()=>localUser.snapshot()),[storageError,setStorageError]=useState(localUser.error());
   const[config,setConfig]=useState<ProductConfig>(api.cached('/v1/config')||defaults),[configError,setConfigError]=useState('');
   const[coordinates,setCoordinates]=useState<{latitude:number;longitude:number}|null>(null);
+  const[systemTheme,setSystemTheme]=useState<'light'|'dark'>(()=>{try{return process.env.TARO_ENV==='h5'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):Taro.getSystemInfoSync().theme==='dark'?'dark':'light';}catch{return'light';}});
+  useEffect(()=>{if(process.env.TARO_ENV==='h5'){const media=window.matchMedia('(prefers-color-scheme: dark)'),changed=()=>setSystemTheme(media.matches?'dark':'light');media.addEventListener('change',changed);return()=>media.removeEventListener('change',changed);}const changed=(event:{theme:'light'|'dark'})=>setSystemTheme(event.theme);Taro.onThemeChange?.(changed);return()=>Taro.offThemeChange?.(changed);},[]);
+  const theme=device.preferences.theme==='system'?systemTheme:device.preferences.theme;
+  useEffect(()=>{if(process.env.TARO_ENV==='h5'){document.documentElement.style.colorScheme=theme;document.documentElement.dataset.theme=theme;document.querySelector('meta[name="theme-color"]')?.setAttribute('content',theme==='dark'?'#10242d':'#f8faf9');}},[theme]);
   useEffect(()=>{
     const refresh=()=>{setDevice(localUser.snapshot());setStorageError(localUser.error());};
     const remove=localUser.subscribe(refresh);localUser.refresh();
@@ -38,8 +42,8 @@ export function AppProvider({children}:PropsWithChildren){
     else {const version=localUser.checkpoint(),entity=await publicEntity(kind,id);localUser.assertCurrent(version);localUser.bookmark(kind,entity,alias||'');}
   };
   const locale=device.preferences.locale;
-  const value:AppState={locale,setLocale:next=>setPreferences({locale:next}),large:device.preferences.largeText,setLarge:largeText=>setPreferences({largeText}),preferences:device.preferences,setPreferences,storageError,
-    config,configError,reloadConfig,bookmarks:device.bookmarks,recent:device.recent,reminders:device.reminders,trips:device.trips,watches:device.watches,refreshBookmarks,favorite,isFavorite:(kind,id)=>device.bookmarks.some(x=>x.kind===kind&&x.entityId===id),
+  const value:AppState={locale,setLocale:next=>setPreferences({locale:next}),large:device.preferences.largeText,setLarge:largeText=>setPreferences({largeText}),theme,preferences:device.preferences,setPreferences,storageError,
+    config,configError,reloadConfig,bookmarks:device.bookmarks,recent:device.recent,recentStops:device.recentStops,reminders:device.reminders,trips:device.trips,watches:device.watches,refreshBookmarks,favorite,isFavorite:(kind,id)=>device.bookmarks.some(x=>x.kind===kind&&x.entityId===id),
     visit:(kind,entity)=>{try{localUser.visit(kind,entity);}catch{/* The visible storage banner reports a failed local write. */}},
     tr:(tc,sc,en)=>locale==='en'?en:locale==='sc'?sc:tc,name:value=>value?.[locale]||value?.tc||value?.en||'',coordinates,setCoordinates,
     clearPersonalData:async()=>{localUser.clear();api.clearCache();setCoordinates(null);}};

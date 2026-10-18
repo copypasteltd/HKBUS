@@ -8,7 +8,7 @@ import type {Arrival,Route,Stop,FareQuote} from '../services/types';
 import {WatchButton} from './travel-actions';
 
 export function RouteStopArrivals({route,stop,arrivals,clock,stale,phase,fare,onFare,expanded,onToggle,onRemind}:{route:Route;stop:Stop;arrivals:Arrival[];clock:number;stale:boolean;phase:'loading'|'error'|'ready';fare?:FareQuote|null;onFare?:()=>void;expanded:boolean;onToggle:()=>void;onRemind?:()=>void}){
-  const app=useApp(),rows=stationArrivals(arrivals,route.id,stop.id,stop.sequence,clock).slice(0,3);
+  const app=useApp(),rows=stationArrivals(arrivals,route.id,stop.id,stop.sequence,clock).slice(0,app.preferences.etaCount);
   const values=rows.map(row=>arrivalView(row,clock,stale));
   const summary=phase==='loading'?app.tr('讀取到站中','读取到站中','Loading arrivals'):phase==='error'?app.tr('到站資料暫不可用','到站数据暂不可用','Arrivals unavailable'):stale||values[0]?.state==='stale'?app.tr('資料較舊','数据较旧','Stale data'):app.preferences.etaDisplay==='clock'&&values[0]?.time?values[0].time+' HKT':values[0]?.state==='minutes'?values[0].minutes+' '+app.tr('分鐘','分钟','min'):values[0]?.state==='due'?app.tr('即將到達','即将到达','Due'):app.tr('暫無預計','暂无预计','No estimate');
   return <View className={'route-stop '+(expanded?'is-expanded':'')}>
