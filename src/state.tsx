@@ -35,7 +35,7 @@ export function AppProvider({children}:PropsWithChildren){
     const existing=localUser.snapshot().bookmarks.find(x=>x.kind===kind&&x.entityId===id);
     if(existing&&alias===undefined)localUser.removeBookmark(kind,id);
     else if(existing)localUser.rename(kind,id,alias||'');
-    else {const version=localUser.snapshot().resetVersion,entity=await publicEntity(kind,id);localUser.assertCurrent(version);localUser.bookmark(kind,entity,alias||'');}
+    else {const version=localUser.checkpoint(),entity=await publicEntity(kind,id);localUser.assertCurrent(version);localUser.bookmark(kind,entity,alias||'');}
   };
   const locale=device.preferences.locale;
   const value:AppState={locale,setLocale:next=>setPreferences({locale:next}),large:device.preferences.largeText,setLarge:largeText=>setPreferences({largeText}),preferences:device.preferences,setPreferences,storageError,

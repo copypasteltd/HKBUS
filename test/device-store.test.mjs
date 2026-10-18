@@ -43,7 +43,7 @@ test('reminders isolate repeated stop sequence and reject late delivery after pa
 test('reset preferences preserves saved items, full clear resets all, and unknown schema fails closed',()=>{
   const storage=disk(),store=createDeviceStore(storage);store.bookmark('stop',stop);store.visit('route',route);store.preferences({locale:'en'});store.resetPreferences();assert.equal(store.snapshot().bookmarks.length,1);assert.equal(store.snapshot().recent.length,1);assert.equal(store.snapshot().preferences.locale,'tc');
   store.clear();assert.equal(store.snapshot().bookmarks.length,0);assert.equal(store.snapshot().preferences.introDismissed,false);
-  storage.write({schema:99});const future=createDeviceStore(storage);assert.ok(future.error());assert.throws(()=>future.preferences({locale:'en'}));assert.equal(storage.read().schema,99);future.clear();assert.equal(storage.read().schema,1);
+  storage.write({schema:99});const future=createDeviceStore(storage);assert.ok(future.error());assert.throws(()=>future.preferences({locale:'en'}));assert.equal(storage.read().schema,99);future.clear();assert.equal(storage.read().schema,2);
 });
 test('legacy migration cleans credentials only after a durable write and never reads an API',()=>{
   const storage=disk();let cleared=0;const previous=normalizeDevice({schema:1,preferences:{locale:'en'},bookmarks:[{kind:'stop',entityId:stop.id,entity:stop,alias:'Legacy'}]});
@@ -51,7 +51,7 @@ test('legacy migration cleans credentials only after a durable write and never r
   storage.fail(false);const recovered=createDeviceStore({...storage,legacy:()=>previous,clearLegacy:()=>{cleared++;}});assert.equal(recovered.snapshot().preferences.locale,'en');assert.equal(recovered.snapshot().bookmarks[0].alias,'Legacy');assert.equal(cleared,1);
 });
 test('an operation begun before local clearing cannot restore a favourite in either tab',()=>{
-  const storage=disk(),first=createDeviceStore(storage),other=createDeviceStore(storage),version=first.snapshot().resetVersion;
+  const storage=disk(),first=createDeviceStore(storage),other=createDeviceStore(storage),version=first.checkpoint();
   other.clear();assert.throws(()=>first.assertCurrent(version));assert.equal(first.snapshot().bookmarks.length,0);
   first.refresh();assert.equal(first.snapshot().resetVersion,1);
 });

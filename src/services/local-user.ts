@@ -28,7 +28,7 @@ export async function publicEntity(kind:'stop'|'route',id:string):Promise<Stop|R
   const entity=kind==='stop'?result.stop:result.route;if(!entity)throw new Error('官方資料暫不可用，請稍後重試。');return entity;
 }
 export async function saveLocalReminder(stop:Stop,route:Route,threshold:number){
-  const version=localUser.snapshot().resetVersion;
+  const version=localUser.checkpoint();
   const path='/v1/routes/'+encodeURIComponent(route.id);
   const detail=api.cached<{route:Route;stops:Stop[]}>(path)||await api.get<{route:Route;stops:Stop[]}>(path);
   localUser.assertCurrent(version);
@@ -37,7 +37,7 @@ export async function saveLocalReminder(stop:Stop,route:Route,threshold:number){
   localUser.reminder(stop,route,matching[0].sequence,threshold);
 }
 export async function saveLocalWatch(stop:Stop,route:Route,sequence?:number){
-  const version=localUser.snapshot().resetVersion;
+  const version=localUser.checkpoint();
   const result=await api.get<RouteArrivals>('/v1/routes/'+encodeURIComponent(route.id)+'/arrivals');
   localUser.assertCurrent(version);
   const candidates=result.stops.filter(x=>x.id===stop.id&&(sequence===undefined||x.sequence===sequence));
