@@ -6,7 +6,7 @@ import {createRequire} from 'node:module';
 import vm from 'node:vm';
 import {chosenServices,distanceTo,sortedBookmarks} from '../src/services/favorites.ts';
 import {arrivalView,hasArrivalEstimate} from '../src/services/arrivals.ts';
-import {mapCoordinate} from '../src/services/map-model.ts';
+import {mapCoordinate,mapFitPoints} from '../src/services/map-model.ts';
 const stop={id:'D12FB3A70DDAED02',name:{tc:'站點',sc:'站点',en:'Stop'},latitude:22.28,longitude:114.18,source:'live'};
 const route={id:'KMB:112:O:1',routeNo:'112',bound:'O',serviceType:'1',operator:'KMB',origin:stop.name,destination:stop.name,source:'live'};
 const disk=(initial=null)=>{let data=initial,fail=false;return{read:()=>structuredClone(data),write:value=>{if(fail)return false;data=structuredClone(value);return true;},fail:value=>fail=value};};
@@ -48,4 +48,8 @@ test('a null first prediction cannot put a service with a later fresh estimate i
 });
 test('render-only native map transform has a bounded nonzero shift, preserves input and excludes outside coverage',()=>{
  const copy={latitude:stop.latitude,longitude:stop.longitude},result=mapCoordinate(copy.latitude,copy.longitude);assert.notEqual(result.longitude,copy.longitude);assert.ok(Math.abs(result.longitude-copy.longitude)<.01);assert.deepEqual(copy,{latitude:22.28,longitude:114.18});assert.deepEqual(mapCoordinate(1.3,103.8),{latitude:1.3,longitude:103.8});
+});
+test('native fit bounds include a verified road bend beyond the stops, without a huge platform payload',()=>{
+ const geometry={type:'MultiLineString',coordinates:[[[114.18,22.28],[114.23,22.35],[114.19,22.29]]]},bounds=mapFitPoints([stop],geometry),bend=mapCoordinate(22.35,114.23);
+ assert.equal(bounds.length,2);assert.ok(bounds[1].latitude>=bend.latitude&&bounds[1].longitude>=bend.longitude);assert.equal(geometry.coordinates[0][1][0],114.23);assert.deepEqual(mapFitPoints([],null),[]);
 });

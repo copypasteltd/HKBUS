@@ -1,6 +1,12 @@
 import type {Stop,RouteReference} from './types';
 export interface StreetMapProps {stops:Stop[];selected:string;onSelect:(stop:Stop)=>void;geometry?:RouteReference['geometry'];route?:boolean;geometryState?:RouteReference['state'];user?:{latitude:number;longitude:number}|null}
 export const stopKey=(stop:Stop)=>stop.id+':'+(stop.sequence??0);
+/** Include road bends outside stop bounds without sending thousands of extra includePoints to a native map. */
+export function mapFitPoints(stops:Stop[],geometry?:RouteReference['geometry']){
+ const points=[...stops.map(stop=>[stop.longitude,stop.latitude]),...geometry?.coordinates.flat()||[]].map(point=>mapCoordinate(point[1],point[0]));
+ if(!points.length)return[];
+ return[{latitude:Math.min(...points.map(point=>point.latitude)),longitude:Math.min(...points.map(point=>point.longitude))},{latitude:Math.max(...points.map(point=>point.latitude)),longitude:Math.max(...points.map(point=>point.longitude))}];
+}
 /** Render-only WGS84 → GCJ-02 conversion for Chinese mini-program map components. Catalog coordinates stay WGS84. */
 export function mapCoordinate(latitude:number,longitude:number){
  if(longitude<113||longitude>115||latitude<22||latitude>23)return{latitude,longitude};
