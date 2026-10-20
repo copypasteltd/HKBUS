@@ -6,6 +6,8 @@ import { now, type Route, type Stop, type Notice } from './domain.js';
 
 export class Store {
   readonly db: DatabaseSync;
+  /** Public catalog graph revision. No personal records or provider metrics invalidate it. */
+  catalogGeneration=0;
   constructor(path: string) {
     if (path !== ':memory:') mkdirSync(dirname(path), { recursive: true });
     this.db = new DatabaseSync(path);
@@ -70,6 +72,7 @@ export class Store {
       this.setSetting('catalogSyncedAt', now());
       this.setSetting('catalogSource', 'live');
     });
+    this.catalogGeneration++;
   }
   notice(id: string): Notice | undefined { const row = this.get<{ document: string }>('SELECT document FROM notices WHERE id=?', id); return row ? JSON.parse(row.document) : undefined; }
   saveNotice(notice: Notice, actor: string) {

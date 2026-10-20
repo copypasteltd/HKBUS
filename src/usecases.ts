@@ -50,30 +50,7 @@ export async function evaluateReminders(store:Store,providers:Providers){
   }
   return {evaluated:rows.length,sent};
 }
-export function planJourney(store:Store,startId:string,endId:string){
-  if(startId===endId)throw new AppError('SAME_ENDPOINTS','起點與終點不能相同',422);
-  const start=store.stop(startId),end=store.stop(endId);
-  if(!start?.active||!end?.active)throw new AppError('STOP_NOT_FOUND','起點或終點車站不存在',404);
-  const from=store.routesAt(startId),to=store.routesAt(endId);
-  const leg=(route:Route,boardId:string,alightId:string)=>{
-    const sequence=store.sequence(route.id),board=sequence.findIndex(x=>x.id===boardId),alight=sequence.findIndex(x=>x.id===alightId);
-    return board>=0&&alight>board?{route,board:sequence[board]!,alight:sequence[alight]!,stops:alight-board}:null;
-  };
-  const journeys:{id:string;transfers:number;legs:NonNullable<ReturnType<typeof leg>>[];stopCount:number}[]=[];
-  for(const route of from){const item=leg(route,startId,endId);if(item)journeys.push({id:route.id,transfers:0,legs:[item],stopCount:item.stops});}
-  if(journeys.length<3){
-    for(const first of from.slice(0,30))for(const second of to.slice(0,30)){
-      if(first.id===second.id||first.routeNo===second.routeNo)continue;
-      const firstSequence=store.sequence(first.id),startIndex=firstSequence.findIndex(x=>x.id===startId);
-      for(const transfer of firstSequence.slice(startIndex+1)){
-        if(transfer.id===endId)continue;
-        const secondLeg=leg(second,transfer.id,endId),firstLeg=leg(first,startId,transfer.id);
-        if(firstLeg&&secondLeg){journeys.push({id:first.id+'|'+transfer.id+'|'+second.id,transfers:1,legs:[firstLeg,secondLeg],stopCount:firstLeg.stops+secondLeg.stops});break;}
-      }
-    }
-  }
-  return {start,end,journeys:journeys.sort((a,b)=>a.transfers-b.transfers||a.stopCount-b.stopCount).slice(0,5),notice:'依官方站序列出直達或同站轉乘候選，車費為已核實的普通成人單程車費，未計轉乘及付款優惠；不含步行尋路或乘車時間預測'};
-}
+export {planJourney} from './journey-planner.js';
 export function transitionNotice(current:Notice,action:'submit'|'approve'|'publish'|'withdraw',role:string):Notice['status']{
   if(action==='submit'&&['draft','withdrawn'].includes(current.status))return'review';
   if(action==='approve'&&['admin','operator'].includes(role)&&current.status==='review')return'approved';
