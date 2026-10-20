@@ -1,0 +1,69 @@
+/* Accessible Calm Minimal · map discovery and complete, honest itineraries. */
+.app-root {
+ .map-explorer-intro {padding:8px 0 0}
+ .map-explorer-actions,.map-area-status {display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:12px 0}
+ .map-area-status>.caption,.map-area-status>.field-hint {flex:1 1 180px;min-width:0}
+ .map-large .map-stage {height:52vh;min-height:300Px;max-height:480Px}
+ .map-center-button {width:100%;justify-content:center;border-top:1Px solid var(--line)}
+ .map-search-results {padding:4px 12px;margin-top:8px;max-height:380Px;overflow-y:auto}
+ .map-search-results .stop-row {gap:10px}
+ .map-point-card,.map-selected-stop {margin-top:14px}
+ .map-use-point {margin-top:12px}
+ .map-stop-arrivals {margin:10px 0}
+ .map-service-row {display:flex;gap:10px;align-items:center;padding:12px 0;border-top:1Px solid var(--line)}
+ .map-service-row>.row-copy {flex:1;min-width:0}
+ .map-service-row>.route-number {font-size:22px;min-width:50px}
+ .map-service-row .eta-number {font-size:28px}
+ .map-service-row .arrival-number {flex-shrink:0}
+ .planner-endpoint {position:relative}
+ .planner-endpoint+.planner-endpoint {border-top:1Px solid var(--line);padding-top:16px;margin-top:8px}
+ .endpoint-actions {display:flex;gap:4px;flex-wrap:wrap;justify-content:space-between}
+ .endpoint-actions .text-button {padding:6px 0;gap:5px}
+ .endpoint-point {display:flex;gap:10px;align-items:center;background:var(--soft);border-radius:12px;padding:12px;margin-top:8px}
+ .planner-swap {margin:4px auto 0;border:1Px solid var(--line);background:var(--card);border-radius:50%}
+ .planner-options-toggle {width:100%;justify-content:space-between;border-top:1Px solid var(--line);margin-top:14px}
+ .planner-options {padding:4px 0 12px}
+ .planner-options .field {margin-bottom:16px}
+ .planner-options .preference-options {display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+ .planner-options .filter-chip {flex:1 1 80px}
+ .journey-search-summary {margin-bottom:16px}
+ .journey-candidate>.action {width:100%;margin-top:14px}
+ .itinerary-metrics {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0}
+ .itinerary-metrics>view,.itinerary-metrics>taro-view-core {background:var(--card);border:1Px solid var(--line);border-radius:16px;padding:14px 8px;text-align:center;min-width:0}
+ .itinerary-metrics .metric-number {font-size:27px;line-height:1.3;display:block;color:var(--accent)}
+ .departure-check-summary>.description {margin:12px 0}
+ .check-status {display:block;font-size:15Px;line-height:1.65;font-weight:600}
+ .check-status.valid {color:var(--accent)}
+ .check-status.unverified {color:var(--warning-ink)}
+ .itinerary-map-tabs {display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+ .map-legend {display:flex;flex-wrap:wrap;gap:8px 16px;margin:12px 0}
+ .legend-item {display:flex;align-items:center;gap:7px;font-size:12Px;line-height:1.5;min-height:28Px}
+ .legend-swatch {width:22Px;height:4Px;border-radius:4Px}
+ .legend-walk {width:22Px;height:0;border-top:3Px dashed var(--muted)}
+ .itinerary-leg {margin-bottom:16px}
+ .itinerary-leg-title {display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+ .step-number {display:flex;justify-content:center;align-items:center;width:28Px;height:28Px;flex-shrink:0;border-radius:50%;font-weight:700;font-size:14Px;color:#fff}
+ .itinerary-stop-pair {display:grid;grid-template-columns:minmax(0,1fr) 18Px minmax(0,1fr);gap:8px;align-items:center;margin:16px 0}
+ .itinerary-stop {display:block;padding:12px 8px;min-width:0;text-align:left;background:var(--soft);border-radius:12px;white-space:normal;min-height:76Px;color:var(--ink)}
+ .itinerary-stop .caption {display:block;overflow-wrap:anywhere}
+ .itinerary-etas {display:flex;gap:16px;flex-wrap:wrap;align-items:center;padding:12px 0 16px}
+ .itinerary-etas .eta-number {font-size:30px}
+ .itinerary-path {margin:8px 0;border-left:2Px solid var(--line);padding-left:8px}
+ .itinerary-path-stop {display:flex;gap:8px;align-items:center;min-height:48Px;width:100%;white-space:normal;text-align:left;border-bottom:1Px solid var(--line);padding:10px 4px;color:var(--ink)}
+ .itinerary-path-stop>.row-title {flex:1;min-width:0}
+ .itinerary-leg .operating-card {box-shadow:none;border-top:1Px solid var(--line);border-radius:0;padding:16px 0 0;margin:12px 0 0}
+ .itinerary-connection,.itinerary-walk {display:flex;gap:12px;align-items:flex-start;margin:0 0 16px;padding:14px;border-radius:14px;background:var(--soft);color:var(--ink)}
+ .itinerary-walk {border:1Px dashed var(--muted);background:var(--card)}
+ .itinerary-walk>.icon,.itinerary-connection>.icon {margin-top:3px;flex-shrink:0}
+ .itinerary-walk .field-hint {margin-top:6px}
+ .itinerary-walk>.row-copy {min-width:0}
+ .itinerary-leg .journey-leg-fare {margin:8px 0 12px}
+ .itinerary-leg .journey-leg-actions {display:flex;gap:8px;flex-wrap:wrap}
+ .screen-map>.section {margin-top:22px}
+ .screen-map .stop-list {margin-bottom:12px}
+ .screen-map .form-error,.screen-planner .form-error {overflow-wrap:anywhere}
+ &.text-large .itinerary-stop-pair {grid-template-columns:minmax(0,1fr)}
+ &.text-large .itinerary-stop-pair>.icon {transform:rotate(90deg);margin:auto}
+}
+@media (prefers-reduced-motion:reduce) {.maplibregl-canvas {scroll-behavior:auto}}
+@media (max-width:340px) {.app-root .itinerary-stop-pair {grid-template-columns:minmax(0,1fr)}.app-root .itinerary-stop-pair>.icon {transform:rotate(90deg);margin:auto}.app-root .endpoint-actions .text-button {flex:1 1 100%;justify-content:flex-start}}
