@@ -1,0 +1,22 @@
+{
+  "originNginxStatus": 200,
+  "transport": "owned server loopback with actual domain Host; public TLS is separately tested by Chrome",
+  "mode": "live",
+  "ownNginxLogs": [
+    {
+      "log": "/www/wwwlogs/hkbus-api.copypaste.hk.log",
+      "testCoordinatePresent": false
+    },
+    {
+      "log": "/www/wwwlogs/hkbus-api.copypaste.hk.error.log",
+      "testCoordinatePresent": false
+    }
+  ],
+  "testCoordinateInServiceLogs": false,
+  "sensitiveEndpointLogOverrides": 3,
+  "edgeAndTileProviderLogsAudited": false,
+  "passed": true,
+  "checkedAt": "2026-10-20T00:16:10.792895+00:00",
+  "testInput": "explicit public test coordinate; not device GPS",
+  "sshClosed": true
+}
