@@ -1,0 +1,820 @@
+{
+  "startedAt": "2026-10-20T00:31:38.272Z",
+  "site": "https://hkbus.copypaste.hk",
+  "checks": [
+    {
+      "name": "Public official geometry, timetable, Hong Kong calendar and full route identity are available",
+      "passed": true,
+      "route": "KMB:112:O:1",
+      "stops": 23,
+      "geometryPoints": 524,
+      "calendar": {
+        "date": "2026-10-20",
+        "minute": 511,
+        "holiday": null,
+        "calendarKnown": true,
+        "state": "within-origin-hours",
+        "windows": [
+          {
+            "start": 400,
+            "end": 460
+          },
+          {
+            "start": 460,
+            "end": 525
+          },
+          {
+            "start": 525,
+            "end": 655
+          },
+          {
+            "start": 655,
+            "end": 785
+          },
+          {
+            "start": 785,
+            "end": 1386
+          },
+          {
+            "start": 1386,
+            "end": 1470
+          }
+        ],
+        "carryover": [],
+        "firstDeparture": 400,
+        "lastDeparture": 1470,
+        "sourceUrl": "https://www.1823.gov.hk/common/ical/en.json",
+        "basis": "origin-departure"
+      }
+    },
+    {
+      "name": "Real roads normalise English abbreviations and simplified Chinese to the same identity",
+      "passed": true
+    },
+    {
+      "name": "Existing schema 2 favourites and recent stops migrate durably to schema 3",
+      "passed": true
+    },
+    {
+      "name": "Theme, three-level text size, prediction count and layout survive reload",
+      "passed": true
+    },
+    {
+      "name": "Stop arrivals use complete exact services and three prediction slots with explicit no-estimate partition",
+      "passed": true
+    },
+    {
+      "name": "Stop page saves one exact favourite direction, service and occurrence locally",
+      "passed": true
+    },
+    {
+      "name": "Favourites show live ETA directly, keep selected services, pin and rename, and calculate session-only distances",
+      "passed": true
+    },
+    {
+      "name": "Favourites collapse/expand persistently and refresh real public arrivals",
+      "passed": true
+    },
+    {
+      "name": "Normalised road search opens real related stops on an attributed street map",
+      "passed": true
+    },
+    {
+      "name": "Full route and official timetable show origin-only times, day types, headways and calendar status",
+      "passed": true
+    },
+    {
+      "name": "Real full-route map draws official geometry and clickable stop overlays, zooms and restores fit",
+      "passed": true,
+      "selectedSequence": 10,
+      "officialStops": 23
+    },
+    {
+      "name": "Route road links and Back restore the visible route map after page hide/show",
+      "passed": true
+    },
+    {
+      "name": "Dark theme applies to the real street map and its surrounding controls",
+      "passed": true
+    },
+    {
+      "name": "Nearby defaults to 500 m, groups roads and remembers the map/list choice without saving location",
+      "passed": true
+    },
+    {
+      "name": "Classic list and two-bus preference apply consistently to actual arrivals",
+      "passed": true
+    },
+    {
+      "name": "System theme changes follow the operating system preference",
+      "passed": true
+    },
+    {
+      "name": "Reset preferences keeps pinned favourites and exact selected services",
+      "passed": true
+    },
+    {
+      "name": "No passenger profile/session/authentication calls, page errors or missing application assets",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "alignment-settings-dark-large.png",
+    "alignment-arrivals-modern.png",
+    "alignment-favourite-arrivals.png",
+    "alignment-road-map.png",
+    "alignment-operating-hours.png",
+    "alignment-route-map.png",
+    "alignment-route-map.png",
+    "alignment-road-map-dark.png",
+    "alignment-arrivals-classic.png"
+  ],
+  "requests": [
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456299129
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/reference",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456300110
+    },
+    {
+      "path": "/api/v1/search",
+      "query": "?q=Nathan%20Rd&type=road",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456300676
+    },
+    {
+      "path": "/api/v1/search",
+      "query": "?q=%E5%BC%A5%E6%95%A6%E9%81%93&type=road",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456302174
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456304742
+    },
+    {
+      "path": "/api/v1/home",
+      "query": "?platform=h5",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456305135
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456306201
+    },
+    {
+      "path": "/api/v1/home",
+      "query": "?stopId=BFC406EB675EF22E&platform=h5",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456306240
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456306969
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456308729
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456309289
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456310560
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E/services",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456310901
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E/services",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456311209
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456312311
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456313523
+    },
+    {
+      "path": "/api/v1/stops/D12FB3A70DDAED02/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456313523
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456314360
+    },
+    {
+      "path": "/api/v1/stops/D12FB3A70DDAED02/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456314360
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E/arrivals",
+      "query": "?force=true",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456315233
+    },
+    {
+      "path": "/api/v1/stops/D12FB3A70DDAED02/arrivals",
+      "query": "?force=true",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456315233
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456315820
+    },
+    {
+      "path": "/api/v1/search",
+      "query": "?q=%EF%BC%AE%EF%BC%A1%EF%BC%B4%EF%BC%A8%EF%BC%A1%EF%BC%AE%E3%80%80%EF%BC%B2%EF%BC%A4.&type=road",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456317543
+    },
+    {
+      "path": "/api/v1/roads/road%3A897a56ddaa2de3086aee",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456318933
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456341405
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456342375
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/reference",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456342375
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456342375
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=1&alightSequence=23&boardStopId=BFC406EB675EF22E&alightStopId=44AF4BBD0B0BB3A0",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456342862
+    },
+    {
+      "path": "/api/v1/roads/road%3Ad4a510e47ceff7640303",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456348974
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456360406
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/reference",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456360406
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456360406
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "query": "?boardSequence=1&alightSequence=23&boardStopId=BFC406EB675EF22E&alightStopId=44AF4BBD0B0BB3A0",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456360406
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456364762
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456368889
+    },
+    {
+      "path": "/api/v1/roads/road%3A897a56ddaa2de3086aee",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456368912
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456372395
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456372965
+    },
+    {
+      "path": "/api/v1/stops",
+      "query": "?latitude=22.279&longitude=114.179&radius=500&pageSize=100&page=1",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456374088
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456375683
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456376520
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456379715
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E/arrivals",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456379739
+    },
+    {
+      "path": "/api/v1/config",
+      "query": "",
+      "method": "GET",
+      "authorization": false,
+      "at": 1792456380737
+    }
+  ],
+  "pageErrors": [],
+  "missingAssets": [],
+  "mapResponses": [
+    {
+      "url": "/styles/positron",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/planet",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/sprites/ofm_f384/ofm.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "url": "/sprites/ofm_f384/ofm.json",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/fonts/Noto%20Sans%20Italic/0-255.pbf",
+      "status": 200,
+      "type": "application/x-protobuf"
+    },
+    {
+      "url": "/fonts/Noto%20Sans%20Regular/0-255.pbf",
+      "status": 200,
+      "type": "application/x-protobuf"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/12/3347/1787.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/12/3346/1787.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/styles/positron",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/planet",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/sprites/ofm_f384/ofm.json",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/sprites/ofm_f384/ofm.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/fonts/Noto%20Sans%20Italic/0-255.pbf",
+      "status": 200,
+      "type": "application/x-protobuf"
+    },
+    {
+      "url": "/fonts/Noto%20Sans%20Regular/0-255.pbf",
+      "status": 200,
+      "type": "application/x-protobuf"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/11/1673/893.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/12/3347/1787.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/12/3346/1787.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/styles/positron",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/planet",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/sprites/ofm_f384/ofm.json",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/sprites/ofm_f384/ofm.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/fonts/Noto%20Sans%20Italic/0-255.pbf",
+      "status": 200,
+      "type": "application/x-protobuf"
+    },
+    {
+      "url": "/fonts/Noto%20Sans%20Regular/0-255.pbf",
+      "status": 200,
+      "type": "application/x-protobuf"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/14/13389/7150.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/styles/positron",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/planet",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/sprites/ofm_f384/ofm.json",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/sprites/ofm_f384/ofm.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/fonts/Noto%20Sans%20Italic/0-255.pbf",
+      "status": 200,
+      "type": "application/x-protobuf"
+    },
+    {
+      "url": "/fonts/Noto%20Sans%20Regular/0-255.pbf",
+      "status": 200,
+      "type": "application/x-protobuf"
+    },
+    {
+      "url": "/styles/dark",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/planet",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/sprites/ofm_f384/ofm.json",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/sprites/ofm_f384/ofm.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/fonts/Noto%20Sans%20Regular/0-255.pbf",
+      "status": 200,
+      "type": "application/x-protobuf"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/12/3347/1787.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/planet/20261011_080001_pt/12/3346/1787.pbf",
+      "status": 200,
+      "type": "application/vnd.mapbox-vector-tile"
+    },
+    {
+      "url": "/fonts/Noto%20Sans%20Regular/8192-8447.pbf",
+      "status": 200,
+      "type": "application/x-protobuf"
+    },
+    {
+      "url": "/styles/positron",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/planet",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/sprites/ofm_f384/ofm.json",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "url": "/sprites/ofm_f384/ofm.png",
+      "status": 200,
+      "type": "image/png"
+    }
+  ],
+  "responsive": [
+    {
+      "name": "390 dark large settings",
+      "width": 390,
+      "scrollWidth": 390,
+      "overflows": [],
+      "passed": true
+    },
+    {
+      "name": "390 modern arrivals",
+      "width": 390,
+      "scrollWidth": 390,
+      "overflows": [],
+      "passed": true
+    },
+    {
+      "name": "390 favourite arrivals",
+      "width": 390,
+      "scrollWidth": 390,
+      "overflows": [],
+      "passed": true
+    },
+    {
+      "name": "390 road map",
+      "width": 390,
+      "scrollWidth": 390,
+      "overflows": [],
+      "passed": true
+    },
+    {
+      "name": "390 classic small arrivals",
+      "width": 390,
+      "scrollWidth": 390,
+      "overflows": [],
+      "passed": true
+    },
+    {
+      "name": "320 classic arrivals",
+      "width": 320,
+      "scrollWidth": 320,
+      "overflows": [],
+      "passed": true
+    },
+    {
+      "name": "375 classic arrivals",
+      "width": 375,
+      "scrollWidth": 375,
+      "overflows": [],
+      "passed": true
+    },
+    {
+      "name": "430 classic arrivals",
+      "width": 430,
+      "scrollWidth": 430,
+      "overflows": [],
+      "passed": true
+    }
+  ],
+  "browserClosed": true,
+  "apiResponsesSubstituted": false,
+  "officialMiniProgramIDE": false,
+  "physicalDevice": false,
+  "catalogue": {
+    "route": "KMB:112:O:1",
+    "stops": 23,
+    "geometryPoints": 524,
+    "calendar": {
+      "date": "2026-10-20",
+      "minute": 511,
+      "holiday": null,
+      "calendarKnown": true,
+      "state": "within-origin-hours",
+      "windows": [
+        {
+          "start": 400,
+          "end": 460
+        },
+        {
+          "start": 460,
+          "end": 525
+        },
+        {
+          "start": 525,
+          "end": 655
+        },
+        {
+          "start": 655,
+          "end": 785
+        },
+        {
+          "start": 785,
+          "end": 1386
+        },
+        {
+          "start": 1386,
+          "end": 1470
+        }
+      ],
+      "carryover": [],
+      "firstDeparture": 400,
+      "lastDeparture": 1470,
+      "sourceUrl": "https://www.1823.gov.hk/common/ical/en.json",
+      "basis": "origin-departure"
+    }
+  },
+  "passed": true,
+  "finishedAt": "2026-10-20T00:33:01.946Z"
+}

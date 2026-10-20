@@ -1,0 +1,753 @@
+{
+  "startedAt": "2026-10-20T00:27:52.084Z",
+  "site": "https://hkbus.copypaste.hk",
+  "checks": [
+    {
+      "name": "Public viewport API returns real stops, full count and explicit truncation",
+      "passed": true,
+      "total": 5911,
+      "returned": 2
+    },
+    {
+      "name": "Home opens an independent attributed street map without requesting location",
+      "passed": true
+    },
+    {
+      "name": "Moving the map waits for Search this area instead of flooding discovery requests",
+      "passed": true
+    },
+    {
+      "name": "Stop selection shows official identity, current ETA and actionable stop details",
+      "passed": true
+    },
+    {
+      "name": "The map card saves a genuine official stop locally",
+      "passed": true
+    },
+    {
+      "name": "Rendered stop hit targets select the stop at the actual map centre",
+      "passed": true
+    },
+    {
+      "name": "A map-centre point becomes an in-memory planner origin",
+      "passed": true
+    },
+    {
+      "name": "Map destination selection returns to the same origin draft without losing context",
+      "passed": true
+    },
+    {
+      "name": "Real planning accepts a point, exact destination, two transfers and an explicit nearby-stop radius",
+      "passed": true,
+      "returned": 8,
+      "limited": true
+    },
+    {
+      "name": "Two-transfer filtering, walking sort and existing comparison work together",
+      "passed": true
+    },
+    {
+      "name": "Full itinerary rechecks exact current sequences, official selected road geometry and live boarding-stop ETA",
+      "passed": true,
+      "legs": 1,
+      "geometryScopes": [
+        "official-selected-segment"
+      ]
+    },
+    {
+      "name": "Each leg exposes its complete selected stop sequence, origin timetable and current fare",
+      "passed": true
+    },
+    {
+      "name": "Refresh and exact-section route links preserve itinerary and restore its map on Back",
+      "passed": true
+    },
+    {
+      "name": "A forged or obsolete occurrence cannot acquire a trusted live result",
+      "passed": true
+    },
+    {
+      "name": "Ambiguous stop-plus-coordinate inputs are rejected by the real API",
+      "passed": true
+    },
+    {
+      "name": "Itinerary fits small phones and landscape with reduced motion enabled",
+      "passed": true
+    },
+    {
+      "name": "Map bounds, current points and plan POST responses do not persist as offline cache or location URLs",
+      "passed": true
+    },
+    {
+      "name": "Refreshing a session-only itinerary gives a clear Plan again recovery",
+      "passed": true
+    },
+    {
+      "name": "Full map follows dark mode, large text and English language",
+      "passed": true
+    },
+    {
+      "name": "Unlocated Nearby no longer mistakes the first global catalog page for nearby stops",
+      "passed": true
+    },
+    {
+      "name": "Full local-data clear still removes favourites without creating a passenger identity",
+      "passed": true
+    },
+    {
+      "name": "Real tiles load, no passenger account requests occur, and no page/assets fail",
+      "passed": true
+    }
+  ],
+  "requests": [
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456072851
+    },
+    {
+      "path": "/api/v1/map/stops",
+      "method": "GET",
+      "hasCoordinates": true,
+      "authorization": false,
+      "at": 1792456073401
+    },
+    {
+      "path": "/api/v1/config",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456074807
+    },
+    {
+      "path": "/api/v1/home",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456074977
+    },
+    {
+      "path": "/api/v1/map/stops",
+      "method": "GET",
+      "hasCoordinates": true,
+      "authorization": false,
+      "at": 1792456075519
+    },
+    {
+      "path": "/api/v1/map/stops",
+      "method": "GET",
+      "hasCoordinates": true,
+      "authorization": false,
+      "at": 1792456076023
+    },
+    {
+      "path": "/api/v1/map/stops",
+      "method": "GET",
+      "hasCoordinates": true,
+      "authorization": false,
+      "at": 1792456082499
+    },
+    {
+      "path": "/api/v1/search",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456082999
+    },
+    {
+      "path": "/api/v1/stops/BFC406EB675EF22E/arrivals",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456084336
+    },
+    {
+      "path": "/api/v1/map/stops",
+      "method": "GET",
+      "hasCoordinates": true,
+      "authorization": false,
+      "at": 1792456084336
+    },
+    {
+      "path": "/api/v1/home",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456090306
+    },
+    {
+      "path": "/api/v1/map/stops",
+      "method": "GET",
+      "hasCoordinates": true,
+      "authorization": false,
+      "at": 1792456091884
+    },
+    {
+      "path": "/api/v1/map/stops",
+      "method": "GET",
+      "hasCoordinates": true,
+      "authorization": false,
+      "at": 1792456091885
+    },
+    {
+      "path": "/api/v1/search",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456092471
+    },
+    {
+      "path": "/api/v1/stops/D12FB3A70DDAED02/arrivals",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456093425
+    },
+    {
+      "path": "/api/v1/map/stops",
+      "method": "GET",
+      "hasCoordinates": true,
+      "authorization": false,
+      "at": 1792456093425
+    },
+    {
+      "path": "/api/v1/journeys",
+      "method": "POST",
+      "hasCoordinates": false,
+      "authorization": false,
+      "body": {
+        "start": {
+          "latitude": 22.291039,
+          "longitude": 114.205064
+        },
+        "endId": "D12FB3A70DDAED02",
+        "maxTransfers": 2,
+        "transferRadius": 200,
+        "accessRadius": 600,
+        "maxWalkingMeters": 2000
+      },
+      "at": 1792456094601
+    },
+    {
+      "path": "/api/v1/journeys/check",
+      "method": "POST",
+      "hasCoordinates": false,
+      "authorization": false,
+      "body": {
+        "transferRadius": 200,
+        "legs": [
+          {
+            "routeId": "KMB:112:O:1",
+            "boardStopId": "BFC406EB675EF22E",
+            "boardSequence": 1,
+            "alightStopId": "D12FB3A70DDAED02",
+            "alightSequence": 8
+          }
+        ]
+      },
+      "at": 1792456101519
+    },
+    {
+      "path": "/api/v1/journeys/check",
+      "method": "POST",
+      "hasCoordinates": false,
+      "authorization": false,
+      "body": {
+        "transferRadius": 200,
+        "legs": [
+          {
+            "routeId": "KMB:112:O:1",
+            "boardStopId": "BFC406EB675EF22E",
+            "boardSequence": 1,
+            "alightStopId": "D12FB3A70DDAED02",
+            "alightSequence": 8
+          }
+        ]
+      },
+      "at": 1792456101573
+    },
+    {
+      "path": "/api/v1/journeys/check",
+      "method": "POST",
+      "hasCoordinates": false,
+      "authorization": false,
+      "body": {
+        "transferRadius": 200,
+        "legs": [
+          {
+            "routeId": "KMB:112:O:1",
+            "boardStopId": "BFC406EB675EF22E",
+            "boardSequence": 1,
+            "alightStopId": "D12FB3A70DDAED02",
+            "alightSequence": 8
+          }
+        ]
+      },
+      "at": 1792456104309
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456104970
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/reference",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456104970
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/arrivals",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456104971
+    },
+    {
+      "path": "/api/v1/routes/KMB%3A112%3AO%3A1/fare",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456105587
+    },
+    {
+      "path": "/api/v1/journeys/check",
+      "method": "POST",
+      "hasCoordinates": false,
+      "authorization": false,
+      "body": {
+        "transferRadius": 200,
+        "legs": [
+          {
+            "routeId": "KMB:112:O:1",
+            "boardStopId": "BFC406EB675EF22E",
+            "boardSequence": 1,
+            "alightStopId": "D12FB3A70DDAED02",
+            "alightSequence": 8
+          }
+        ]
+      },
+      "at": 1792456106113
+    },
+    {
+      "path": "/api/v1/journeys/check",
+      "method": "POST",
+      "hasCoordinates": false,
+      "authorization": false,
+      "body": {
+        "legs": [
+          {
+            "routeId": "KMB:112:O:1",
+            "boardStopId": "BFC406EB675EF22E",
+            "boardSequence": 299,
+            "alightStopId": "D12FB3A70DDAED02",
+            "alightSequence": 8
+          }
+        ]
+      },
+      "at": 1792456109208
+    },
+    {
+      "path": "/api/v1/journeys",
+      "method": "POST",
+      "hasCoordinates": false,
+      "authorization": false,
+      "body": {
+        "startId": "BFC406EB675EF22E",
+        "start": {
+          "latitude": 22.3,
+          "longitude": 114.1
+        },
+        "endId": "D12FB3A70DDAED02"
+      },
+      "at": 1792456109504
+    },
+    {
+      "path": "/api/v1/config",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456110557
+    },
+    {
+      "path": "/api/v1/config",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456110814
+    },
+    {
+      "path": "/api/v1/config",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456112153
+    },
+    {
+      "path": "/api/v1/map/stops",
+      "method": "GET",
+      "hasCoordinates": true,
+      "authorization": false,
+      "at": 1792456112183
+    },
+    {
+      "path": "/api/v1/map/stops",
+      "method": "GET",
+      "hasCoordinates": true,
+      "authorization": false,
+      "at": 1792456112330
+    },
+    {
+      "path": "/api/v1/config",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456115623
+    },
+    {
+      "path": "/api/v1/config",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456116160
+    },
+    {
+      "path": "/api/v1/home",
+      "method": "GET",
+      "hasCoordinates": false,
+      "authorization": false,
+      "at": 1792456116452
+    }
+  ],
+  "screenshots": [
+    "map-discovery.png",
+    "planner-point-results.png",
+    "journey-map.png",
+    "journey-departure-check.png",
+    "map-dark-large.png"
+  ],
+  "responsive": [
+    {
+      "name": "390 map without GPS",
+      "width": 390,
+      "scrollWidth": 390,
+      "overflows": [],
+      "passed": true
+    },
+    {
+      "name": "390 point planner results",
+      "width": 390,
+      "scrollWidth": 390,
+      "overflows": [],
+      "passed": true
+    },
+    {
+      "name": "390 complete itinerary",
+      "width": 390,
+      "scrollWidth": 390,
+      "overflows": [],
+      "passed": true
+    },
+    {
+      "name": "320 itinerary",
+      "width": 320,
+      "scrollWidth": 320,
+      "overflows": [],
+      "passed": true
+    },
+    {
+      "name": "375 itinerary",
+      "width": 375,
+      "scrollWidth": 375,
+      "overflows": [],
+      "passed": true
+    },
+    {
+      "name": "430 itinerary",
+      "width": 430,
+      "scrollWidth": 430,
+      "overflows": [],
+      "passed": true
+    },
+    {
+      "name": "landscape itinerary",
+      "width": 844,
+      "scrollWidth": 844,
+      "overflows": [],
+      "passed": true
+    },
+    {
+      "name": "390 English dark large map",
+      "width": 390,
+      "scrollWidth": 390,
+      "overflows": [],
+      "passed": true
+    }
+  ],
+  "pageErrors": [],
+  "missingAssets": [],
+  "mapResponses": [
+    {
+      "path": "/styles/positron",
+      "status": 200
+    },
+    {
+      "path": "/sprites/ofm_f384/ofm.png",
+      "status": 200
+    },
+    {
+      "path": "/sprites/ofm_f384/ofm.json",
+      "status": 200
+    },
+    {
+      "path": "/planet",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/fonts/Noto%20Sans%20Italic/0-255.pbf",
+      "status": 200
+    },
+    {
+      "path": "/fonts/Noto%20Sans%20Regular/0-255.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13389/7150.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13389/7150.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13389/7151.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13389/7151.pbf",
+      "status": 200
+    },
+    {
+      "path": "/styles/positron",
+      "status": 200
+    },
+    {
+      "path": "/planet",
+      "status": 200
+    },
+    {
+      "path": "/sprites/ofm_f384/ofm.json",
+      "status": 200
+    },
+    {
+      "path": "/sprites/ofm_f384/ofm.png",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/fonts/Noto%20Sans%20Italic/0-255.pbf",
+      "status": 200
+    },
+    {
+      "path": "/fonts/Noto%20Sans%20Regular/0-255.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/styles/positron",
+      "status": 200
+    },
+    {
+      "path": "/planet",
+      "status": 200
+    },
+    {
+      "path": "/sprites/ofm_f384/ofm.json",
+      "status": 200
+    },
+    {
+      "path": "/sprites/ofm_f384/ofm.png",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/fonts/Noto%20Sans%20Italic/0-255.pbf",
+      "status": 200
+    },
+    {
+      "path": "/fonts/Noto%20Sans%20Regular/0-255.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/13/6694/3575.pbf",
+      "status": 200
+    },
+    {
+      "path": "/styles/positron",
+      "status": 200
+    },
+    {
+      "path": "/planet",
+      "status": 200
+    },
+    {
+      "path": "/sprites/ofm_f384/ofm.json",
+      "status": 200
+    },
+    {
+      "path": "/sprites/ofm_f384/ofm.png",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/fonts/Noto%20Sans%20Italic/0-255.pbf",
+      "status": 200
+    },
+    {
+      "path": "/fonts/Noto%20Sans%20Regular/0-255.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/13/6694/3575.pbf",
+      "status": 200
+    },
+    {
+      "path": "/styles/dark",
+      "status": 200
+    },
+    {
+      "path": "/planet",
+      "status": 200
+    },
+    {
+      "path": "/sprites/ofm_f384/ofm.json",
+      "status": 200
+    },
+    {
+      "path": "/sprites/ofm_f384/ofm.png",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/fonts/Noto%20Sans%20Regular/0-255.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13387/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200
+    },
+    {
+      "path": "/planet/20261011_080001_pt/14/13388/7149.pbf",
+      "status": 200
+    }
+  ],
+  "browserClosed": true,
+  "responsesSubstituted": false,
+  "virtualizationUsed": false,
+  "officialMiniProgramIDE": false,
+  "physicalDevice": false,
+  "route": {
+    "routeId": "KMB:112:O:1",
+    "stops": 23,
+    "start": "BFC406EB675EF22E",
+    "end": "D12FB3A70DDAED02"
+  },
+  "passed": true,
+  "finishedAt": "2026-10-20T00:28:36.761Z"
+}
