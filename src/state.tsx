@@ -20,13 +20,14 @@ export const startNotificationPolling=startLocalReminders,stopNotificationPollin
 export function AppProvider({children}:PropsWithChildren){
   const[device,setDevice]=useState(()=>localUser.snapshot()),[storageError,setStorageError]=useState(localUser.error());
   const[config,setConfig]=useState<ProductConfig>(api.cached('/v1/config')||defaults),[configError,setConfigError]=useState('');
+  const localBoundary=useRef(device.boundary);
   const[coordinates,setCoordinates]=useState<{latitude:number;longitude:number}|null>(null);
   const[systemTheme,setSystemTheme]=useState<'light'|'dark'>(()=>{try{return process.env.TARO_ENV==='h5'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):Taro.getSystemInfoSync().theme==='dark'?'dark':'light';}catch{return'light';}});
   useEffect(()=>{if(process.env.TARO_ENV==='h5'){const media=window.matchMedia('(prefers-color-scheme: dark)'),changed=()=>setSystemTheme(media.matches?'dark':'light');media.addEventListener('change',changed);return()=>media.removeEventListener('change',changed);}const changed=(event:{theme:'light'|'dark'})=>setSystemTheme(event.theme);Taro.onThemeChange?.(changed);return()=>Taro.offThemeChange?.(changed);},[]);
   const theme=device.preferences.theme==='system'?systemTheme:device.preferences.theme;
   useEffect(()=>{if(process.env.TARO_ENV==='h5'){document.documentElement.style.colorScheme=theme;document.documentElement.dataset.theme=theme;document.querySelector('meta[name="theme-color"]')?.setAttribute('content',theme==='dark'?'#10242d':'#f8faf9');}},[theme]);
   useEffect(()=>{
-    const refresh=()=>{setDevice(localUser.snapshot());setStorageError(localUser.error());};
+    const refresh=()=>{const next=localUser.snapshot();if(next.boundary!==localBoundary.current){localBoundary.current=next.boundary;clearJourneySession();api.clearCache();setCoordinates(null);}setDevice(next);setStorageError(localUser.error());};
     const remove=localUser.subscribe(refresh);localUser.refresh();
     const changed=(event:StorageEvent)=>{if(event.key===DEVICE_KEY||event.key===null)localUser.refresh();};
     if(process.env.TARO_ENV==='h5')window.addEventListener('storage',changed);
