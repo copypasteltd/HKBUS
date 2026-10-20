@@ -8,7 +8,7 @@ export function isLiveData(value:unknown):boolean {
   return Object.values(row).every(isLiveData);
 }
 export function cacheMaxAge(path:string){
-  if(/[?&](?:lat|long|lon|lng|latitude|longitude)=/i.test(path))return 0;
+  if(/^\/v1\/map\//.test(path)||/[?&](?:lat|long|lon|lng|latitude|longitude|west|east|south|north)=/i.test(path))return 0;
   if(/^\/v1\/home(?:\?|$)|^\/v1\/(?:stops|routes)\/[^/]+\/arrivals(?:\?|$)/.test(path))return 180000;
   // A previous monetary quote must never silently become the current fare while offline.
   if(/^\/v1\/routes\/[^/]+\/fare(?:\?|$)|^\/v1\/fares\//.test(path))return 0;

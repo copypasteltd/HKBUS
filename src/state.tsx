@@ -1,6 +1,7 @@
 import {createContext,useContext,useState,useEffect,useCallback,useRef,type PropsWithChildren} from 'react';
 import Taro,{useDidShow} from '@tarojs/taro';
 import {api,ApiError} from './services/api';
+import {clearJourneySession} from './services/journey-session';
 import {localUser,publicEntity,startLocalReminders,stopLocalReminders} from './services/local-user';
 import {DEVICE_KEY,type Preferences,type RecentItem,type DeviceReminder,type SavedTrip,type WatchItem} from './services/device-store';
 import type {Locale,Names,Bookmark,ProductConfig,Stop,Route} from './services/types';
@@ -46,7 +47,7 @@ export function AppProvider({children}:PropsWithChildren){
     config,configError,reloadConfig,bookmarks:device.bookmarks,recent:device.recent,recentStops:device.recentStops,reminders:device.reminders,trips:device.trips,watches:device.watches,refreshBookmarks,favorite,isFavorite:(kind,id)=>device.bookmarks.some(x=>x.kind===kind&&x.entityId===id),
     visit:(kind,entity)=>{try{localUser.visit(kind,entity);}catch{/* The visible storage banner reports a failed local write. */}},
     tr:(tc,sc,en)=>locale==='en'?en:locale==='sc'?sc:tc,name:value=>value?.[locale]||value?.tc||value?.en||'',coordinates,setCoordinates,
-    clearPersonalData:async()=>{localUser.clear();api.clearCache();setCoordinates(null);}};
+    clearPersonalData:async()=>{localUser.clear();clearJourneySession();api.clearCache();setCoordinates(null);}};
   return <State.Provider value={value}>{children}</State.Provider>;
 }
 export function useApp(){const value=useContext(State);if(!value)throw new Error('AppProvider missing');return value;}

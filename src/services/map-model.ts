@@ -1,6 +1,16 @@
 import type {Stop,RouteReference} from './types';
-export interface StreetMapProps {stops:Stop[];selected:string;onSelect:(stop:Stop)=>void;geometry?:RouteReference['geometry'];route?:boolean;geometryState?:RouteReference['state'];user?:{latitude:number;longitude:number}|null}
-export const stopKey=(stop:Stop)=>stop.id+':'+(stop.sequence??0);
+export interface MapPoint {latitude:number;longitude:number}
+export interface MapBounds {west:number;east:number;south:number;north:number}
+export interface MapLine {id:string;geometry:NonNullable<RouteReference['geometry']>;color:number;dashed?:boolean}
+export type MapStop=Stop&{mapKey?:string;mapLabel?:string};
+export interface StreetMapProps {stops:MapStop[];selected:string;onSelect:(stop:MapStop)=>void;geometry?:RouteReference['geometry'];route?:boolean;geometryState?:RouteReference['state'];user?:MapPoint|null;lines?:MapLine[];center?:MapPoint;autoFit?:boolean;large?:boolean;onViewChange?:(bounds:MapBounds,center:MapPoint)=>void;onPick?:(point:MapPoint)=>void;pickedPoint?:MapPoint|null}
+export const stopKey=(stop:MapStop)=>stop.mapKey||stop.id+':'+(stop.sequence??0);
+export const routePalette=['#0c716e','#b04f3c','#405eab'];
+export function hongKongPoint(point:MapPoint){return Number.isFinite(point.latitude)&&Number.isFinite(point.longitude)&&point.latitude>=22&&point.latitude<=23&&point.longitude>=113&&point.longitude<=115;}
+export function boundedMapArea(bounds:MapBounds):MapBounds|null{const value={west:Math.max(113,bounds.west),east:Math.min(115,bounds.east),south:Math.max(22,bounds.south),north:Math.min(23,bounds.north)};return Object.values(value).every(Number.isFinite)&&value.west<value.east&&value.south<value.north?value:null;}
+/** Inverse is used only for native map events. Public coordinates remain WGS84 everywhere else. */
+export function mapOriginal(latitude:number,longitude:number){let point={latitude,longitude};for(let i=0;i<5;i++){const projected=mapCoordinate(point.latitude,point.longitude);point={latitude:point.latitude+latitude-projected.latitude,longitude:point.longitude+longitude-projected.longitude};}return point;}
+export function nativeMapPoint(event:unknown):MapPoint|null{const value=event as {detail?:{latitude?:number;longitude?:number;centerLocation?:MapPoint}};const point=value?.detail?.centerLocation||value?.detail;return point&&typeof point.latitude==='number'&&typeof point.longitude==='number'?mapOriginal(point.latitude,point.longitude):null;}
 /** Include road bends outside stop bounds without sending thousands of extra includePoints to a native map. */
 export function mapFitPoints(stops:Stop[],geometry?:RouteReference['geometry']){
  const points=[...stops.map(stop=>[stop.longitude,stop.latitude]),...geometry?.coordinates.flat()||[]].map(point=>mapCoordinate(point[1],point[0]));

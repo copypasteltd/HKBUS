@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro';
-export type Screen='home'|'routes'|'search'|'nearby'|'arrivals'|'route'|'bookmarks'|'settings'|'notices'|'notice'|'help'|'reminders'|'planner'|'traffic'|'trips'|'watchboard'|'road';
+export type Screen='home'|'routes'|'search'|'nearby'|'arrivals'|'route'|'bookmarks'|'settings'|'notices'|'notice'|'help'|'reminders'|'planner'|'traffic'|'trips'|'watchboard'|'road'|'map'|'journey';
 export function go(screen:Screen,params:Record<string,string|number>={}){const suffix=Object.entries(params).map(([key,value])=>encodeURIComponent(key)+'='+encodeURIComponent(String(value))).join('&');const url='/pages/'+screen+'/index'+(suffix?'?'+suffix:'');if(['home','routes','bookmarks','settings'].includes(screen))void Taro.reLaunch({url});else void Taro.navigateTo({url});}
 export function back(){if(Taro.getCurrentPages().length>1)void Taro.navigateBack();else go('home');}
 export function openStop(id:string){go('arrivals',{id});}

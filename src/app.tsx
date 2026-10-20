@@ -5,6 +5,7 @@ import './app.scss';
 import './refinement.scss';
 import './travel.scss';
 import './sgbus-alignment.scss';
+import './map-planner.scss';
 export default function App({children}:PropsWithChildren){
   useEffect(()=>{
     if(process.env.TARO_ENV!=='h5')return;

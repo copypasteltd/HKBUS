@@ -1,5 +1,7 @@
 import Taro from '@tarojs/taro';
 import {api} from './api';
+import {mapCoordinate} from './map-model';
+import type {Stop} from './types';
 export async function position(){
   if(process.env.TARO_ENV==='h5'){
     const {Capacitor}=await import('@capacitor/core');
@@ -27,3 +29,4 @@ export async function deliverNotification(id:string,message:string){
 }
 export function platformName(){if(process.env.TARO_ENV==='h5'&&typeof window!=='undefined'&&(window as unknown as {Capacitor?:{isNativePlatform?:()=>boolean}}).Capacitor?.isNativePlatform?.())return'android';return process.env.TARO_ENV||'h5';}
 export async function openExternal(url:string){if(!/^https:\/\//.test(url))return;if(process.env.TARO_ENV==='h5'){window.open(url,'_blank','noopener,noreferrer');return;}await Taro.setClipboardData({data:url});}
+export async function openStopMap(stop:Stop,name:string){if(process.env.TARO_ENV==='h5'){await openExternal('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(stop.latitude+','+stop.longitude));return;}await Taro.openLocation({...mapCoordinate(stop.latitude,stop.longitude),name,address:stop.id,scale:17});}

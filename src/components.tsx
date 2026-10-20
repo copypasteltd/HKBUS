@@ -12,7 +12,7 @@ export function Action({children,onClick,secondary=false,loading=false,disabled=
 export function Shell({children,title,subtitle,screen,backButton=true}:{children:ReactNode;title?:string;subtitle?:string;screen:Screen;backButton?:boolean}){
   const app=useApp();useShareAppMessage(()=>({title:'港巴通',path:currentPath()}));
   const nav:[Screen,string,string,string,string][]=[['home','home','首頁','首页','Home'],['routes','bus','路線','路线','Routes'],['bookmarks','star','收藏','收藏','Favourites'],['settings','settings','設定','设置','Settings']];
-  const active=['arrivals','nearby','search','planner','traffic','watchboard'].includes(screen)?'home':screen==='trips'?'bookmarks':screen==='route'?'routes':['notice','notices','help'].includes(screen)?'settings':screen;
+  const active=['arrivals','nearby','search','planner','traffic','watchboard','map','journey'].includes(screen)?'home':screen==='trips'?'bookmarks':screen==='route'?'routes':['notice','notices','help'].includes(screen)?'settings':screen;
   return <View className={'app-root theme-'+app.theme+' text-'+app.preferences.textSize+' arrival-layout-'+app.preferences.arrivalLayout+' '+(app.large?'large-text':'')}>
     <View className='shell-body'>
       {title&&<View className='topbar'>{backButton&&<Button className='icon-button' ariaLabel={app.tr('返回','返回','Back')} onClick={back}><Icon name='back'/></Button>}<View className='topbar-title'><Text className='topbar-heading'>{title}</Text>{subtitle&&<Text className='caption'>{subtitle}</Text>}</View><Button className='icon-button' ariaLabel={app.tr('返回首頁','返回首页','Home')} onClick={()=>go('home')}><Icon name='home' color='teal'/></Button></View>}
