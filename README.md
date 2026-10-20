@@ -1,5 +1,17 @@
 # 港巴通 HKBusGo — 运营管理后台 / Operations Admin
 
+**2026-10-20 地图与规划 / Maps and journeys:** 19 页，四客户端各 62 测试；正式 H5 22 组新流程、18 组既有能力和 28 组业务回归通过。/ 19 pages; 62 tests per client; 22 map/journey, 18 existing-feature and 28 regression groups on the real public H5.
+
+[详细需求 / Requirements](docs/MAP-PLANNER.md) · [API](docs/MAP-PLANNER-API.md) · [SG Bus 差异 / Comparison](docs/SGBUS-COMPARISON.md) · [正式网站 / Live website](https://hkbus.copypaste.hk/)。
+
+本次仅文档同步，Admin 运行代码/部署未变。/ Documentation only; Admin runtime and deployment were not changed.
+
+<img src="docs/assets/map-planner/2026-10-20/map-discovery.png" width="220" alt="Actual public H5 map discovery" /> <img src="docs/assets/map-planner/2026-10-20/journey-departure-check.png" width="220" alt="Actual public itinerary departure checks" />
+
+官方 IDE/真机/平台上传/商店发行仍未验收；下图是实际 H5 移动视口，非原生真机。/ Official IDE, physical-device, platform-upload and store acceptance remain separate; these are public-H5 mobile screenshots.
+
+历史版本记录 / Earlier release records:
+
 **2026-10-19 七项对标更新 / SG Bus alignment:** 地图、实时到站、总站时刻、收藏查车、收藏管理、道路搜索和个性化已更新。/ Real street maps, configurable arrivals, origin timetables, selected-service favourites, management, road search and local appearance controls are available. 共 17 页，客户端各 55 项测试及目标构建通过；实际 H5 专项 18 组、业务回归 28 组通过。/ 17 pages; each client passed 55 tests and its target build; the public H5 passed 18 feature and 28 regression groups. [完整规则与验收 / Requirements](docs/SGBUS-ALIGNMENT.md) · [实际网站 / Live website](https://hkbus.copypaste.hk/)。
 
 本次仅同步文档，未改动或重新部署 Admin。/ Documentation only; Admin was not changed or redeployed.
