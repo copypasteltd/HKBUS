@@ -8,7 +8,7 @@ const keys=()=>{try{return Taro.getStorageInfoSync().keys;}catch{return[] as str
 for(const key of keys())if(key.startsWith('hkbus-cache:')||key.startsWith('hkbus-profile-'))storage.remove(key);
 const cacheKey=(path:string)=>namespace+':cache:public:'+path;
 // Older builds cached location queries; remove them without retaining precise coordinates.
-for(const key of keys())if(key.startsWith(namespace+':cache:public:')&&/[?&](?:lat|long|lon|lng|latitude|longitude)=/i.test(key))storage.remove(key);
+for(const key of keys())if(key.startsWith(namespace+':cache:public:')&&(/\/v1\/map\//.test(key)||/[?&](?:lat|long|lon|lng|latitude|longitude|west|east|south|north)=/i.test(key)))storage.remove(key);
 const personal=(path:string)=>/^\/v1\/profile(?:\/|\?|$)/.test(path);
 const pending=new Map<string,Promise<unknown>>();
 let cacheGeneration=0;
