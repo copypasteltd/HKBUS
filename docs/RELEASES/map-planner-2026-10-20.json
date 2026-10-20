@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-20",
+  "runtimeSources": {
+    "backend": "1618ea54f93246af536e13b2e36f491080b4c027",
+    "wechat": "a966863c7b71f7ca39de2cf5e7bbe40e7b8e3633",
+    "alipay": "69da5fa4bcc5a07ff7ba570560e9d964be5f8863",
+    "douyin": "7b03900f8faf700478adabd4b11229a57d759a3f",
+    "h5": "0be89b5c4e8a7684fd9b8ecbc8107a39c80ec718",
+    "android": "0be89b5c4e8a7684fd9b8ecbc8107a39c80ec718"
+  },
+  "deployments": {
+    "backend": "20261020T001019Z-1618ea54f932",
+    "h5": "20261020T002654Z-0be89b5c4e8a"
+  },
+  "artifactChecksums": [
+    {
+      "target": "wechat",
+      "file": "hkbusgo-wechat-dist.zip",
+      "files": 284,
+      "pages": 19,
+      "bytes": 510571,
+      "sha256": "dc86bc72659758e449f92b5361a94e730ea5328d8bbdcf9bf1339f46b992bc3b",
+      "sourceCommit": "a966863c7b71f7ca39de2cf5e7bbe40e7b8e3633"
+    },
+    {
+      "target": "alipay",
+      "file": "hkbusgo-alipay-dist.zip",
+      "files": 281,
+      "pages": 19,
+      "bytes": 507125,
+      "sha256": "e1dd21cd4bc670e2294a7b97ef58278ea894c24794db88e1a16f16996304248b",
+      "sourceCommit": "69da5fa4bcc5a07ff7ba570560e9d964be5f8863"
+    },
+    {
+      "target": "douyin",
+      "file": "hkbusgo-douyin-dist.zip",
+      "files": 281,
+      "pages": 19,
+      "bytes": 505709,
+      "sha256": "9473487cfe1c19a70eea5909c3ada6f06b8d379960861918ed6d60b1a1f16fa4",
+      "sourceCommit": "7b03900f8faf700478adabd4b11229a57d759a3f"
+    },
+    {
+      "target": "h5",
+      "file": "hkbusgo-h5-dist.zip",
+      "files": 256,
+      "pages": 19,
+      "bytes": 1832483,
+      "sha256": "af3726f83f1541a266abac2a736603fbdcbbb17352ddafe57632c3ffa14660e0",
+      "sourceCommit": "0be89b5c4e8a7684fd9b8ecbc8107a39c80ec718"
+    },
+    {
+      "target": "android",
+      "file": "hkbusgo-android-debug.apk",
+      "bytes": 7297376,
+      "sha256": "a8ce8adffaf134b38c6a9dad43db10952cab9bca3eb4abaae339449e0e148d81",
+      "variant": "debug",
+      "sourceCommit": "0be89b5c4e8a7684fd9b8ecbc8107a39c80ec718"
+    }
+  ],
+  "targetBranches": {
+    "backend": "backend",
+    "admin": "admin",
+    "wechat": "wechat",
+    "alipay": "alipay",
+    "douyin": "douyin",
+    "android": "android",
+    "catalog": "main"
+  },
+  "validation": {
+    "map": 22,
+    "regression": 28,
+    "alignment": 18,
+    "files": 256
+  },
+  "officialIDE": false,
+  "physicalDevice": false,
+  "storeSubmission": false,
+  "note": "Exact built/deployed runtime revisions. Branch heads also include documentation commits. This file does not claim its own containing Git commit; final push identities are verified separately."
+}

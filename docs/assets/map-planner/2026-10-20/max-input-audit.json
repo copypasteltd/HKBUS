@@ -1,0 +1,34 @@
+{
+  "createdAt": "2026-10-20T00:24:30.124Z",
+  "source": "consistent private read-copy of actual production catalog; public stop coordinates, not GPS",
+  "input": {
+    "start": {
+      "latitude": 22.291039,
+      "longitude": 114.205064
+    },
+    "end": {
+      "latitude": 22.340959,
+      "longitude": 114.15865
+    },
+    "maxTransfers": 2,
+    "transferRadius": 500,
+    "accessRadius": 1500,
+    "maxWalkingMeters": 5000,
+    "limit": 12
+  },
+  "ms": 19529,
+  "search": {
+    "algorithm": "round-based-multi-label",
+    "candidateCount": 40407,
+    "routeFamilies": 6977,
+    "returned": 12,
+    "routeScans": 3181,
+    "labels": 988401,
+    "limited": true,
+    "exhaustive": false,
+    "catalogSyncedAt": "2026-10-19T09:26:21.286Z",
+    "generatedAt": "2026-10-20T00:24:30.122Z"
+  },
+  "returned": 12,
+  "passed": true
+}

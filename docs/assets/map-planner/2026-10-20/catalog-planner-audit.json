@@ -1,0 +1,441 @@
+{
+  "createdAt": "2026-10-20T00:04:41.429Z",
+  "source": "consistent private read-copy of actual production catalog",
+  "routes": 1611,
+  "stops": 6775,
+  "cases": [
+    {
+      "input": {
+        "startId": "BFC406EB675EF22E",
+        "endId": "44AF4BBD0B0BB3A0",
+        "maxTransfers": 0
+      },
+      "ms": 191,
+      "search": {
+        "algorithm": "round-based-multi-label",
+        "candidateCount": 1,
+        "routeFamilies": 1,
+        "returned": 1,
+        "routeScans": 2,
+        "labels": 22,
+        "limited": false,
+        "exhaustive": false,
+        "catalogSyncedAt": "2026-10-19T09:26:21.286Z",
+        "generatedAt": "2026-10-20T00:04:35.171Z"
+      },
+      "results": [
+        {
+          "id": "33fa55ae1127b286212a59a2",
+          "transfers": 0,
+          "stops": 22,
+          "walkingMeters": 0,
+          "legs": [
+            {
+              "routeId": "KMB:112:O:1",
+              "board": 1,
+              "alight": 23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "input": {
+        "startId": "BFC406EB675EF22E",
+        "endId": "44AF4BBD0B0BB3A0",
+        "maxTransfers": 2
+      },
+      "ms": 309,
+      "search": {
+        "algorithm": "round-based-multi-label",
+        "candidateCount": 37,
+        "routeFamilies": 11,
+        "returned": 8,
+        "routeScans": 761,
+        "labels": 74375,
+        "limited": true,
+        "exhaustive": false,
+        "catalogSyncedAt": "2026-10-19T09:26:21.286Z",
+        "generatedAt": "2026-10-20T00:04:35.481Z"
+      },
+      "results": [
+        {
+          "id": "33fa55ae1127b286212a59a2",
+          "transfers": 0,
+          "stops": 22,
+          "walkingMeters": 0,
+          "legs": [
+            {
+              "routeId": "KMB:112:O:1",
+              "board": 1,
+              "alight": 23
+            }
+          ]
+        },
+        {
+          "id": "abee5b43813733b563de85d0",
+          "transfers": 1,
+          "stops": 22,
+          "walkingMeters": 0,
+          "legs": [
+            {
+              "routeId": "KMB:112:O:1",
+              "board": 1,
+              "alight": 21
+            },
+            {
+              "routeId": "KMB:6E:I:1",
+              "board": 26,
+              "alight": 28
+            }
+          ]
+        },
+        {
+          "id": "3d28737609f6cb5d093de784",
+          "transfers": 1,
+          "stops": 22,
+          "walkingMeters": 0,
+          "legs": [
+            {
+              "routeId": "KMB:112:O:1",
+              "board": 1,
+              "alight": 21
+            },
+            {
+              "routeId": "KMB:6P:I:1",
+              "board": 35,
+              "alight": 37
+            }
+          ]
+        },
+        {
+          "id": "2f6c70eec1c978943b4e62d4",
+          "transfers": 2,
+          "stops": 22,
+          "walkingMeters": 0,
+          "legs": [
+            {
+              "routeId": "KMB:112:O:1",
+              "board": 1,
+              "alight": 10
+            },
+            {
+              "routeId": "KMB:N122:I:1",
+              "board": 24,
+              "alight": 35
+            },
+            {
+              "routeId": "KMB:6E:I:1",
+              "board": 26,
+              "alight": 28
+            }
+          ]
+        },
+        {
+          "id": "4245927636b1cd7f5632ffd1",
+          "transfers": 2,
+          "stops": 22,
+          "walkingMeters": 0,
+          "legs": [
+            {
+              "routeId": "KMB:112:O:1",
+              "board": 1,
+              "alight": 10
+            },
+            {
+              "routeId": "KMB:N122:I:1",
+              "board": 24,
+              "alight": 35
+            },
+            {
+              "routeId": "KMB:6P:I:1",
+              "board": 35,
+              "alight": 37
+            }
+          ]
+        },
+        {
+          "id": "30664232d33e943cf085797e",
+          "transfers": 2,
+          "stops": 22,
+          "walkingMeters": 0,
+          "legs": [
+            {
+              "routeId": "KMB:112:O:1",
+              "board": 1,
+              "alight": 20
+            },
+            {
+              "routeId": "KMB:2:O:1",
+              "board": 15,
+              "alight": 16
+            },
+            {
+              "routeId": "KMB:6E:I:1",
+              "board": 26,
+              "alight": 28
+            }
+          ]
+        },
+        {
+          "id": "a2768ce7ff3eb3a5ad7681b4",
+          "transfers": 2,
+          "stops": 22,
+          "walkingMeters": 0,
+          "legs": [
+            {
+              "routeId": "KMB:112:O:1",
+              "board": 1,
+              "alight": 20
+            },
+            {
+              "routeId": "KMB:2:O:1",
+              "board": 15,
+              "alight": 16
+            },
+            {
+              "routeId": "KMB:6P:I:1",
+              "board": 35,
+              "alight": 37
+            }
+          ]
+        },
+        {
+          "id": "5e32d201eef43524dac02351",
+          "transfers": 2,
+          "stops": 22,
+          "walkingMeters": 0,
+          "legs": [
+            {
+              "routeId": "KMB:112:O:1",
+              "board": 1,
+              "alight": 21
+            },
+            {
+              "routeId": "KMB:6E:I:1",
+              "board": 26,
+              "alight": 27
+            },
+            {
+              "routeId": "KMB:6P:I:1",
+              "board": 36,
+              "alight": 37
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "input": {
+        "start": {
+          "latitude": 22.291139,
+          "longitude": 114.205164
+        },
+        "end": {
+          "latitude": 22.340859000000002,
+          "longitude": 114.15854999999999
+        },
+        "maxTransfers": 2,
+        "transferRadius": 200,
+        "accessRadius": 600
+      },
+      "ms": 5901,
+      "search": {
+        "algorithm": "round-based-multi-label",
+        "candidateCount": 3164,
+        "routeFamilies": 658,
+        "returned": 8,
+        "routeScans": 3132,
+        "labels": 918947,
+        "limited": true,
+        "exhaustive": false,
+        "catalogSyncedAt": "2026-10-19T09:26:21.286Z",
+        "generatedAt": "2026-10-20T00:04:41.382Z"
+      },
+      "results": [
+        {
+          "id": "45e152b79220e762cf2debb9",
+          "transfers": 0,
+          "stops": 22,
+          "walkingMeters": 30,
+          "legs": [
+            {
+              "routeId": "KMB:112:O:1",
+              "board": 1,
+              "alight": 23
+            }
+          ]
+        },
+        {
+          "id": "277f1e0ecde44cd93c1459ab",
+          "transfers": 0,
+          "stops": 23,
+          "walkingMeters": 413,
+          "legs": [
+            {
+              "routeId": "KMB:N122:I:1",
+              "board": 13,
+              "alight": 36
+            }
+          ]
+        },
+        {
+          "id": "382d92383179026dcb0fbfa7",
+          "transfers": 1,
+          "stops": 14,
+          "walkingMeters": 167,
+          "legs": [
+            {
+              "routeId": "KMB:102P:O:1",
+              "board": 13,
+              "alight": 21
+            },
+            {
+              "routeId": "KMB:112:O:1",
+              "board": 17,
+              "alight": 23
+            }
+          ]
+        },
+        {
+          "id": "a7897ad74c10a452c535e0a5",
+          "transfers": 1,
+          "stops": 14,
+          "walkingMeters": 187,
+          "legs": [
+            {
+              "routeId": "KMB:106P:I:2",
+              "board": 24,
+              "alight": 25
+            },
+            {
+              "routeId": "KMB:112:O:1",
+              "board": 10,
+              "alight": 23
+            }
+          ]
+        },
+        {
+          "id": "ccdd7354aaa5248205ede2e8",
+          "transfers": 1,
+          "stops": 15,
+          "walkingMeters": 182,
+          "legs": [
+            {
+              "routeId": "KMB:110:O:1",
+              "board": 13,
+              "alight": 15
+            },
+            {
+              "routeId": "KMB:112:O:1",
+              "board": 10,
+              "alight": 23
+            }
+          ]
+        },
+        {
+          "id": "893b55b8a8f709a43407f1ac",
+          "transfers": 1,
+          "stops": 15,
+          "walkingMeters": 182,
+          "legs": [
+            {
+              "routeId": "KMB:110:O:2",
+              "board": 13,
+              "alight": 15
+            },
+            {
+              "routeId": "KMB:112:O:1",
+              "board": 10,
+              "alight": 23
+            }
+          ]
+        },
+        {
+          "id": "efc9a425e7e2ad567a8e08e3",
+          "transfers": 1,
+          "stops": 15,
+          "walkingMeters": 182,
+          "legs": [
+            {
+              "routeId": "KMB:110:O:5",
+              "board": 13,
+              "alight": 15
+            },
+            {
+              "routeId": "KMB:112:O:1",
+              "board": 10,
+              "alight": 23
+            }
+          ]
+        },
+        {
+          "id": "16f894229cd5d4488abcc62a",
+          "transfers": 1,
+          "stops": 15,
+          "walkingMeters": 182,
+          "legs": [
+            {
+              "routeId": "KMB:110:O:6",
+              "board": 13,
+              "alight": 15
+            },
+            {
+              "routeId": "KMB:112:O:1",
+              "board": 10,
+              "alight": 23
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "geometry": [
+    {
+      "routeId": "KMB:112:O:1",
+      "matched": true,
+      "fullPoints": 524,
+      "selectedPoints": 434,
+      "board": 5,
+      "alight": 17,
+      "ms": 5
+    },
+    {
+      "routeId": "KMB:112:I:1",
+      "matched": true,
+      "fullPoints": 650,
+      "selectedPoints": 426,
+      "board": 5,
+      "alight": 17,
+      "ms": 9
+    },
+    {
+      "routeId": "KMB:N182:O:1",
+      "matched": true,
+      "fullPoints": 1568,
+      "selectedPoints": 848,
+      "board": 8,
+      "alight": 25,
+      "ms": 24
+    },
+    {
+      "routeId": "KMB:48X:O:1",
+      "matched": true,
+      "fullPoints": 483,
+      "selectedPoints": 339,
+      "board": 4,
+      "alight": 14,
+      "ms": 1
+    },
+    {
+      "routeId": "KMB:5:O:1",
+      "matched": true,
+      "fullPoints": 524,
+      "selectedPoints": 242,
+      "board": 4,
+      "alight": 14,
+      "ms": 1
+    }
+  ],
+  "passed": true
+}
