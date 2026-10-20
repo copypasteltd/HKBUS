@@ -1,28 +1,27 @@
 # 港巴通 HKBusGo — 支付宝小程序 / Alipay mini-program
 
-**2026-10-19 七项对标更新 / SG Bus alignment:** 地图、实时到站、总站时刻、收藏查车、收藏管理、道路搜索和个性化已更新。/ Real street maps, configurable arrivals, origin timetables, selected-service favourites, management, road search and local appearance controls are available. 共 17 页，客户端各 55 项测试及目标构建通过；实际 H5 专项 18 组、业务回归 28 组通过。/ 17 pages; each client passed 55 tests and its target build; the public H5 passed 18 feature and 28 regression groups.
+2026-10-20 · Accessible Calm Minimal · Logo 10 · Taro 4.3 / React / TypeScript
 
-[业务与验收 / Requirements](docs/SGBUS-ALIGNMENT.md) · [正式网站 / Live website](https://hkbus.copypaste.hk/) · [品牌 / Brand](docs/BRAND.md) · [数据 / Data](docs/DATA-AND-VALIDATION.md)
+[需求与验收 / Requirements](docs/MAP-PLANNER.md) · [API 与事务 / API contracts](docs/MAP-PLANNER-API.md) · [SG Bus 对照 / Comparison](docs/SGBUS-COMPARISON.md) · [正式网站 / Live website](https://hkbus.copypaste.hk/) · [品牌 / Brand](docs/BRAND.md)
 
-<img src="docs/assets/sgbus-alignment/2026-10-19/route-map.png" width="220" alt="Official route with clickable stops" /> <img src="docs/assets/sgbus-alignment/2026-10-19/favourite-arrivals.png" width="220" alt="Selected-service favourite arrivals" />
+<img src="docs/assets/map-planner/2026-10-20/map-discovery.png" width="220" alt="Real mobile map discovery" /> <img src="docs/assets/map-planner/2026-10-20/planner-point-results.png" width="220" alt="Point planning with actual production data" /> <img src="docs/assets/map-planner/2026-10-20/journey-departure-check.png" width="220" alt="Exact live departure checks" />
 
 ## 中文说明
 
-这是港巴通 **支付宝小程序的独立 Git 工程**，包含完整 Taro 4.3、React、TypeScript 源码、测试、素材、平台配置和锁文件，不依赖其他分支的本地路径或子模块。沿用 10 号纯图形 Logo 和 Accessible Calm Minimal。
+本分支是 **支付宝小程序独立 Git 工程**，含源代码、测试、锁文件、配置与图形资源，不依赖兄弟仓库或子模块。实际正式 API 为 `https://hkbus-api.copypaste.hk/api/`。KMB/LWB 提供真实目录/ETA，核对后的九巴官网元数据提供道路/几何/总站时刻，政府假期日历辅助运行日；TDAS 道路时间独立展示。
 
-正式 API：`https://hkbus-api.copypaste.hk/api/`。KMB/LWB 提供真实目录及 ETA；九巴官网公开接口补充经核对的道路、路线几何和总站时刻，香港政府 1823 提供假期，TDAS 提供独立道路参考。道路索引匹配 6,472 / 6,775 个站，约 95.5%。没有车辆 GPS、车型或拥挤度；总站首末班不是中途站到站首末班。
-
-| 板块 | 已实现业务 |
+| 功能 | 业务内容 |
 | --- | --- |
-| 地图与发现 | 街道底图、全部站序、官方道路几何、点站/缩放/恢复视野；附近默认 500 米、地图/道路分组列表及视图记忆 |
-| 到站与营运 | 精确方向/服务/站序、网格/列表、两班/三班、分钟/香港时刻、30 秒前台更新；总站时间线、星期/假期、班距和跨日 |
-| 收藏查车 | 直接看 ETA，全部或指定服务，置顶、24 字命名、手动/距离排序、展开/收起、确认删除及最近 10 个站点 |
-| 搜索与喜好 | 线路/站点/道路、繁简/全半角/大小写/英文道路简称；浅/深/跟随系统，小/中/大三档，三语及本机显示偏好 |
-| 其他出行 | 官方分段成人票价、12 条常用行程、6 项候车看板、直达/同站转乘与三方案比较、前台提醒、通告及 12 个三语指南 |
+| 地图与发现 | 独立地图、真实视野站数/截断、搜索区域/车站/道路、点站/列表、定位及本次地图选点；小程序原生 Map，H5/Android MapLibre/OpenFreeMap |
+| 完整行程 | 官方站或内存点起终点、最多两次转乘、默认同站/可选邻站、接驳与总步行限制、筛选/排序/三方案比较、完整途经站与分段地图 |
+| 出发核查 | 当前精确路线/方向/服务/重复站序、连接、真实本站 ETA、官方总站运营参考和各程成人普通单程报价；不承诺后续换乘成功 |
+| 到站和收藏 | 两班/三班、网格/列表、分钟/香港时刻、前台更新、收藏内直接到站/指定服务、置顶/命名/排序/确认删除、最近十站 |
+| 本机工具 | 常用官方站对、候车看板、前台提醒、繁简英、浅/深/系统主题、小/中/大字、显示记忆、迁移与保存失败反馈 |
+| 交通与内容 | 独立 TDAS 道路参考、通告、12 个三语帮助主题与实际来源/数据年龄 |
 
-17 页：Home、Routes、Search、Nearby、Arrivals、Route detail、Bookmarks、Settings、Notices、Notice detail、Help、Reminders、Planner、Traffic、Regular journeys、Waiting board、Road stops。
+共 **19 页**：Home、Routes、Search、Nearby、Arrivals、Route、Bookmarks、Settings、Notices、Notice、Help、Reminders、Planner、Traffic、Trips、Watchboard、Road、Map、Journey。四栏导航不变。地图完成本站流程，当前网络仍仅 KMB/LWB。
 
-### 安装、检查与构建
+### 安装和构建
 
 ```powershell
 git clone --branch alipay --single-branch git@github.com:copypasteltd/HKBUS.git hkbusgo-alipay
@@ -33,40 +32,36 @@ npm test
 npm run build
 ```
 
-要求 Node.js >=22.14，输出 dist/alipay。仅使用 Windows 原生工具，不调用 Docker、WSL、虚拟机或模拟器。默认接入正式 API；本地后端调试可在构建前设置 TARO_APP_API_BASE。
+Node.js >=22.14；输出 `dist/alipay`。使用 Windows 原生工具，不调用 Docker、WSL、虚拟机或模拟器。本地调试可在构建前设置 `TARO_APP_API_BASE`。不要在 README/源码保存服务器密码或平台私钥。
 
-使用自己的 AppID 在 **支付宝开发者工具 / Alipay DevTools** 打开 dist/alipay，登记正式 HTTPS 请求域名，完成定位用途及平台地图权限配置。构建不代表官方 IDE、真机、平台上传或上架通过。
+将 `dist/alipay` 导入对应官方开发者工具，使用自己的 AppID，登记正式 API 请求域名并配置定位用途/原生地图权限。构建产物不能混用其他平台。
 
-Open dist/alipay with your own AppID in 支付宝开发者工具 / Alipay DevTools. Register the production HTTPS request domain and configure location disclosure and map permissions. A build is separate from official IDE, physical-device and platform/store acceptance.
+Import `dist/alipay` in the matching official developer tool with your AppID, legal request domain and location/map permissions. A successful build does not establish native IDE, device or platform acceptance.
 
-### 本机资料与验证边界
+### 数据、隐私和验证
 
-乘客无需账号，不创建匿名云档案、不发送会话凭据或访问个人 profile API。偏好、收藏、历史、提醒、行程和看板仅存本机；schema 1/2 和旧大字配置迁移到 schema 3，保存失败保留旧值。重设偏好保留出行集合；清除全部才移除集合与本应用缓存。精确定位只用于主动查询的当次内存，各设备/平台不互相同步。
+乘客没有账号或匿名云档案；不调用 profile API 或发送乘客凭据。偏好、收藏、最近、提醒、常用站对及看板仅本机保存，各设备/平台不互相同步。重设偏好保留集合，完整清除才移除集合、查询缓存和内存草稿；同源标签页共享清除边界。精确 GPS/地图点/视野只在内存和当次查询，不持久化或写入地址栏；常用行程只能保存官方站对。详情最多保留本次 30 分钟，刷新需重新规划。
 
-Web/Android 采用 MapLibre / OpenFreeMap 并保留署名、独立 worker 和 JavaScript 模块 MIME；小程序采用平台 Map，坐标只在渲染层转换。数据缺失、较旧、离线和接口失败各自表达，不把空 ETA 当停驶，也不伪造路线或车辆位置。提醒只在前台检查，关闭后没有后台推送承诺。
+路线搜索有界且非穷尽，最多三程；结果不代表实时最快/全网最低票价。步行按 75 米每分钟直线参考，未验证道路、过街、过海或无障碍。没有可靠乘车/总时间、车辆 GPS/车型/拥挤度、其他香港营办商/铁路或关闭后的推送。总站时刻不是中途站首末班；结构核查 valid 不是班次营运保证；空 ETA/旧值/接口失败分开处理。官方几何失配只显示站点，不画假公交线。
 
-客户端各 55 项测试和目标构建通过；实际生产 H5 专项 18 组、业务回归 28 组通过。官方 IDE、原生地图/定位/系统主题、真机和上架仍须独立验收。下图是**已发布 H5 的移动浏览器截图**，供共享界面参考，不能替代 支付宝小程序 的原生验收。
+本次各客户端 **62 项测试**及目标构建通过；Backend 72 项业务/3 项出口测试；正式 H5 **22 组地图规划 + 18 组既有能力 + 28 组回归**通过，19 页与 256 文件核验。下面是**实际正式 H5 移动浏览器截图**，不是本端官方 IDE 或真机截图。官方 IDE、原生地图/定位/主题/分享、手机长时运行、平台上传与商店发行仍未验收。
 
-| 到站 | 总站时刻与班距 | 深色大字 |
+| 行程地图 | 总站参考 | 深色英文大字 |
 | --- | --- | --- |
-| <img src="docs/assets/sgbus-alignment/2026-10-19/arrivals-modern.png" width="220" alt="Real arrival services" /> | <img src="docs/assets/sgbus-alignment/2026-10-19/operating-hours.png" width="220" alt="Origin timetable and headways" /> | <img src="docs/assets/sgbus-alignment/2026-10-19/settings-dark-large.png" width="220" alt="Dark theme and large text" /> |
-
-较早设计、票价、本机喜好和交互验收保留于 docs/；其中 14/16 页和旧测试数量是历史发布快照。
+| <img src="docs/assets/map-planner/2026-10-20/journey-map.png" width="220" alt="Selected official leg geometry" /> | <img src="docs/assets/map-planner/2026-10-20/alignment-operating-hours.png" width="220" alt="Official origin timetable" /> | <img src="docs/assets/map-planner/2026-10-20/map-dark-large.png" width="220" alt="Dark large-text English map" /> |
 
 ## English
 
-This self-contained **Alipay mini-program** repository contains Taro 4.3 / React / TypeScript source, tests, assets, platform configuration and a lockfile. It needs no sibling checkout or submodule. Logo 10 and Accessible Calm Minimal remain the visual baseline.
+This self-contained **Alipay mini-program** repository includes source, tests, locked dependencies, assets and platform configuration. It needs no sibling checkout. The production API is `https://hkbus-api.copypaste.hk/api/`. KMB/LWB provides live transit data; verified official metadata supplies roads, selected geometry and origin timetables. TDAS remains a separate road reference.
 
-The production API is `https://hkbus-api.copypaste.hk/api/`. KMB/LWB supplies live transit data; verified official KMB website metadata adds roads, complete route geometry and origin timetables. The government calendar identifies Hong Kong holidays. TDAS remains a separate road reference. Road matching covers 6,472 of 6,775 current stops. Vehicle GPS, occupancy and vehicle type are unavailable. Origin departure times must not be interpreted as intermediate-stop first/last arrivals.
+The 19 pages add independent viewport discovery and a complete checked itinerary to the existing arrivals, favourites, planning, regular journeys, waiting board and local settings. Planning accepts an official stop or session-only WGS84 point per endpoint, up to two transfers and explicit walking limits. It revalidates exact route/direction/service/stop occurrences, shows current boarding-stop forecasts and fares, and clips official geometry to each selected leg. All walking is an unverified straight-line estimate; results are bounded and do not promise fastest/cheapest travel or a successful future connection.
 
-The 17 pages cover discovery, route/stop arrivals, road stops, selected-service favourites, timetables, local preferences, fares, regular journeys, the waiting board, planning, traffic, notices and help. Two/three predictions, grid/list, minutes/clock, light/dark/system, three text sizes, map/list and favourite ordering persist locally. Exact direction, service and stop occurrence prevent substitution; stale or missing forecasts remain explicit.
+Use Node >=22.14 and the native Windows commands above; output is `dist/alipay`. Configure your own platform AppID and native map/location permissions. Android requires native JDK 21 / SDK 36 and produces a debug APK, not a store-signed release.
 
-Use Node >=22.14 and the clone/install/check/test/build commands above. Output is dist/alipay; build with native Windows tools only. See the platform-specific instructions above and [complete requirements](docs/SGBUS-ALIGNMENT.md).
+Preferences and collections remain on-device without accounts or cloud profiles. Precise points and location stay in memory and the current request, outside persistent caches and address-bar parameters. Reset preferences preserves travel collections; clear all removes them and invalidates session drafts. Remembered itineraries expire after 30 minutes or refresh. Official-stop pairs remain reusable locally; precise-point journeys are not saved.
 
-Passenger preferences and travel collections stay on-device without accounts or credentials. Versioned migration preserves old favourites and large text; failed writes retain old data. Location is actively requested and held only in memory for the session. Reset preferences preserves collections; clear all removes them and app query caches. Browsers, mini-programs and devices do not sync.
+Each client passed 62 tests and its target build; the backend passed 72 business and three egress tests. The actual public H5 passed 22 map/journey, 18 existing-feature and 28 regression groups, with 256 matching assets. Screenshots demonstrate the real public H5 only. Official IDE, physical-device, native map/location/theme, platform-upload and store acceptance remain separate. Vehicle GPS/type/occupancy, rail, verified pedestrian routing and closed-app push are unavailable. Earlier documents retain dated historical counts.
 
-Each client passed 55 tests and its target build. The actual public H5 passed 18 feature checks and 28 regression groups. This does not constitute official mini-program IDE checks, physical-device acceptance, platform upload or store submission. Screenshots are real public-H5 captures, used as a shared UI reference. Native maps, location, system themes, sharing and notifications require separate device verification.
-
-## 工程导航 / Repositories
+## 独立工程 / Repositories
 
 [Main](https://github.com/copypasteltd/HKBUS/tree/main) · [Backend](https://github.com/copypasteltd/HKBUS/tree/backend) · [Admin](https://github.com/copypasteltd/HKBUS/tree/admin) · [WeChat](https://github.com/copypasteltd/HKBUS/tree/wechat) · [Alipay](https://github.com/copypasteltd/HKBUS/tree/alipay) · [Douyin](https://github.com/copypasteltd/HKBUS/tree/douyin) · [Android / H5](https://github.com/copypasteltd/HKBUS/tree/android)
